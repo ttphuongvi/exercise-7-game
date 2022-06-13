@@ -1,18 +1,18 @@
 // import Home from "../screens/Home/index";
 const data = [
   {
-    name: "Trang chủ",
+    name: "TRANG CHỦ",
     link: "/",
     exact: "true",
     // component: { Home },
   },
   {
-    name: "Menu",
+    name: "MENU",
     link: "/menu",
     exact: "false",
   },
   {
-    name: "Liên hệ",
+    name: "LIÊN HỆ",
     exact: "false",
     link: "/contact",
   },
