@@ -10,8 +10,9 @@ const Nabar = () => {
       {/* <img alt="logo" src={logo}></img> */}
       <nav className="navbar__container">
         <div>
-          {data.map((value) => (
+          {data.map((value, key) => (
             <NavLink
+              key={key}
               className="navlink"
               to={value.link}
               exact={value.exact}
