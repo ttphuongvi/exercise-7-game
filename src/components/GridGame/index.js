@@ -17,9 +17,18 @@ const GridGame = (props) => {
         <section>
           <div class="grid">
             {data.map((value, key) => (
-              <div key={key} class="grid__item">
-                <img className="img--width" src={value.image} alt=""></img>
-              </div>
+              <li key={key} class="grid__item">
+                <h2>{value.caption}</h2>
+                <div className="gridgame__image">
+                  <img className="img--width" src={value.image} alt=""></img>
+                </div>
+                <div className="gridgame__content">
+                  <p>{value.description}</p>
+                  <div>
+                    <button>Xem chi tiết</button>
+                  </div>
+                </div>
+              </li>
             ))}
           </div>
         </section>

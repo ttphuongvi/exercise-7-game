@@ -13,7 +13,7 @@
   }
   
   .grid__item{
-    border:thin gray solid;
+    /* border:thin gray solid; */
     padding:10px;
   }
  
@@ -47,5 +47,47 @@
   }
   .link__view-more{
     margin-top: 20px;
+  }
+  .box__container li h2{
+    text-shadow: 0px 2px 1px rgb(0 0 0);
+    font-family: 'Oswald', Helvetica, Arial, sans-serif;
+    color: #2ac0ff;
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0px 0px 10px 0px;
+    margin: 0px 0px 0px 0px;
+  }
+  .box__container li{
+    width: 400px;
+    height: 270px;
+    background: url("http://skywarriorthemes.com/orizon/blue/images/hn_box_bg.png") repeat-x top left #1f1f1f;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    float: left;
+    margin: 0px 15px 0px 5px;
+    padding: 10px 0px 0px 15px;
+    border: 1px solid #223a4c;
+    -webkit-box-shadow: 0px 2px 5px 2px rgb(0 0 0);
+    box-shadow: 0px 2px 5px 2px rgb(0 0 0);
+    list-style: none;
+  }
+
+  .gridgame__image {
+    width: 175px;
+    height: 200px;
+    border: 3px solid #22394c;
+    background-color: #1f1f1f;
+    -webkit-box-shadow: 0px 2px 3px 1px rgb(0 0 0);
+    box-shadow: 0px 2px 3px 1px rgb(0 0 0);
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    float: left;
+    overflow: hidden;
+    margin-right: 10px;
+  }
+  .gridgame__content {
+    
   }
   
