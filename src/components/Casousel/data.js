@@ -3,6 +3,8 @@ const data = [
     image:
       "http://3.bp.blogspot.com/-nSfE2XnLCus/VQZa9JLlaGI/AAAAAAAAAAk/3DWwGy2utbc/s1600/Family%2BCrisis.jpg",
     caption: "Qua cầu",
+    description:
+      "Nam dignissim nulla mattis justo aliquet luctus. Mauris venenatis eros. Nam in leo libero. In hac habitasse platea dictumst. Phasellus aliquet aliquam sto,dignissi eistoteles anarequi et son amorites etimo nurli.",
   },
   {
     image:

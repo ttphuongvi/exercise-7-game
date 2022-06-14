@@ -5,7 +5,8 @@ import "./styles.css";
 const ListGame = () => {
   return (
     <div className="div__ListGame">
-      <Button title="Tạo game mới"></Button> <Dialog />
+      {/* <Button title="Tạo game mới"></Button> */}
+      <Dialog />
     </div>
   );
 };

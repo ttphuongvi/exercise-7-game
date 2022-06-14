@@ -23,7 +23,13 @@
     align-items: center;
     width: 100%;
     justify-content: space-between;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
+    
+    background: url("http://skywarriorthemes.com/orizon/blue/images/hot_news_bg.jpg") center top repeat-x #181818;
+    margin: 0px 0px 0px 1px;
+    border: 1px solid #303030;
+    border-bottom: 0px;
+    position: relative;
   }
   .img--width {
     width: 100%;

@@ -19,7 +19,7 @@ const Nabar = () => {
               // activeStyle={{ fontWeight: "900", color: "#FFF338" }}
               style={({ isActive }) => ({
                 fontWeight: isActive ? "400" : "400",
-                color: isActive ? "#74DEED" : "#fff",
+                color: isActive ? "#2ac0ff" : "#fff",
               })}
             >
               {value.name}

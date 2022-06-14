@@ -4,6 +4,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import data from "../Casousel/data";
 import ListGame from "./../../screens/ListGame/index";
 import Button from "../../components/Button";
+import Title from "../Title/index";
 // import { Grid } from "@material-ui/core";
 const GridGame = (props) => {
   // let { startIndex, endIndex, data } = props;
@@ -11,7 +12,8 @@ const GridGame = (props) => {
   // let subset = data.slice(startIndex, endIndex);
   return (
     <div className="div__container--flex">
-      <div className="article__container">
+      <Title title="HOT GAMES"></Title>
+      <div className="box__container">
         <section>
           <div class="grid">
             {data.map((value, key) => (
