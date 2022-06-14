@@ -26,8 +26,8 @@ const Casousel = () => {
       pauseIconColor="white"
       pauseIconSize="40px"
       slideBackgroundColor="darkgrey"
-      //   slideImageFit="cover"
-      thumbnails={true}
+      slideImageFit="cover"
+      //   thumbnails={true}
       thumbnailWidth="100px"
       style={{
         textAlign: "center",

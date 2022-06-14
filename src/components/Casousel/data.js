@@ -1,47 +1,41 @@
 const data = [
   {
     image:
-      "https://data.voh.com.vn/voh/Image/2019/10/04/gamebanchim6_20191004163233.jpg",
-    caption: "San Francisco",
+      "http://3.bp.blogspot.com/-nSfE2XnLCus/VQZa9JLlaGI/AAAAAAAAAAk/3DWwGy2utbc/s1600/Family%2BCrisis.jpg",
+    caption: "Qua cầu",
   },
   {
     image:
       "https://is4-ssl.mzstatic.com/image/thumb/Purple128/v4/83/10/9e/83109eb4-0918-41c3-28a2-afdb3d0417bf/pr_source.png/750x750bb.jpeg",
-    caption: "Scotland",
+    caption: "Bắn chim",
   },
   {
     image: "https://i.rada.vn/data/image/2021/03/26/Firework-1.jpg",
-    caption: "Darjeeling",
+    caption: "Giải đố kinh dị",
   },
   {
     image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Palace_of_Fine_Arts_%2816794p%29.jpg/1200px-Palace_of_Fine_Arts_%2816794p%29.jpg",
-    caption: "San Francisco",
+      "https://quaycungbo.cdn.vccloud.vn/files/202108/321a25560470e103ecaae1625c08e0d0.jpg",
+    caption: "Tìm hình giống nhau",
   },
   {
     image:
-      "https://i.natgeofe.com/n/f7732389-a045-402c-bf39-cb4eda39e786/scotland_travel_4x3.jpg",
-    caption: "Scotland",
+      "https://cdn.tgdd.vn/GameApp/3/225908/Screentshots/chess-game-co-vua-cuc-hot-01-01-2022-0.png",
+    caption: "Cờ vua",
   },
   {
     image:
-      "https://www.tusktravel.com/blog/wp-content/uploads/2020/07/Best-Time-to-Visit-Darjeeling-for-Honeymoon.jpg",
-    caption: "Darjeeling",
+      "https://st.gamevui.com/images/image/2019/03/09/ghep-tranh-loai-vat-hd.jpg",
+    caption: "Xếp hình",
   },
-  {
-    image:
-      "https://www.omm.com/~/media/images/site/locations/san_francisco_780x520px.ashx",
-    caption: "San Francisco",
-  },
-  {
-    image:
-      "https://images.ctfassets.net/bth3mlrehms2/6Ypj2Qd3m3jQk6ygmpsNAM/61d2f8cb9f939beed918971b9bc59bcd/Scotland.jpg?w=750&h=422&fl=progressive&q=50&fm=jpg",
-    caption: "Scotland",
-  },
-  {
-    image:
-      "https://www.oyorooms.com/travel-guide/wp-content/uploads/2019/02/summer-7.jpg",
-    caption: "Darjeeling",
-  },
+  // {
+  //   image:
+  //     "https://4.bp.blogspot.com/-HnSQObFVkHA/Vimu3X6_1LI/AAAAAAAALEU/3JaN8H2nwuc/s1600/thichcongnghe.com-quay%2Bso.jpg",
+  //   caption: "Quay số trúng thưởng",
+  // },
+  // {
+  //   image: "https://tutukit.com/tai-game-oan-tu-xi/imager_1_13737_700.jpg",
+  //   caption: "Oẳn tù tì",
+  // },
 ];
 export default data;
