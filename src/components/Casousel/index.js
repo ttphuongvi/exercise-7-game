@@ -33,7 +33,7 @@ const Casousel = () => {
         textAlign: "center",
         maxWidth: "100%",
         maxHeight: "500px",
-        margin: "40px auto",
+        margin: "65px 0px 40px 0px",
       }}
     />
   );

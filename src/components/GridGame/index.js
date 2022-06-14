@@ -2,7 +2,8 @@ import React from "react";
 import "./styles.css";
 import { Link, Route, Routes } from "react-router-dom";
 import data from "../Casousel/data";
-import Menu from "./../../screens/Menu/index";
+import ListGame from "./../../screens/ListGame/index";
+import Button from "../../components/Button";
 // import { Grid } from "@material-ui/core";
 const GridGame = (props) => {
   // let { startIndex, endIndex, data } = props;
@@ -25,10 +26,12 @@ const GridGame = (props) => {
       <Link className="custom-btn btn-3 link__view-more" to="/menu">
         Xem thêm
       </Link>
-      {/* <Button title="Xem thêm"> </Button> */}
+      <Button className="btn-3 custom-btn" title="Xem thêm">
+        {" "}
+      </Button>
 
       <Routes>
-        <Route path="/menu" element={<Menu />} />
+        <Route path="/menu" element={<ListGame />} />
       </Routes>
     </div>
   );

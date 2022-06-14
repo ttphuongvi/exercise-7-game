@@ -5,6 +5,8 @@
     padding: 20px;
     text-align: center;
     width: 100%;
+    position: fixed;
+    top: 0;
 }
 .navlink {
     color: #000;

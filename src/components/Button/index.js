@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.css";
 const Button = (prop) => {
   return (
-    <button class="custom-btn btn-3">
+    <button className={prop.class} onClick={prop.onClick}>
       <span>{prop.title}</span>
     </button>
   );
