@@ -52,3 +52,4 @@ const dataYear = [
     value: "2022",
   },
 ];
+export default dataYear;
