@@ -17,7 +17,7 @@ function CustomDialogContent() {
       ))}
 
       <Button
-        class="custom-btn btn-7 set-width-savegame"
+        class="custom-btn btn-3"
         title=" Lưu Game"
         onClick={() => {
           // Сlose the dialog and return the value
@@ -32,7 +32,7 @@ const Dialog = () => {
   return (
     <div className="div__Dialog">
       <Button
-        class=" animated-button thar-four "
+        class="snip1582  "
         title="+ TẠO GAME MỚI"
         onClick={async () => {
           const result = await CustomDialog(<CustomDialogContent />, {
