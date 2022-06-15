@@ -1,12 +1,17 @@
 import React from "react";
 import "./styles.css";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import data from "../Casousel/data";
 import ListGame from "./../../screens/ListGame/index";
 import Button from "../../components/Button";
 import Title from "../Title/index";
 // import { Grid } from "@material-ui/core";
-const GridGame = (props) => {
+
+const GridGame = () => {
+  let navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/menu");
+  };
   // let { startIndex, endIndex, data } = props;
 
   // let subset = data.slice(startIndex, endIndex);
@@ -23,10 +28,8 @@ const GridGame = (props) => {
                   <img className="img--width" src={value.image} alt=""></img>
                 </div>
                 <div className="gridgame__content">
-                  <p>{value.description}</p>
-                  <div>
-                    <button>Xem chi tiết</button>
-                  </div>
+                  <p className="description--justify">{value.description}</p>
+                  <Button title="Xem chi tiết" class="btn__readmore "></Button>
                 </div>
               </li>
             ))}
@@ -34,12 +37,11 @@ const GridGame = (props) => {
         </section>
       </div>
 
-      <Link className="custom-btn btn-3 link__view-more" to="/menu">
-        Xem thêm
-      </Link>
-      <Button className="btn-3 custom-btn" title="Xem thêm">
-        {" "}
-      </Button>
+      <Button
+        class="custom-btn btn-3 "
+        onClick={handleClick}
+        title="Xem thêm"
+      ></Button>
 
       <Routes>
         <Route path="/menu" element={<ListGame />} />

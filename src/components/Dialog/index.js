@@ -15,30 +15,6 @@ function CustomDialogContent() {
           {value.label}:<input type={value.type}></input>
         </label>
       ))}
-      {/* <label>
-        Name:
-        <input type="text" name="name" />
-      </label>
-      <label>
-        Tên:
-        <input
-          value="Submit"
-          type="text"
-          onChange={(e) => {
-            setValue(e.target.value);
-          }}
-        />
-      </label> */}
-      <label>
-        Ngày phát hành:
-        <input
-          value="Submit"
-          type="text"
-          onChange={(e) => {
-            setValue(e.target.value);
-          }}
-        />
-      </label>
 
       <Button
         class="custom-btn btn-7 set-width-savegame"
@@ -56,7 +32,7 @@ const Dialog = () => {
   return (
     <div className="div__Dialog">
       <Button
-        class="set-width-creategame custom-btn btn-7 "
+        class="btn btn-sm animated-button thar-four "
         title="+ TẠO GAME MỚI"
         onClick={async () => {
           const result = await CustomDialog(<CustomDialogContent />, {
