@@ -1,4 +1,5 @@
 import React from "react";
+import TextField from "@material-ui/core/TextField";
 import Dialog from "../../components/Dialog";
 import Title from "../../components/Title";
 import "./styles.css";
@@ -8,7 +9,14 @@ const ListGame = () => {
     <div className="div__ListGame">
       <Title title="DANH SÁCH GAME"></Title>
       <section className="sec-1">
-        <input></input>
+        <div className="search">
+          <TextField
+            id="outlined-basic"
+            variant="outlined"
+            fullWidth
+            label="Search"
+          />
+        </div>
         <select>
           {dataYear.map((value, key) => (
             <option key={key} value={value.value}>
