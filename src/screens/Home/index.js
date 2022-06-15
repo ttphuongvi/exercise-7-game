@@ -1,13 +1,13 @@
 import React from "react";
 import Slider from "../../components/Slider";
 import Casousel from "../../components/Casousel";
-import GridGame from "../../components/GridGame";
+import GridNewGame from "../../components/GridNewGame";
 // import logo from "./img/hahalolo-logo.png";
 const Home = () => {
   return (
     <div>
       <Casousel />
-      <GridGame />
+      <GridNewGame />
     </div>
   );
 };
