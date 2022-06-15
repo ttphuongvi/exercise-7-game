@@ -32,7 +32,7 @@ const Dialog = () => {
   return (
     <div className="div__Dialog">
       <Button
-        class="btn btn-sm animated-button thar-four "
+        class=" animated-button thar-four "
         title="+ TẠO GAME MỚI"
         onClick={async () => {
           const result = await CustomDialog(<CustomDialogContent />, {
