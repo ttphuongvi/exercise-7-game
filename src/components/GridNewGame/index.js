@@ -1,23 +1,19 @@
 import React from "react";
 import "./styles.css";
-import { Link, Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import data from "../Casousel/data";
-import ListGame from "./../../screens/ListGame/index";
-import Button from "../../components/Button";
+import ListGame from "../../screens/ListGame/index";
+import Button from "../Button";
 import Title from "../Title/index";
-// import { Grid } from "@material-ui/core";
 
-const GridGame = () => {
+const GridNewGame = () => {
   let navigate = useNavigate();
   const handleClick = () => {
     navigate("/menu");
   };
-  // let { startIndex, endIndex, data } = props;
-
-  // let subset = data.slice(startIndex, endIndex);
   return (
     <div className="div__container--flex">
-      <Title title="HOT GAMES"></Title>
+      <Title title="GAME MỚI NHẤT"></Title>
       <div className="box__container">
         <section>
           <div class="grid">
@@ -50,7 +46,6 @@ const GridGame = () => {
   );
 };
 {
-  /* <GridGame startIndex={1} endIndex={6} data={this.state.data} />; */
 }
 
-export default GridGame;
+export default GridNewGame;
