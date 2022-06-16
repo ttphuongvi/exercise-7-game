@@ -134,7 +134,7 @@ button {
   display: inline-block;
   font-family: 'Oswald', sans-serif;
   font-size: 1em;
-  font-size: 22px;
+  /* font-size: 22px; */
   line-height: 1em;
   margin: 15px 40px;
   outline: none;
@@ -182,4 +182,8 @@ button {
 .snip1582.hover:after {
   height: 100%;
   width: 100%;
+}
+
+.btn--margin{
+  margin: 0 auto;
 }

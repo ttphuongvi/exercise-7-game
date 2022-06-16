@@ -3,6 +3,19 @@
     flex-direction: column;
     justify-content: center;
     top: 100px;
-    margin-top: 100px;
+    margin-top: 60px;
     background: url("http://skywarriorthemes.com/orizon/blue/images/hot_news_bg.jpg") center top repeat-x #181818;
+}
+
+.flex--row {
+    display: flex;
+    flex-direction: row;
+   align-content: space-evenly;
+}
+.flex--spacebetween{
+    justify-content: space-between;
+}
+.sec-1 {
+    margin-left: 6%;
+    width: 90%
 }

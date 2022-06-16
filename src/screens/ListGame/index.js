@@ -8,22 +8,23 @@ const ListGame = () => {
   return (
     <div className="div__ListGame">
       <Title title="DANH SÁCH GAME"></Title>
-      <section className="sec-1">
-        <div className="search">
+      <section className="sec-1 flex--row flex--spacebetween">
+        <div className="search flex--row">
           <TextField
             id="outlined-basic"
             variant="outlined"
             fullWidth
             label="Search"
           />
+
+          <select>
+            {dataYear.map((value, key) => (
+              <option key={key} value={value.value}>
+                {value.year}
+              </option>
+            ))}
+          </select>
         </div>
-        <select>
-          {dataYear.map((value, key) => (
-            <option key={key} value={value.value}>
-              {value.year}
-            </option>
-          ))}
-        </select>
         <Dialog />
       </section>
     </div>

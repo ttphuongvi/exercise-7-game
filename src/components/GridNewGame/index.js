@@ -34,7 +34,7 @@ const GridNewGame = () => {
       </div>
 
       <Button
-        class="custom-btn btn-3 "
+        class="custom-btn btn-3 btn--margin"
         onClick={handleClick}
         title="Xem thêm"
       ></Button>
