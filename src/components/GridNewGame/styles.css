@@ -1,3 +1,27 @@
+ :root{
+  --night-background:  url("http://skywarriorthemes.com/orizon/blue/images/hot_news_bg.jpg") center top repeat-x #181818;
+  --shining-background: #fff;
+  --night-backgroundbox:  url("http://skywarriorthemes.com/orizon/blue/images/hn_box_bg.png") repeat-x top left #1f1f1f;
+  --shining-backgroundbox: #fff;
+  --night-webkit-box-shadow: 0px 2px 5px 2px rgb(0 0 0);
+  --night-boxcontainer-box-shadow: 0px 2px 5px 2px rgb(0, 0, 0);
+  --shining-boxcontainer-box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  --night-boxcontainer-border: 1px solid #223a4c;
+  --shining-boxcontainer-border: 1px solid #fff;
+  --night-background-button-readdetail:  -webkit-linear-gradient(top, #173247, #1e1f21);
+  --shining-background-button-readdetail-hover:  -webkit-linear-gradient(top, #1e1f21, #173247);
+  --shining-background-button-readdetail:  -webkit-linear-gradient(top, #40c5ff, #1c98ff);
+  --shining-background-button-readdetail-hover:  -webkit-linear-gradient(top, #1c98ff, #40c5ff);
+  --shining-boder-button-readdetail: 1px solid #1f96c8;
+  --night-boder-button-readdetail: 1px solid #2f3c45;
+  --shining-color-button-readdetail: #f1f1f1;
+  --night-color-button-readdetail: #3b9fc1;
+  --night-border-image-grid:  3px solid #22394c;
+  --shining-border-image-grid:  3px solid rgb(255, 255, 255);
+  --night-color-decripstion-grid: #99cccc;
+  --shining-color-decripstion-grid: #666;
+ }
+
  .grid
    {
     display: grid;
@@ -24,8 +48,8 @@
     width: 100%;
     justify-content: space-between;
     /* margin-bottom: 20px; */
-    
-    background: url("http://skywarriorthemes.com/orizon/blue/images/hot_news_bg.jpg") center top repeat-x #181818;
+    /* che do toi */
+    background: var(--shining-background);
     margin: 0px 0px 0px 1px;
     border: 1px solid #303030;
     border-bottom: 0px;
@@ -34,6 +58,9 @@
 
   .box__container{
     margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
   .img--width {
     width: 100%;
@@ -53,7 +80,7 @@
     margin-top: 20px;
   }
   .box__container li h2{
-    text-shadow: 0px 2px 1px rgb(0 0 0);
+    /* text-shadow: 0px 2px 1px rgb(0 0 0); */
     font-family: 'Oswald', Helvetica, Arial, sans-serif;
     color: #2ac0ff;
     display: block;
@@ -66,22 +93,22 @@
   .box__container li{
     width: 400px;
     height: 270px;
-    background: url("http://skywarriorthemes.com/orizon/blue/images/hn_box_bg.png") repeat-x top left #1f1f1f;
+    background: var(--shining-backgroundbox);
     -webkit-border-radius: 5px;
     border-radius: 5px;
     float: left;
-    margin: 0px 15px 0px 5px;
+    margin: 0px 0px 0px 5px;
     padding: 10px 0px 0px 15px;
-    border: 1px solid #223a4c;
-    -webkit-box-shadow: 0px 2px 5px 2px rgb(0 0 0);
-    box-shadow: 0px 2px 5px 2px rgb(0 0 0);
+    border:var(--shining-boxcontainer-border) ;
+    -webkit-box-shadow: 0px 2px 5px 2px rgba(80, 145, 242, 0.312);
+    box-shadow: var(--shining-boxcontainer-box-shadow);
     list-style: none;
   }
 
   .gridgame__image {
     width: 45%;
     height: 200px;
-    border: 3px solid #22394c;
+    border: var(--night-border-image-grid);
     background-color: #1f1f1f;
     -webkit-box-shadow: 0px 2px 3px 1px rgb(0 0 0);
     box-shadow: 0px 2px 3px 1px rgb(0 0 0);
@@ -103,19 +130,19 @@
   .description--justify {
     text-align: justify;
     margin-top: 0px;
-    color: #99cccc;
+    color: var(--shining-color-decripstion-grid) ;
     font-size: 14px;
     height: 160px;
   }
 
- .btn__readmore {
+ .btn__readdetail {
  list-style: none;
  display: block;
- background-image: -webkit-linear-gradient(top, #173247, #1e1f21);
- border: 1px solid #2f3c45;
+ background-image: var(--shining-background-button-readdetail);
+ border: var(--shining-boder-button-readdetail);
  border-radius: 5px;
  box-shadow: 0 1px 3px #000;
- color: #3b9fc1;
+ color: var(--shining-color-button-readdetail);
  font: bold 20px/1 helvetica, arial, sans-serif;
  padding: 8px 0 10px 0;
  text-align: center;
@@ -129,9 +156,10 @@
  /* margin: 30px 0px 0xp 0px; */
  margin-bottom: -5px;
  position:relative;
+ cursor: pointer;
  }
 
- .btn__readmore:hover {
-  background-image: -webkit-linear-gradient(top, #1e1f21, #173247);
-  color: #99cccc;
+ .btn__readdetail:hover {
+  background-image: var(--shining-background-button-readdetail-hover);
+  color: var(--shining-color-button-readdetail);
  }

@@ -15,7 +15,8 @@ const data = [
       "SHOOT DUCK là một trò chơi săn chim phiêu lưu mạo hiểm mới được phát hành, bây giờ bạn có thể trải nghiệm cuộc sống thực sự săn chim trên thiết bị di động!",
   },
   {
-    image: "https://i.rada.vn/data/image/2021/03/26/Firework-1.jpg",
+    image:
+      "http://skywarriorthemes.com/orizon/blue/images/paralax_banner/3.png",
     caption: "Giải đố kinh dị",
     description:
       "Firework là game giải đố kinh dị lấy cảm hứng từ phương Đông. Cũng giống như Detention, trò chơi này sẽ mang đến một cốt truyện đầy ám ảnh và bầu không khí rùng rợn khó quên.",

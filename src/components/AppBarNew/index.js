@@ -44,7 +44,7 @@ const ResponsiveAppBar = () => {
   //     navigate("/menu");
   //   };
   return (
-    <AppBar position="static" className="appbar__container">
+    <AppBar position="fixed" className="appbar__container">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
@@ -71,7 +71,7 @@ const ResponsiveAppBar = () => {
             HAHALOLO
           </Typography> */}
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box sx={{ flexGrow: 2, display: { xs: "flex", md: "none" } }}>
             {/* <BottomNavigation value={{}} onChange={this.handleChange}>
               <BottomNavigationAction
                 component={Link}

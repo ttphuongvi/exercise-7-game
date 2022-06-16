@@ -25,7 +25,10 @@ const GridNewGame = () => {
                 </div>
                 <div className="gridgame__content">
                   <p className="description--justify">{value.description}</p>
-                  <Button title="Xem chi tiết" class="btn__readmore "></Button>
+                  <Button
+                    title="Xem chi tiết"
+                    class="btn__readdetail "
+                  ></Button>
                 </div>
               </li>
             ))}

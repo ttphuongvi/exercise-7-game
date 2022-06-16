@@ -25,7 +25,7 @@ const Casousel = () => {
       dots={true}
       pauseIconColor="white"
       pauseIconSize="40px"
-      slideBackgroundColor="darkgrey"
+      slideBackgroundColor="black"
       slideImageFit="cover"
       //   thumbnails={true}
       thumbnailWidth="100px"
@@ -33,7 +33,7 @@ const Casousel = () => {
         textAlign: "center",
         maxWidth: "100%",
         maxHeight: "500px",
-        margin: "65px 0px 0px 0px",
+        margin: "0px 0px 0px 0px",
       }}
     />
   );
