@@ -49,38 +49,11 @@ const ResponsiveAppBar = () => {
         <Toolbar disableGutters>
           {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
           <img
-            className="img__logo--width"
+            className="img__logo"
             alt="logo"
             src="https://www.hoteljob.vn/uploads/images/2022/03/24-13/hahalolo-logo-icon-01-98.png"
           ></img>
-          {/* <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            HAHALOLO
-          </Typography> */}
-
           <Box sx={{ flexGrow: 2, display: { xs: "flex", md: "none" } }}>
-            {/* <BottomNavigation value={{}} onChange={this.handleChange}>
-              <BottomNavigationAction
-                component={Link}
-                to="/menu"
-                label="menu"
-                value="menu"
-                icon={<AdbIcon />}
-              />
-            </BottomNavigation> */}
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -106,28 +79,10 @@ const ResponsiveAppBar = () => {
               ))}
             </Menu>
           </Box>
-          {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
-          {/* <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            LOGO
-          </Typography> */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {data.map((value, key) => (
               <Button
+                className="button__appbar"
                 key={key}
                 href={value.link}
                 onClick={handleCloseNavMenu}

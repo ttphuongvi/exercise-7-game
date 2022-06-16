@@ -9,17 +9,21 @@ const ListGame = () => {
     <div className="div__ListGame">
       <Title title="DANH SÁCH GAME"></Title>
       <section className="sec-1 flex--row flex--spacebetween">
-        <div className="search flex--row">
+        <div className="search flex--row search__input">
           <TextField
             id="outlined-basic"
             variant="outlined"
             fullWidth
-            label="Search"
+            label="Tìm theo tên"
+            className="search__input"
           />
-
-          <select>
+          <select className="section__year">
             {dataYear.map((value, key) => (
-              <option key={key} value={value.value}>
+              <option
+                className="option__year--margin"
+                key={key}
+                value={value.value}
+              >
                 {value.year}
               </option>
             ))}
