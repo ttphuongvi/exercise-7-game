@@ -48,88 +48,48 @@ const ResponsiveAppBar = () => {
           <img
             className="img__logo"
             alt="logo"
-            src="https://www.hoteljob.vn/uploads/images/2022/03/24-13/hahalolo-logo-icon-01-98.png"
+            src="https://assets.topdev.vn/images/2022/03/08/TopDev-hahalolo-logo-1646710802.png"
           ></img>
-          <Box sx={{ flexGrow: 2, display: { xs: "flex", md: "none" } }}>
-            {/* <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
+          <div className="div__container-menu-and-avatar">
+            <Box
+              className="box__btn-appbar"
+              sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
+              {data.map((value, key) => (
+                <Button
+                  className="button__appbar"
+                  key={key}
+                  href={value.link}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  {value.name}
+                </Button>
               ))}
-            </Menu> */}
-          </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {data.map((value, key) => (
-              <Button
-                className="button__appbar"
-                key={key}
-                href={value.link}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+            </Box>
+
+            <Box sx={{ flexGrow: 0 }}>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
               >
-                {value.name}
-              </Button>
-            ))}
-          </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              {/* <MenuIcon /> */}
-            </IconButton>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                {/* <MenuIcon /> */}
               </IconButton>
-            </Tooltip>
-
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar
+                    className="avatar--margin"
+                    alt="Remy Sharp"
+                    src="/static/images/avatar/2.jpg"
+                  />
+                </IconButton>
+              </Tooltip>
+            </Box>
+          </div>
         </Toolbar>
       </Container>
     </AppBar>
