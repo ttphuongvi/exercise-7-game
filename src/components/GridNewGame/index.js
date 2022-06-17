@@ -14,16 +14,16 @@ const GridNewGame = () => {
   return (
     <div className="div__container--flex">
       <Title title="GAME MỚI NHẤT"></Title>
-      <div className="box__container">
+      <div className="grid__newgame-container">
         <section>
-          <div class="grid">
+          <div class="grid__newgame">
             {data.map((value, key) => (
-              <li key={key} class="grid__item">
+              <li key={key} class="li__grid-newgame-item">
                 <h2>{value.caption}</h2>
-                <div className="gridgame__image">
+                <div className="gridgame-newgame__image">
                   <img className="img--width" src={value.image} alt=""></img>
                 </div>
-                <div className="gridgame__content">
+                <div className="grid-newgame__content">
                   <p className="description--justify">{value.description}</p>
                   <Button
                     title="Xem chi tiết"

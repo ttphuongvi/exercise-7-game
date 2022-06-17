@@ -51,7 +51,7 @@ const ResponsiveAppBar = () => {
             src="https://www.hoteljob.vn/uploads/images/2022/03/24-13/hahalolo-logo-icon-01-98.png"
           ></img>
           <Box sx={{ flexGrow: 2, display: { xs: "flex", md: "none" } }}>
-            <Menu
+            {/* <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
@@ -74,7 +74,7 @@ const ResponsiveAppBar = () => {
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
-            </Menu>
+            </Menu> */}
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {data.map((value, key) => (
@@ -99,7 +99,7 @@ const ResponsiveAppBar = () => {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-              <MenuIcon />
+              {/* <MenuIcon /> */}
             </IconButton>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

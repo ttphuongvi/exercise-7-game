@@ -4,6 +4,7 @@ import Dialog from "../../components/Dialog";
 import Title from "../../components/Title";
 import "./styles.css";
 import dataYear from "./dataYear.js";
+import GridListGame from "../../components/GridListGame";
 const ListGame = () => {
   return (
     <div className="div__ListGame">
@@ -31,6 +32,7 @@ const ListGame = () => {
         </div>
         <Dialog />
       </section>
+      <GridListGame />
     </div>
   );
 };

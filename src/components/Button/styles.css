@@ -410,7 +410,8 @@ background: linear-gradient(0deg, rgba(2,126,251,1) 0%,  rgba(0,3,255,1)100%);
   /* text-transform: uppercase; */
   font-weight: bold;
   letter-spacing: 2px;
-  cursor: pointer}
+  cursor: pointer;
+margin: 0 auto;}
   
   .btn-viewdetails:before:after {
     content: '';

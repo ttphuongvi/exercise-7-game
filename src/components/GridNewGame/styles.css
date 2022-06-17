@@ -22,7 +22,7 @@
   --shining-color-decripstion-grid: #666;
  }
 
- .grid
+ .grid__newgame
    {
     display: grid;
     grid-template-columns: repeat(3,480px);  
@@ -38,7 +38,7 @@
     
   }
   
-  .grid__item{
+  .li__grid-newgame-item{
     /* border:thin gray solid; */
     padding:10px;
   }
@@ -58,7 +58,7 @@
     position: relative;
   }
 
-  .box__container{
+  .grid__newgame-container{
     margin: 0 auto;
     display: flex;
     flex-direction: row;
@@ -81,7 +81,7 @@
   .link__view-more{
     margin-top: 20px;
   }
-  .box__container li h2{
+  .grid__newgame-container li h2{
     /* text-shadow: 0px 2px 1px rgb(0 0 0); */
     font-family: 'Oswald', Helvetica, Arial, sans-serif;
     color: #2ac0ff;
@@ -92,7 +92,7 @@
     padding: 0px 0px 10px 0px;
     margin: 0px 0px 0px 0px;
   }
-  .box__container li{
+  .grid__newgame-container li{
     width: 400px;
     height: 270px;
     background: var(--shining-backgroundbox);
@@ -107,7 +107,7 @@
     list-style: none;
   }
 
-  .gridgame__image {
+  .gridgame-newgame__image {
     width: 45%;
     height: 200px;
     border: var(--night-border-image-grid);
@@ -120,7 +120,7 @@
     overflow: hidden;
     margin-right: 10px;
   }
-  .gridgame__content{
+  .grid-newgame__content{
  display: flex;
  flex-direction: column;
  align-self: flex-end;
@@ -159,6 +159,7 @@
  margin-bottom: -5px;
  position:relative;
  cursor: pointer;
+ 
  }
 
  .btn__readdetail:hover {
