@@ -10,11 +10,8 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Container from "@material-ui/core/Container";
 import { Menu, MenuItem } from "@material-ui/core";
-import AdbIcon from "@material-ui/icons/Adb";
 import Tooltip from "@material-ui/core/Tooltip";
 import Avatar from "@material-ui/core/Avatar";
-import BottomNavigation from "@material-ui/core/BottomNavigation";
-import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import "./styles.css";
 import data from "./../AppBar/data";
 // import AdbIcon from "@mui/icons-material/Adb";
@@ -44,9 +41,9 @@ const ResponsiveAppBar = () => {
   //     navigate("/menu");
   //   };
   return (
-    <AppBar position="fixed" className="appbar__container">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
+    <AppBar position="fixed">
+      <Container className="appbar__container" maxWidth="xl">
+        <Toolbar className="appbar__toolbar" disableGutters>
           {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
           <img
             className="img__logo"

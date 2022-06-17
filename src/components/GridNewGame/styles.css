@@ -28,6 +28,8 @@
     grid-template-columns: repeat(3,480px);  
     /* 3 columns */
     grid-template-rows: repeat(2,350px); 
+    justify-items: center;
+    margin-bottom: 30px;
     /* 3 rows  */
     /* grid-gap:50px 30px;  */
     /* 50 pixels of space added between rows and 30 pixels added between columns  */

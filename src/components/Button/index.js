@@ -3,7 +3,7 @@ import "./styles.css";
 const Button = (prop) => {
   return (
     <button className={prop.class} onClick={prop.onClick}>
-      <span>{prop.title}</span>
+      <span className={prop.classSpan}>{prop.title}</span>
     </button>
   );
 };

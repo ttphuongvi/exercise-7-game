@@ -7,7 +7,7 @@ const data = [
     // component: { Home },
   },
   {
-    name: "MENU",
+    name: "DANH SÁCH GAME",
     link: "/menu",
     exact: "false",
   },
