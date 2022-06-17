@@ -16,7 +16,10 @@ const GridListGame = () => {
               <div className="grid-listgame__content">
                 <h2>{value.caption}</h2>
                 <p className="description--justify">{value.description}</p>
-                <Button title="Xem chi tiết" class="btn__readdetail "></Button>
+                <Button
+                  title="Xem chi tiết"
+                  class="custom-btn btn-3 btn--float "
+                ></Button>
               </div>
             </li>
           ))}

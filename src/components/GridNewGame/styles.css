@@ -25,9 +25,9 @@
  .grid__newgame
    {
     display: grid;
-    grid-template-columns: repeat(3,480px);  
+    grid-template-columns: repeat(3,450px);  
     /* 3 columns */
-    grid-template-rows: repeat(2,350px); 
+    grid-template-rows: repeat(2,310px); 
     justify-items: center;
     margin-bottom: 30px;
     /* 3 rows  */
@@ -47,15 +47,16 @@
     display: flex;
     flex-direction: column;
     /* align-items: center; */
-    width: 100%;
+    width: 95%;
     justify-content: space-between;
     /* margin-bottom: 20px; */
     /* che do toi */
     background: var(--shining-background);
-    margin: 0px 0px 0px 1px;
-    border: 1px solid #303030;
+    margin: 30px;
+   
     border-bottom: 0px;
     position: relative;
+    box-shadow: var(--shining-boxcontainer-box-shadow);
   }
 
   .grid__newgame-container{
@@ -126,7 +127,7 @@
  align-self: flex-end;
  justify-content: center;
  padding-right: 15px;
- height: 200px;
+ height: 208px;
 
   }
   .description--justify {

@@ -24,6 +24,7 @@ button {
      7px 7px 20px 0px rgba(0,0,0,.1),
      4px 4px 5px 0px rgba(0,0,0,.1);
     outline: none;
+    margin-left: 60px;
   }
   .btn-3 {
     background: rgb(0,172,238);
@@ -186,6 +187,7 @@ button {
 
 .btn--margin{
   margin: 0 auto;
+  margin-top: 20px;
 }
 /* 12 */
 .btn-12{
@@ -304,7 +306,7 @@ background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
   font-size:1.4em;
   line-height:0em;
   font-weight:300;
-  position:absolute;
+  /* position:absolute; */
   /* top:0; */
   left:0;
   right:0;
@@ -450,5 +452,8 @@ margin: 0 auto;}
     }
     .btn-viewdetails:hover::before{
       transform: translate(0)
+    }
+    .btn--float {
+      float: right;
     }
      
