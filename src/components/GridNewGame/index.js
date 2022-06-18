@@ -19,7 +19,7 @@ const GridNewGame = () => {
           <div class="grid__newgame">
             {data.map((value, key) => (
               <li key={key} class="li__grid-newgame-item">
-                <h2>{value.caption}</h2>
+                <h2>{value.text}</h2>
                 <div className="gridgame-newgame__image">
                   <img className="img--width" src={value.image} alt=""></img>
                 </div>
