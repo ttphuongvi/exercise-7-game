@@ -22,7 +22,7 @@ const GridNewGame = () => {
                 <>
                   {value.id > 0 && value.id < 7 && (
                     <li key={key} class="li__grid-newgame-item">
-                      <h2>{value.text}</h2>
+                      <h2>{value.caption}</h2>
                       <div className="gridgame-newgame__image">
                         <img
                           className="img--width"

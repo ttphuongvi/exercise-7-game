@@ -30,7 +30,7 @@ const GridListGame = (props) => {
                       ></img>
                     </div>
                     <div className="grid-listgame__content">
-                      <h2>{value.text}</h2>
+                      <h2>{value.caption}</h2>
                       <p className="description--justify">
                         {value.description}
                       </p>
