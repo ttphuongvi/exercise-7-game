@@ -10,20 +10,31 @@ function CustomDialogContent() {
 
   return (
     <form className="div__Dialog">
-      {data.map((value, key) => (
-        <label key={key}>
-          {value.label}:<input type={value.type}></input>
-        </label>
-      ))}
+      <div className="div__dialog-content">
+        {data.map((value, key) => (
+          <div className="div__container-label-input">
+            <label className="label__content" key={key}>
+              {value.label}:
+              <input
+                className="form__input"
+                onChange={(e) => {
+                  setValue(e.target.value);
+                }}
+                type={value.type}
+              ></input>
+            </label>
+          </div>
+        ))}
 
-      <Button
-        class="custom-btn btn-3"
-        title=" Lưu Game"
-        onClick={() => {
-          // Сlose the dialog and return the value
-          dialog.close(value);
-        }}
-      ></Button>
+        <Button
+          class="custom-btn btn-3"
+          title=" Lưu Game"
+          onClick={() => {
+            // Сlose the dialog and return the value
+            dialog.close(value);
+          }}
+        ></Button>
+      </div>
     </form>
   );
 }

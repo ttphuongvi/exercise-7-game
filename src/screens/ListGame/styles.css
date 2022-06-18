@@ -1,3 +1,4 @@
+
 .div__ListGame {
     display: flex;
     flex-direction: column;
@@ -24,12 +25,15 @@
     /* margin: 0 auto; */
 }
 .section__year{
-    background-image: -webkit-linear-gradient(top, #eef2f5, #a5a9b2);
-     height: 55px; 
+    background-color: #fff;
+    border: 1px solid #c5c4c4;
+    color: rgba(0, 0, 0, 0.54);;
+     height: 39px; 
     width: 150px;
     padding: 5px;
     border-radius: 3px;
     margin-left: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
 }
 .option__year--margin{
     margin: 10px;
@@ -40,4 +44,16 @@
 .search__input {
     /* transform: translate(14px, 10px) scale(1) !important; */
     /*   */
+    padding: 10px 0px 10px 0px  !important;
+}
+.MuiFormLabel-root{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+    font-weight: 0 !important;
+    
+}
+.MuiOutlinedInput-input {
+    padding: 10px 50px !important;
+}
+.MuiInputLabel-outlined {
+    font-size: 15px !important;
 }

@@ -17,21 +17,33 @@ const GridListGame = (props) => {
     <div className="grid__listgame-container">
       <section>
         <ul class="grid__listgame">
-          {filteredData.map((value, key) => (
-            <li key={value.id} class="li__grid-listgame-item">
-              <div className="gridgame-listgame__image">
-                <img className="img--style" src={value.image} alt=""></img>
-              </div>
-              <div className="grid-listgame__content">
-                <h2>{value.text}</h2>
-                <p className="description--justify">{value.description}</p>
-                <Button
-                  title="Xem chi tiết"
-                  class="custom-btn btn-3 btn--float "
-                ></Button>
-              </div>
-            </li>
-          ))}
+          {filteredData.map((value, key) => {
+            return (
+              <>
+                {value.id > 0 && value.id < 9 && (
+                  <li key={value.id} class="li__grid-listgame-item">
+                    <div className="gridgame-listgame__image">
+                      <img
+                        className="img--style"
+                        src={value.image}
+                        alt=""
+                      ></img>
+                    </div>
+                    <div className="grid-listgame__content">
+                      <h2>{value.text}</h2>
+                      <p className="description--justify">
+                        {value.description}
+                      </p>
+                      <Button
+                        title="Xem chi tiết"
+                        class="custom-btn btn-3 btn--float "
+                      ></Button>
+                    </div>
+                  </li>
+                )}
+              </>
+            );
+          })}
         </ul>
         {/* <ul>
           {filteredData.map((item) => (

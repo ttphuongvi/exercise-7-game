@@ -22,7 +22,7 @@ const ListGame = () => {
             onChange={inputHandler}
             variant="outlined"
             fullWidth
-            label="Search"
+            label="Tìm kiếm game"
             className="search__input"
           />
           <select className="section__year">
