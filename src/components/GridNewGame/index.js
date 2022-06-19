@@ -1,47 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./styles.css";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import data from "../Casousel/data";
 import ListGame from "../../screens/ListGame/index";
-import Button from "../Button";
 import Title from "../Title/index";
+import axios from "axios";
+import Button from "@material-ui/core/Button";
 
 const GridNewGame = () => {
+  const [dataSource, setDataSource] = useState([]);
   let navigate = useNavigate();
   const handleClick = () => {
     navigate("/menu");
   };
+  useEffect(() => {
+    axios.get("/games?_sort=id&_order=desc&_start=0&_limit=6").then((res) => {
+      setDataSource(res.data);
+    });
+  }, []);
   return (
     <div className="div__container--flex">
       <Title title="GAME MỚI NHẤT"></Title>
       <div className="grid__newgame-container">
         <section>
           <div class="grid__newgame">
-            {data.map((value, key) => {
+            {dataSource.map((value, key) => {
               return (
-                <>
-                  {value.id > 0 && value.id < 7 && (
-                    <li key={key} class="li__grid-newgame-item">
-                      <h2>{value.caption}</h2>
-                      <div className="gridgame-newgame__image">
-                        <img
-                          className="img--width"
-                          src={value.image}
-                          alt=""
-                        ></img>
-                      </div>
-                      <div className="grid-newgame__content">
-                        <p className="description--justify">
-                          {value.description}
-                        </p>
-                        <Button
-                          title="Xem chi tiết"
-                          class="custom-btn btn-3 btn--float"
-                        ></Button>
-                      </div>
-                    </li>
-                  )}
-                </>
+                <li key={key} class="li__grid-newgame-item">
+                  <h2>{value.caption}</h2>
+                  <div className="gridgame-newgame__image">
+                    <img className="img--width" src={value.image} alt=""></img>
+                  </div>
+                  <div className="grid-newgame__content">
+                    <p className="description--justify">{value.description}</p>
+                    <Button class="custom-btn btn-3 btn--float">
+                      Xem chi tiết
+                    </Button>
+                  </div>
+                </li>
               );
             })}
           </div>
@@ -51,13 +46,14 @@ const GridNewGame = () => {
       <Button
         class="btn btn--margin"
         onClick={handleClick}
-        title="Xem thêm"
         classSpan="btn-label"
-      ></Button>
+      >
+        Xem thêm
+      </Button>
 
-      <Routes>
+      {/* <Routes>
         <Route path="/menu" element={<ListGame />} />
-      </Routes>
+      </Routes> */}
     </div>
   );
 };
