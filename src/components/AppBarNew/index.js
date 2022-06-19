@@ -1,26 +1,40 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
 import Container from "@material-ui/core/Container";
-import { Menu, MenuItem } from "@material-ui/core";
 import Tooltip from "@material-ui/core/Tooltip";
 import Avatar from "@material-ui/core/Avatar";
 import "./styles.css";
-import data from "./../AppBar/data";
-// import AdbIcon from "@mui/icons-material/Adb";
-const pages = ["TRANG CHỦ", "DANH SÁCH GAME", "LIÊN HỆ"];
-const settings = ["Home", "menu", "contact", "Logout"];
-
+import Tabs from "@material-ui/core/Tabs";
+import TabPanel from "../TabPanel";
+import Tab from "@material-ui/core/Tab";
+import Home from "../../screens/Home/index";
+import ListGame from "../../screens/ListGame/index";
+import Contact from "../../screens/Contact/index";
+const a11yProps = (index) => {
+  return {
+    id: `simple-tab-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
+  };
+};
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.background.paper,
+  },
+}));
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const classes = useStyles();
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -28,71 +42,62 @@ const ResponsiveAppBar = () => {
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-  //   let navigate = useNavigate();
-  //   const handleClick = () => {
-  //     navigate("/menu");
-  //   };
   return (
-    <AppBar position="fixed">
-      <Container className="appbar__container" maxWidth="xl">
-        <Toolbar className="appbar__toolbar" disableGutters>
-          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
-          <img
-            className="img__logo"
-            alt="logo"
-            src="https://assets.topdev.vn/images/2022/03/08/TopDev-hahalolo-logo-1646710802.png"
-          ></img>
-          <div className="div__container-menu-and-avatar">
-            <Box
-              className="box__btn-appbar"
-              sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
-            >
-              {data.map((value, key) => (
-                <Button
-                  className="button__appbar"
-                  key={key}
-                  href={value.link}
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  {value.name}
-                </Button>
-              ))}
-            </Box>
-
-            <Box sx={{ flexGrow: 0 }}>
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenNavMenu}
-                color="inherit"
+    <div className={classes.root}>
+      <AppBar position="fixed">
+        <Container className="appbar__container" maxWidth="xl">
+          <Toolbar className="appbar__toolbar" disableGutters>
+            <img
+              className="img__logo"
+              alt="logo"
+              src="https://assets.topdev.vn/images/2022/03/08/TopDev-hahalolo-logo-1646710802.png"
+            ></img>
+            <div className="div__container-menu-and-avatar">
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                aria-label="simple tabs example"
               >
-                {/* <MenuIcon /> */}
-              </IconButton>
-              <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar
-                    className="avatar--margin"
-                    alt="Remy Sharp"
-                    src="/static/images/avatar/2.jpg"
-                  />
+                <Tab label="TRANG CHỦ" {...a11yProps(0)} />
+                <Tab label="DANH SÁCH GAME" {...a11yProps(1)} />
+                <Tab label="LIÊN HỆ" {...a11yProps(2)} />
+              </Tabs>
+
+              <Box sx={{ flexGrow: 0 }}>
+                <IconButton
+                  size="large"
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  onClick={handleOpenNavMenu}
+                  color="inherit"
+                >
+                  {/* <MenuIcon /> */}
                 </IconButton>
-              </Tooltip>
-            </Box>
-          </div>
-        </Toolbar>
-      </Container>
-    </AppBar>
+                <Tooltip title="Open settings">
+                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                    <Avatar
+                      className="avatar--margin"
+                      alt="Remy Sharp"
+                      src="/static/images/avatar/2.jpg"
+                    />
+                  </IconButton>
+                </Tooltip>
+              </Box>
+            </div>
+          </Toolbar>
+        </Container>
+      </AppBar>
+      <TabPanel value={value} index={0}>
+        <Home />
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        <ListGame />
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        <Contact />
+      </TabPanel>
+    </div>
   );
 };
 export default ResponsiveAppBar;
