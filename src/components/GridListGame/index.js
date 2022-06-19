@@ -31,6 +31,7 @@ const GridListGame = (props) => {
                     </div>
                     <div className="grid-listgame__content">
                       <h2>{value.caption}</h2>
+                      <div className="div__release-year">{value.release}</div>
                       <p className="description--justify">
                         {value.description}
                       </p>
