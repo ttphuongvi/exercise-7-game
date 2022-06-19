@@ -68,6 +68,7 @@
   .img--width {
     width: 100%;
     height: 100%;
+    object-fit: cover;
   }
   .btn__view-more {
     background-color: #00bcd4;
