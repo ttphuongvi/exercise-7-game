@@ -4,7 +4,7 @@ import Button from "./../../components/Button";
 import "./styles.css";
 // import data from "./data.js";
 import axios from "axios";
-function CustomDialogContent() {
+const CustomDialogContent = () => {
   const dialog = useDialog();
   const [value, setValue] = useState();
   const saveGame = () => {
@@ -106,7 +106,7 @@ function CustomDialogContent() {
       ></Button>
     </form>
   );
-}
+};
 
 const Dialog = () => {
   return (

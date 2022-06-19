@@ -1,91 +1,95 @@
-.grid__listgame{display: grid;
-    grid-template-columns: repeat(4,320px);  
-    /* 3 columns */
-    grid-template-rows: repeat(2,475px); 
-    justify-items: center;
-    list-style: none;
-    padding: 10px 0px 0px 10px;
-    /* width: 605px; */
-    margin: 0px 0px 0px 0px;
-    justify-items: center;
-
- }
-    .li__grid-listgame-item{
-        display: flex;
-        flex-direction: column;
-    }
-    .img__listgame-item{
-        width: 100%;
-        height: 100%;
-    }
-    .grid__listgame-container{
-        margin: 0 auto;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
-    .grid__listgame li{
-        width: 271px;
-    height: auto;
-    background: #fff;
-    border: 3px solid #bfcdda;
-    border-radius: 10px;
-    
-    margin: 0px 0px 45px 0px;
-    -webkit-box-shadow: 0px 2px 5px 2px rgb(0 0 0 / 50%);
-    box-shadow: 0px 2px 5px 2px rgb(0 0 0 / 50%);
-    position: relative;
-
-    }
-
- .gridgame-listgame__image{
-        margin: 15px auto 15px auto;
-        width: 210px;
-        height: 130px;
-        border: 3px solid #22394c;
-        background-color: #1f1f1f;
-        -webkit-box-shadow: 0px 2px 3px 1px rgb(0 0 0);
-        box-shadow: 0px 2px 3px 1px rgb(0 0 0);
-        -webkit-border-radius: 5px;
-        border-radius: 5px;
-    
-        overflow: hidden;
-        transition: border 0.35s ease-in-out;
-        -moz-transition: border 0.35s ease-in-out;
-        -webkit-transition: border 0.35s ease-in-out;
-        -o-transition: border 0.35s ease-in-out;
-    }
-    .img--style{
-width: 100%;
-height: 100%;
-    }
-    .grid-listgame__content{
-        float: left;
-    margin: 0px 20px 0px 20px;
-    position: relative;
+.grid__listgame {
+  display: grid;
+  grid-template-columns: repeat(4, 320px);
+  /* 3 columns */
+  grid-template-rows: repeat(2, 475px);
+  justify-items: center;
+  list-style: none;
+  padding: 10px 0px 0px 10px;
+  /* width: 605px; */
+  margin: 0px 0px 0px 0px;
+  justify-items: center;
 }
-    .grid__listgame li .grid-listgame__content h2{
-        text-shadow: none;
-    font-family: 'Oswald', Helvetica, Arial, sans-serif;
-    background: none;
-    display: block;
-    height: 20px;
-    width: 290px;
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-    padding: 15px 0px 10px 0px;
-    margin: 0px 0px 0px 0px;
-    float: left;
-    color: #2ac0ff;
-    }
-    .div__release-year{
-        height: 20px;
-        width: 230px;
-        margin-bottom: 10px;
-    float: left;
-    font-size: 10px;
-    color: #999999;
-    border-bottom: 1px solid #e0e0e0;
-    }
-   
+.li__grid-listgame-item {
+  display: flex;
+  flex-direction: column;
+}
+.img__listgame-item {
+  width: 100%;
+  height: 100%;
+}
+.grid__list-game--col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.grid__list-game--row {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.grid__listgame li {
+  width: 271px;
+  height: auto;
+  background: #fff;
+  border: 3px solid #bfcdda;
+  border-radius: 10px;
+  padding-bottom: 20px;
+  margin: 0px 0px 45px 0px;
+  -webkit-box-shadow: 0px 2px 5px 2px rgb(0 0 0 / 50%);
+  box-shadow: 0px 2px 5px 2px rgb(0 0 0 / 50%);
+  position: relative;
+}
+
+.gridgame-listgame__image {
+  margin: 15px auto 15px auto;
+  width: 210px;
+  height: 130px;
+  border: 3px solid #22394c;
+  background-color: #1f1f1f;
+  -webkit-box-shadow: 0px 2px 3px 1px rgb(0 0 0);
+  box-shadow: 0px 2px 3px 1px rgb(0 0 0);
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+
+  overflow: hidden;
+  transition: border 0.35s ease-in-out;
+  -moz-transition: border 0.35s ease-in-out;
+  -webkit-transition: border 0.35s ease-in-out;
+  -o-transition: border 0.35s ease-in-out;
+}
+.img--style {
+  width: 100%;
+  height: 100%;
+}
+.grid-listgame__content {
+  float: left;
+  margin: 0px 20px 0px 20px;
+  position: relative;
+}
+.grid__listgame li .grid-listgame__content h2 {
+  text-shadow: none;
+  font-family: "Oswald", Helvetica, Arial, sans-serif;
+  background: none;
+  display: block;
+  height: 20px;
+  width: 290px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 15px 0px 10px 0px;
+  margin: 0px 0px 0px 0px;
+  float: left;
+  color: #2ac0ff;
+}
+.div__release-year {
+  height: 20px;
+  width: 230px;
+  margin-bottom: 10px;
+  float: left;
+  font-size: 10px;
+  color: #999999;
+  border-bottom: 1px solid #e0e0e0;
+}
