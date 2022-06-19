@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./styles.css";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import ListGame from "../../screens/ListGame/index";
+import { TabBarContext } from "../../context/TabBarContext";
 import Title from "../Title/index";
 import axios from "axios";
 import Button from "@material-ui/core/Button";
 
 const GridNewGame = () => {
+  const { tabBarValue, setTabBarValue } = useContext(TabBarContext);
   const [dataSource, setDataSource] = useState([]);
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
   const handleClick = () => {
-    navigate("/menu");
+    // navigate("/menu");
+    setTabBarValue(1);
   };
   useEffect(() => {
     axios.get("/games?_sort=id&_order=desc&_start=0&_limit=6").then((res) => {

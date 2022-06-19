@@ -14,6 +14,7 @@ import Tab from "@material-ui/core/Tab";
 import Home from "../../screens/Home/index";
 import ListGame from "../../screens/ListGame/index";
 import Contact from "../../screens/Contact/index";
+import { TabBarContext } from "../../context/TabBarContext";
 const a11yProps = (index) => {
   return {
     id: `simple-tab-${index}`,
@@ -30,10 +31,10 @@ const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const { tabBarValue, setTabBarValue } = React.useContext(TabBarContext);
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    setTabBarValue(newValue);
   };
 
   const handleOpenNavMenu = (event) => {
@@ -54,7 +55,7 @@ const ResponsiveAppBar = () => {
             ></img>
             <div className="div__container-menu-and-avatar">
               <Tabs
-                value={value}
+                value={tabBarValue}
                 onChange={handleChange}
                 aria-label="simple tabs example"
               >
@@ -88,13 +89,13 @@ const ResponsiveAppBar = () => {
           </Toolbar>
         </Container>
       </AppBar>
-      <TabPanel value={value} index={0}>
+      <TabPanel value={tabBarValue} index={0}>
         <Home />
       </TabPanel>
-      <TabPanel value={value} index={1}>
+      <TabPanel value={tabBarValue} index={1}>
         <ListGame />
       </TabPanel>
-      <TabPanel value={value} index={2}>
+      <TabPanel value={tabBarValue} index={2}>
         <Contact />
       </TabPanel>
     </div>
