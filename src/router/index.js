@@ -9,11 +9,11 @@ const RoutesGame = () => {
   return (
     <Router>
       <AppBarNew />
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<ListGame />} />
         <Route path="/contact" element={<Contact />} />
-      </Routes>
+      </Routes> */}
     </Router>
   );
 };
