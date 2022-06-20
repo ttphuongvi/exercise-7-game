@@ -15,6 +15,7 @@ import Home from "../../screens/Home/index";
 import ListGame from "../../screens/ListGame/index";
 import Contact from "../../screens/Contact/index";
 import { TabBarContext } from "../../context/TabBarContext";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import FormLogin from "../Login/index";
 const a11yProps = (index) => {
   return {
@@ -91,6 +92,11 @@ const ResponsiveAppBar = () => {
           </Toolbar>
         </Container>
       </AppBar>
+      {/* <Routes>
+        <Route
+          path="/"
+          element={
+            <> */}
       <TabPanel value={tabBarValue} index={0}>
         <Home />
       </TabPanel>
@@ -100,6 +106,10 @@ const ResponsiveAppBar = () => {
       <TabPanel value={tabBarValue} index={2}>
         <Contact />
       </TabPanel>
+      {/* </>
+          }
+        />
+      </Routes> */}
     </div>
   );
 };

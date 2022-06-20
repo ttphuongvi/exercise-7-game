@@ -113,14 +113,15 @@ const Dialog = () => {
     <div className="div__Dialog">
       <Button
         class="snip1582  "
-        title="+ TẠO GAME MỚI"
         onClick={async () => {
           const result = await CustomDialog(<CustomDialogContent />, {
             title: "TẠO GAME",
             showCloseIcon: true,
           });
         }}
-      ></Button>
+      >
+        + TẠO GAME MỚI
+      </Button>
     </div>
   );
 };

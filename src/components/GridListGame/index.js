@@ -4,17 +4,9 @@ import data from "../Casousel/data";
 import DialogPlayGame from "../DialogPlayGame";
 import axios from "axios";
 import "./styles.css";
+import { Link, Route, useMatch, Routes } from "react-router-dom";
+import DetailsGame from "../../screens/DetailsGame/index";
 const GridListGame = (props) => {
-  // const filteredData = data.filter((el) => {
-  //   //if no input the return the original
-  //   if (props.input === "") {
-  //     return el;
-  //   }
-  //   //return the item which contains the user input
-  //   else {
-  //     return el.text.toLowerCase().includes(props.input);
-  //   }
-  // });
   const [hiddenLoadding, setHidden] = useState(false);
   const onClickLoadding = () => {
     axios.get("/games?_sort=id&_order=desc").then((res) => {
@@ -29,6 +21,7 @@ const GridListGame = (props) => {
     });
     console.log(props.input);
   }, []);
+  // let { path, url } = useMatch();
   return (
     <div className="grid__list-game--col">
       <div className="grid__list-game--row">
@@ -41,13 +34,13 @@ const GridListGame = (props) => {
                     <img className="img--style" src={value.image} alt=""></img>
                   </div>
                   <div className="grid-listgame__content">
-                    <h2>{value.caption}</h2>
+                    {/* <Link to={`${url}/${value.id}`}>
+                      {" "}
+                      <h2>{value.caption}</h2>
+                    </Link> */}
+
                     <div className="div__release-year">{value.release}</div>
                     <p className="description--justify">{value.description}</p>
-                    {/* <Button
-                      title="Chơi ngay"
-                      class="custom-btn btn-3 btn--float "
-                    ></Button> */}
                     <DialogPlayGame caption={value.caption} link={value.link} />
                   </div>
                 </li>
