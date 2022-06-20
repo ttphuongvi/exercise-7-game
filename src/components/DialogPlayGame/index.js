@@ -42,7 +42,7 @@ const DialogPlayGame = (props) => {
 
   return (
     <div>
-      <Button class="custom-btn btn-3" onClick={handleClickOpen}>
+      <Button class="custom-btn btn-3 btn--float" onClick={handleClickOpen}>
         Chơi game
       </Button>
       <Dialog

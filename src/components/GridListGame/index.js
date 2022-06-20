@@ -59,10 +59,11 @@ const GridListGame = (props) => {
       {!hiddenLoadding && (
         <Button
           onClick={onClickLoadding}
-          title="Tải thêm game"
           classSpan="btn-label"
-          class="btn btn--margin"
-        ></Button>
+          class="btn btn--margin btn__loadding-game--width"
+        >
+          Tải thêm game
+        </Button>
       )}
     </div>
   );

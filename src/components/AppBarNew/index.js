@@ -15,6 +15,7 @@ import Home from "../../screens/Home/index";
 import ListGame from "../../screens/ListGame/index";
 import Contact from "../../screens/Contact/index";
 import { TabBarContext } from "../../context/TabBarContext";
+import FormLogin from "../Login/index";
 const a11yProps = (index) => {
   return {
     id: `simple-tab-${index}`,
@@ -85,6 +86,7 @@ const ResponsiveAppBar = () => {
                   </IconButton>
                 </Tooltip>
               </Box>
+              <FormLogin />
             </div>
           </Toolbar>
         </Container>

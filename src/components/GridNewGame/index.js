@@ -5,7 +5,7 @@ import ListGame from "../../screens/ListGame/index";
 import { TabBarContext } from "../../context/TabBarContext";
 import Title from "../Title/index";
 import axios from "axios";
-import Button from "@material-ui/core/Button";
+import Button from "./../Button/index";
 
 const GridNewGame = () => {
   const { tabBarValue, setTabBarValue } = useContext(TabBarContext);
@@ -46,11 +46,7 @@ const GridNewGame = () => {
         </section>
       </div>
 
-      <Button
-        class="btn btn--margin"
-        onClick={handleClick}
-        classSpan="btn-label"
-      >
+      <Button class="btn " onClick={handleClick} classSpan="btn-label">
         Xem thêm
       </Button>
 
