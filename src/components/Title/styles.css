@@ -1,29 +1,45 @@
 .header {
-    padding: 10px 20px 0px 20px;
-    height: 55px;
-    margin-bottom: 20px;
-    float: left;
-    /* margin-left: 5px; */
-    top: 0;
-    display: flex;
-    justify-content: center;
+  padding: 10px 20px 0px 20px;
+  height: 55px;
+  margin-bottom: 20px;
+  float: left;
+  /* margin-left: 5px; */
+  top: 0;
+  display: flex;
+  justify-content: center;
 }
-h1 {
-    margin: 0 auto;
-    /* text-shadow: 0px 1px 3px rgb(0 0 0); */
-    font-family: 'Oswald', Helvetica, Arial, sans-serif;
-    color: #000;
-    display: block;
-    width: 95% !important;
-    font-size: 18px;
-    font-weight: 700;
-    text-transform: uppercase;
-    border-bottom: 1px solid #23313c;
-    padding: 7px 0px 10px 25px;
-    background: url("http://skywarriorthemes.com/orizon/blue/images/hbullet.png") left top no-repeat;
-    margin: 0px 0px 0px 0px;
+.header h1 {
+  margin: 0 auto;
+  /* text-shadow: 0px 1px 3px rgb(0 0 0); */
+  font-family: "Oswald", Helvetica, Arial, sans-serif;
+  color: #000;
+  display: block;
+  width: 95% !important;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 1px solid #23313c;
+  padding: 7px 0px 10px 25px;
+  background: url("http://skywarriorthemes.com/orizon/blue/images/hbullet.png")
+    left top no-repeat;
+  margin: 0px 0px 0px 0px;
 }
-.logo__hahalolo{
-    color: #2ac0ff;
-    float: left;
+.logo__hahalolo {
+  color: #2ac0ff;
+  float: left;
+}
+.div__container--flex {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  width: 95%;
+  justify-content: space-between;
+  /* margin-bottom: 20px; */
+  /* che do toi */
+  background: var(--shining-background);
+  margin: 30px;
+  border-bottom: 0px;
+  position: relative;
+  box-shadow: var(--shining-boxcontainer-box-shadow);
+  margin-top: 100px;
 }

@@ -21,8 +21,7 @@ const GridNewGame = () => {
     });
   }, []);
   return (
-    <div className="div__container--flex">
-      <Title title="GAME MỚI NHẤT"></Title>
+    <Title title="Game mới nhất">
       <div className="grid__newgame-container">
         <section>
           <div class="grid__newgame">
@@ -45,15 +44,13 @@ const GridNewGame = () => {
           </div>
         </section>
       </div>
-
       <Button class="btn " onClick={handleClick} classSpan="btn-label">
         Xem thêm
       </Button>
-
       {/* <Routes>
         <Route path="/menu" element={<ListGame />} />
       </Routes> */}
-    </div>
+    </Title>
   );
 };
 {

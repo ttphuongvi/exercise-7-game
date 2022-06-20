@@ -24,75 +24,64 @@ const CustomDialogContent = () => {
   return (
     <form className="div__Dialog">
       <div className="div__dialog-content">
-        <div className="div__container-label-input">
-          <label className="label__content">
-            Ảnh:
-            <input
-              value={image}
-              className="form__input"
-              onChange={(e) => {
-                setImage(e.target.value);
-              }}
-              type="text"
-            ></input>
-          </label>
+        <div className="dialog__container-label-input">
+          <label className="label__content">Ảnh:</label>
+          <input
+            value={image}
+            className="form__input"
+            onChange={(e) => {
+              setImage(e.target.value);
+            }}
+            type="text"
+          ></input>
         </div>
-        <div className="div__container-label-input">
-          <label className="label__content">
-            Tên:
-            <input
-              value={caption}
-              className="form__input"
-              onChange={(e) => {
-                setCaption(e.target.value);
-              }}
-              type="text"
-            ></input>
-          </label>
+        <div className="dialog__container-label-input">
+          <label className="label__content">Tên:</label>
+          <input
+            value={caption}
+            className="form__input"
+            onChange={(e) => {
+              setCaption(e.target.value);
+            }}
+            type="text"
+          ></input>
         </div>{" "}
-        <div className="div__container-label-input">
-          <label className="label__content">
-            Ngày phát hành:
-            <input
-              value={release}
-              className="form__input"
-              onChange={(e) => {
-                setRelease(e.target.value);
-              }}
-              type="date"
-            ></input>
-          </label>
+        <div className="dialog__container-label-input">
+          <label className="label__content">Ngày phát hành:</label>
+          <input
+            value={release}
+            className="form__input"
+            onChange={(e) => {
+              setRelease(e.target.value);
+            }}
+            type="date"
+          ></input>
         </div>{" "}
-        <div className="div__container-label-input">
-          <label className="label__content">
-            Mô tả:
-            <input
-              value={description}
-              className="form__input"
-              onChange={(e) => {
-                setDescription(e.target.value);
-              }}
-              type="textarea"
-            ></input>
-          </label>
+        <div className="dialog__container-label-input">
+          <label className="label__content">Mô tả:</label>
+          <input
+            value={description}
+            className="form__input"
+            onChange={(e) => {
+              setDescription(e.target.value);
+            }}
+            type="textarea"
+          ></input>
         </div>{" "}
-        <div className="div__container-label-input">
-          <label className="label__content">
-            Link game:
-            <input
-              value={link}
-              className="form__input"
-              onChange={(e) => {
-                setLink(e.target.value);
-              }}
-              type="text"
-            ></input>
-          </label>
+        <div className="dialog__container-label-input">
+          <label className="label__content">Link game:</label>
+          <input
+            value={link}
+            className="form__input"
+            onChange={(e) => {
+              setLink(e.target.value);
+            }}
+            type="text"
+          ></input>
         </div>
       </div>
       <Button
         class="custom-btn btn-3"
-        title=" Lưu Game"
         onClick={() => {
           if (caption && description && image && release && link) {
             saveGame();
@@ -103,7 +92,9 @@ const CustomDialogContent = () => {
             alert("Vui lòng nhập đầy đủ thông tin");
           }
         }}
-      ></Button>
+      >
+        Lưu game
+      </Button>
     </form>
   );
 };
