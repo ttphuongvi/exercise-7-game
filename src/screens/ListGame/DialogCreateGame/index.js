@@ -1,6 +1,6 @@
 import { CustomDialog, useDialog } from "react-st-modal";
 import { useState } from "react";
-import Button from "./../../components/Button";
+import Button from "../../../components/Button/index";
 import "./styles.css";
 // import data from "./data.js";
 import axios from "axios";
@@ -25,7 +25,7 @@ const CustomDialogContent = () => {
     <form className="div__Dialog">
       <div className="div__dialog-content">
         <div className="dialog__container-label-input">
-          <label className="label__content">Ảnh:</label>
+          <label className="label__create-game">Ảnh:</label>
           <input
             value={image}
             className="form__input"
@@ -36,7 +36,7 @@ const CustomDialogContent = () => {
           ></input>
         </div>
         <div className="dialog__container-label-input">
-          <label className="label__content">Tên:</label>
+          <label className="label__create-game">Tên:</label>
           <input
             value={caption}
             className="form__input"
@@ -47,7 +47,7 @@ const CustomDialogContent = () => {
           ></input>
         </div>{" "}
         <div className="dialog__container-label-input">
-          <label className="label__content">Ngày phát hành:</label>
+          <label className="label__create-game">Ngày phát hành:</label>
           <input
             value={release}
             className="form__input"
@@ -58,7 +58,7 @@ const CustomDialogContent = () => {
           ></input>
         </div>{" "}
         <div className="dialog__container-label-input">
-          <label className="label__content">Mô tả:</label>
+          <label className="label__create-game">Mô tả:</label>
           <input
             value={description}
             className="form__input"
@@ -69,7 +69,7 @@ const CustomDialogContent = () => {
           ></input>
         </div>{" "}
         <div className="dialog__container-label-input">
-          <label className="label__content">Link game:</label>
+          <label className="label__create-game">Link game:</label>
           <input
             value={link}
             className="form__input"
@@ -99,7 +99,7 @@ const CustomDialogContent = () => {
   );
 };
 
-const Dialog = () => {
+const DialogCreateGame = () => {
   return (
     <div className="div__Dialog">
       <Button
@@ -116,4 +116,4 @@ const Dialog = () => {
     </div>
   );
 };
-export default Dialog;
+export default DialogCreateGame;

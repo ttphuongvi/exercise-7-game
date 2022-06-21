@@ -4,7 +4,7 @@ import AppBar from "../components/AppBar/index";
 import Home from "../screens/Home/index";
 import Contact from "../screens/Contact/index";
 import ListGame from "../screens/ListGame/index";
-import AppBarNew from "../components/AppBarNew/index";
+import AppBarNew from "../screens/AppBarNew/index";
 const RoutesGame = () => {
   return (
     <Router>

@@ -10,8 +10,7 @@
 .div__dialog-content {
   width: 65%;
 }
-.label__content {
-  /* min-width: 60px; */
+.label__create-game {
   display: flex;
   flex-direction: row;
   justify-content: space-between;

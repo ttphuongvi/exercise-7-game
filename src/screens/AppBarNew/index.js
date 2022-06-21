@@ -9,7 +9,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import Avatar from "@material-ui/core/Avatar";
 import "./styles.css";
 import Tabs from "@material-ui/core/Tabs";
-import TabPanel from "../TabPanel";
+import TabPanel from "./TabPanel";
 import Tab from "@material-ui/core/Tab";
 import Home from "../../screens/Home/index";
 import ListGame from "../../screens/ListGame/index";

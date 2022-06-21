@@ -1,7 +1,6 @@
 import React from "react";
-import Slider from "../../components/Slider";
-import Casousel from "../../components/Casousel";
-import GridNewGame from "../../components/GridNewGame";
+import Casousel from "./Casousel";
+import GridNewGame from "./GridNewGame";
 // import logo from "./img/hahalolo-logo.png";
 const Home = () => {
   return (

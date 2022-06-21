@@ -1,11 +1,10 @@
 import { React, useEffect, useState } from "react";
-import Button from "../Button/index";
-import data from "../Casousel/data";
+import Button from "../../../components/Button/index";
 import DialogPlayGame from "../DialogPlayGame";
 import axios from "axios";
 import "./styles.css";
 import { Link, Route, useMatch, Routes } from "react-router-dom";
-import DetailsGame from "../../screens/DetailsGame/index";
+import DetailsGame from "./../../DetailsGame";
 const GridListGame = (props) => {
   const [hiddenLoadding, setHidden] = useState(false);
   const onClickLoadding = () => {

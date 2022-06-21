@@ -13,7 +13,7 @@ const Contact = () => {
           <form className="form__container-contact">
             {" "}
             <div className="div__contact-label-input">
-              <label className="label__content">
+              <label className="label__contact">
                 Họ và tên:
                 <small className="start--red">*</small>
               </label>{" "}
@@ -27,13 +27,13 @@ const Contact = () => {
               ></input>
             </div>
             <div className="div__contact-label-input">
-              <label className="label__content">
+              <label className="label__contact">
                 Tiêu đề:
                 <small className="start--red">*</small>
               </label>
               <input
                 value={title}
-                className="form__input input__contact"
+                className=" input__contact"
                 onChange={(e) => {
                   setTitle(e.target.value);
                 }}
@@ -41,7 +41,7 @@ const Contact = () => {
               ></input>
             </div>
             <div className="div__contact-label-input">
-              <label className="label__content">
+              <label className="label__contact">
                 Nội dung liên hệ:
                 <small className="start--red">*</small>
               </label>

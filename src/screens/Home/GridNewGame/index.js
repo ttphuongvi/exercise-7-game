@@ -1,11 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./styles.css";
-import { Route, Routes, useNavigate } from "react-router-dom";
-import ListGame from "../../screens/ListGame/index";
-import { TabBarContext } from "../../context/TabBarContext";
-import Title from "../Title/index";
+import { TabBarContext } from "../../../context/TabBarContext";
+import Title from "../../../components/Title";
 import axios from "axios";
-import Button from "./../Button/index";
+import Button from "../../../components/Button/index";
 
 const GridNewGame = () => {
   const { tabBarValue, setTabBarValue } = useContext(TabBarContext);

@@ -1,10 +1,10 @@
 import { React, useState } from "react";
 import TextField from "@material-ui/core/TextField";
-import Dialog from "../../components/Dialog";
+import DialogCreateGame from "./DialogCreateGame/index";
 import Title from "../../components/Title";
 import "./styles.css";
 import dataYear from "./dataYear.js";
-import GridListGame from "../../components/GridListGame";
+import GridListGame from "./GridListGame";
 import "./styles.css";
 const ListGame = () => {
   const [inputText, setInputText] = useState("");
@@ -38,7 +38,7 @@ const ListGame = () => {
               ))}
             </select>
           </div>
-          <Dialog />
+          <DialogCreateGame />
         </section>
         <GridListGame input={inputText} />
       </div>
