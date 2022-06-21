@@ -11,8 +11,8 @@ const TabPanel = (props) => {
       index={props.index}
       role="tabpanel"
       hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
+      id={`full-width-tabpanel-${index}`}
+      aria-labelledby={`full-width-tab-${index}`}
       {...other}
     >
       {value === index && (

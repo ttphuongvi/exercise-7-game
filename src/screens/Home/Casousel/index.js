@@ -1,5 +1,7 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
 import { Carousel } from "react-carousel-minimal";
+import axios from "axios";
+import Button from "../../../components/Button";
 import data from "./data";
 const captionStyle = {
   fontSize: "2em",
@@ -10,6 +12,15 @@ const slideNumberStyle = {
   fontWeight: "bold",
 };
 const Casousel = () => {
+  const [dataSource, setDataSource] = useState([]);
+  console.log(dataSource);
+  useEffect(() => {
+    if (dataSource.length === 0) {
+      axios.get("/games?_sort=id&_order=desc&_start=0&_limit=6").then((res) => {
+        setDataSource(res.data);
+      });
+    }
+  }, []);
   return (
     <Carousel
       data={data}

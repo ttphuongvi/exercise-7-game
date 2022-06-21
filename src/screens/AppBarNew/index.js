@@ -14,7 +14,8 @@ import Tab from "@material-ui/core/Tab";
 import Home from "../../screens/Home/index";
 import ListGame from "../../screens/ListGame/index";
 import Contact from "../../screens/Contact/index";
-import { TabBarContext } from "../../context/TabBarContext";
+import Button from "../../components/Button/index";
+// import { TabBarContext } from "../../context/TabBarContext";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import FormLogin from "../Login/index";
 const a11yProps = (index) => {
@@ -33,10 +34,11 @@ const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const classes = useStyles();
-  const { tabBarValue, setTabBarValue } = React.useContext(TabBarContext);
-
-  const handleChange = (event, newValue) => {
-    setTabBarValue(newValue);
+  // const { tabBarValue, setTabBarValue } = React.useContext(TabBarContext);
+  const [value, setValue] = React.useState(0);
+  const navigateTabListgame = (tab, newTab) => {
+    // setTabBarValue(newValue);
+    setValue(newTab);
   };
 
   const handleOpenNavMenu = (event) => {
@@ -57,8 +59,9 @@ const ResponsiveAppBar = () => {
             ></img>
             <div className="div__container-menu-and-avatar">
               <Tabs
-                value={tabBarValue}
-                onChange={handleChange}
+                // value={tabBarValue}
+                value={value}
+                onChange={navigateTabListgame}
                 aria-label="simple tabs example"
               >
                 <Tab label="TRANG CHỦ" {...a11yProps(0)} />
@@ -97,13 +100,13 @@ const ResponsiveAppBar = () => {
           path="/"
           element={
             <> */}
-      <TabPanel value={tabBarValue} index={0}>
-        <Home />
+      <TabPanel value={value} index={0}>
+        <Home navigateTabListgame={navigateTabListgame} />
       </TabPanel>
-      <TabPanel value={tabBarValue} index={1}>
+      <TabPanel value={value} index={1}>
         <ListGame />
       </TabPanel>
-      <TabPanel value={tabBarValue} index={2}>
+      <TabPanel value={value} index={2}>
         <Contact />
       </TabPanel>
       {/* </>
