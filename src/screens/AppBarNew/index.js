@@ -14,9 +14,9 @@ import Tab from "@material-ui/core/Tab";
 import Home from "../../screens/Home/index";
 import ListGame from "../../screens/ListGame/index";
 import Contact from "../../screens/Contact/index";
-import Button from "../../components/Button/index";
+import BannerExample from "../ViDu/index";
+import logo from "../../img/hahalolo-logo-1.png";
 // import { TabBarContext } from "../../context/TabBarContext";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import FormLogin from "../Login/index";
 const a11yProps = (index) => {
   return {
@@ -52,11 +52,7 @@ const ResponsiveAppBar = () => {
       <AppBar position="fixed">
         <Container className="appbar__container" maxWidth="xl">
           <Toolbar className="appbar__toolbar" disableGutters>
-            <img
-              className="img__logo"
-              alt="logo"
-              src="https://assets.topdev.vn/images/2022/03/08/TopDev-hahalolo-logo-1646710802.png"
-            ></img>
+            <img className="img__logo" alt="logo" src={logo}></img>
             <div className="div__container-menu-and-avatar">
               <Tabs
                 // value={tabBarValue}
@@ -67,6 +63,7 @@ const ResponsiveAppBar = () => {
                 <Tab label="TRANG CHỦ" {...a11yProps(0)} />
                 <Tab label="DANH SÁCH GAME" {...a11yProps(1)} />
                 <Tab label="LIÊN HỆ" {...a11yProps(2)} />
+                <Tab label="vÍ DỤ" {...a11yProps(3)} />
               </Tabs>
 
               <Box sx={{ flexGrow: 0 }}>
@@ -108,6 +105,9 @@ const ResponsiveAppBar = () => {
       </TabPanel>
       <TabPanel value={value} index={2}>
         <Contact />
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        <BannerExample />
       </TabPanel>
       {/* </>
           }

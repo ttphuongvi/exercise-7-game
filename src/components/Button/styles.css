@@ -40,7 +40,7 @@ button {
 }
 .btn-3:before,
 .btn-3:after {
-  position: absolute;
+  /* position: absolute; */
   content: "";
   right: 0;
   top: 0;
@@ -70,7 +70,7 @@ button {
 }
 .btn-3 span:before,
 .btn-3 span:after {
-  position: absolute;
+  /* position: absolute; */
   content: "";
   left: 0;
   bottom: 0;
