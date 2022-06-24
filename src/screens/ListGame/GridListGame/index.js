@@ -38,7 +38,9 @@ const GridListGame = (props) => {
                       <h2>{value.caption}</h2>
                     </Link> */}
 
-                    <div className="div__release-year">{value.release}</div>
+                    <div className="div__release-year">
+                      Phát hành ngày {value.release}
+                    </div>
                     <p className="description--justify">{value.description}</p>
                     <DialogPlayGame caption={value.caption} link={value.link} />
                   </div>
