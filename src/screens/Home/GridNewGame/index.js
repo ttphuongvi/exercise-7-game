@@ -4,7 +4,15 @@ import "./styles.css";
 import Title from "../../../components/Title";
 import axios from "axios";
 import Button from "../../../components/Button/index";
-
+import {
+  Link,
+  Routes,
+  Route,
+  useMatch,
+  useParams,
+  Router,
+} from "react-router-dom";
+import DetailsGame from "../../DetailsGame";
 const GridNewGame = ({ navigateTabListgame }) => {
   // const { tabBarValue, setTabBarValue } = useContext(TabBarContext);
   const [dataSource, setDataSource] = useState([]);
@@ -23,8 +31,12 @@ const GridNewGame = ({ navigateTabListgame }) => {
   //   // setTabBarValue(newValue);
   //   setValue(newValue);
   // };
-
+  // let match = useMatch();
+  // console.log(path);
+  // let { id } = useParams();
   return (
+    // <Router>
+    // <Routes>
     <Title title="Game mới nhất">
       <div className="grid__newgame-container">
         <section>
@@ -38,9 +50,12 @@ const GridNewGame = ({ navigateTabListgame }) => {
                   </div>
                   <div className="grid-newgame__content">
                     <p className="description--justify">{value.description}</p>
-                    <Button class="custom-btn btn-3 btn--float">
+                    <Link
+                      class="custom-btn btn-3 btn--float"
+                      to={`/${value.id}`}
+                    >
                       Xem chi tiết
-                    </Button>
+                    </Link>
                   </div>
                 </li>
               );
@@ -57,9 +72,6 @@ const GridNewGame = ({ navigateTabListgame }) => {
       >
         Xem thêm
       </Button>
-      {/* <Routes>
-        <Route path="/menu" element={<ListGame />} />
-      </Routes> */}
     </Title>
   );
 };

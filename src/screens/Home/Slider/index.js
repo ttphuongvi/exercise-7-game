@@ -1,7 +1,6 @@
 import { React, useEffect, useState } from "react";
 import "./styles.css";
 import axios from "axios";
-import BackgroundCaption from "../../../img/waves.jpg";
 import Button from "../../../components/Button";
 
 const Slider = () => {
@@ -41,7 +40,7 @@ const Slider = () => {
                     <div className="slider__container-caption">
                       <div className="slider__caption">{value.caption}</div>
                       <p>{value.description}</p>
-                      <Button class="">Xem chi tiết</Button>
+                      <Button class="custom-btn btn-3">Xem chi tiết</Button>
                     </div>
                     <img src={value.image} alt="" />
                   </div>
@@ -54,7 +53,7 @@ const Slider = () => {
                   <div className="slider__container-caption">
                     <div className="slider__caption">{value.caption}</div>
                     <p>{value.description}</p>
-                    <Button class="">Xem chi tiết</Button>
+                    <Button class="custom-btn btn-3">Xem chi tiết</Button>
                   </div>
                   <img src={value.image} alt="" />
                 </div>

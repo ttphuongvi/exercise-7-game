@@ -14,7 +14,6 @@ import Tab from "@material-ui/core/Tab";
 import Home from "../../screens/Home/index";
 import ListGame from "../../screens/ListGame/index";
 import Contact from "../../screens/Contact/index";
-import BannerExample from "../ViDu/index";
 import logo from "../../img/hahalolo-logo-1.png";
 // import { TabBarContext } from "../../context/TabBarContext";
 import FormLogin from "../Login/index";
@@ -63,7 +62,6 @@ const ResponsiveAppBar = () => {
                 <Tab label="TRANG CHỦ" {...a11yProps(0)} />
                 <Tab label="DANH SÁCH GAME" {...a11yProps(1)} />
                 <Tab label="LIÊN HỆ" {...a11yProps(2)} />
-                <Tab label="vÍ DỤ" {...a11yProps(3)} />
               </Tabs>
 
               <Box sx={{ flexGrow: 0 }}>
@@ -106,9 +104,7 @@ const ResponsiveAppBar = () => {
       <TabPanel value={value} index={2}>
         <Contact />
       </TabPanel>
-      <TabPanel value={value} index={3}>
-        <BannerExample />
-      </TabPanel>
+
       {/* </>
           }
         />
