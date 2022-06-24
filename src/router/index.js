@@ -7,7 +7,7 @@ const RoutesGame = () => {
     <Router>
       <Routes>
         <Route path="/" element={<AppBarNew />}></Route>
-        <Route path="/:id" element={<DetailsGame />}></Route>
+        <Route path="/:params" element={<DetailsGame />}></Route>
       </Routes>
     </Router>
   );

@@ -25,6 +25,7 @@ const GridNewGame = ({ navigateTabListgame }) => {
     axios.get("/games?_sort=id&_order=desc&_start=0&_limit=6").then((res) => {
       setDataSource(res.data);
     });
+    console.log(dataSource);
   }, []);
   // const [value, setValue] = React.useState(0);
   // const handleChange = (event, newValue) => {
