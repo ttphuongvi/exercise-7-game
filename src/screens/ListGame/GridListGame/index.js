@@ -33,15 +33,16 @@ const GridListGame = (props) => {
                     <img className="img--style" src={value.image} alt=""></img>
                   </div>
                   <div className="grid-listgame__content">
-                    {/* <Link to={`${url}/${value.id}`}>
+                    <Link to={`/${value.id}`}>
                       {" "}
                       <h2>{value.caption}</h2>
-                    </Link> */}
-
+                    </Link>
                     <div className="div__release-year">
                       Phát hành ngày {value.release}
                     </div>
-                    <p className="description--justify">{value.description}</p>
+                    <p className="description--justify description--justify--line-clamp-9">
+                      {value.description}
+                    </p>
                     <DialogPlayGame caption={value.caption} link={value.link} />
                   </div>
                 </li>
