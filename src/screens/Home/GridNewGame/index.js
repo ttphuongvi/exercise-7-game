@@ -4,23 +4,12 @@ import "./styles.css";
 import Title from "../../../components/Title";
 import axios from "axios";
 import Button from "../../../components/Button/index";
-import {
-  Link,
-  Routes,
-  Route,
-  useMatch,
-  useParams,
-  Router,
-} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import DetailsGame from "../../DetailsGame";
 const GridNewGame = ({ navigateTabListgame }) => {
   // const { tabBarValue, setTabBarValue } = useContext(TabBarContext);
   const [dataSource, setDataSource] = useState([]);
-  // let navigate = useNavigate();
-  // const handleClick = () => {
-  //   navigate("/menu");
-  //   setTabBarValue(1);
-  // };
+  let navigate = useNavigate();
   useEffect(() => {
     axios.get("/games?_sort=id&_order=desc&_start=0&_limit=6").then((res) => {
       setDataSource(res.data);
@@ -36,9 +25,7 @@ const GridNewGame = ({ navigateTabListgame }) => {
   // console.log(path);
   // let { id } = useParams();
   return (
-    // <Router>
-    // <Routes>
-    <Title title="Game mới nhất">
+    <Title class="div__container--flex " title="Game mới nhất">
       <div className="grid__newgame-container">
         <section>
           <div class="grid__newgame">
@@ -50,13 +37,18 @@ const GridNewGame = ({ navigateTabListgame }) => {
                     <img className="img--width" src={value.image} alt=""></img>
                   </div>
                   <div className="grid-newgame__content">
-                    <p className="description--justify">{value.description}</p>
-                    <Link
+                    <p className="description--justify description--justify--line-clamp-8">
+                      {value.description}
+                    </p>
+                    <Button
                       class="custom-btn btn-3 btn--float"
-                      to={`/${value.id}`}
+                      // to={`/${value.id}`}
+                      onClick={() => {
+                        navigate(`/${value.id}`);
+                      }}
                     >
                       Xem chi tiết
-                    </Link>
+                    </Button>
                   </div>
                 </li>
               );

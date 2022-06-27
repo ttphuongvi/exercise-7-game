@@ -138,8 +138,19 @@
   color: var(--shining-color-decripstion-grid);
   font-size: 14px;
   height: 190px;
+  width: 100%;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  /* margin-bottom: 5px; */
+  /* text-overflow: ellipsis;
+  overflow: hidden; */
+  /* white-space: wrap; */
+  margin-bottom: 5px;
+  overflow: hidden;
+  display: -webkit-box;
+  /* -webkit-line-clamp: 9; */
+  -webkit-box-orient: vertical;
+}
+.description--justify--line-clamp-8 {
+  -webkit-line-clamp: 8;
 }
 
 .btn__readdetail {
