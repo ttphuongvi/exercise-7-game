@@ -15,6 +15,7 @@ import Home from "../../screens/Home/index";
 import ListGame from "../../screens/ListGame/index";
 import Contact from "../../screens/Contact/index";
 import logo from "../../img/hahalolo-logo-1.png";
+import Category from "../Category";
 // import { TabBarContext } from "../../context/TabBarContext";
 import FormLogin from "../Login/index";
 const a11yProps = (index) => {
@@ -61,7 +62,8 @@ const ResponsiveAppBar = () => {
               >
                 <Tab label="TRANG CHỦ" {...a11yProps(0)} />
                 <Tab label="DANH SÁCH GAME" {...a11yProps(1)} />
-                <Tab label="LIÊN HỆ" {...a11yProps(2)} />
+                <Tab label="DANH MỤC" {...a11yProps(2)} />
+                <Tab label="LIÊN HỆ" {...a11yProps(3)} />
               </Tabs>
 
               <Box sx={{ flexGrow: 0 }}>
@@ -102,6 +104,9 @@ const ResponsiveAppBar = () => {
         <ListGame />
       </TabPanel>
       <TabPanel value={value} index={2}>
+        <Category />
+      </TabPanel>
+      <TabPanel value={value} index={3}>
         <Contact />
       </TabPanel>
 
