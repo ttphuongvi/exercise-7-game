@@ -1,5 +1,5 @@
 .header {
-  padding: 10px 20px 0px 20px;
+  padding: 10px 0px 0px 0px;
   height: 55px;
   margin-bottom: 20px;
   float: left;
@@ -41,5 +41,5 @@
   border-bottom: 0px;
   position: relative;
   box-shadow: var(--shining-boxcontainer-box-shadow);
-  margin-top: 100px;
+  /* margin-top: 100px; */
 }

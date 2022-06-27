@@ -11,9 +11,9 @@ const DetailsGame = () => {
   useEffect(() => {
     axios.get(`${urlRequest}${params}`).then((res) => {
       setDataSource(res.data[0]);
+      console.log(res.data);
+      // console.log(dataSource);
     });
-    console.log(params);
-    console.log(dataSource);
   }, [params]);
   // console.log(id);
   // console.log("aa");
@@ -22,7 +22,7 @@ const DetailsGame = () => {
     <div>
       {dataSource && (
         <div>
-          <Title title="Chi tiết game">
+          <Title class="div__container--flex" title="Chi tiết game">
             <div className="details-game__container">
               <div className="details-game__header">
                 <div className="details-game__info">

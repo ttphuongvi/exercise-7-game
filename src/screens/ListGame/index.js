@@ -14,7 +14,7 @@ const ListGame = () => {
     setInputText(lowerCase);
   };
   return (
-    <Title title="DANH SÁCH GAME">
+    <Title class="div__container--flex mr-t--100" title="DANH SÁCH GAME">
       <div className="div__ListGame">
         <section className="sec-1 flex--row flex--spacebetween">
           <div className="search flex--row search__input">

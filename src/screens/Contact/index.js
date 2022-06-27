@@ -8,7 +8,7 @@ const Contact = () => {
   const [content, setContent] = useState("");
   return (
     <div>
-      <Title title="Liên hệ">
+      <Title class="div__container--flex mr-t--100" title="Liên hệ">
         <div className="div__container-form">
           <form className="form__container-contact">
             {" "}
