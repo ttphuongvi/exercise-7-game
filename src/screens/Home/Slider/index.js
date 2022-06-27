@@ -2,8 +2,10 @@ import { React, useEffect, useState } from "react";
 import "./styles.css";
 import axios from "axios";
 import Button from "../../../components/Button";
+import { useNavigate } from "react-router-dom";
 
 const Slider = () => {
+  let navigate = useNavigate();
   const [dataSource, setDataSource] = useState([]);
   useEffect(() => {
     axios.get("/games?_sort=id&_order=desc&_start=0&_limit=6").then((res) => {
@@ -53,7 +55,14 @@ const Slider = () => {
                   <div className="slider__container-caption">
                     <div className="slider__caption">{value.caption}</div>
                     <p>{value.description}</p>
-                    <Button class="custom-btn btn-3">Xem chi tiết</Button>
+                    <Button
+                      onClick={() => {
+                        navigate(`/${value.id}`);
+                      }}
+                      class="custom-btn btn-3"
+                    >
+                      Xem chi tiết
+                    </Button>
                   </div>
                   <img src={value.image} alt="" />
                 </div>
