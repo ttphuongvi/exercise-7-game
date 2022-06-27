@@ -3,6 +3,8 @@ import { Link, useParams, useMatch } from "react-router-dom";
 import axios from "axios";
 import Title from "../../components/Title";
 import "./styles.css";
+import DialogPlayGame from "../../components/DialogPlayGame";
+import { getValue } from "@testing-library/user-event/dist/utils";
 const DetailsGame = () => {
   let { params } = useParams();
   // let { url } = useMatch();
@@ -40,7 +42,15 @@ const DetailsGame = () => {
                   alt=""
                 ></img>
               </div>
-              <div className="details-game__body"></div>
+              <div className="details-game__body">
+                <div className="details-game__description">
+                  {dataSource.description}
+                </div>
+                <DialogPlayGame
+                  caption={dataSource.caption}
+                  link={dataSource.link}
+                />
+              </div>
             </div>
           </Title>
         </div>
