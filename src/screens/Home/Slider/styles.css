@@ -26,7 +26,7 @@
   width: 1230px;
   height: 100%;
   right: 0;
-  object-fit: cover;
+  object-fit: fill;
   position: absolute;
   z-index: 1;
 

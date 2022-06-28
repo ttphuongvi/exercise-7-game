@@ -63,6 +63,7 @@
 }
 .details-game__description {
   text-align: justify;
+  margin-bottom: 15px;
 }
 .details-game__body {
   display: flex;
