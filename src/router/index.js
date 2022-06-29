@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import AppBarNew from "../screens/AppBarNew/index";
-import DetailsGame from "../screens/DetailsGame";
+import DetailsGame from "../Atomic/pages/DetailsGame";
+import AppBarNew from "../Atomic/organisms/AppBarNew/index";
+
 const RoutesGame = () => {
   return (
     <Router>
