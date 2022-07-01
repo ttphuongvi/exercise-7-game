@@ -1,7 +1,4 @@
-import React from "react";
 import AppBar from "@material-ui/core/AppBar";
-const AtomAppBar = (props) => {
-  return <AppBar>{props.children}</AppBar>;
-};
 
+const AtomAppBar = AppBar;
 export default AtomAppBar;
