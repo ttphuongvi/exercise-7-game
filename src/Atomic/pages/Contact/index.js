@@ -1,7 +1,8 @@
 import { React, useState } from "react";
-import Button from "../../atoms/Button";
 import Title from "../../../components/Title";
 import "./styles.css";
+import ButtonStyle1 from "../../molecules/ButtonStyle1";
+
 const Contact = () => {
   const [name, setName] = useState("");
   const [title, setTitle] = useState("");
@@ -54,7 +55,7 @@ const Contact = () => {
                 type="textarea"
               ></input>
             </div>
-            <Button class="custom-btn btn-3 btn--margin">Gửi yêu cầu</Button>
+            <ButtonStyle1 label="Gửi yêu cầu"></ButtonStyle1>
           </form>
         </div>
       </Title>
