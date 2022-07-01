@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import "./styles.css";
 import axios from "axios";
-import Button from "../../atoms/Button";
+import ButtonStyle1 from "../../molecules/ButtonStyle1";
 import { useNavigate } from "react-router-dom";
 
 const Slider = () => {
@@ -35,14 +35,20 @@ const Slider = () => {
         <input type="radio" name="radio-btn" id="radio6" />
         <>
           {dataSource.map((value, index) => {
-            if (index === 1) {
+            console.log(index);
+            if (index === 0) {
               return (
                 <div class="slide first">
                   <div className="slide__container">
                     <div className="slider__container-caption">
                       <div className="slider__caption">{value.caption}</div>
                       <p>{value.description}</p>
-                      <Button class="custom-btn btn-3">Xem chi tiết</Button>
+                      <ButtonStyle1
+                        label="Xem chi tiết"
+                        onClick={() => {
+                          navigate(`/${value.id}`);
+                        }}
+                      />
                     </div>
                     <img src={value.image} alt="" />
                   </div>
@@ -55,14 +61,12 @@ const Slider = () => {
                   <div className="slider__container-caption">
                     <div className="slider__caption">{value.caption}</div>
                     <p>{value.description}</p>
-                    <Button
+                    <ButtonStyle1
+                      label="Xem chi tiết"
                       onClick={() => {
                         navigate(`/${value.id}`);
                       }}
-                      class="custom-btn btn-3"
-                    >
-                      Xem chi tiết
-                    </Button>
+                    />
                   </div>
                   <img src={value.image} alt="" />
                 </div>
