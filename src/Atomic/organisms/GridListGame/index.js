@@ -1,10 +1,9 @@
 import { React, useEffect, useState } from "react";
-import Button from "../../atoms/Button/index";
 import axios from "axios";
 import "./styles.css";
-import { Link, Route, useMatch, Routes } from "react-router-dom";
-import DetailsGame from "../../pages/DetailsGame";
-import DialogPlayGame from "../DialogPlayGame";
+import { Link } from "react-router-dom";
+import PlayGame from "../PlayGame";
+import ButtonStyle2 from "../../molecules/ButtonStyle2";
 const GridListGame = (props) => {
   const [hiddenLoadding, setHidden] = useState(false);
   const onClickLoadding = () => {
@@ -43,7 +42,7 @@ const GridListGame = (props) => {
                     <p className="description--justify description--justify--line-clamp-9">
                       {value.description}
                     </p>
-                    <DialogPlayGame caption={value.caption} link={value.link} />
+                    <PlayGame caption={value.caption} link={value.link} />
                   </div>
                 </li>
               );
@@ -52,13 +51,10 @@ const GridListGame = (props) => {
         </section>
       </div>
       {!hiddenLoadding && (
-        <Button
+        <ButtonStyle2
           onClick={onClickLoadding}
-          classSpan="btn-label"
-          class="btn btn--margin btn__loadding-game--width"
-        >
-          Tải thêm game
-        </Button>
+          label="Tải thêm game"
+        ></ButtonStyle2>
       )}
     </div>
   );
