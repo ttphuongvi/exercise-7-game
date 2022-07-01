@@ -1,8 +1,4 @@
 import Typography from "@material-ui/core/Typography";
-import React from "react";
 
-const AtomTypography = (props) => {
-  return <Typography>{props.children}</Typography>;
-};
-
+const AtomTypography = Typography;
 export default AtomTypography;
