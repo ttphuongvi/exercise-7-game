@@ -3,9 +3,10 @@ import "./styles.css";
 // import { TabBarContext } from "../../../context/TabBarContext";
 import Title from "../../../components/Title";
 import axios from "axios";
-import Button from "../../atoms/Button/index";
 import { useNavigate } from "react-router-dom";
-import DetailsGame from "../../pages/DetailsGame";
+import ButtonStyle2 from "../../molecules/ButtonStyle2";
+import ButtonStyle1 from "../../molecules/ButtonStyle1";
+// import AtomButtonStyle from "../../atoms/AtomButtonStyle";
 const GridNewGame = ({ navigateTabListgame }) => {
   // const { tabBarValue, setTabBarValue } = useContext(TabBarContext);
   const [dataSource, setDataSource] = useState([]);
@@ -16,14 +17,6 @@ const GridNewGame = ({ navigateTabListgame }) => {
     });
     console.log(dataSource);
   }, []);
-  // const [value, setValue] = React.useState(0);
-  // const handleChange = (event, newValue) => {
-  //   // setTabBarValue(newValue);
-  //   setValue(newValue);
-  // };
-  // let match = useMatch();
-  // console.log(path);
-  // let { id } = useParams();
   return (
     <Title class="div__container--flex " title="Game mới nhất">
       <div className="grid__newgame-container">
@@ -40,15 +33,12 @@ const GridNewGame = ({ navigateTabListgame }) => {
                     <p className="description--justify description--justify--line-clamp-8">
                       {value.description}
                     </p>
-                    <Button
-                      class="custom-btn btn-3 btn--float"
-                      // to={`/${value.id}`}
+                    <ButtonStyle1
+                      label="Xem chi tiết"
                       onClick={() => {
                         navigate(`/${value.id}`);
                       }}
-                    >
-                      Xem chi tiết
-                    </Button>
+                    />
                   </div>
                 </li>
               );
@@ -56,15 +46,12 @@ const GridNewGame = ({ navigateTabListgame }) => {
           </div>
         </section>
       </div>
-      <Button
-        class="btn "
+      <ButtonStyle2
         onClick={() => {
           navigateTabListgame(0, 1);
         }}
-        classSpan="btn-label"
-      >
-        Xem thêm
-      </Button>
+        label="Xem thêm"
+      ></ButtonStyle2>
     </Title>
   );
 };
