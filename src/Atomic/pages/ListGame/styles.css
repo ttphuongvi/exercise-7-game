@@ -37,14 +37,7 @@
 .option__year--margin {
   margin: 10px;
 }
-/* .search__input{
-    height: 35px !important;
-} */
-.search__input {
-  /* transform: translate(14px, 10px) scale(1) !important; */
-  /*   */
-  padding: 10px 0px 10px 0px !important;
-}
+
 .MuiFormLabel-root {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
