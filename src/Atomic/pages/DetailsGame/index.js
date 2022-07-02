@@ -3,17 +3,15 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Title from "../../../components/Title";
 import "./styles.css";
-import DialogPlayGame from "../../organisms/DialogPlayGame";
+import DialogPlayGame from "../../molecules/DialogPlayGame";
+
 const DetailsGame = () => {
   let { params } = useParams();
-  // let { url } = useMatch();
   const [dataSource, setDataSource] = useState(null);
   const urlRequest = `/games?id=`;
   useEffect(() => {
     axios.get(`${urlRequest}${params}`).then((res) => {
       setDataSource(res.data[0]);
-      console.log(res.data);
-      // console.log(dataSource);
     });
   }, [params]);
   // console.log(id);
