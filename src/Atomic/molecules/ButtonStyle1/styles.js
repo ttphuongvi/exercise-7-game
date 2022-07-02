@@ -19,7 +19,7 @@ const useStyles = makeStyles({
     outline: "none",
     textTransform: "none",
   },
-  button3: {
+  button: {
     // background: "rgb(0, 172, 238)",
     background: "linear-gradient(0deg, rgba(0, 172, 238, 1) 0%, #2ac0ff 100%)",
     width: "130px",
@@ -93,18 +93,6 @@ const useStyles = makeStyles({
         width: "100%",
       },
     },
-    // "& span &:hover": {
-    //
-    // },
-    // "& span &before": {
-    //
-    // },
-    // "& span &after": {
-    //
-    // },
-    // "& span &:hover:before": {
-    //   height: "100%",
-    // },
   },
 });
 
