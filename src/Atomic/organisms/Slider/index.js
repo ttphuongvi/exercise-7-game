@@ -38,7 +38,7 @@ const Slider = () => {
             console.log(index);
             if (index === 0) {
               return (
-                <div class="slide first">
+                <div class="slide first" key={value.id}>
                   <div className="slide__container">
                     <div className="slider__container-caption">
                       <div className="slider__caption">{value.caption}</div>
@@ -56,7 +56,7 @@ const Slider = () => {
               );
             }
             return (
-              <div class="slide">
+              <div class="slide" key={value.id}>
                 <div className="slide__container">
                   <div className="slider__container-caption">
                     <div className="slider__caption">{value.caption}</div>
