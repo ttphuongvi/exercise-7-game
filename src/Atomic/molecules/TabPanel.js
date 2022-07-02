@@ -17,7 +17,7 @@ const TabPanel = (props) => {
     >
       {value === index && (
         <AtomBox p={3}>
-          <AtomTypography>{children}</AtomTypography>
+          <AtomTypography component={"span"}>{children}</AtomTypography>
         </AtomBox>
       )}
     </div>
