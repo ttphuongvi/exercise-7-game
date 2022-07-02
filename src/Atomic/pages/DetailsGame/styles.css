@@ -64,6 +64,7 @@
 .details-game__description {
   text-align: justify;
   margin-bottom: 15px;
+  white-space: pre-wrap;
 }
 .details-game__body {
   display: flex;
