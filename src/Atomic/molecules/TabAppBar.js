@@ -38,7 +38,7 @@ const TabAppBar = (props) => {
             </AtomTabs>
             <AtomBox sx={{ flexGrow: 0 }}>
               <AtomIconButton
-                size="large"
+                size="medium"
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
@@ -52,7 +52,7 @@ const TabAppBar = (props) => {
                   <AtomAvatar
                     className="avatar--margin"
                     alt="Remy Sharp"
-                    src="/static/images/avatar/2.jpg"
+                    // src="/static/images/avatar/2.jpg"
                   />
                 </AtomIconButton>
               </AtomTooltip>
