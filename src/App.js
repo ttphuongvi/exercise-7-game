@@ -1,12 +1,18 @@
 import React from "react";
 import RoutesGame from "./router/index";
-import { TabBarContext } from "./context/TabBarContext";
+
+import { Provider } from "react-redux";
+import { configureStore } from "@reduxjs/toolkit";
+import { reducers } from "./redux/reducers";
+const store = configureStore({ reducer: reducers });
 const App = () => {
   // const [tabBarValue, setTabBarValue] = React.useState(0);
   return (
-    // <TabBarContext.Provider value={{ tabBarValue, setTabBarValue }}>
-    <RoutesGame />
-    // </TabBarContext.Provider>
+    <Provider store={store}>
+      {/* // <TabBarContext.Provider value={{ tabBarValue, setTabBarValue }}> */}
+      <RoutesGame />
+      {/* // </TabBarContext.Provider> */}
+    </Provider>
   );
 };
 
