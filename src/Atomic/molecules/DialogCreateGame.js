@@ -130,7 +130,7 @@ const DialogCreateGame = () => {
             onClick={() => {
               if (caption && description && image && release && link) {
                 saveGame();
-                alert("Đã lưu thành công");
+                // alert("Đã lưu thành công");
                 // Сlose the dialog and return the value
                 // dialog.close(value);
               } else {
