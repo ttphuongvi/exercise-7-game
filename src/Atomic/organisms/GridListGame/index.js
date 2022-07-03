@@ -11,7 +11,7 @@ const GridListGame = (props) => {
   const [hiddenLoadding, setHidden] = useState(false);
   const onClickLoadding = () => {
     axios.get("/games?_sort=id&_order=desc").then((res) => {
-      dispatch({ type: SET_LIST_GAME, listGame: res.data });
+      dispatch({ type: SET_LIST_GAME, content: res.data });
     });
     setHidden(true);
   };
