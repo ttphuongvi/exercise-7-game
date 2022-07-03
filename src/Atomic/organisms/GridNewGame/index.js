@@ -45,13 +45,13 @@ const GridNewGame = ({ navigateTabListgame }) => {
             })}
           </div>
         </section>
+        <ButtonStyle2
+          onClick={() => {
+            navigateTabListgame(0, 1);
+          }}
+          label="Xem thêm"
+        ></ButtonStyle2>
       </div>
-      <ButtonStyle2
-        onClick={() => {
-          navigateTabListgame(0, 1);
-        }}
-        label="Xem thêm"
-      ></ButtonStyle2>
     </Title>
   );
 };
