@@ -59,9 +59,10 @@ const DialogCreateGame = () => {
 
   return (
     <div>
-      <ButtonStyle2 label=" + TẠO GAME MỚI" onClick={handleClickOpen}>
-        Open form dialog
-      </ButtonStyle2>
+      <ButtonStyle2
+        label=" + TẠO GAME MỚI"
+        onClick={handleClickOpen}
+      ></ButtonStyle2>
       <Dialog
         open={open}
         onClose={handleClose}
