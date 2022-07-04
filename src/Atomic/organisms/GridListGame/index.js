@@ -6,8 +6,17 @@ import ButtonStyle2 from "../../molecules/ButtonStyle2";
 import DialogPlayGame from "../../molecules/DialogPlayGame";
 import { useSelector, useDispatch } from "react-redux";
 import { SET_LIST_GAME } from "../../../redux/const";
-
+import DivFlexColumn from "../../templates/DivFlexColumn";
+import AtomGrid from "../../atoms/AtomGrid";
+import useStyles from "./styles";
+import AtomCard from "../../atoms/AtomCard";
+import AtomCardMedia from "../../atoms/AtomCardMedia";
+import AtomCardContent from "../../atoms/AtomCardContent";
+import AtomTypography from "../../atoms/AtomTypography";
+import ReleaseYear from "../../templates/ReleaseYear";
+import DescriptionGame from "../../templates/DescriptionGame";
 const GridListGame = (props) => {
+  const classes = useStyles();
   const [hiddenLoadding, setHidden] = useState(false);
   const onClickLoadding = () => {
     axios.get("/games?_sort=id&_order=desc").then((res) => {
@@ -22,55 +31,44 @@ const GridListGame = (props) => {
   useEffect(() => {
     axios.get("/games?_sort=id&_order=desc&_start=0&_limit=8").then((res) => {
       dispatch({ type: SET_LIST_GAME, content: res.data });
-      // set list tgame
     });
   }, []);
-  // let { path, url } = useMatch();
   return (
-    <div className="grid__list-game--col">
-      <div className="grid__list-game--row">
-        <section>
-          <ul class="grid__listgame">
-            {dataSource &&
-              dataSource.map((value, key) => {
-                return (
-                  <li key={key} class="li__grid-listgame-item">
-                    <div className="gridgame-listgame__image">
-                      <img
-                        className="img--style"
-                        src={value.image}
-                        alt=""
-                      ></img>
-                    </div>
-                    <div className="grid-listgame__content">
-                      <Link to={`/${value.id}`}>
-                        {" "}
-                        <h2>{value.caption}</h2>
-                      </Link>
-                      <div className="div__release-year">
-                        Phát hành ngày {value.release}
-                      </div>
-                      <p className="description--justify description--justify--line-clamp-9">
-                        {value.description}
-                      </p>
-                      <DialogPlayGame
-                        caption={value.caption}
-                        link={value.link}
-                      />
-                    </div>
-                  </li>
-                );
-              })}
-          </ul>
-        </section>
-      </div>
+    <DivFlexColumn className={classes.root}>
+      <AtomGrid className={classes.gridContainer} container spacing={3}>
+        {dataSource &&
+          dataSource.map((value, key) => {
+            return (
+              <AtomGrid item xs={3}>
+                <AtomCard className={classes.itemListgame} elevation={7}>
+                  <AtomCardMedia
+                    className={classes.media}
+                    image={value.image}
+                    title={value.caption}
+                  ></AtomCardMedia>
+                  <AtomCardContent className={classes.contentListGame}>
+                    <Link to={`/${value.id}`}>
+                      {" "}
+                      <AtomTypography className={classes.caption} variant="h6">
+                        {value.caption}
+                      </AtomTypography>
+                    </Link>
+                    <ReleaseYear>Phát hành ngày {value.release}</ReleaseYear>
+                    <DescriptionGame>{value.description}</DescriptionGame>
+                    <DialogPlayGame caption={value.caption} link={value.link} />
+                  </AtomCardContent>
+                </AtomCard>
+              </AtomGrid>
+            );
+          })}
+      </AtomGrid>
       {!hiddenLoadding && (
         <ButtonStyle2
           onClick={onClickLoadding}
           label="Tải thêm game"
         ></ButtonStyle2>
       )}
-    </div>
+    </DivFlexColumn>
   );
 };
 
