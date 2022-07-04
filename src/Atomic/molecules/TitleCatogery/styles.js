@@ -4,7 +4,7 @@ const useStyles = makeStyles({
   titleCatogery: {
     display: "flex",
     flexDirection: "column",
-    width: "95%",
+    width: "90%",
     justifyContent: "space-between",
     position: "relative",
     margin: "20px auto",
