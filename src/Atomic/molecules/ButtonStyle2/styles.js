@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     /* font-size: 22px; */
     width: "200px",
     lineHeight: "1em",
-    margin: "15px 40px",
+    margin: "15px 0px",
     outline: "none",
     padding: "12px 40px 10px",
     position: "relative",
