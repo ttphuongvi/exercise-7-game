@@ -14,9 +14,12 @@ import AtomCardContent from "../../atoms/AtomCardContent";
 import AtomTypography from "../../atoms/AtomTypography";
 import ReleaseYear from "../../templates/ReleaseYear";
 import DescriptionGame from "../../templates/DescriptionGame";
+import { fi } from "date-fns/locale";
 const GridListGame = (props) => {
   const classes = useStyles();
+
   const [hiddenLoadding, setHidden] = useState(false);
+
   const onClickLoadding = () => {
     axios.get("/games?_sort=id&_order=desc").then((res) => {
       dispatch({ type: SET_LIST_GAME, content: res.data });
@@ -24,9 +27,9 @@ const GridListGame = (props) => {
     setHidden(true);
   };
 
-  const dataSource = useSelector((state) => state.listGame.content);
+  const dataSource = useSelector((state) => state.listGame.content) || [];
   const dispatch = useDispatch();
-
+  console.log(dataSource);
   useEffect(() => {
     axios.get("/games?_sort=id&_order=desc&_start=0&_limit=8").then((res) => {
       dispatch({ type: SET_LIST_GAME, content: res.data });

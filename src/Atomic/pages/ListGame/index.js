@@ -2,11 +2,17 @@ import { React, useState } from "react";
 import DateFnsUtils from "@date-io/date-fns";
 import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
 import DialogCreateGame from "../../molecules/DialogCreateGame";
-import "./styles.css";
 import GridListGame from "../../organisms/GridListGame";
-import "./styles.css";
 import AtomTextField from "../../atoms/AtomTextField";
 import TemplateListGame from "../../templates/TemplateListGame";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles({
+  search: {
+    marginRight: "20px",
+  },
+});
+
 const ListGame = () => {
   const [inputText, setInputText] = useState("");
 
@@ -26,6 +32,7 @@ const ListGame = () => {
           variant="outlined"
           fullWidth
           label="Tìm kiếm game"
+          className={useStyles().search}
         />
       }
       searchByYear={

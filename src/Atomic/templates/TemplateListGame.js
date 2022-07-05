@@ -1,10 +1,15 @@
 import React from "react";
 import TitleCatogery from "../molecules/TitleCatogery";
 import { makeStyles } from "@material-ui/core/styles";
+import DivFlexRow from "../templates/DivFlexRow";
 
 const useStyles = makeStyles({
   marginTitleCatogery: {
     marginTop: "100px",
+  },
+  alignment: {
+    justifyContent: "space-between",
+    marginBottom: "20px",
   },
 });
 const TemplateListGame = (props) => {
@@ -14,16 +19,14 @@ const TemplateListGame = (props) => {
       className={classes.marginTitleCatogery}
       title="DANH SÁCH GAME"
     >
-      <div className="div__ListGame">
-        <section className="sec-1 flex--row flex--spacebetween">
-          <div className="search flex--row search__input">
-            {props.searchByName}
-            {props.searchByYear}
-          </div>
-          {props.dialogCreateGame}
-        </section>
-        {props.gridListGame}
-      </div>
+      <DivFlexRow className={classes.alignment}>
+        <DivFlexRow>
+          {props.searchByName}
+          {props.searchByYear}
+        </DivFlexRow>
+        {props.dialogCreateGame}
+      </DivFlexRow>
+      {props.gridListGame}
     </TitleCatogery>
   );
 };
