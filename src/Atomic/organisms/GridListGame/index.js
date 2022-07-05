@@ -1,6 +1,5 @@
 import { React, useEffect, useState } from "react";
 import axios from "axios";
-import "./styles.css";
 import { Link } from "react-router-dom";
 import ButtonStyle2 from "../../molecules/ButtonStyle2";
 import DialogPlayGame from "../../molecules/DialogPlayGame";
@@ -33,11 +32,24 @@ const GridListGame = (props) => {
       dispatch({ type: SET_LIST_GAME, content: res.data });
     });
   }, []);
+
+  //create a new array by filtering the original array
+  const filteredData = dataSource.filter((el) => {
+    //if no input the return the original
+    if (props.input === "") {
+      return el;
+    }
+    //return the item which contains the user input
+    else {
+      return el.caption.toLowerCase().includes(props.input);
+    }
+  });
+
   return (
     <DivFlexColumn className={classes.root}>
       <AtomGrid className={classes.gridContainer} container spacing={3}>
-        {dataSource &&
-          dataSource.map((value, key) => {
+        {filteredData &&
+          filteredData.map((value, key) => {
             return (
               <AtomGrid item xs={3}>
                 <AtomCard className={classes.itemListgame} elevation={7}>
