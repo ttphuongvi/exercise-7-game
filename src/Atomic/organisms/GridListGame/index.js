@@ -5,15 +5,15 @@ import ButtonStyle2 from "../../molecules/ButtonStyle2";
 import DialogPlayGame from "../../molecules/DialogPlayGame";
 import { useSelector, useDispatch } from "react-redux";
 import { SET_LIST_GAME } from "../../../redux/const";
-import DivFlexColumn from "../../templates/DivFlexColumn";
+import DivFlexColumn from "../../templates/TemplateTag/DivFlexColumn";
 import AtomGrid from "../../atoms/AtomGrid";
 import useStyles from "./styles";
 import AtomCard from "../../atoms/AtomCard";
 import AtomCardMedia from "../../atoms/AtomCardMedia";
 import AtomCardContent from "../../atoms/AtomCardContent";
 import AtomTypography from "../../atoms/AtomTypography";
-import ReleaseYear from "../../templates/ReleaseYear";
-import DescriptionGame from "../../templates/DescriptionGame";
+import ReleaseYear from "../../templates/TemplateTag/ReleaseYear";
+import DescriptionGame from "../../templates/TemplateTag/DescriptionGame";
 import { fi } from "date-fns/locale";
 const GridListGame = (props) => {
   const classes = useStyles();
@@ -54,7 +54,7 @@ const GridListGame = (props) => {
         {filteredData &&
           filteredData.map((value, key) => {
             return (
-              <AtomGrid item xs={3}>
+              <AtomGrid item xs={12} sm={6} md={4} lg={3}>
                 <AtomCard className={classes.itemListgame} elevation={7}>
                   <AtomCardMedia
                     className={classes.media}
