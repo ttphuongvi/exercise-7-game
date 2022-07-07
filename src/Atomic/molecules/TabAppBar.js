@@ -9,10 +9,22 @@ import AtomTab from "../atoms/AtomTab";
 import AtomTabs from "../atoms/AtomTabs";
 import AtomToolbar from "../atoms/AtomToolbar";
 import AtomTooltip from "../atoms/AtomTooltip";
-import FormLogin from "../organisms/Login";
+import Login from "./Login";
+import SignUp from "./SignUp";
 import logo from "../../img/hahalolo-logo-1.png";
+import DivFlexRow from "../templates/TemplateTag/DivFlexRow";
+import { makeStyles } from "@material-ui/core/styles";
+import ImageLogo from "../templates/TemplateTag/ImageLogo";
+
+const useStyles = makeStyles({
+  tab: {
+    fontFamily: "Oswald",
+  },
+});
 
 const TabAppBar = (props) => {
+  const classes = useStyles();
+
   const a11yProps = (index) => {
     return {
       id: `simple-tab-${index}`,
@@ -23,18 +35,35 @@ const TabAppBar = (props) => {
     <AtomAppBar position="fixed">
       <AtomContainer className="appbar__container" maxWidth="xl">
         <AtomToolbar className="appbar__toolbar">
-          <img className="img__logo" alt="logo" src={logo}></img>
+          <ImageLogo alt="logo" src={logo}></ImageLogo>
           <div className="div__container-menu-and-avatar">
             <AtomTabs
+              TabIndicatorProps={{ style: { background: "#2ac0ff" } }}
               // value={tabBarValue}
               value={props.value}
               onChange={props.navigateTabListgame}
-              aria-label="simple tabs example"
+              aria-label="simple tabs "
             >
-              <AtomTab label="TRANG CHỦ" {...a11yProps(0)} />
-              <AtomTab label="DANH SÁCH GAME" {...a11yProps(1)} />
-              <AtomTab label="DANH MỤC" {...a11yProps(2)} />
-              <AtomTab label="LIÊN HỆ" {...a11yProps(3)} />
+              <AtomTab
+                className={classes.tab}
+                label="TRANG CHỦ"
+                {...a11yProps(0)}
+              />
+              <AtomTab
+                className={classes.tab}
+                label="DANH SÁCH GAME"
+                {...a11yProps(1)}
+              />
+              <AtomTab
+                className={classes.tab}
+                label="DANH MỤC"
+                {...a11yProps(2)}
+              />
+              <AtomTab
+                className={classes.tab}
+                label="LIÊN HỆ"
+                {...a11yProps(3)}
+              />
             </AtomTabs>
             <AtomBox sx={{ flexGrow: 0 }}>
               <AtomIconButton
@@ -47,17 +76,16 @@ const TabAppBar = (props) => {
               >
                 <AtomSettingIcon />
               </AtomIconButton>
-              <AtomTooltip title="Open settings">
-                <AtomIconButton onClick={props.handleOpenNavMenu} sx={{ p: 0 }}>
-                  <AtomAvatar
-                    className="avatar--margin"
-                    alt="Remy Sharp"
-                    // src="/static/images/avatar/2.jpg"
-                  />
-                </AtomIconButton>
-              </AtomTooltip>
+              <AtomIconButton onClick={props.handleOpenNavMenu} sx={{ p: 0 }}>
+                <AtomAvatar
+                  className="avatar--margin"
+                  src="/broken-image.jpg"
+                />
+              </AtomIconButton>
             </AtomBox>
-            <FormLogin />
+            <DivFlexRow>
+              <Login /> / <SignUp />
+            </DivFlexRow>
           </div>
         </AtomToolbar>
       </AtomContainer>
