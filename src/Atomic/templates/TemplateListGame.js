@@ -1,7 +1,7 @@
 import React from "react";
 import TitleCatogery from "../molecules/TitleCatogery";
 import { makeStyles } from "@material-ui/core/styles";
-import DivFlexRow from "../templates/DivFlexRow";
+import DivFlexRow from "../templates/TemplateTag/DivFlexRow";
 
 const useStyles = makeStyles({
   marginTitleCatogery: {
