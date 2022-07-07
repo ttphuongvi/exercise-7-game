@@ -9,11 +9,11 @@ import useStyle from "./styles";
 import TitleCatogery from "../../molecules/TitleCatogery";
 import AtomTypography from "../../atoms/AtomTypography";
 import AtomCard from "../../atoms/AtomCard";
-import ContainerImageNewGame from "../../templates/ContainerImageNewGame";
-import ImageNewGame from "../../templates/ImageNewGame";
-import ContainerContentNewGame from "../../templates/ContainerContentNewGame";
-import DescriptionGame from "../../templates/DescriptionGame";
-import DivFlexRow from "../../templates/DivFlexRow";
+import ContainerImageNewGame from "../../templates/TemplateTag/ContainerImageNewGame";
+import ImageNewGame from "../../templates/TemplateTag/ImageNewGame";
+import ContainerContentNewGame from "../../templates/TemplateTag/ContainerContentNewGame";
+import DescriptionGame from "../../templates/TemplateTag/DescriptionGame";
+import DivFlexRow from "../../templates/TemplateTag/DivFlexRow";
 
 const GridNewGame = ({ navigateTabListgame }) => {
   const [dataSource, setDataSource] = useState([]);
