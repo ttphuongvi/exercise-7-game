@@ -3,8 +3,35 @@ import "./styles.css";
 import axios from "axios";
 import ButtonStyle1 from "../../molecules/ButtonStyle1";
 import { useNavigate } from "react-router-dom";
+import DivContainerCaptionSlider from "../../templates/TemplateTag/DivContainerCaptionSlider";
+import DescriptionGameSlider from "../../templates/TemplateTag/DescriptionGameSlider";
+import CaptionSlider from "../../templates/TemplateTag/CaptionSlider";
+import ImageSlider from "../../templates/TemplateTag/ImageSlider";
+import DivFlexRow from "../../templates/TemplateTag/DivFlexRow";
+import AtomGrid from "../../atoms/AtomGrid";
+import AtomBox from "../../atoms/AtomBox";
+import { makeStyles } from "@material-ui/core/styles";
+import waves from "../../../img/waves.jpg";
+
+const useStyles = makeStyles({
+  gridContainer: {
+    padding: "10% 100px 10% 30px",
+  },
+  slider: {
+    width: "100%",
+    height: "100%",
+    /* border-radius: 10px; */
+    overflow: "hidden",
+    position: "relative",
+    marginTop: "60px",
+    backgroundImage: `url(${waves})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+  },
+});
 
 const Slider = () => {
+  const classes = useStyles();
   let navigate = useNavigate();
   const [dataSource, setDataSource] = useState([]);
   useEffect(() => {
@@ -25,7 +52,7 @@ const Slider = () => {
   }, []);
 
   return (
-    <div class="slider">
+    <AtomBox className={classes.slider}>
       <div class="slides">
         <input type="radio" name="radio-btn" id="radio1" />
         <input type="radio" name="radio-btn" id="radio2" />
@@ -39,37 +66,45 @@ const Slider = () => {
             if (index === 0) {
               return (
                 <div class="slide first" key={value.id}>
-                  <div className="slide__container">
-                    <div className="slider__container-caption">
-                      <div className="slider__caption">{value.caption}</div>
-                      <p>{value.description}</p>
+                  <AtomGrid container className={classes.gridContainer}>
+                    <DivContainerCaptionSlider item xs={6}>
+                      <CaptionSlider>{value.caption}</CaptionSlider>
+                      <DescriptionGameSlider>
+                        {value.description}
+                      </DescriptionGameSlider>
                       <ButtonStyle1
                         label="Xem chi tiết"
                         onClick={() => {
                           navigate(`/${value.id}`);
                         }}
                       />
-                    </div>
-                    <img src={value.image} alt="" />
-                  </div>
+                    </DivContainerCaptionSlider>
+                    <AtomGrid item xs={6}>
+                      <ImageSlider src={value.image} alt="" />
+                    </AtomGrid>
+                  </AtomGrid>
                 </div>
               );
             }
             return (
               <div class="slide" key={value.id}>
-                <div className="slide__container">
-                  <div className="slider__container-caption">
-                    <div className="slider__caption">{value.caption}</div>
-                    <p>{value.description}</p>
+                <AtomGrid container className={classes.gridContainer}>
+                  <DivContainerCaptionSlider item xs={6}>
+                    <CaptionSlider>{value.caption}</CaptionSlider>
+                    <DescriptionGameSlider>
+                      {value.description}
+                    </DescriptionGameSlider>
                     <ButtonStyle1
                       label="Xem chi tiết"
                       onClick={() => {
                         navigate(`/${value.id}`);
                       }}
                     />
-                  </div>
-                  <img src={value.image} alt="" />
-                </div>
+                  </DivContainerCaptionSlider>
+                  <AtomGrid item xs={6}>
+                    <ImageSlider src={value.image} alt="" />
+                  </AtomGrid>
+                </AtomGrid>
               </div>
             );
           })}
@@ -92,7 +127,7 @@ const Slider = () => {
         <label htmlFor="radio5" class="manual-btn"></label>
         <label htmlFor="radio6" class="manual-btn"></label>
       </div>
-    </div>
+    </AtomBox>
   );
 };
 
