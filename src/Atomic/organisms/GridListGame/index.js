@@ -14,7 +14,6 @@ import AtomCardContent from "../../atoms/AtomCardContent";
 import AtomTypography from "../../atoms/AtomTypography";
 import ReleaseYear from "../../templates/TemplateTag/ReleaseYear";
 import DescriptionGame from "../../templates/TemplateTag/DescriptionGame";
-import { fi } from "date-fns/locale";
 const GridListGame = (props) => {
   const classes = useStyles();
 
