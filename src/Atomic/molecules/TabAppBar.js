@@ -8,7 +8,6 @@ import AtomSettingIcon from "../atoms/AtomSettingIcon";
 import AtomTab from "../atoms/AtomTab";
 import AtomTabs from "../atoms/AtomTabs";
 import AtomToolbar from "../atoms/AtomToolbar";
-import AtomTooltip from "../atoms/AtomTooltip";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import logo from "../../img/hahalolo-logo-1.png";
@@ -18,12 +17,20 @@ import ImageLogo from "../templates/TemplateTag/ImageLogo";
 
 const useStyles = makeStyles({
   tab: {
-    fontFamily: "Oswald",
     minWidth: "auto",
+    fontFamily: "'Oswald', sans-serif",
   },
   appbar: {
     backgroundColor: "#20232a",
     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)",
+  },
+  toolbar: {
+    justifyContent: "space-between",
+    padding: "0px",
+  },
+  menuRight: {
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 
@@ -39,9 +46,9 @@ const TabAppBar = (props) => {
   return (
     <AtomAppBar className={classes.appbar} position="fixed">
       <AtomContainer fullWidth maxWidth="xl">
-        <AtomToolbar className="appbar__toolbar">
+        <AtomToolbar className={classes.toolbar}>
           <ImageLogo alt="logo" src={logo}></ImageLogo>
-          <div className="div__container-menu-and-avatar">
+          <DivFlexRow className={classes.menuRight}>
             <AtomTabs
               TabIndicatorProps={{ style: { background: "#2ac0ff" } }}
               // value={tabBarValue}
@@ -91,7 +98,7 @@ const TabAppBar = (props) => {
             <DivFlexRow>
               <Login /> / <SignUp />
             </DivFlexRow>
-          </div>
+          </DivFlexRow>
         </AtomToolbar>
       </AtomContainer>
     </AtomAppBar>
