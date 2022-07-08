@@ -19,6 +19,11 @@ import ImageLogo from "../templates/TemplateTag/ImageLogo";
 const useStyles = makeStyles({
   tab: {
     fontFamily: "Oswald",
+    minWidth: "auto",
+  },
+  appbar: {
+    backgroundColor: "#20232a",
+    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)",
   },
 });
 
@@ -32,8 +37,8 @@ const TabAppBar = (props) => {
     };
   };
   return (
-    <AtomAppBar position="fixed">
-      <AtomContainer className="appbar__container" maxWidth="xl">
+    <AtomAppBar className={classes.appbar} position="fixed">
+      <AtomContainer fullWidth maxWidth="xl">
         <AtomToolbar className="appbar__toolbar">
           <ImageLogo alt="logo" src={logo}></ImageLogo>
           <div className="div__container-menu-and-avatar">
