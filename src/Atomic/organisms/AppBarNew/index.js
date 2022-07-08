@@ -1,6 +1,5 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import "./styles.css";
 import TabPanel from "../../molecules/TabPanel";
 import Home from "../../pages/Home/index";
 import ListGame from "../../pages/ListGame/index";
