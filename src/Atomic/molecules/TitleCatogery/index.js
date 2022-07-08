@@ -9,7 +9,7 @@ const TitleCatogery = (props) => {
 
   return (
     <div className={props.className}>
-      <AtomPaper elevation={7} className={classes.titleCatogery}>
+      <AtomPaper elevation={3} className={classes.titleCatogery}>
         <div className={classes.header}>
           <AtomTypography className={classes.typography} variant="h5">
             <AtomBox fontWeight={500} m={1}>
