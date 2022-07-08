@@ -5,7 +5,6 @@ const ContainerContentNewGame = styled("div")({
   flexDirection: "column",
   alignSelf: "flex-end",
   justifyContent: "center",
-  paddingRight: "15px",
   width: "50%",
   alignItems: "flex-end",
 });
