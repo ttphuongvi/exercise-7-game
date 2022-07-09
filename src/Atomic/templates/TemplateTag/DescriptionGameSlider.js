@@ -13,6 +13,9 @@ const DescriptionGameSlider = styled("p")({
   fontStyle: "italic",
   /* z-index: 99; */
   textShadow: "0px 2px 3px rgba(0, 0, 0, 1)",
+  WebkitBoxOrient: "vertical",
+  WebkitLineClamp: 3,
+  display: "-webkit-box",
 });
 
 export default DescriptionGameSlider;

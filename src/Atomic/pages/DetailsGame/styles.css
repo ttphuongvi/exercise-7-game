@@ -1,52 +1,3 @@
-.details-game__container {
-  width: 50%;
-  background: #fff;
-  border: 3px solid #25394a;
-  border-radius: 10px;
-  margin: 10px 0px 30px 10px;
-  -webkit-box-shadow: 0px 2px 5px 2px rgb(0 0 0 / 50%);
-  box-shadow: 0px 2px 5px 2px rgb(0 0 0 / 50%);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.details-game__header {
-  /* float: left; */
-  display: flex;
-  flex-direction: column;
-
-  width: 90%;
-}
-.details-game__info {
-  float: left;
-  padding-bottom: 10px;
-  position: relative;
-  border-bottom: 1px solid #e0e0e0;
-}
-.details-game__caption {
-  text-shadow: none;
-  font-family: "Oswald", Helvetica, Arial, sans-serif;
-  background: none;
-  display: block;
-  width: 500px;
-  font-size: 14px;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 15px 0px 10px 0px;
-  margin: 0px 0px 0px 0px;
-  float: left;
-  color: #2ac0ff;
-}
-.details-game__release {
-  height: 20px;
-  width: 330px;
-  float: left;
-  font-size: 10px;
-  color: #999999;
-  padding-top: 2px;
-}
 .details-game__image {
   /* margin: ; */
   /* background: url("http://skywarriorthemes.com/orizon/blue/images/post/bg_img.png") */
@@ -65,11 +16,4 @@
   text-align: justify;
   margin-bottom: 15px;
   white-space: pre-wrap;
-}
-.details-game__body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 90%;
-  margin: 15px 0px 15px 0px;
 }
