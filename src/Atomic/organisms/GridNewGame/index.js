@@ -14,6 +14,7 @@ import ImageNewGame from "../../templates/TemplateTag/ImageNewGame";
 import ContainerContentNewGame from "../../templates/TemplateTag/ContainerContentNewGame";
 import DescriptionGame from "../../templates/TemplateTag/DescriptionGame";
 import DivFlexRow from "../../templates/TemplateTag/DivFlexRow";
+import CaptionGame from "../../templates/TemplateTag/CaptionGame";
 
 const GridNewGame = ({ navigateTabListgame }) => {
   const [dataSource, setDataSource] = useState([]);
@@ -37,9 +38,7 @@ const GridNewGame = ({ navigateTabListgame }) => {
             return (
               <AtomGrid spacing={3} item xs={4} key={value.id}>
                 <AtomCard className={classes.paper} elevation={7}>
-                  <AtomTypography variant="h6" className={classes.caption}>
-                    {value.caption}
-                  </AtomTypography>
+                  <CaptionGame>{value.caption}</CaptionGame>
                   <DivFlexRow>
                     <ContainerImageNewGame>
                       <ImageNewGame src={value.image} alt=""></ImageNewGame>

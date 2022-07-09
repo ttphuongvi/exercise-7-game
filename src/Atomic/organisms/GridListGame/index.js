@@ -11,9 +11,10 @@ import useStyles from "./styles";
 import AtomCard from "../../atoms/AtomCard";
 import AtomCardMedia from "../../atoms/AtomCardMedia";
 import AtomCardContent from "../../atoms/AtomCardContent";
-import AtomTypography from "../../atoms/AtomTypography";
 import ReleaseYear from "../../templates/TemplateTag/ReleaseYear";
 import DescriptionGame from "../../templates/TemplateTag/DescriptionGame";
+import CaptionGame from "../../templates/TemplateTag/CaptionGame";
+import LinkStyle from "../../templates/TemplateTag/LinkStyle";
 const GridListGame = (props) => {
   const classes = useStyles();
 
@@ -61,12 +62,10 @@ const GridListGame = (props) => {
                     title={value.caption}
                   ></AtomCardMedia>
                   <AtomCardContent className={classes.contentListGame}>
-                    <Link to={`/${value.id}`}>
+                    <LinkStyle to={`/${value.id}`}>
                       {" "}
-                      <AtomTypography className={classes.caption} variant="h6">
-                        {value.caption}
-                      </AtomTypography>
-                    </Link>
+                      <CaptionGame>{value.caption}</CaptionGame>
+                    </LinkStyle>
                     <ReleaseYear>Phát hành ngày {value.release}</ReleaseYear>
                     <DescriptionGame>{value.description}</DescriptionGame>
                     <DialogPlayGame caption={value.caption} link={value.link} />
