@@ -3,6 +3,7 @@ import AtomPaper from "../../atoms/AtomPaper";
 import AtomTypography from "../../atoms/AtomTypography";
 import AtomBox from "../../atoms/AtomBox";
 import useStyles from "./styles";
+import { Link } from "react-router-dom";
 
 const TitleCatogery = (props) => {
   const classes = useStyles();
@@ -14,7 +15,9 @@ const TitleCatogery = (props) => {
           <AtomTypography className={classes.typography} variant="h5">
             <AtomBox fontWeight={500} m={1}>
               {" "}
-              <span>HAHALOLO // </span>
+              <Link to="/">
+                <span>HAHALOLO // </span>
+              </Link>
               {props.title}
             </AtomBox>
           </AtomTypography>
