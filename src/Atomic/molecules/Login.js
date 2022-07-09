@@ -1,13 +1,9 @@
 import React from "react";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
 import AtomGrid from "../atoms/AtomGrid";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
 import AtomButton from "../atoms/AtomButton";
@@ -15,7 +11,6 @@ import AtomDialog from "../atoms/AtomDialog";
 import AtomDialogTitle from "../atoms/AtomDialogTitle";
 import AtomDialogContent from "../atoms/AtomDialogContent";
 import AtomAvatar from "../atoms/AtomAvatar";
-import AtomTypography from "../atoms/AtomTypography";
 import AtomTextField from "../atoms/AtomTextField";
 import AtomPaper from "../atoms/AtomPaper";
 import logo from "../../img/hahalolo-logo.png";
@@ -116,7 +111,6 @@ const FormLogin = () => {
         <AtomDialogContent>
           <AtomPaper className={classes.paper}>
             <AtomAvatar src={logo} className={classes.avatar}></AtomAvatar>
-
             <form className={classes.form} noValidate>
               <AtomTextField
                 // onChange={(event) => handelAccount("username", event)}
