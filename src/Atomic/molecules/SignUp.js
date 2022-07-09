@@ -1,20 +1,17 @@
 import React from "react";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
+import AtomAvatar from "../atoms/AtomAvatar";
+import AtomButton from "../atoms/AtomButton";
+import AtomTextField from "../atoms/AtomTextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
-import Grid from "@material-ui/core/Grid";
-import Box from "@material-ui/core/Box";
+import AtomGrid from "../atoms/AtomGrid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import Typography from "@material-ui/core/Typography";
+import AtomTypography from "../atoms/AtomTypography";
 import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import { Dialog, DialogContent, DialogTitle } from "@material-ui/core";
+import AtomDialog from "../atoms/AtomDialog";
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import AtomDialogTitle from "../atoms/AtomDialogTitle";
+import AtomDialogContent from "../atoms/AtomDialogContent";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -33,6 +30,10 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+  },
+  button: {
+    fontFamily: "Oswald",
+    color: "white",
   },
 }));
 
@@ -65,25 +66,25 @@ export default function SignUp() {
 
   return (
     <div>
-      <Button color="primary" onClick={handleClickOpen}>
+      <AtomButton className={classes.button} onClick={handleClickOpen}>
         Đăng ký
-      </Button>
-      <Dialog
+      </AtomButton>
+      <AtomDialog
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">Đăng ký</DialogTitle>
-        <DialogContent>
+        <AtomDialogTitle id="form-dialog-title">Đăng ký</AtomDialogTitle>
+        <AtomDialogContent>
           <div className={classes.paper}>
-            <Avatar className={classes.avatar}>
+            <AtomAvatar className={classes.avatar}>
               <LockOutlinedIcon />
-            </Avatar>
-            <Typography component="h1" variant="h5">
+            </AtomAvatar>
+            <AtomTypography component="h1" variant="h5">
               Đăng ký
-            </Typography>
+            </AtomTypography>
             <form className={classes.form} noValidate>
-              <TextField
+              <AtomTextField
                 variant="outlined"
                 required
                 margin="normal"
@@ -95,7 +96,7 @@ export default function SignUp() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
-              <TextField
+              <AtomTextField
                 variant="outlined"
                 required
                 margin="normal"
@@ -107,7 +108,7 @@ export default function SignUp() {
                 value={email}
                 onChange={(even) => setEmail(even.target.value)}
               />
-              <TextField
+              <AtomTextField
                 // onChange={(event) => handelAccount("password", event)}
                 variant="outlined"
                 margin="normal"
@@ -122,7 +123,7 @@ export default function SignUp() {
                 onChange={(event) => setPassword(event.target.value)}
               />
 
-              <Button
+              <AtomButton
                 // type="submit"
                 fullWidth
                 variant="contained"
@@ -137,18 +138,18 @@ export default function SignUp() {
                 }}
               >
                 Đăng ký
-              </Button>
-              <Grid container>
-                <Grid item>
+              </AtomButton>
+              <AtomGrid container>
+                <AtomGrid item>
                   <Link href="#" variant="body2">
                     Already have an account? Sign in
                   </Link>
-                </Grid>
-              </Grid>
+                </AtomGrid>
+              </AtomGrid>
             </form>
           </div>
-        </DialogContent>
-      </Dialog>
+        </AtomDialogContent>
+      </AtomDialog>
     </div>
   );
 }

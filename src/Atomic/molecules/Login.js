@@ -6,18 +6,19 @@ import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
-import Paper from "@material-ui/core/Paper";
-import Box from "@material-ui/core/Box";
-import Grid from "@material-ui/core/Grid";
+import AtomGrid from "../atoms/AtomGrid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
+import AtomButton from "../atoms/AtomButton";
+import AtomDialog from "../atoms/AtomDialog";
+import AtomDialogTitle from "../atoms/AtomDialogTitle";
+import AtomDialogContent from "../atoms/AtomDialogContent";
+import AtomAvatar from "../atoms/AtomAvatar";
+import AtomTypography from "../atoms/AtomTypography";
+import AtomTextField from "../atoms/AtomTextField";
+import AtomPaper from "../atoms/AtomPaper";
+import logo from "../../img/hahalolo-logo.png";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    boxShadow: "none",
   },
   avatar: {
     margin: theme.spacing(0),
@@ -58,6 +60,13 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+  },
+  title: {
+    fontFamily: "Oswald",
+  },
+  button: {
+    fontFamily: "Oswald",
+    color: "white",
   },
 }));
 
@@ -93,25 +102,23 @@ const FormLogin = () => {
 
   return (
     <div>
-      <Button color="primary" onClick={handleClickOpen}>
+      <AtomButton className={classes.button} onClick={handleClickOpen}>
         Đăng nhập
-      </Button>
-      <Dialog
+      </AtomButton>
+      <AtomDialog
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">Đăng nhập</DialogTitle>
-        <DialogContent>
-          <div className={classes.paper}>
-            <Avatar className={classes.avatar}>
-              <LockOutlinedIcon />
-            </Avatar>
-            <Typography component="h1" variant="h5">
-              Sign in
-            </Typography>
+        <AtomDialogTitle className={classes.title} id="form-dialog-title">
+          Đăng nhập
+        </AtomDialogTitle>
+        <AtomDialogContent>
+          <AtomPaper className={classes.paper}>
+            <AtomAvatar src={logo} className={classes.avatar}></AtomAvatar>
+
             <form className={classes.form} noValidate>
-              <TextField
+              <AtomTextField
                 // onChange={(event) => handelAccount("username", event)}
                 variant="outlined"
                 margin="normal"
@@ -142,7 +149,7 @@ const FormLogin = () => {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Ghi nhớ đăng nhập"
               />
-              <Button
+              <AtomButton
                 fullWidth
                 variant="contained"
                 color="primary"
@@ -150,18 +157,18 @@ const FormLogin = () => {
                 onClick={onLogin}
               >
                 Sign In
-              </Button>
-              <Grid container>
-                <Grid item>
+              </AtomButton>
+              <AtomGrid container>
+                <AtomGrid item>
                   <Link href="#" variant="body2">
                     {"Bạn chưa có tài khoản? Đăng ký ngay!"}
                   </Link>
-                </Grid>
-              </Grid>
+                </AtomGrid>
+              </AtomGrid>
             </form>
-          </div>
-        </DialogContent>
-      </Dialog>
+          </AtomPaper>
+        </AtomDialogContent>
+      </AtomDialog>
     </div>
   );
 };
