@@ -1,9 +1,9 @@
 import { styled } from "@material-ui/core/styles";
 
 const DescriptionNewGame = styled("p")({
-  textAlign: "justify",
+  textalign: "justify",
   marginTop: "0px",
-  color: "#666",
+  // color: "#666",
   fontSize: "14px",
   height: "190px",
   width: "100%",
