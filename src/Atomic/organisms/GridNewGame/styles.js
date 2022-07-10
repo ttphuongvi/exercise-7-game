@@ -9,15 +9,9 @@ const useStyle = makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(2),
-    color: theme.palette.text.secondary,
+    // color: theme.palette.text.secondary,
   },
-  caption: {
-    fontFamily: "Oswald",
-    color: "#2ac0ff",
-    paddingBottom: "10px",
-    fontSize: "14px",
-    textTransform: "uppercase",
-  },
+
   gridContainer: {
     marginBottom: "10px",
   },
