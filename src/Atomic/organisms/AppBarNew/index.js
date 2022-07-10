@@ -11,7 +11,6 @@ import AtomBox from "../../atoms/AtomBox";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
   },
 }));
 const ResponsiveAppBar = () => {
@@ -33,10 +32,7 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AtomBox
-
-    // className={classes.root}
-    >
+    <AtomBox className={classes.root}>
       <TabAppBar
         value={value}
         navigateTabListgame={navigateTabListgame}
