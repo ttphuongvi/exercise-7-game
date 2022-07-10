@@ -53,7 +53,7 @@ const Slider = () => {
 
   return (
     <AtomBox className={classes.slider}>
-      <div class="slides">
+      <div className="slides">
         <input type="radio" name="radio-btn" id="radio1" />
         <input type="radio" name="radio-btn" id="radio2" />
         <input type="radio" name="radio-btn" id="radio3" />
@@ -65,7 +65,7 @@ const Slider = () => {
             // console.log(index);
             if (index === 0) {
               return (
-                <div class="slide first" key={value.id}>
+                <div className="slide first" key={value.id}>
                   <AtomGrid container className={classes.gridContainer}>
                     <DivContainerCaptionSlider item xs={6}>
                       <CaptionSlider>{value.caption}</CaptionSlider>
@@ -87,7 +87,7 @@ const Slider = () => {
               );
             }
             return (
-              <div class="slide" key={value.id}>
+              <div className="slide" key={value.id}>
                 <AtomGrid container className={classes.gridContainer}>
                   <DivContainerCaptionSlider item xs={6}>
                     <CaptionSlider>{value.caption}</CaptionSlider>
@@ -110,22 +110,22 @@ const Slider = () => {
           })}
         </>
 
-        <div class="navigation-auto">
-          <div class="auto-btn1"></div>
-          <div class="auto-btn2"></div>
-          <div class="auto-btn3"></div>
-          <div class="auto-btn4"></div>
-          <div class="auto-btn5"></div>
-          <div class="auto-btn6"></div>
+        <div className="navigation-auto">
+          <div className="auto-btn1"></div>
+          <div className="auto-btn2"></div>
+          <div className="auto-btn3"></div>
+          <div className="auto-btn4"></div>
+          <div className="auto-btn5"></div>
+          <div className="auto-btn6"></div>
         </div>
       </div>
-      <div class="navigation-manual">
-        <label htmlFor="radio1" class="manual-btn"></label>
-        <label htmlFor="radio2" class="manual-btn"></label>
-        <label htmlFor="radio3" class="manual-btn"></label>
-        <label htmlFor="radio4" class="manual-btn"></label>
-        <label htmlFor="radio5" class="manual-btn"></label>
-        <label htmlFor="radio6" class="manual-btn"></label>
+      <div className="navigation-manual">
+        <label htmlFor="radio1" className="manual-btn"></label>
+        <label htmlFor="radio2" className="manual-btn"></label>
+        <label htmlFor="radio3" className="manual-btn"></label>
+        <label htmlFor="radio4" className="manual-btn"></label>
+        <label htmlFor="radio5" className="manual-btn"></label>
+        <label htmlFor="radio6" className="manual-btn"></label>
       </div>
     </AtomBox>
   );
