@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import AtomAppBar from "../atoms/AtomAppBar";
 import AtomAvatar from "../atoms/AtomAvatar";
 import AtomBox from "../atoms/AtomBox";
@@ -20,6 +20,8 @@ import AtomTypography from "../atoms/AtomTypography";
 import { useTheme, ThemeProvider, createTheme } from "@material-ui/core/styles";
 import { useSelector, useDispatch } from "react-redux";
 import { LOGOUT } from "../../redux/const";
+import { Switch } from "@material-ui/core";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 const useStyles = makeStyles({
   tab: {
@@ -41,7 +43,7 @@ const useStyles = makeStyles({
 });
 
 const TabAppBar = (props) => {
-  const theme = useTheme();
+  // const theme = useTheme();
 
   const [anchorElSetting, setAnchorElSetting] = React.useState(null);
 
@@ -85,119 +87,146 @@ const TabAppBar = (props) => {
     console.log(user);
   }, [user]);
 
+  const [mode, setMode] = useState("light");
+
+  const theme = useMemo(
+    () =>
+      createTheme({
+        palette: {
+          type: mode,
+          background: {
+            dark: "hsl(230, 17%, 14%)",
+            light: "hsl(0, 0%, 100%)",
+          },
+        },
+      }),
+    [mode]
+  );
+
   return (
-    <AtomAppBar className={classes.appbar} position="fixed">
-      <AtomContainer fullWidth maxWidth="xl">
-        <AtomToolbar className={classes.toolbar}>
-          <ImageLogo alt="logo" src={logo}></ImageLogo>
-          <DivFlexRow className={classes.menuRight}>
-            <AtomTabs
-              TabIndicatorProps={{ style: { background: "#2ac0ff" } }}
-              // value={tabBarValue}
-              value={props.value}
-              onChange={props.navigateTabListgame}
-              aria-label="simple tabs "
-            >
-              <AtomTab
-                className={classes.tab}
-                label="TRANG CHỦ"
-                {...a11yProps(0)}
-              />
-              <AtomTab
-                className={classes.tab}
-                label="DANH SÁCH GAME"
-                {...a11yProps(1)}
-              />
-              <AtomTab
-                className={classes.tab}
-                label="DANH MỤC"
-                {...a11yProps(2)}
-              />
-              <AtomTab
-                className={classes.tab}
-                label="LIÊN HỆ"
-                {...a11yProps(3)}
-              />
-            </AtomTabs>
-            <AtomBox sx={{ flexGrow: 0 }}>
-              <AtomIconButton
-                size="medium"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenSettingMenu}
-                color="inherit"
+    <ThemeProvider theme={theme}>
+      <AtomAppBar className={classes.appbar} position="fixed">
+        <AtomContainer fullWidth maxWidth="xl">
+          <AtomToolbar className={classes.toolbar}>
+            <ImageLogo alt="logo" src={logo}></ImageLogo>
+            <DivFlexRow className={classes.menuRight}>
+              <AtomTabs
+                TabIndicatorProps={{ style: { background: "#2ac0ff" } }}
+                // value={tabBarValue}
+                value={props.value}
+                onChange={props.navigateTabListgame}
+                aria-label="simple tabs "
               >
-                <AtomSettingIcon />
-              </AtomIconButton>
-              <AtomBox
-                sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
-              >
-                <AtomMenu
-                  sx={{ mt: "45px" }}
-                  id="menu-appbar"
-                  anchorEl={anchorElSetting}
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  open={Boolean(anchorElSetting)}
-                  onClose={handleCloseUserMenu}
+                <AtomTab
+                  className={classes.tab}
+                  label="TRANG CHỦ"
+                  {...a11yProps(0)}
+                />
+                <AtomTab
+                  className={classes.tab}
+                  label="DANH SÁCH GAME"
+                  {...a11yProps(1)}
+                />
+                <AtomTab
+                  className={classes.tab}
+                  label="DANH MỤC"
+                  {...a11yProps(2)}
+                />
+                <AtomTab
+                  className={classes.tab}
+                  label="LIÊN HỆ"
+                  {...a11yProps(3)}
+                />
+              </AtomTabs>
+              <AtomBox sx={{ flexGrow: 0 }}>
+                <AtomIconButton
+                  size="medium"
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  onClick={handleOpenSettingMenu}
+                  color="inherit"
                 >
-                  <AtomMenuItem onClick={handleCloseSettingMenu}>
-                    <AtomTypography textAlign="center">
-                      CHẾ ĐỘ TỐI
-                    </AtomTypography>
-                  </AtomMenuItem>
-                  <AtomMenuItem onClick={handleCloseSettingMenu}>
-                    <AtomTypography textAlign="center">
-                      CHỌN CHỦ ĐỀ
-                    </AtomTypography>
-                  </AtomMenuItem>
-                </AtomMenu>
-              </AtomBox>
-            </AtomBox>
-            {user && user.isLogin ? (
-              <AtomBox>
-                <AtomIconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <AtomAvatar
-                    className="avatar--margin"
-                    src="/broken-image.jpg"
-                  />
+                  <AtomSettingIcon />
                 </AtomIconButton>
-                <AtomMenu
-                  sx={{ mt: "45px" }}
-                  id="menu-appbar"
-                  anchorEl={anchorElUser}
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  open={Boolean(anchorElUser)}
-                  onClose={handleCloseUserMenu}
+                <CssBaseline />
+                <Switch
+                  onChange={() => setMode(mode === "light" ? "dark" : "light")}
+                />
+                <AtomBox
+                  sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
                 >
-                  <AtomMenuItem onClick={handleLogout}>ĐĂNG XUẤT</AtomMenuItem>
-                </AtomMenu>
+                  <AtomMenu
+                    sx={{ mt: "45px" }}
+                    id="menu-appbar"
+                    anchorEl={anchorElSetting}
+                    anchorOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    keepMounted
+                    transformOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    open={Boolean(anchorElSetting)}
+                    onClose={handleCloseUserMenu}
+                  >
+                    <AtomMenuItem
+                    // onChange={() =>
+                    //   setMode(mode === "light" ? "dark" : "light")
+                    // }
+                    // onClick={handleCloseSettingMenu}
+                    >
+                      CHẾ ĐỘ TỐI
+                    </AtomMenuItem>
+                    <AtomMenuItem onClick={handleCloseSettingMenu}>
+                      <AtomTypography textAlign="center">
+                        CHỌN CHỦ ĐỀ
+                      </AtomTypography>
+                    </AtomMenuItem>
+                  </AtomMenu>
+                </AtomBox>
               </AtomBox>
-            ) : (
-              <DivFlexRow>
-                <Login /> / <SignUp />
-              </DivFlexRow>
-            )}
-          </DivFlexRow>
-        </AtomToolbar>
-      </AtomContainer>
-    </AtomAppBar>
+              {user && user.isLogin ? (
+                <AtomBox>
+                  <AtomIconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                    <AtomAvatar
+                      className="avatar--margin"
+                      src="/broken-image.jpg"
+                    />
+                  </AtomIconButton>
+                  <AtomMenu
+                    sx={{ mt: "45px" }}
+                    id="menu-appbar"
+                    anchorEl={anchorElUser}
+                    anchorOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    keepMounted
+                    transformOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    open={Boolean(anchorElUser)}
+                    onClose={handleCloseUserMenu}
+                  >
+                    <AtomMenuItem onClick={handleLogout}>
+                      ĐĂNG XUẤT
+                    </AtomMenuItem>
+                  </AtomMenu>
+                </AtomBox>
+              ) : (
+                <DivFlexRow>
+                  <Login /> / <SignUp />
+                </DivFlexRow>
+              )}
+            </DivFlexRow>
+          </AtomToolbar>
+        </AtomContainer>
+      </AtomAppBar>
+    </ThemeProvider>
   );
 };
 
