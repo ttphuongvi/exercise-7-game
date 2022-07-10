@@ -7,7 +7,7 @@ const DivContainerCaptionSlider = styled(AtomGrid)({
   width: "100%",
   height: "100%",
   fontFamily: '"BebasNeueRegular", "Arial Narrow", Arial, sans-serif',
-  textAlign: "left",
+  textalign: "left",
 });
 
 export default DivContainerCaptionSlider;

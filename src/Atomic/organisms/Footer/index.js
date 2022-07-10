@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#fff",
   },
   item: {
-    textAlign: "center",
+    textalign: "center",
     margin: "0 auto",
   },
   containerLink: {
@@ -44,7 +44,7 @@ const Footer = () => {
       <AtomGrid className={classes.item} item xs={4}>
         <ImageLogo src={logo}></ImageLogo>
       </AtomGrid>
-      <AtomGrid direction="column" item xs={4}>
+      <AtomGrid item xs={4}>
         <InfoFooter
           icon={<AtomIconLocation />}
           info="400/8B Ung Văn Khiêm, P.25, Q.Bình Thạnh, TP.HCM"
