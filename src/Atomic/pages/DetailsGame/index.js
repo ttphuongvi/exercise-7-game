@@ -1,7 +1,6 @@
 import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Title from "../../../components/Title";
 import "./styles.css";
 import DialogPlayGame from "../../molecules/DialogPlayGame";
 import TemplateDetailGame from "../../templates/TemplateDetailGame";
@@ -26,11 +25,7 @@ const DetailsGame = () => {
     <AtomBox>
       {dataSource && (
         <TemplateDetailGame
-          caption={
-            <CaptionGame className="details-game__caption">
-              {dataSource.caption}
-            </CaptionGame>
-          }
+          caption={<CaptionGame>{dataSource.caption}</CaptionGame>}
           release={
             <ReleaseYear> Ngày phát hành {dataSource.release}</ReleaseYear>
           }
