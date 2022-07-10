@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -14,6 +14,7 @@ import AtomAvatar from "../atoms/AtomAvatar";
 import AtomTextField from "../atoms/AtomTextField";
 import AtomPaper from "../atoms/AtomPaper";
 import logo from "../../img/hahalolo-logo.png";
+import { useSelector, useDispatch } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -88,12 +89,21 @@ const FormLogin = () => {
           localStorage.setItem("user", JSON.stringify(res.data[0]));
           handleClose();
           alert("Đăng nhập thành công");
+          // res.data[0].loggedIn = true;
+          dispatch({ type: "LOGIN", content: res.data[0] });
+          // console.log(res.data[0].loggedIn);
         } else {
           alert("Không đúng tài khoản hoặc mật khẩu");
         }
       });
     }
   };
+
+  const user = useSelector((state) => state.user.content);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
 
   return (
     <div>
@@ -132,7 +142,7 @@ const FormLogin = () => {
                 required
                 fullWidth
                 name="password"
-                label="Password"
+                label="Mật khẩu"
                 type="password"
                 id="password"
                 autoComplete="current-password"
@@ -150,7 +160,7 @@ const FormLogin = () => {
                 className={classes.submit}
                 onClick={onLogin}
               >
-                Sign In
+                Đăng nhập
               </AtomButton>
               <AtomGrid container>
                 <AtomGrid item>

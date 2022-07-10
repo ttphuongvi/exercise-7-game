@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AtomAppBar from "../atoms/AtomAppBar";
 import AtomAvatar from "../atoms/AtomAvatar";
 import AtomBox from "../atoms/AtomBox";
@@ -14,6 +14,12 @@ import logo from "../../img/hahalolo-logo-1.png";
 import DivFlexRow from "../templates/TemplateTag/DivFlexRow";
 import { makeStyles } from "@material-ui/core/styles";
 import ImageLogo from "../templates/TemplateTag/ImageLogo";
+import AtomMenu from "../atoms/AtomMenu";
+import AtomMenuItem from "../atoms/AtomMenuItem";
+import AtomTypography from "../atoms/AtomTypography";
+import { useTheme, ThemeProvider, createTheme } from "@material-ui/core/styles";
+import { useSelector, useDispatch } from "react-redux";
+import { LOGOUT } from "../../redux/const";
 
 const useStyles = makeStyles({
   tab: {
@@ -35,6 +41,12 @@ const useStyles = makeStyles({
 });
 
 const TabAppBar = (props) => {
+  const theme = useTheme();
+
+  const [anchorElSetting, setAnchorElSetting] = React.useState(null);
+
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+
   const classes = useStyles();
 
   const a11yProps = (index) => {
@@ -43,6 +55,36 @@ const TabAppBar = (props) => {
       "aria-controls": `simple-tabpanel-${index}`,
     };
   };
+
+  const handleOpenSettingMenu = (event) => {
+    setAnchorElSetting(event.currentTarget);
+  };
+
+  const handleCloseSettingMenu = () => {
+    setAnchorElSetting(null);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const user = useSelector((state) => state.user.content);
+
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch({ type: LOGOUT });
+    handleCloseUserMenu();
+  };
+
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
+
   return (
     <AtomAppBar className={classes.appbar} position="fixed">
       <AtomContainer fullWidth maxWidth="xl">
@@ -83,21 +125,75 @@ const TabAppBar = (props) => {
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
-                onClick={props.handleOpenNavMenu}
+                onClick={handleOpenSettingMenu}
                 color="inherit"
               >
                 <AtomSettingIcon />
               </AtomIconButton>
-              <AtomIconButton onClick={props.handleOpenNavMenu} sx={{ p: 0 }}>
-                <AtomAvatar
-                  className="avatar--margin"
-                  src="/broken-image.jpg"
-                />
-              </AtomIconButton>
+              <AtomBox
+                sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
+              >
+                <AtomMenu
+                  sx={{ mt: "45px" }}
+                  id="menu-appbar"
+                  anchorEl={anchorElSetting}
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  open={Boolean(anchorElSetting)}
+                  onClose={handleCloseUserMenu}
+                >
+                  <AtomMenuItem onClick={handleCloseSettingMenu}>
+                    <AtomTypography textAlign="center">
+                      CHẾ ĐỘ TỐI
+                    </AtomTypography>
+                  </AtomMenuItem>
+                  <AtomMenuItem onClick={handleCloseSettingMenu}>
+                    <AtomTypography textAlign="center">
+                      CHỌN CHỦ ĐỀ
+                    </AtomTypography>
+                  </AtomMenuItem>
+                </AtomMenu>
+              </AtomBox>
             </AtomBox>
-            <DivFlexRow>
-              <Login /> / <SignUp />
-            </DivFlexRow>
+            {user && user.isLogin ? (
+              <AtomBox>
+                <AtomIconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <AtomAvatar
+                    className="avatar--margin"
+                    src="/broken-image.jpg"
+                  />
+                </AtomIconButton>
+                <AtomMenu
+                  sx={{ mt: "45px" }}
+                  id="menu-appbar"
+                  anchorEl={anchorElUser}
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseUserMenu}
+                >
+                  <AtomMenuItem onClick={handleLogout}>ĐĂNG XUẤT</AtomMenuItem>
+                </AtomMenu>
+              </AtomBox>
+            ) : (
+              <DivFlexRow>
+                <Login /> / <SignUp />
+              </DivFlexRow>
+            )}
           </DivFlexRow>
         </AtomToolbar>
       </AtomContainer>
