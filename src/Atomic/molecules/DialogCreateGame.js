@@ -125,22 +125,23 @@ const DialogCreateGame = () => {
             variant="outlined"
             label="Link game"
           />
+
+          <DialogActions>
+            <ButtonStyle1
+              onClick={() => {
+                if (caption && description && image && release && link) {
+                  saveGame();
+                  // alert("Đã lưu thành công");
+                  // Сlose the dialog and return the value
+                  // dialog.close(value);
+                } else {
+                  alert("Vui lòng nhập đầy đủ thông tin");
+                }
+              }}
+              label=" Lưu game"
+            ></ButtonStyle1>
+          </DialogActions>
         </DialogContent>
-        <DialogActions>
-          <ButtonStyle1
-            onClick={() => {
-              if (caption && description && image && release && link) {
-                saveGame();
-                // alert("Đã lưu thành công");
-                // Сlose the dialog and return the value
-                // dialog.close(value);
-              } else {
-                alert("Vui lòng nhập đầy đủ thông tin");
-              }
-            }}
-            label=" Lưu game"
-          ></ButtonStyle1>
-        </DialogActions>
       </Dialog>
     </div>
   );
