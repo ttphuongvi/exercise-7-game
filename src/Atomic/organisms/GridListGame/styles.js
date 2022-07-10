@@ -9,7 +9,7 @@ const useStyles = makeStyles({
     marginBottom: "10px",
   },
   itemListgame: {
-    border: "3px solid #bfcdda",
+    border: "3px solid rgb(0 0 0 / 20%)",
     borderRadius: "10px",
     position: "relative",
     paddingBottom: "10%",
