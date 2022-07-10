@@ -128,13 +128,8 @@ const TabAppBar = (props) => {
                 />
                 <AtomTab
                   className={classes.tab}
-                  label="DANH MỤC"
-                  {...a11yProps(2)}
-                />
-                <AtomTab
-                  className={classes.tab}
                   label="LIÊN HỆ"
-                  {...a11yProps(3)}
+                  {...a11yProps(2)}
                 />
               </AtomTabs>
               <AtomBox sx={{ flexGrow: 0 }}>
