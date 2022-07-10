@@ -42,7 +42,7 @@ const Slider = () => {
 
     const interval = setInterval(function () {
       document.getElementById("radio" + counter).checked = true;
-      console.log(counter);
+      // console.log(counter);
       counter++;
       if (counter > 6) {
         counter = 1;
@@ -62,7 +62,7 @@ const Slider = () => {
         <input type="radio" name="radio-btn" id="radio6" />
         <>
           {dataSource.map((value, index) => {
-            console.log(index);
+            // console.log(index);
             if (index === 0) {
               return (
                 <div class="slide first" key={value.id}>
