@@ -17,7 +17,7 @@ import ImageLogo from "../templates/TemplateTag/ImageLogo";
 import AtomMenu from "../atoms/AtomMenu";
 import AtomMenuItem from "../atoms/AtomMenuItem";
 import AtomTypography from "../atoms/AtomTypography";
-import { useTheme, ThemeProvider, createTheme } from "@material-ui/core/styles";
+import { ThemeProvider, createTheme } from "@material-ui/core/styles";
 import { useSelector, useDispatch } from "react-redux";
 import { LOGOUT } from "../../redux/const";
 import { Switch } from "@material-ui/core";
@@ -29,7 +29,7 @@ const useStyles = makeStyles({
     fontFamily: "'Oswald', sans-serif",
   },
   appbar: {
-    backgroundColor: "#20232a",
+    // backgroundColor: "#20232a",
     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)",
   },
   toolbar: {
@@ -94,9 +94,8 @@ const TabAppBar = (props) => {
       createTheme({
         palette: {
           type: mode,
-          background: {
-            dark: "hsl(230, 17%, 14%)",
-            light: "hsl(0, 0%, 100%)",
+          primary: {
+            main: "#20232a",
           },
         },
       }),
@@ -105,8 +104,8 @@ const TabAppBar = (props) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <AtomAppBar className={classes.appbar} position="fixed">
-        <AtomContainer fullWidth maxWidth="xl">
+      <AtomAppBar color="primary" className={classes.appbar} position="fixed">
+        <AtomContainer maxWidth="xl">
           <AtomToolbar className={classes.toolbar}>
             <ImageLogo alt="logo" src={logo}></ImageLogo>
             <DivFlexRow className={classes.menuRight}>
@@ -181,7 +180,7 @@ const TabAppBar = (props) => {
                       CHẾ ĐỘ TỐI
                     </AtomMenuItem>
                     <AtomMenuItem onClick={handleCloseSettingMenu}>
-                      <AtomTypography textAlign="center">
+                      <AtomTypography textalign="center">
                         CHỌN CHỦ ĐỀ
                       </AtomTypography>
                     </AtomMenuItem>
