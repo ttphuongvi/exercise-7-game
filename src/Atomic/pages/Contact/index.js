@@ -1,5 +1,4 @@
 import { React, useState } from "react";
-import Title from "../../../components/Title";
 import "./styles.css";
 import ButtonStyle1 from "../../molecules/ButtonStyle1";
 import TitleCatogery from "../../molecules/TitleCatogery";
