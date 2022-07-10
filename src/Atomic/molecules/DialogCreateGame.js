@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Button from "../atoms/AtomButton";
 import Dialog from "../atoms/AtomDialog";
 import DialogActions from "../atoms/AtomDialogActions";
 import DialogContent from "../atoms/AtomDialogContent";
@@ -10,7 +9,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import AtomTextField from "../atoms/AtomTextField";
 import ButtonStyle1 from "./ButtonStyle1";
 import { useDispatch } from "react-redux";
-import { ADD_GAME, SET_LIST_GAME } from "../../redux/const/index";
+import { ADD_GAME } from "../../redux/const/index";
 
 const useStyles = makeStyles({
   AtomTextField: {

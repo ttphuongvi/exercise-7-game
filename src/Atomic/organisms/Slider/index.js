@@ -7,7 +7,6 @@ import DivContainerCaptionSlider from "../../templates/TemplateTag/DivContainerC
 import DescriptionGameSlider from "../../templates/TemplateTag/DescriptionGameSlider";
 import CaptionSlider from "../../templates/TemplateTag/CaptionSlider";
 import ImageSlider from "../../templates/TemplateTag/ImageSlider";
-import DivFlexRow from "../../templates/TemplateTag/DivFlexRow";
 import AtomGrid from "../../atoms/AtomGrid";
 import AtomBox from "../../atoms/AtomBox";
 import { makeStyles } from "@material-ui/core/styles";

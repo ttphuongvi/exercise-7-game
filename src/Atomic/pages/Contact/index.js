@@ -1,7 +1,6 @@
 import { React, useState } from "react";
 import "./styles.css";
 import ButtonStyle1 from "../../molecules/ButtonStyle1";
-import TitleCatogery from "../../molecules/TitleCatogery";
 import TemplateContact from "../../templates/TemplateContact";
 import AtomTextField from "../../atoms/AtomTextField";
 import { makeStyles } from "@material-ui/core/styles";

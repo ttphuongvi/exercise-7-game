@@ -13,8 +13,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 const ResponsiveAppBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
   const classes = useStyles();
   // const { tabBarValue, setTabBarValue } = React.useContext(TabBarContext);
   const [value, setValue] = React.useState(0);
@@ -23,19 +21,11 @@ const ResponsiveAppBar = () => {
     setValue(newTab);
   };
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
   return (
     <AtomBox className={classes.root}>
       <TabAppBar
         value={value}
         navigateTabListgame={navigateTabListgame}
-        handleOpenNavMenu={handleOpenNavMenu}
       ></TabAppBar>
       <TabPanel value={value} index={0}>
         <Home navigateTabListgame={navigateTabListgame} />

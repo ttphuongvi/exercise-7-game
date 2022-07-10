@@ -7,7 +7,6 @@ import ButtonStyle1 from "../../molecules/ButtonStyle1";
 import AtomGrid from "../../atoms/AtomGrid";
 import useStyle from "./styles";
 import TitleCatogery from "../../molecules/TitleCatogery";
-import AtomTypography from "../../atoms/AtomTypography";
 import AtomCard from "../../atoms/AtomCard";
 import ContainerImageNewGame from "../../templates/TemplateTag/ContainerImageNewGame";
 import ImageNewGame from "../../templates/TemplateTag/ImageNewGame";
