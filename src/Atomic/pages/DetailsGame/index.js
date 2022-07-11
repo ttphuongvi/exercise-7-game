@@ -18,7 +18,7 @@ const DetailsGame = () => {
     axios.get(`${urlRequest}${params}`).then((res) => {
       setDataSource(res.data[0]);
     });
-  }, [params]);
+  });
 
   const classes = useStyles();
   return (

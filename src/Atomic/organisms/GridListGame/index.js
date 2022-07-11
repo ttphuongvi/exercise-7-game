@@ -33,7 +33,7 @@ const GridListGame = (props) => {
     axios.get("/games?_sort=id&_order=desc&_start=0&_limit=8").then((res) => {
       dispatch({ type: SET_LIST_GAME, content: res.data });
     });
-  }, []);
+  });
 
   //create a new array by filtering the original array
   const filteredData = dataSource.filter((el) => {

@@ -1,10 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TitleCatogery from "../molecules/TitleCatogery";
-import AtomBox from "../atoms/AtomBox";
-import AtomCard from "../atoms/AtomCard";
-import AtomCardContent from "../atoms/AtomCardContent";
-import AtomCardAction from "../atoms/AtomCardAction";
 import DivFlexColumn from "./TemplateTag/DivFlexColumn";
 
 const useStyles = makeStyles({
