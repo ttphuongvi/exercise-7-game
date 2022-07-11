@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import AtomAppBar from "../atoms/AtomAppBar";
 import AtomAvatar from "../atoms/AtomAvatar";
 import AtomBox from "../atoms/AtomBox";
