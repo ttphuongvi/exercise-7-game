@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./styles.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import ButtonStyle2 from "../../molecules/ButtonStyle2";
