@@ -12,6 +12,9 @@ import AtomDialog from "../atoms/AtomDialog";
 import axios from "axios";
 import AtomDialogTitle from "../atoms/AtomDialogTitle";
 import AtomDialogContent from "../atoms/AtomDialogContent";
+import logo from "../../img/hahalolo-logo.png";
+import AtomDialogActions from "../atoms/AtomDialogActions";
+import ButtonStyle2 from "./ButtonStyle2";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -34,6 +37,9 @@ const useStyles = makeStyles((theme) => ({
   button: {
     fontFamily: "Oswald",
     color: "white",
+  },
+  action: {
+    justifyContent: "center",
   },
 }));
 
@@ -77,12 +83,8 @@ export default function SignUp() {
         <AtomDialogTitle id="form-dialog-title">Đăng ký</AtomDialogTitle>
         <AtomDialogContent>
           <div className={classes.paper}>
-            <AtomAvatar className={classes.avatar}>
-              <LockOutlinedIcon />
-            </AtomAvatar>
-            <AtomTypography component="h1" variant="h5">
-              Đăng ký
-            </AtomTypography>
+            <AtomAvatar src={logo} className={classes.avatar}></AtomAvatar>
+
             <form className={classes.form} noValidate>
               <AtomTextField
                 variant="outlined"
@@ -123,29 +125,22 @@ export default function SignUp() {
                 onChange={(event) => setPassword(event.target.value)}
               />
 
-              <AtomButton
-                // type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-                onClick={() => {
-                  if (name && email && password) {
-                    addUser();
-                    // dispatch({ type: "ADD_USER", content: { name, email } });
-                    handleClose();
-                  }
-                }}
-              >
-                Đăng ký
-              </AtomButton>
-              <AtomGrid container>
-                <AtomGrid item>
-                  <Link href="#" variant="body2">
-                    Already have an account? Sign in
-                  </Link>
-                </AtomGrid>
-              </AtomGrid>
+              <AtomDialogActions className={classes.action}>
+                <ButtonStyle2
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  label="Đăng ký"
+                  className={classes.submit}
+                  onClick={() => {
+                    if (name && email && password) {
+                      addUser();
+                      // dispatch({ type: "ADD_USER", content: { name, email } });
+                      handleClose();
+                    }
+                  }}
+                ></ButtonStyle2>
+              </AtomDialogActions>
             </form>
           </div>
         </AtomDialogContent>
