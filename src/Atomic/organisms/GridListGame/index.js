@@ -29,6 +29,7 @@ const GridListGame = (props) => {
   };
 
   const dataSource = useSelector((state) => state.listGame.content) || [];
+
   const dispatch = useDispatch();
 
   useEffect(() => {
