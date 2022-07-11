@@ -2,7 +2,7 @@
   "name": "project-game",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3004",
+  "proxy": "https://d52d-171-233-148-143.ap.ngrok.io/",
   "dependencies": {
     "@date-io/date-fns": "1.3.13",
     "@material-ui/core": "^4.12.4",
