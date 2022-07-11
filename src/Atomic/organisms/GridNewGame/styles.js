@@ -15,5 +15,8 @@ const useStyle = makeStyles((theme) => ({
   gridContainer: {
     marginBottom: "10px",
   },
+  caption: {
+    marginBottom: "10px",
+  },
 }));
 export default useStyle;
