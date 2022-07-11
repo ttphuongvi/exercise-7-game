@@ -94,9 +94,7 @@ const FormLogin = () => {
             localStorage.setItem("user", JSON.stringify(res.data[0]));
             handleClose();
             alert("Đăng nhập thành công");
-            // res.data[0].loggedIn = true;
             dispatch({ type: "LOGIN", content: res.data[0] });
-            // console.log(res.data[0].loggedIn);
           } else {
             alert("Không đúng tài khoản hoặc mật khẩu");
           }

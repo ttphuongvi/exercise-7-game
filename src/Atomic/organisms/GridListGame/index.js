@@ -30,7 +30,7 @@ const GridListGame = (props) => {
 
   const dataSource = useSelector((state) => state.listGame.content) || [];
   const dispatch = useDispatch();
-  console.log(dataSource);
+
   useEffect(() => {
     axios
       .get(
@@ -38,7 +38,7 @@ const GridListGame = (props) => {
       )
       .then((res) => {
         dispatch({ type: SET_LIST_GAME, content: res.data });
-      });
+      }, []);
   });
 
   //create a new array by filtering the original array

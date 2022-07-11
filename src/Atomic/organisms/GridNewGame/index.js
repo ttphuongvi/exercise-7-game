@@ -27,8 +27,8 @@ const GridNewGame = ({ navigateTabListgame }) => {
       .then((res) => {
         setDataSource(res.data);
       });
-    console.log(dataSource);
-  });
+    // console.log(dataSource);
+  }, []);
 
   const classes = useStyle();
 
