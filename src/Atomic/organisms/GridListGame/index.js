@@ -21,7 +21,7 @@ const GridListGame = (props) => {
 
   const onClickLoadding = () => {
     axios
-      .get("http://45.63.121.194:3003/games?_sort=id&_order=desc")
+      .get("https://game.phong940253.tk/games?_sort=id&_order=desc")
       .then((res) => {
         dispatch({ type: SET_LIST_GAME, content: res.data });
       });
@@ -34,7 +34,7 @@ const GridListGame = (props) => {
   useEffect(() => {
     axios
       .get(
-        "http://45.63.121.194:3003/games?_sort=id&_order=desc&_start=0&_limit=8"
+        "https://game.phong940253.tk/games?_sort=id&_order=desc&_start=0&_limit=8"
       )
       .then((res) => {
         dispatch({ type: SET_LIST_GAME, content: res.data });

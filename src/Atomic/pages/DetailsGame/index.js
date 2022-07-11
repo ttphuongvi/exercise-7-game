@@ -15,9 +15,11 @@ const DetailsGame = () => {
   const [dataSource, setDataSource] = useState(null);
   const urlRequest = `/games?id=`;
   useEffect(() => {
-    axios.get(`http://45.63.121.194:3003${urlRequest}${params}`).then((res) => {
-      setDataSource(res.data[0]);
-    });
+    axios
+      .get(`https://game.phong940253.tk${urlRequest}${params}`)
+      .then((res) => {
+        setDataSource(res.data[0]);
+      });
   });
 
   const classes = useStyles();

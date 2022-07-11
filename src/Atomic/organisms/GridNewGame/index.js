@@ -22,7 +22,7 @@ const GridNewGame = ({ navigateTabListgame }) => {
   useEffect(() => {
     axios
       .get(
-        "http://45.63.121.194:3003/games?_sort=id&_order=desc&_start=0&_limit=6"
+        "https://game.phong940253.tk/games?_sort=id&_order=desc&_start=0&_limit=6"
       )
       .then((res) => {
         setDataSource(res.data);

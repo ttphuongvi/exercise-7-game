@@ -87,7 +87,7 @@ const FormLogin = () => {
     if (email !== null && password !== null) {
       axios
         .get(
-          `http://45.63.121.194:3003/users?email=${email}&password=${password}`
+          `https://game.phong940253.tk/users?email=${email}&password=${password}`
         )
         .then((res) => {
           if (res.data.length > 0) {

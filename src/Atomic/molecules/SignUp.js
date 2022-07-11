@@ -58,7 +58,7 @@ export default function SignUp() {
   const [password, setPassword] = React.useState("");
 
   const addUser = () => {
-    axios.post("http://45.63.121.194:3003/users", {
+    axios.post("https://game.phong940253.tk/users", {
       name: name,
       email: email,
       password: password,
