@@ -15,6 +15,8 @@ import AtomTextField from "../atoms/AtomTextField";
 import AtomPaper from "../atoms/AtomPaper";
 import logo from "../../img/hahalolo-logo.png";
 import { useSelector, useDispatch } from "react-redux";
+import ButtonStyle2 from "../molecules/ButtonStyle2";
+import AtomDialogAtions from "../atoms/AtomDialogActions";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -59,6 +61,9 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     fontFamily: "Oswald",
+  },
+  action: {
+    justifyContent: "center",
   },
   button: {
     fontFamily: "Oswald",
@@ -149,26 +154,15 @@ const FormLogin = () => {
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
               />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Ghi nhớ đăng nhập"
-              />
-              <AtomButton
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-                onClick={onLogin}
-              >
-                Đăng nhập
-              </AtomButton>
-              <AtomGrid container>
-                <AtomGrid item>
-                  <Link href="#" variant="body2">
-                    {"Bạn chưa có tài khoản? Đăng ký ngay!"}
-                  </Link>
-                </AtomGrid>
-              </AtomGrid>
+              <AtomDialogAtions className={classes.action}>
+                <ButtonStyle2
+                  variant="contained"
+                  color="primary"
+                  className={classes.submit}
+                  onClick={onLogin}
+                  label="Đăng nhập"
+                ></ButtonStyle2>
+              </AtomDialogAtions>
             </form>
           </AtomPaper>
         </AtomDialogContent>
