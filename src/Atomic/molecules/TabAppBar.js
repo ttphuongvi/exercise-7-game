@@ -144,9 +144,7 @@ const TabAppBar = (props) => {
                   <AtomSettingIcon />
                 </AtomIconButton>
                 <CssBaseline />
-                <Switch
-                  onChange={() => setMode(mode === "light" ? "dark" : "light")}
-                />
+
                 <AtomBox
                   sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
                 >
@@ -173,6 +171,12 @@ const TabAppBar = (props) => {
                     // onClick={handleCloseSettingMenu}
                     >
                       CHẾ ĐỘ TỐI
+                      <Switch
+                        onChange={() =>
+                          setMode(mode === "dark" ? "light" : "dark")
+                        }
+                        onClick={handleCloseSettingMenu}
+                      />
                     </AtomMenuItem>
                     <AtomMenuItem onClick={handleCloseSettingMenu}>
                       <AtomTypography textalign="center">
