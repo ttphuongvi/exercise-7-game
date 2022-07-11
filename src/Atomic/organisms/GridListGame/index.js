@@ -51,9 +51,9 @@ const GridListGame = (props) => {
     <DivFlexColumn className={classes.root}>
       <AtomGrid className={classes.gridContainer} container spacing={3}>
         {filteredData &&
-          filteredData.map((value, key) => {
+          filteredData.map((value) => {
             return (
-              <AtomGrid item xs={12} sm={6} md={4} lg={3}>
+              <AtomGrid key={value.id} item xs={12} sm={4} md={3} lg={3}>
                 <AtomCard className={classes.itemListgame} elevation={7}>
                   <AtomCardMedia
                     className={classes.media}
