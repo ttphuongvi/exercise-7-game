@@ -48,7 +48,7 @@ const DialogCreateGame = () => {
       release: release,
       link: link,
     };
-    axios.get("http://45.63.121.194:3003/games", item).then((res) => {
+    axios.post("http://45.63.121.194:3003/games", item).then((res) => {
       dispatch({
         type: ADD_GAME,
         content: item,
