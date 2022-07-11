@@ -35,9 +35,11 @@ const GridNewGame = ({ navigateTabListgame }) => {
         <AtomGrid className={classes.gridContainer} container spacing={3}>
           {dataSource.map((value, key) => {
             return (
-              <AtomGrid item xs={4} key={value.id}>
+              <AtomGrid item key={value.id} xs={12} sm={6} md={6} lg={4}>
                 <AtomCard className={classes.paper} elevation={7}>
-                  <CaptionGame>{value.caption}</CaptionGame>
+                  <CaptionGame className={classes.caption}>
+                    {value.caption}
+                  </CaptionGame>
                   <DivFlexRow>
                     <ContainerImageNewGame>
                       <ImageNewGame src={value.image} alt=""></ImageNewGame>
