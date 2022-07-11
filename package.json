@@ -2,7 +2,6 @@
   "name": "project-game",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://45.63.121.194:3003/",
   "dependencies": {
     "@date-io/date-fns": "1.3.13",
     "@material-ui/core": "^4.12.4",

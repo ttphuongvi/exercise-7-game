@@ -85,18 +85,22 @@ const FormLogin = () => {
 
   const onLogin = () => {
     if (email !== null && password !== null) {
-      axios.get(`/users?email=${email}&password=${password}`).then((res) => {
-        if (res.data.length > 0) {
-          localStorage.setItem("user", JSON.stringify(res.data[0]));
-          handleClose();
-          alert("Đăng nhập thành công");
-          // res.data[0].loggedIn = true;
-          dispatch({ type: "LOGIN", content: res.data[0] });
-          // console.log(res.data[0].loggedIn);
-        } else {
-          alert("Không đúng tài khoản hoặc mật khẩu");
-        }
-      });
+      axios
+        .get(
+          `http://45.63.121.194:3003/users?email=${email}&password=${password}`
+        )
+        .then((res) => {
+          if (res.data.length > 0) {
+            localStorage.setItem("user", JSON.stringify(res.data[0]));
+            handleClose();
+            alert("Đăng nhập thành công");
+            // res.data[0].loggedIn = true;
+            dispatch({ type: "LOGIN", content: res.data[0] });
+            // console.log(res.data[0].loggedIn);
+          } else {
+            alert("Không đúng tài khoản hoặc mật khẩu");
+          }
+        });
     }
   };
 

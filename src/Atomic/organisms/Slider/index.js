@@ -34,9 +34,13 @@ const Slider = () => {
   let navigate = useNavigate();
   const [dataSource, setDataSource] = useState([]);
   useEffect(() => {
-    axios.get("/games?_sort=id&_order=desc&_start=0&_limit=6").then((res) => {
-      setDataSource(res.data);
-    });
+    axios
+      .get(
+        "http://45.63.121.194:3003/games?_sort=id&_order=desc&_start=0&_limit=6"
+      )
+      .then((res) => {
+        setDataSource(res.data);
+      });
     let counter = 1;
 
     const interval = setInterval(function () {

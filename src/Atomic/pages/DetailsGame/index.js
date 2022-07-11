@@ -15,7 +15,7 @@ const DetailsGame = () => {
   const [dataSource, setDataSource] = useState(null);
   const urlRequest = `/games?id=`;
   useEffect(() => {
-    axios.get(`${urlRequest}${params}`).then((res) => {
+    axios.get(`http://45.63.121.194:3003${urlRequest}${params}`).then((res) => {
       setDataSource(res.data[0]);
     });
   });

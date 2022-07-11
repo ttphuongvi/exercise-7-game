@@ -20,9 +20,11 @@ const GridListGame = (props) => {
   const [hiddenLoadding, setHidden] = useState(false);
 
   const onClickLoadding = () => {
-    axios.get("/games?_sort=id&_order=desc").then((res) => {
-      dispatch({ type: SET_LIST_GAME, content: res.data });
-    });
+    axios
+      .get("http://45.63.121.194:3003/games?_sort=id&_order=desc")
+      .then((res) => {
+        dispatch({ type: SET_LIST_GAME, content: res.data });
+      });
     setHidden(true);
   };
 
@@ -30,9 +32,13 @@ const GridListGame = (props) => {
   const dispatch = useDispatch();
   console.log(dataSource);
   useEffect(() => {
-    axios.get("/games?_sort=id&_order=desc&_start=0&_limit=8").then((res) => {
-      dispatch({ type: SET_LIST_GAME, content: res.data });
-    });
+    axios
+      .get(
+        "http://45.63.121.194:3003/games?_sort=id&_order=desc&_start=0&_limit=8"
+      )
+      .then((res) => {
+        dispatch({ type: SET_LIST_GAME, content: res.data });
+      });
   });
 
   //create a new array by filtering the original array

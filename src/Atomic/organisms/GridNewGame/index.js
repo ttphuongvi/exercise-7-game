@@ -20,9 +20,13 @@ const GridNewGame = ({ navigateTabListgame }) => {
   let navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("/games?_sort=id&_order=desc&_start=0&_limit=6").then((res) => {
-      setDataSource(res.data);
-    });
+    axios
+      .get(
+        "http://45.63.121.194:3003/games?_sort=id&_order=desc&_start=0&_limit=6"
+      )
+      .then((res) => {
+        setDataSource(res.data);
+      });
     console.log(dataSource);
   });
 
