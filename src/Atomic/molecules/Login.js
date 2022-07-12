@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
@@ -10,7 +10,7 @@ import AtomAvatar from "../atoms/AtomAvatar";
 import AtomTextField from "../atoms/AtomTextField";
 import AtomPaper from "../atoms/AtomPaper";
 import logo from "../../img/hahalolo-logo.png";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import ButtonStyle2 from "../molecules/ButtonStyle2";
 import AtomDialogAtions from "../atoms/AtomDialogActions";
 
@@ -102,11 +102,8 @@ const FormLogin = () => {
     }
   };
 
-  const user = useSelector((state) => state.user.content);
+  // const user = useSelector((state) => state.user.content);
   const dispatch = useDispatch();
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
 
   return (
     <div>

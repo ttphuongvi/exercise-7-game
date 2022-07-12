@@ -39,8 +39,8 @@ const GridListGame = (props) => {
       )
       .then((res) => {
         dispatch({ type: SET_LIST_GAME, content: res.data });
-      }, []);
-  });
+      });
+  }, [dispatch]);
 
   //create a new array by filtering the original array
   const filteredData = dataSource.filter((el) => {
