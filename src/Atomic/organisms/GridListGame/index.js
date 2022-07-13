@@ -4,16 +4,16 @@ import ButtonStyle2 from "../../molecules/ButtonStyle2";
 import DialogPlayGame from "../../molecules/DialogPlayGame";
 import { useSelector, useDispatch } from "react-redux";
 import { SET_LIST_GAME } from "../../../redux/const";
-import DivFlexColumn from "../../templates/TemplateTag/DivFlexColumn";
+import DivFlexColumn from "../../molecules/DivFlexColumn";
 import AtomGrid from "../../atoms/AtomGrid";
 import useStyles from "./styles";
 import AtomCard from "../../atoms/AtomCard";
 import AtomCardMedia from "../../atoms/AtomCardMedia";
 import AtomCardContent from "../../atoms/AtomCardContent";
-import ReleaseYear from "../../templates/TemplateTag/ReleaseYear";
-import DescriptionGame from "../../templates/TemplateTag/DescriptionGame";
-import CaptionGame from "../../templates/TemplateTag/CaptionGame";
-import LinkStyle from "../../templates/TemplateTag/LinkStyle";
+import ReleaseYear from "../../molecules/ReleaseYear";
+import DescriptionGame from "../../molecules/DescriptionGame";
+import CaptionGame from "../../molecules/CaptionGame";
+import LinkStyle from "../../molecules/LinkStyle";
 
 const GridListGame = (props) => {
   const classes = useStyles();

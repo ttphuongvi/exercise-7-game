@@ -5,7 +5,7 @@ import DialogCreateGame from "../../Atomic/molecules/DialogCreateGame";
 import GridListGame from "../../Atomic/organisms/GridListGame";
 import AtomTextField from "../../Atomic/atoms/AtomTextField";
 import { makeStyles } from "@material-ui/core/styles";
-import TemplatePage from "../../Atomic/templates/TemplateTag/TemplatePage";
+import TemplatePage from "../../Atomic/templates/TemplatePage";
 import AppBarNew from "../../Atomic/organisms/AppBarNew";
 import AtomGrid from "../../Atomic/atoms/AtomGrid";
 import TitleCatogery from "../../Atomic/molecules/TitleCategory";

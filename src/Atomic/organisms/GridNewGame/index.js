@@ -13,7 +13,6 @@ import DivFlexRow from "../../molecules/DivFlexRow";
 import CaptionGame from "../../molecules/CaptionGame";
 import { createTheme, styled } from "@material-ui/core/styles";
 import AtomContainer from "../../atoms/AtomContainer";
-import AtomRouteLink from "../../atoms/AtomRouteLink";
 
 const theme = createTheme();
 

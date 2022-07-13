@@ -1,11 +1,11 @@
 import React from "react";
 import AtomGrid from "../../atoms/AtomGrid";
-import ImageLogo from "../../templates/TemplateTag/ImageLogo";
+import ImageLogo from "../../molecules/ImageLogo";
 import logo from "../../../img/hahalolo-logo-1.png";
 import AtomIconLocation from "../../atoms/AtomIconLocation";
 import { makeStyles } from "@material-ui/core/styles";
 import AtomTypography from "../../atoms/AtomTypography";
-import DivFlexRow from "../../templates/TemplateTag/DivFlexRow";
+import DivFlexRow from "../../molecules/DivFlexRow";
 import AtomIconPhone from "../../atoms/AtomIconPhone";
 import AtomIconEmail from "../../atoms/AtomIconEmail";
 import AtomIconYoutube from "../../atoms/AtomIconYoutube";

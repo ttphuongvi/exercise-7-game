@@ -5,21 +5,19 @@ import AtomBox from "../atoms/AtomBox";
 import AtomContainer from "../atoms/AtomContainer";
 import AtomIconButton from "../atoms/AtomIconButton";
 import AtomSettingIcon from "../atoms/AtomSettingIcon";
-import AtomTab from "../atoms/AtomTab";
 import AtomTabs from "../atoms/AtomTabs";
 import AtomToolbar from "../atoms/AtomToolbar";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import logo from "../../img/hahalolo-logo-1.png";
-import DivFlexRow from "../templates/TemplateTag/DivFlexRow";
+import DivFlexRow from "./DivFlexRow";
 import { makeStyles } from "@material-ui/core/styles";
-import ImageLogo from "../templates/TemplateTag/ImageLogo";
+import ImageLogo from "./ImageLogo";
 import AtomMenu from "../atoms/AtomMenu";
 import AtomMenuItem from "../atoms/AtomMenuItem";
 import AtomTypography from "../atoms/AtomTypography";
-// import { ThemeProvider, createTheme } from "@material-ui/core/styles";
 import { useSelector, useDispatch } from "react-redux";
-import { LOGOUT } from "../../redux/const";
+import { LOGOUT } from "../../store/const";
 import { Switch } from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import dataRoutes from "../../routesGame/dataRoutes";
@@ -52,13 +50,6 @@ const TabAppBar = (props) => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const classes = useStyles();
-
-  const a11yProps = (index) => {
-    return {
-      id: `simple-tab-${index}`,
-      "aria-controls": `simple-tabpanel-${index}`,
-    };
-  };
 
   const handleOpenSettingMenu = (event) => {
     setAnchorElSetting(event.currentTarget);

@@ -6,8 +6,8 @@ import DialogPlayGame from "../../Atomic/molecules/DialogPlayGame";
 import TemplateDetailGame from "../../Atomic/templates/TemplateDetailGame";
 import AtomCardMedia from "../../Atomic/atoms/AtomCardMedia";
 import useStyles from "./styles";
-import CaptionGame from "../../Atomic/templates/TemplateTag/CaptionGame";
-import ReleaseYear from "../../Atomic/templates/TemplateTag/ReleaseYear";
+import CaptionGame from "../../Atomic/molecules/CaptionGame";
+import ReleaseYear from "../../Atomic/molecules/ReleaseYear";
 import AtomBox from "../../Atomic/atoms/AtomBox";
 
 const DetailsGame = () => {

@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import AtomBox from "../../atoms/AtomBox";
+import AtomBox from "../atoms/AtomBox";
 import { styled } from "@material-ui/core/styles";
-import AtomPaper from "../../atoms/AtomPaper";
+import AtomPaper from "../atoms/AtomPaper";
 
 const PaperStyle = styled(AtomPaper)({
   display: "flex",

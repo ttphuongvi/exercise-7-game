@@ -1,5 +1,5 @@
 import { styled } from "@material-ui/core/styles";
-import AtomTypography from "../../atoms/AtomTypography";
+import AtomTypography from "../atoms/AtomTypography";
 
 const CaptionGame = styled(AtomTypography)({
   textShadow: "none",

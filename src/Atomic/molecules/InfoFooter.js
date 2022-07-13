@@ -1,6 +1,6 @@
 import React from "react";
 import AtomTypography from "../atoms/AtomTypography";
-import DivFlexRow from "../templates/TemplateTag/DivFlexRow";
+import DivFlexRow from "./DivFlexRow";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
