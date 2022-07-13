@@ -1,15 +1,12 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import TabPanel from "../../molecules/TabPanel";
-import Home from "../../../pages/Home/index";
-import ListGame from "../../../pages/ListGame/index";
-import Contact from "../../../pages/Contact/index";
 import TabAppBar from "../../molecules/TabAppBar";
 import AtomBox from "../../atoms/AtomBox";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    marginBottom: "84px",
   },
   tabpanel: {
     minHeight: "100vh",
