@@ -14,6 +14,7 @@ import ReleaseYear from "../../templates/TemplateTag/ReleaseYear";
 import DescriptionGame from "../../templates/TemplateTag/DescriptionGame";
 import CaptionGame from "../../templates/TemplateTag/CaptionGame";
 import LinkStyle from "../../templates/TemplateTag/LinkStyle";
+
 const GridListGame = (props) => {
   const classes = useStyles();
 
@@ -61,7 +62,7 @@ const GridListGame = (props) => {
           filteredData.map((value) => {
             return (
               <AtomGrid key={value.id} item xs={12} sm={4} md={3} lg={3}>
-                <AtomCard className={classes.itemListgame} elevation={7}>
+                <AtomCard elevation={0} className={classes.itemListgame}>
                   <AtomCardMedia
                     className={classes.media}
                     image={value.image}
