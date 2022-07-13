@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import TitleCatogery from "../molecules/TitleCatogery";
+import TitleCatogery from "../molecules/TitleCategory";
 import AtomCard from "../atoms/AtomCard";
 import AtomCardContent from "../atoms/AtomCardContent";
 import AtomCardAction from "../atoms/AtomCardAction";

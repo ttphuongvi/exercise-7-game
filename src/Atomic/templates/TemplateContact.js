@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import TitleCatogery from "../molecules/TitleCatogery";
+import TitleCatogery from "../molecules/TitleCategory";
 import DivFlexColumn from "./TemplateTag/DivFlexColumn";
 
 const useStyles = makeStyles({
