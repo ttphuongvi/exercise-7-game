@@ -5,7 +5,7 @@ const DescriptionNewGame = styled("p")({
   marginTop: "0px",
   // color: "#666",
   fontSize: "14px",
-  height: "190px",
+  height: "180px",
   width: "100%",
   fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
   marginBottom: "5px",
