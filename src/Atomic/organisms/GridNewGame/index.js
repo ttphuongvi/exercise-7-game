@@ -19,6 +19,10 @@ const GridNewGame = ({ navigateTabListgame }) => {
 
   let navigate = useNavigate();
 
+  const handleClick = () => {
+    navigate("/menu");
+  };
+
   useEffect(() => {
     axios
       .get(
@@ -36,9 +40,9 @@ const GridNewGame = ({ navigateTabListgame }) => {
     <TitleCatogery title="Game mới nhất">
       <div className={classes.root}>
         <AtomGrid className={classes.gridContainer} container spacing={3}>
-          {dataSource.map((value, key) => {
+          {dataSource.map((value) => {
             return (
-              <AtomGrid item key={value.id} xs={12} sm={6} md={6} lg={4}>
+              <AtomGrid key={value.id} item xs={12} sm={6} md={6} lg={4}>
                 <AtomCard className={classes.paper} elevation={7}>
                   <CaptionGame className={classes.caption}>
                     {value.caption}
@@ -62,12 +66,7 @@ const GridNewGame = ({ navigateTabListgame }) => {
             );
           })}
         </AtomGrid>
-        <ButtonStyle2
-          onClick={() => {
-            navigateTabListgame(0, 1);
-          }}
-          label="Xem thêm"
-        ></ButtonStyle2>
+        <ButtonStyle2 onClick={handleClick} label="Xem thêm"></ButtonStyle2>
       </div>
     </TitleCatogery>
   );
