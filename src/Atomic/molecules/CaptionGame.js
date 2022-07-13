@@ -11,7 +11,7 @@ const CaptionGame = styled(AtomTypography)({
   fontWeight: 700,
   textTransform: "uppercase",
   padding: "0px 0px 10px 0px",
-  margin: "0px 0px 0px 0px",
+  margin: "0px 0px 10px 0px",
   color: "#2ac0ff",
   textDecoration: "none",
 });
