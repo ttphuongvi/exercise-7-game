@@ -1,14 +1,20 @@
 import React from "react";
 import GridNewGame from "../../Atomic/organisms/GridNewGame";
 import Slider from "../../Atomic/organisms/Slider";
-import TemplateHome from "../../Atomic/templates/TemplateHome";
+import TemplatePage from "../../Atomic/templates/TemplateTag/TemplatePage";
+import AppBarNew from "../../Atomic/organisms/AppBarNew";
+import TitleCatogery from "../../Atomic/molecules/TitleCategory";
+import Footer from "../../Atomic/organisms/Footer";
 // import logo from "./img/hahalolo-logo.png";
 const Home = ({ navigateTabListgame }) => {
   return (
-    <TemplateHome
+    <TemplatePage
+      appbar={<AppBarNew />}
       slider={<Slider />}
-      gridNewGame={<GridNewGame navigateTabListgame={navigateTabListgame} />}
-    ></TemplateHome>
+      title={<TitleCatogery title="GAME MỚI NHẤT" />}
+      content={<GridNewGame navigateTabListgame={navigateTabListgame} />}
+      footer={<Footer />}
+    ></TemplatePage>
   );
 };
 
