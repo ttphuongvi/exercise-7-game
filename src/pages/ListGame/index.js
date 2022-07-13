@@ -1,10 +1,10 @@
 import { React, useState } from "react";
 import DateFnsUtils from "@date-io/date-fns";
 import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
-import DialogCreateGame from "../../molecules/DialogCreateGame";
-import GridListGame from "../../organisms/GridListGame";
-import AtomTextField from "../../atoms/AtomTextField";
-import TemplateListGame from "../../templates/TemplateListGame";
+import DialogCreateGame from "../../Atomic/molecules/DialogCreateGame";
+import GridListGame from "../../Atomic/organisms/GridListGame";
+import AtomTextField from "../../Atomic/atoms/AtomTextField";
+import TemplateListGame from "../../Atomic/templates/TemplateListGame";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({

@@ -1,8 +1,8 @@
 import { React, useState } from "react";
 import "./styles.css";
-import ButtonStyle1 from "../../molecules/ButtonStyle1";
-import TemplateContact from "../../templates/TemplateContact";
-import AtomTextField from "../../atoms/AtomTextField";
+import ButtonStyle1 from "../../Atomic/molecules/ButtonStyle1";
+import TemplateContact from "../../Atomic/templates/TemplateContact";
+import AtomTextField from "../../Atomic/atoms/AtomTextField";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({

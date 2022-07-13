@@ -2,13 +2,13 @@ import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./styles.css";
-import DialogPlayGame from "../../molecules/DialogPlayGame";
-import TemplateDetailGame from "../../templates/TemplateDetailGame";
-import AtomCardMedia from "../../atoms/AtomCardMedia";
+import DialogPlayGame from "../../Atomic/molecules/DialogPlayGame";
+import TemplateDetailGame from "../../Atomic/templates/TemplateDetailGame";
+import AtomCardMedia from "../../Atomic/atoms/AtomCardMedia";
 import useStyles from "./styles";
-import CaptionGame from "../../templates/TemplateTag/CaptionGame";
-import ReleaseYear from "../../templates/TemplateTag/ReleaseYear";
-import AtomBox from "../../atoms/AtomBox";
+import CaptionGame from "../../Atomic/templates/TemplateTag/CaptionGame";
+import ReleaseYear from "../../Atomic/templates/TemplateTag/ReleaseYear";
+import AtomBox from "../../Atomic/atoms/AtomBox";
 
 const DetailsGame = () => {
   let { params } = useParams();
