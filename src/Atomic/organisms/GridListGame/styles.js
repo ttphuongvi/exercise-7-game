@@ -9,10 +9,12 @@ const useStyles = makeStyles({
     marginBottom: "10px",
   },
   itemListgame: {
-    border: "3px solid rgb(0 0 0 / 20%)",
-    borderRadius: "10px",
+    // border: "3px solid rgb(0 0 0 / 20%)",
+    // borderRadius: "10px",
     position: "relative",
     paddingBottom: "10%",
+    boxShadow:
+      "0 4px 8px 0 rgb(227 211 211 / 20%), 0 6px 20px 0 rgb(168 163 163 / 19%)",
   },
   media: {
     height: 0,
