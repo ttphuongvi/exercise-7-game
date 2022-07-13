@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import ButtonStyle2 from "../../molecules/ButtonStyle2";
-import ButtonStyle1 from "../../molecules/ButtonStyle1";
-import AtomGrid from "../../atoms/AtomGrid";
-import AtomCard from "../../atoms/AtomCard";
-import ContainerImageNewGame from "../../molecules/ContainerImageNewGame";
-import ImageNewGame from "../../molecules/ImageNewGame";
-import ContainerContentNewGame from "../../molecules/ContainerContentNewGame";
-import DescriptionGame from "../../molecules/DescriptionGame";
-import DivFlexRow from "../../molecules/DivFlexRow";
-import CaptionGame from "../../molecules/CaptionGame";
+import ButtonStyle2 from "../molecules/ButtonStyle2";
+import ButtonStyle1 from "../molecules/ButtonStyle1";
+import AtomGrid from "../atoms/AtomGrid";
+import AtomCard from "../atoms/AtomCard";
+import ContainerImageNewGame from "../molecules/ContainerImageNewGame";
+import ImageNewGame from "../molecules/ImageNewGame";
+import ContainerContentNewGame from "../molecules/ContainerContentNewGame";
+import DescriptionGame from "../molecules/DescriptionGame";
+import DivFlexRow from "../molecules/DivFlexRow";
+import CaptionGame from "../molecules/CaptionGame";
 import { createTheme, styled } from "@material-ui/core/styles";
-import AtomContainer from "../../atoms/AtomContainer";
+import AtomContainer from "../atoms/AtomContainer";
 
 const theme = createTheme();
 
