@@ -3,7 +3,7 @@ import axios from "axios";
 import ButtonStyle2 from "../../molecules/ButtonStyle2";
 import DialogPlayGame from "../../molecules/DialogPlayGame";
 import { useSelector, useDispatch } from "react-redux";
-import { SET_LIST_GAME } from "../../../redux/const";
+import { SET_LIST_GAME } from "../../../store/const";
 import DivFlexColumn from "../../molecules/DivFlexColumn";
 import AtomGrid from "../../atoms/AtomGrid";
 import useStyles from "./styles";

@@ -9,7 +9,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import AtomTextField from "../atoms/AtomTextField";
 import ButtonStyle1 from "./ButtonStyle1";
 import { useDispatch } from "react-redux";
-import { ADD_GAME } from "../../redux/const/index";
+import { ADD_GAME } from "../../store/const/index";
 
 const useStyles = makeStyles({
   AtomTextField: {

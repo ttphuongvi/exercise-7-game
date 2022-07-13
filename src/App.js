@@ -3,7 +3,7 @@ import RoutesGame from "./routesGame/index";
 
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
-import { reducers } from "./redux/reducers";
+import { reducers } from "./store/reducers";
 import { ThemeProvider } from "styled-components";
 const store = configureStore({ reducer: reducers });
 const App = () => {
