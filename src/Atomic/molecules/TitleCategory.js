@@ -26,7 +26,7 @@ const HeaderStyles = styled("div")({
   top: 0,
 });
 
-const TitleCatogery = (props) => {
+const TitleCategory = (props) => {
   return (
     <HeaderStyles>
       <TypographyStyles variant="h5">
@@ -41,4 +41,4 @@ const TitleCatogery = (props) => {
     </HeaderStyles>
   );
 };
-export default TitleCatogery;
+export default TitleCategory;
