@@ -1,16 +1,14 @@
 import { React, useState } from "react";
 import DateFnsUtils from "@date-io/date-fns";
 import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
-import DialogCreateGame from "../../Atomic/molecules/DialogCreateGame";
-import GridListGame from "../../Atomic/organisms/GridListGame";
-import AtomTextField from "../../Atomic/atoms/AtomTextField";
+import DialogCreateGame from "../Atomic/molecules/DialogCreateGame";
+import GridListGame from "../Atomic/organisms/GridListGame";
+import AtomTextField from "../Atomic/atoms/AtomTextField";
 import { makeStyles } from "@material-ui/core/styles";
-import TemplatePage from "../../Atomic/templates/TemplatePage";
-import AppBarNew from "../../Atomic/organisms/AppBarNew";
-import AtomGrid from "../../Atomic/atoms/AtomGrid";
-import TitleCatogery from "../../Atomic/molecules/TitleCategory";
-import AtomBox from "../../Atomic/atoms/AtomBox";
-import Footer from "../../Atomic/organisms/Footer";
+import TemplatePage from "../Atomic/templates/TemplatePage";
+import AtomGrid from "../Atomic/atoms/AtomGrid";
+import TitleCatogery from "../Atomic/molecules/TitleCategory";
+import Container from "../Atomic/molecules/Container";
 
 const useStyles = makeStyles({
   search: {
@@ -38,36 +36,10 @@ const ListGame = () => {
 
   const classes = useStyles();
   return (
-    // <TemplateListGame
-    //   searchByName={
-    //     <AtomTextField
-    //       id="outlined-basic"
-    //       onChange={inputHandler}
-    //       variant="outlined"
-    //       fullWidth
-    //       label="Tìm kiếm game"
-    //       className={useStyles().search}
-    //     />
-    //   }
-    //   searchByYear={
-    //     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-    //       <DatePicker
-    //         views={["year"]}
-    //         inputVariant="outlined"
-    //         label="Năm phát hành"
-    //         value={selectedDate}
-    //         onChange={handleDateChange}
-    //       />
-    //     </MuiPickersUtilsProvider>
-    //   }
-    //   dialogCreateGame={<DialogCreateGame />}
-    //   gridListGame={<GridListGame input={inputText} />}
-    // ></TemplateListGame>
     <TemplatePage
-      appbar={<AppBarNew />}
-      title={<TitleCatogery title="DANH SÁCH GAME"></TitleCatogery>}
       content={
-        <AtomBox>
+        <Container>
+          <TitleCatogery title="DANH SÁCH GAME"></TitleCatogery>
           <AtomGrid
             container
             direction="row"
@@ -104,9 +76,8 @@ const ListGame = () => {
             </AtomGrid>
           </AtomGrid>
           <GridListGame input={inputText} />
-        </AtomBox>
+        </Container>
       }
-      footer={<Footer />}
     ></TemplatePage>
   );
 };
