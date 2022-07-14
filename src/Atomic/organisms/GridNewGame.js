@@ -32,6 +32,8 @@ const ContainerGridListNewGame = styled(AtomContainer)({
   justifyContent: "center",
   display: "flex",
   flexDirection: "column",
+  paddingRight: 0,
+  paddingLeft: 0,
 });
 
 const GridNewGame = ({ navigateTabListgame }) => {

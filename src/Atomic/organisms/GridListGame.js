@@ -20,6 +20,8 @@ const ContainerGridListGame = styled(AtomContainer)({
   flexDirection: "column",
   flexGrow: 1,
   alignItems: "center",
+  paddingRight: 0,
+  paddingLeft: 0,
 });
 
 const ItemCard = styled(AtomCard)({
