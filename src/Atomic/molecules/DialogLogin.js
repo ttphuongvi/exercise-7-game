@@ -11,7 +11,7 @@ import AtomTextField from "../atoms/AtomTextField";
 import AtomPaper from "../atoms/AtomPaper";
 import logo from "../../img/hahalolo-logo.png";
 import { useDispatch } from "react-redux";
-import ButtonStyle2 from "../molecules/ButtonStyle2";
+import ButtonStyle2 from "./ButtonStyle2";
 import AtomDialogAtions from "../atoms/AtomDialogActions";
 
 const useStyles = makeStyles((theme) => ({
