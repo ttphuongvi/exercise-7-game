@@ -1,6 +1,6 @@
-import Home from "../pages/Home/index";
-import ListGame from "../pages/ListGame/index";
-import Contact from "../pages/Contact/index";
+import Home from "../pages/Home";
+import ListGame from "../pages/ListGame";
+import Contact from "../pages/Contact";
 const dataRoutes = [
   {
     name: "TRANG CHỦ",
