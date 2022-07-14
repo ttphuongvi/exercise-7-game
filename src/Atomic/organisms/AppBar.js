@@ -14,6 +14,7 @@ import AtomRouteLink from "../atoms/AtomRouteLink";
 import AtomIconButton from "../atoms/AtomIconButton";
 import AtomSettingIcon from "../atoms/AtomSettingIcon";
 import { CssBaseline, Switch } from "@material-ui/core";
+import { styled, createTheme } from "@material-ui/core/styles";
 import AtomMenu from "../atoms/AtomMenu";
 import AtomMenuItem from "../atoms/AtomMenuItem";
 import AtomTypography from "../atoms/AtomTypography";
@@ -21,6 +22,18 @@ import AtomAvatar from "../atoms/AtomAvatar";
 import logo from "../../img/hahalolo-logo-1.png";
 import DialogLogin from "../molecules/DialogLogin";
 import DialogSignUp from "../molecules/DialogSignUp";
+
+const theme = createTheme();
+
+const Tab = styled(AtomRouteLink)({
+  textDecoration: "none",
+  marginRight: theme.spacing(2),
+  fontFamily: "Oswald",
+});
+
+const Tabs = styled(AtomTabs)({
+  alignItems: "center",
+});
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -83,24 +96,20 @@ const ResponsiveAppBar = () => {
 
   return (
     <AtomBox className={classes.root}>
-      {/* <TabAppBar
-        value={value}
-        navigateTabListgame={navigateTabListgame}
-      ></TabAppBar> */}
       <AtomAppBar color="primary" className={classes.appbar} position="fixed">
         <AtomContainer maxWidth="xl">
           <AtomToolBar className={classes.toolbar}>
             <ImageLogo alt="logo" src={logo}></ImageLogo>
             <DivFlexRow className={classes.menuRight}>
-              <AtomTabs>
+              <Tabs>
                 {dataRoutes.map((route, index) => {
                   return (
-                    <AtomRouteLink key={index} to={route.path}>
+                    <Tab key={index} to={route.path}>
                       {route.name}
-                    </AtomRouteLink>
+                    </Tab>
                   );
                 })}
-              </AtomTabs>
+              </Tabs>
               <AtomBox sx={{ flexGrow: 0 }}>
                 <AtomIconButton
                   size="medium"
