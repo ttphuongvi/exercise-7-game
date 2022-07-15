@@ -15,10 +15,10 @@ import AtomLink from "../atoms/AtomLink";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    backgroundColor: "#20232a",
+    backgroundColor: theme.status.black,
     alignItems: "center",
     padding: theme.spacing(2),
-    color: "#fff",
+    color: theme.status.white,
     fontFamily: "Oswald",
   },
   item: {
