@@ -29,6 +29,7 @@ const Tab = styled(AtomRouteLink)({
   textDecoration: "none",
   marginRight: theme.spacing(2),
   fontFamily: "Oswald",
+  // color: theme.status.white,
 });
 
 const Tabs = styled(AtomTabs)({
@@ -40,15 +41,14 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     marginBottom: "64px",
   },
-  tabpanel: {
-    minHeight: "100vh",
-  },
   tab: {
-    minWidth: "auto",
-    fontFamily: "'Oswald', sans-serif",
+    color: theme.status.white,
+    "&:hover": {
+      color: theme.status.blue,
+    },
   },
   appbar: {
-    // backgroundColor: "#20232a",
+    backgroundColor: theme.status.black,
     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)",
   },
   toolbar: {
@@ -60,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
 }));
+
 const ResponsiveAppBar = () => {
   const [anchorElSetting, setAnchorElSetting] = React.useState(null);
 
@@ -93,6 +94,9 @@ const ResponsiveAppBar = () => {
   };
 
   const [mode, setMode] = useState("light");
+  let activeStyle = {
+    color: "#2AC0FF",
+  };
 
   return (
     <AtomBox className={classes.root}>
@@ -104,7 +108,14 @@ const ResponsiveAppBar = () => {
               <Tabs>
                 {dataRoutes.map((route, index) => {
                   return (
-                    <Tab key={index} to={route.path}>
+                    <Tab
+                      style={({ isActive }) =>
+                        isActive ? activeStyle : undefined
+                      }
+                      className={classes.tab}
+                      key={index}
+                      to={route.path}
+                    >
                       {route.name}
                     </Tab>
                   );
