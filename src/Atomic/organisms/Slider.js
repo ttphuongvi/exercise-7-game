@@ -84,36 +84,10 @@ const Slide1 = () => {
         pagination
         modules={[Autoplay, Navigation, Pagination]}
       >
-        {dataSource.map((value, index) => {
-          // console.log(index);
-          if (index === 0) {
-            return (
-              <SwiperSlide className={classes.slider}>
-                <div className="slide first" key={value.id}>
-                  <AtomGrid container className={classes.gridContainer}>
-                    <DivContainerCaptionSlider item xs={6}>
-                      <CaptionSlider>{value.caption}</CaptionSlider>
-                      <DescriptionGameSlider>
-                        {value.description}
-                      </DescriptionGameSlider>
-                      <ButtonStyle1
-                        label="Xem chi tiết"
-                        onClick={() => {
-                          navigate(`/${value.id}`);
-                        }}
-                      />
-                    </DivContainerCaptionSlider>
-                    <AtomGrid item xs={6}>
-                      <ImageSlider src={value.image} alt="" />
-                    </AtomGrid>
-                  </AtomGrid>
-                </div>
-              </SwiperSlide>
-            );
-          }
+        {dataSource.map((value) => {
           return (
-            <SwiperSlide className={classes.slider}>
-              <div className="slide" key={value.id}>
+            <SwiperSlide key={value.id} className={classes.slider}>
+              <div className="slide first" key={value.id}>
                 <AtomGrid container className={classes.gridContainer}>
                   <DivContainerCaptionSlider item xs={6}>
                     <CaptionSlider>{value.caption}</CaptionSlider>
@@ -135,8 +109,6 @@ const Slide1 = () => {
             </SwiperSlide>
           );
         })}
-        {/* <SwiperSlide className={classes.slider}>1</SwiperSlide>
-        <SwiperSlide className={classes.slider}>2</SwiperSlide>*/}
       </Swiper>
     </div>
   );
