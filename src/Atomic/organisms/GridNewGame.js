@@ -9,7 +9,6 @@ import ContainerImageNewGame from "../molecules/ContainerImageNewGame";
 import ImageNewGame from "../molecules/ImageNewGame";
 import ContainerContentNewGame from "../molecules/ContainerContentNewGame";
 import DescriptionGame from "../molecules/DescriptionGame";
-import DivFlexRow from "../molecules/DivFlexRow";
 import CaptionGame from "../molecules/CaptionGame";
 import { createTheme, styled } from "@material-ui/core/styles";
 import AtomContainer from "../atoms/AtomContainer";
@@ -63,21 +62,32 @@ const GridNewGame = ({ navigateTabListgame }) => {
           return (
             <AtomGrid key={value.id} item xs={12} sm={6} md={6} lg={4}>
               <CardContainerStyles>
-                <CaptionGame>{value.caption}</CaptionGame>
-                <DivFlexRow>
-                  <ContainerImageNewGame>
-                    <ImageNewGame src={value.image} alt=""></ImageNewGame>
-                  </ContainerImageNewGame>
-                  <ContainerContentNewGame>
-                    <DescriptionGame>{value.description}</DescriptionGame>
-                    <ButtonStyle1
-                      label="Xem chi tiết"
-                      onClick={() => {
-                        navigate(`/${value.id}`);
-                      }}
-                    />
-                  </ContainerContentNewGame>
-                </DivFlexRow>
+                <AtomGrid container>
+                  <AtomGrid item xs={12}>
+                    <CaptionGame>{value.caption}</CaptionGame>
+                  </AtomGrid>
+                  <AtomGrid item xs={6}>
+                    <ContainerImageNewGame>
+                      <ImageNewGame src={value.image} alt=""></ImageNewGame>
+                    </ContainerImageNewGame>
+                  </AtomGrid>
+                  <AtomGrid
+                    item
+                    xs={6}
+                    direction="column"
+                    alignItems="flex-end"
+                  >
+                    <ContainerContentNewGame>
+                      <DescriptionGame>{value.description}</DescriptionGame>
+                      <ButtonStyle1
+                        label="Xem chi tiết"
+                        onClick={() => {
+                          navigate(`/${value.id}`);
+                        }}
+                      />
+                    </ContainerContentNewGame>
+                  </AtomGrid>
+                </AtomGrid>
               </CardContainerStyles>
             </AtomGrid>
           );
