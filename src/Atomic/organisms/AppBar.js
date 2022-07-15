@@ -38,7 +38,7 @@ const Tabs = styled(AtomTabs)({
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    marginBottom: "84px",
+    marginBottom: "64px",
   },
   tabpanel: {
     minHeight: "100vh",
