@@ -1,11 +1,11 @@
 import { styled } from "@material-ui/core/styles";
 
 const ContainerContentNewGame = styled("div")({
-  display: "flex",
   flexDirection: "column",
-  alignSelf: "flex-end",
+  paddingLeft: "16px",
   justifyContent: "center",
-  width: "50%",
+  width: "100%",
   alignItems: "flex-end",
+  display: "flex",
 });
 export default ContainerContentNewGame;
