@@ -9,6 +9,7 @@ import TemplatePage from "../Atomic/templates/TemplatePage";
 import AtomGrid from "../Atomic/atoms/AtomGrid";
 import TitleCatogery from "../Atomic/molecules/TitleCategory";
 import Container from "../Atomic/molecules/Container";
+import { useSelector } from "react-redux";
 
 const useStyles = makeStyles({
   search: {
@@ -25,6 +26,8 @@ const useStyles = makeStyles({
 });
 
 const ListGame = () => {
+  const user = useSelector((state) => state.user.content);
+
   const [inputText, setInputText] = useState("");
 
   let inputHandler = (e) => {
@@ -71,9 +74,13 @@ const ListGame = () => {
                 </MuiPickersUtilsProvider>
               </AtomGrid>
             </AtomGrid>
-            <AtomGrid>
-              <DialogCreateGame />
-            </AtomGrid>
+            {user && user.isLogin ? (
+              <AtomGrid>
+                <DialogCreateGame />
+              </AtomGrid>
+            ) : (
+              <></>
+            )}
           </AtomGrid>
           <GridListGame input={inputText} />
         </Container>
