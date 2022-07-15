@@ -4,8 +4,8 @@ import { Navigation, Pagination } from "swiper";
 import { Autoplay } from "swiper";
 // Import Swiper styles
 import "swiper/css";
-// import "swiper/scss/navigation";
-// import "swiper/scss/pagination";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -17,8 +17,7 @@ import ButtonStyle1 from "../molecules/ButtonStyle1";
 import ImageSlider from "../molecules/ImageSlider";
 import { makeStyles } from "@material-ui/core/styles";
 import waves from "../../img/waves.jpg";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+
 const useStyles = makeStyles({
   gridContainer: {
     padding: "10% 100px 10% 30px",
@@ -26,14 +25,11 @@ const useStyles = makeStyles({
   slider: {
     width: "100%",
     height: "100%",
-    /* border-radius: 10px; */
-    overflow: "hidden",
-    position: "relative",
-    marginTop: "60px",
     backgroundImage: `url(${waves})`,
     // backgroundColor: "blue",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
+    top: "0",
   },
 });
 
@@ -69,6 +65,7 @@ const Slide1 = () => {
   return (
     <div className="wrapper">
       <Swiper
+        className={classes.slider}
         loop={true}
         spaceBetween={30}
         centeredSlides={true}
