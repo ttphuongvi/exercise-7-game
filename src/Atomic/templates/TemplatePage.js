@@ -1,30 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
 import AtomBox from "../atoms/AtomBox";
-// import AppBarNew from "../organisms/AppBarNew";
+import AppBar from "../organisms/AppBar";
 import Footer from "../organisms/Footer";
-const TemplatePage = ({ appbar, content, footer }) => {
+const TemplatePage = ({ content }) => {
   return (
     <AtomBox>
-      {appbar}
+      <AppBar />
       {content}
-      {footer}
+      <Footer />
     </AtomBox>
   );
 };
 
 TemplatePage.prototype = {
-  appbar: PropTypes.element,
-  slider: PropTypes.element,
-  title: PropTypes.element,
   content: PropTypes.element,
-  footer: PropTypes.element,
 };
 
 TemplatePage.defaultProps = {
-  // appbar: <AppBarNew />,
   content: null,
-  footer: <Footer />,
 };
 
 export default TemplatePage;
