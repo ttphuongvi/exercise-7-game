@@ -14,9 +14,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        {/* // <TabBarContext.Provider value={{ tabBarValue, setTabBarValue }}> */}
         <RoutesGame />
-        {/* // </TabBarContext.Provider> */}
       </ThemeProvider>
     </Provider>
   );
