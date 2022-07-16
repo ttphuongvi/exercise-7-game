@@ -1,7 +1,7 @@
 import React from "react";
 import AtomTypography from "../atoms/AtomTypography";
-import DivFlexRow from "./DivFlexRow";
 import { makeStyles } from "@material-ui/core/styles";
+import AtomGrid from "../atoms/AtomGrid";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -18,12 +18,12 @@ const InfoFooter = (props) => {
   const classes = useStyles();
 
   return (
-    <DivFlexRow className={classes.container}>
+    <AtomGrid container alignItems="center" className={classes.container}>
       {props.icon}
       <AtomTypography className={classes.typography}>
         {props.info}
       </AtomTypography>
-    </DivFlexRow>
+    </AtomGrid>
   );
 };
 

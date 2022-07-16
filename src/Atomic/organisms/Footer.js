@@ -5,7 +5,6 @@ import logo from "../../img/hahalolo-logo-1.png";
 import AtomIconLocation from "../atoms/AtomIconLocation";
 import { makeStyles } from "@material-ui/core/styles";
 import AtomTypography from "../atoms/AtomTypography";
-import DivFlexRow from "../molecules/DivFlexRow";
 import AtomIconPhone from "../atoms/AtomIconPhone";
 import AtomIconEmail from "../atoms/AtomIconEmail";
 import AtomIconYoutube from "../atoms/AtomIconYoutube";
@@ -29,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   link: {
-    marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
     color: "#fff",
   },
@@ -68,27 +66,31 @@ const Footer = () => {
             icon={<AtomIconEmail />}
             info="Cskh@hahalolo.com"
           ></InfoFooter>
-          <DivFlexRow className={classes.margin}>
-            <AtomTypography className={classes.typoLinkContact}>
-              Kết nối:{" "}
-            </AtomTypography>
-            <DivFlexRow className={classes.containerLink}>
-              <AtomLink
-                className={classes.link}
-                href="https://www.facebook.com/HahaloloVN/"
-                target={"_blank"}
-              >
-                <AtomIconFacebook />
-              </AtomLink>
-              <AtomLink
-                className={classes.link}
-                href="https://www.youtube.com/channel/UCatAZ8yjCYTevBWfexZ2qqA"
-                target={"_blank"}
-              >
-                <AtomIconYoutube />
-              </AtomLink>
-            </DivFlexRow>
-          </DivFlexRow>
+          <InfoFooter
+            icon={
+              <AtomTypography className={classes.typoLinkContact}>
+                Kết nối:{" "}
+              </AtomTypography>
+            }
+            info={
+              <AtomGrid container className={classes.containerLink}>
+                <AtomLink
+                  className={classes.link}
+                  href="https://www.facebook.com/HahaloloVN/"
+                  target={"_blank"}
+                >
+                  <AtomIconFacebook />
+                </AtomLink>
+                <AtomLink
+                  className={classes.link}
+                  href="https://www.youtube.com/channel/UCatAZ8yjCYTevBWfexZ2qqA"
+                  target={"_blank"}
+                >
+                  <AtomIconYoutube />
+                </AtomLink>
+              </AtomGrid>
+            }
+          ></InfoFooter>
         </AtomGrid>
       </AtomGrid>
     </AtomGrid>
