@@ -6,6 +6,7 @@ import TemplatePage from "../Atomic/templates/TemplatePage";
 import TitleCatogery from "../Atomic/molecules/TitleCategory";
 import AtomBox from "../Atomic/atoms/AtomBox";
 import Container from "../Atomic/molecules/Container";
+import AtomGrid from "../Atomic/atoms/AtomGrid";
 
 const Input = styled(AtomTextField)({
   marginBottom: "15px",
@@ -24,12 +25,6 @@ const ContainerContact = styled(Container)({
   width: "60%",
 });
 
-const Form = styled(AtomBox)({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-});
-
 const Contact = () => {
   const [name, setName] = useState("");
   const [title, setTitle] = useState("");
@@ -40,7 +35,7 @@ const Contact = () => {
         <Content>
           <ContainerContact>
             <TitleCatogery title="Liên hệ" />
-            <Form>
+            <AtomGrid container direction="column" alignItems="center">
               <Input
                 id="outlined-basic"
                 variant="outlined"
@@ -70,7 +65,7 @@ const Contact = () => {
               ></Input>
 
               <ButtonStyle1 label="Gửi yêu cầu"></ButtonStyle1>
-            </Form>
+            </AtomGrid>
           </ContainerContact>
         </Content>
       }
