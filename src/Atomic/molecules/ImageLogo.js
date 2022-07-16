@@ -1,7 +1,7 @@
 import { styled } from "@material-ui/core/styles";
 
 const ImageLogo = styled("img")({
-  width: "20%",
+  width: "150px",
   height: "auto",
   marginLeft: "4%",
 });
