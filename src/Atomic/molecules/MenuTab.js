@@ -7,7 +7,7 @@ const theme = createTheme();
 
 const Tab = styled(AtomRouteLink)({
   textDecoration: "none",
-  marginRight: theme.spacing(2),
+  marginLeft: theme.spacing(2),
   fontFamily: "Oswald",
   // color: theme.status.white,
 });
