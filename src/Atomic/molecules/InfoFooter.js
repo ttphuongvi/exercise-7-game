@@ -6,6 +6,7 @@ import AtomGrid from "../atoms/AtomGrid";
 const useStyles = makeStyles((theme) => ({
   container: {
     margin: theme.spacing(3),
+    display: "flex",
   },
   typography: {
     marginLeft: theme.spacing(1),
@@ -18,7 +19,7 @@ const InfoFooter = (props) => {
   const classes = useStyles();
 
   return (
-    <AtomGrid container alignItems="center" className={classes.container}>
+    <AtomGrid alignItems="center" className={classes.container}>
       {props.icon}
       <AtomTypography className={classes.typography}>
         {props.info}
