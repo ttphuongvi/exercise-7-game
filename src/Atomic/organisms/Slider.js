@@ -23,7 +23,6 @@ const useStyles = makeStyles({
     padding: "10% 100px 10% 30px",
   },
   slider: {
-    width: "100%",
     height: "100%",
     backgroundImage: `url(${waves})`,
     // backgroundColor: "blue",
@@ -87,7 +86,7 @@ const Slide1 = () => {
         {dataSource.map((value) => {
           return (
             <SwiperSlide key={value.id} className={classes.slider}>
-              <div className="slide first" key={value.id}>
+              <div key={value.id}>
                 <AtomGrid container className={classes.gridContainer}>
                   <DivContainerCaptionSlider item xs={6}>
                     <CaptionSlider>{value.caption}</CaptionSlider>

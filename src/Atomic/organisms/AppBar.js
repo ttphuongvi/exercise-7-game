@@ -34,14 +34,14 @@ const ResponsiveAppBar = () => {
 
   return (
     <AtomAppBar color="primary" className={classes.appbar} position="fixed">
-      <AtomGrid container direction="row">
+      <AtomGrid container>
         <AtomGrid container alignItems="center" item xs={6}>
           <ImageLogo alt="logo" src={Logo}></ImageLogo>
         </AtomGrid>
         <AtomGrid container justifyContent="flex-end" item xs={4}>
           <MenuTab />
         </AtomGrid>
-        <AtomGrid container direction="row" alignItems="center" item xs={2}>
+        <AtomGrid container alignItems="center" item xs={2}>
           <AtomGrid container item justifyContent="center" xs={3}>
             <IconSetting />
           </AtomGrid>
