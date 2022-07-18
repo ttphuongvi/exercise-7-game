@@ -160,7 +160,7 @@ const App = () => {
           "none",
           "rgba(0, 0, 0, 0.09) 0px 3px 12px;",
           "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-          "0px 2px 4px rgba(0, 0, 0, 0.25)",
+          "rgba(0, 0, 0, 0.24) 0px 3px 8px;",
           ...Array(21).fill("none"),
         ],
       }),
