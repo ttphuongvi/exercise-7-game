@@ -8,12 +8,12 @@ import DialogLogin from "../molecules/DialogLogin";
 import DialogSignUp from "../molecules/DialogSignUp";
 import AtomGrid from "../atoms/AtomGrid";
 import MenuTab from "../molecules/MenuTab";
-import IconSetting from "../molecules/IconSetting";
+import { IconSetting } from "../../App";
 import IconAvatar from "../molecules/IconAvatar";
 
 const useStyles = makeStyles((theme) => ({
   appbar: {
-    backgroundColor: theme.status.black,
+    backgroundColor: theme.palette.background.paper,
     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)",
     padding: theme.spacing(1),
   },

@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     fontFamily: "Oswald",
-    color: "white",
+    color: theme.palette.text.secondary,
   },
   action: {
     justifyContent: "center",

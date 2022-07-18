@@ -1,11 +1,12 @@
 import { styled } from "@material-ui/core/styles";
+import AtomTypography from "../atoms/AtomTypography";
 
-const DescriptionNewGame = styled("p")({
+const DescriptionNewGame = styled(AtomTypography)({
   textAlign: "justify",
   marginTop: "0px",
   // color: "#666",
   fontSize: "14px",
-  height: "180px",
+  height: "190px",
   width: "100%",
   fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
   marginBottom: "5px",

@@ -27,11 +27,9 @@ const ContainerGridListGame = styled(AtomContainer)({
 const ItemCard = styled(AtomCard)({
   position: "relative",
   paddingBottom: "10%",
-  boxShadow:
-    "0 4px 8px 0 rgb(227 211 211 / 20%), 0 6px 20px 0 rgb(168 163 163 / 19%)",
+
   "&:hover": {
-    boxShadow:
-      "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+    boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px;",
     transform: "scale(1.05)",
   },
 });
@@ -98,7 +96,7 @@ const GridListGame = (props) => {
           filteredData.map((value) => {
             return (
               <AtomGrid key={value.id} item xs={12} sm={4} md={3} lg={3}>
-                <ItemCard elevation={0}>
+                <ItemCard>
                   <CardMediaStyle
                     image={value.image}
                     title={value.caption}

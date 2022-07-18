@@ -17,9 +17,9 @@ const Tabs = styled(AtomTabs)({
 });
 const useStyles = makeStyles((theme) => ({
   tab: {
-    color: theme.status.white,
+    color: theme.palette.text.secondary,
     "&:hover": {
-      color: theme.status.blue,
+      color: "#2AC0FF",
     },
   },
 }));

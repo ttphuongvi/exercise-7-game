@@ -16,15 +16,21 @@ import AtomContainer from "../atoms/AtomContainer";
 const theme = createTheme();
 
 const CardContainerStyles = styled(AtomCard)({
-  boxShadow:
-    "0 4px 8px 0 rgb(227 211 211 / 20%), 0 6px 20px 0 rgb(168 163 163 / 19%)",
+  // boxShadow: theme.shadows[1],
   padding: theme.spacing(2),
   "&:hover": {
-    boxShadow:
-      "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+    boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px;",
     transform: "scale(1.05)",
   },
 });
+
+const ThemeContainer = styled(CardContainerStyles)(({ theme }) => ({
+  boxShadow: theme.shadows[1],
+  "&:hover": {
+    boxShadow: theme.shadows[2],
+    transform: "scale(1.05)",
+  },
+}));
 
 const ContainerGridListNewGame = styled(AtomContainer)({
   alignItems: "center",
@@ -35,7 +41,7 @@ const ContainerGridListNewGame = styled(AtomContainer)({
   paddingLeft: 0,
 });
 
-const GridNewGame = ({ navigateTabListgame }) => {
+const GridNewGame = () => {
   const [dataSource, setDataSource] = useState([]);
 
   let navigate = useNavigate();
@@ -61,7 +67,7 @@ const GridNewGame = ({ navigateTabListgame }) => {
         {dataSource.map((value) => {
           return (
             <AtomGrid key={value.id} item xs={12} sm={6} md={6} lg={4}>
-              <CardContainerStyles>
+              <ThemeContainer>
                 <AtomGrid container>
                   <AtomGrid item xs={12}>
                     <CaptionGame>{value.caption}</CaptionGame>
@@ -88,7 +94,7 @@ const GridNewGame = ({ navigateTabListgame }) => {
                     </ContainerContentNewGame>
                   </AtomGrid>
                 </AtomGrid>
-              </CardContainerStyles>
+              </ThemeContainer>
             </AtomGrid>
           );
         })}

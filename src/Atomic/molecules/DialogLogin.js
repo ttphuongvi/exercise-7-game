@@ -21,11 +21,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     backgroundSize: "cover",
-    backgroundColor:
-      theme.palette.type === "light"
-        ? theme.palette.grey[50]
-        : theme.palette.grey[900],
-
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -63,7 +58,8 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     fontFamily: "Oswald",
-    color: "white",
+    color: theme.palette.text.secondary,
+    // color: theme.palette.primary.main,
   },
 }));
 

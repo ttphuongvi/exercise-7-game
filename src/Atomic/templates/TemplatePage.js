@@ -8,13 +8,16 @@ import { styled } from "@material-ui/core/styles";
 const Content = styled(AtomBox)({
   marginTop: "64px",
 });
+const BoxContainer = styled(AtomBox)(({ theme }) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 const TemplatePage = ({ content }) => {
   return (
-    <AtomBox>
+    <BoxContainer>
       <AppBar />
       <Content>{content}</Content>
       <Footer />
-    </AtomBox>
+    </BoxContainer>
   );
 };
 

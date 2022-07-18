@@ -14,11 +14,12 @@ import AtomLink from "../atoms/AtomLink";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    backgroundColor: theme.status.black,
+    backgroundColor: theme.palette.background.paper,
     alignItems: "center",
     padding: theme.spacing(2),
-    color: theme.status.white,
+    color: theme.palette.text.secondary,
     fontFamily: "Oswald",
+    boxShadow: theme.shadows[3],
   },
   item: {
     textAlign: "center",
@@ -29,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     marginRight: theme.spacing(1),
-    color: "#fff",
+    color: theme.palette.text.secondary,
   },
   typography: {
     textTransform: "uppercase",
