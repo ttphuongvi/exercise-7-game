@@ -52,14 +52,13 @@ const ListGame = () => {
             className={classes.gridContainer}
           >
             <AtomGrid container xs={9} direction="row">
-              <AtomGrid item xs={4}>
+              <AtomGrid className={classes.search} item xs={4}>
                 <AtomTextField
                   id="outlined-basic"
                   onChange={inputHandler}
                   variant="outlined"
                   fullWidth
                   label="Tìm kiếm game"
-                  className={classes.search}
                 />
               </AtomGrid>
               <AtomGrid item>
