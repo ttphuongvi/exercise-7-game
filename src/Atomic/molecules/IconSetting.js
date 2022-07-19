@@ -5,8 +5,14 @@ import AtomMenu from "../atoms/AtomMenu";
 import AtomMenuItem from "../atoms/AtomMenuItem";
 import AtomSettingIcon from "../atoms/AtomSettingIcon";
 import AtomTypography from "../atoms/AtomTypography";
+import { useTheme } from "@material-ui/core/styles";
+import Brightness4Icon from "@material-ui/icons/Brightness4";
+import Brightness7Icon from "@material-ui/icons/Brightness7";
+import AtomBox from "../atoms/AtomBox";
 
-const IconSetting = () => {
+// const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
+
+const IconSetting = (props) => {
   const [anchorElSetting, setAnchorElSetting] = React.useState(null);
 
   const handleOpenSettingMenu = (event) => {
@@ -17,7 +23,10 @@ const IconSetting = () => {
     setAnchorElSetting(null);
   };
 
-  const [mode, setMode] = useState("light");
+  const theme = useTheme();
+  const colorMode = React.useContext(props.ColorModeContext);
+
+  // const [mode, setMode] = useState("light");
   return (
     <>
       <AtomIconButton
@@ -26,13 +35,12 @@ const IconSetting = () => {
         aria-controls="menu-appbar"
         aria-haspopup="true"
         onClick={handleOpenSettingMenu}
-        color="inherit"
       >
         <AtomSettingIcon />
       </AtomIconButton>
       <AtomMenu
         sx={{ mt: "45px" }}
-        id="menu-appbar"
+        id="simple-menu"
         anchorEl={anchorElSetting}
         anchorOrigin={{
           vertical: "top",
@@ -47,12 +55,44 @@ const IconSetting = () => {
         onClose={handleCloseSettingMenu}
       >
         <AtomMenuItem>
-          CHẾ ĐỘ TỐI
-          <CssBaseline />
-          <Switch
-            onChange={() => setMode(mode === "dark" ? "light" : "dark")}
-            onClick={handleCloseSettingMenu}
-          />
+          {/* CHẾ ĐỘ
+          {theme.palette.mode}
+          <AtomIconButton
+            sx={{ ml: 1 }}
+            onClick={colorMode.toggleColorMode}
+            color="inherit"
+          >
+            {theme.palette.mode === "dark" ? (
+              <Brightness7Icon />
+            ) : (
+              <Brightness4Icon />
+            )}
+          </AtomIconButton> */}
+          <AtomBox
+            sx={{
+              display: "flex",
+              width: "100%",
+              alignItems: "center",
+              justifyContent: "center",
+              bgcolor: "background.default",
+              color: "text.primary",
+              borderRadius: 1,
+              p: 3,
+            }}
+          >
+            {theme.palette.mode} mode
+            <AtomIconButton
+              sx={{ ml: 1 }}
+              onClick={colorMode.toggleColorMode}
+              color="inherit"
+            >
+              {theme.palette.mode === "dark" ? (
+                <Brightness7Icon />
+              ) : (
+                <Brightness4Icon />
+              )}
+            </AtomIconButton>
+          </AtomBox>
         </AtomMenuItem>
         <AtomMenuItem onClick={handleCloseSettingMenu}>
           <AtomTypography textalign="center">CHỌN CHỦ ĐỀ</AtomTypography>
