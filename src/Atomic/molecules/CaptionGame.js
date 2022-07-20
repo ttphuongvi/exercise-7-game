@@ -1,18 +1,17 @@
-import { styled } from "@mui/styles";
+import { styled } from "@mui/material/styles";
 import AtomTypography from "../atoms/AtomTypography";
 
-const CaptionGame = styled(AtomTypography)({
+const CaptionGame = styled(AtomTypography)(({ theme }) => ({
   textShadow: "none",
-  fontFamily: '"Oswald", Helvetica, Arial, sans-serif',
-  background: "none",
   display: "block",
   height: "20px",
-  fontSize: "14px",
-  fontWeight: 700,
+  fontSize: theme.typography.caption.fontSize,
   textTransform: "uppercase",
   padding: "0px 0px 10px 0px",
-  margin: "0px 0px 10px 0px",
-  color: "#2ac0ff",
+
+  color: theme.palette.primary.main,
+  fontFamily: theme.typography.subtitle1.fontFamily,
   textDecoration: "none",
-});
+}));
+
 export default CaptionGame;
