@@ -6,37 +6,61 @@ import { Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import AtomGrid from "../atoms/AtomGrid";
-import DivContainerCaptionSlider from "../molecules/DivContainerCaptionSlider";
-import CaptionSlider from "../molecules/CaptionSlider";
 import DescriptionGameSlider from "../molecules/DescriptionGameSlider";
-import ButtonStyle1 from "../molecules/ButtonStyle1";
-import ImageSlider from "../molecules/ImageSlider";
+import ButtonStyle1 from "../molecules/SquareStripeButton";
 import { makeStyles } from "@mui/styles";
-import waves from "../../img/waves.jpg";
+// import waves from "/images/waves.jpg";
+import { styled } from "@mui/material/styles";
+import getNewGames from "../../services/games";
+import AtomContainer from "../atoms/AtomContainer";
+import AtomTypography from "../atoms/AtomTypography";
 
 const useStyles = makeStyles({
   gridContainer: {
-    padding: "10% 100px 10% 30px",
+    padding: "10% 0px 10% 0px",
   },
-  slider: {
-    height: "100%",
-    backgroundImage: `url(${waves})`,
-    // backgroundColor: "blue",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    top: "0",
-  },
+});
+
+const SwiperStyles = styled(Swiper)({
+  backgroundImage: `url(/images/waves.jpg)`,
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
+});
+
+const GridContainerStyles = styled(AtomGrid)(
+  ({ theme }) => `
+  padding: ${theme.spacing(20)} ${theme.spacing(4)}`
+);
+
+const CaptionSlider = styled(AtomTypography)({
+  color: "#fff",
+  fontSize: "50px",
+  width: "100%",
+  top: "15px",
+  zIndex: 1,
+  textShadow: "1px 1px 1px rgba(0, 0, 0, 0.1)",
+  fontFamily: '"Economica", Arial, sans-serif',
+  fontWeight: 700,
+  // textShadow: '0px 2px 3px rgba(0, 0, 0, 1)',
+});
+
+const ImageSlider = styled("img")({
+  width: "55%",
+  height: "100%",
+  objectFit: "fill",
+  position: "absolute",
+  zIndex: 1,
+  top: "0px",
+  right: "0px",
+  borderRadius: "50% 0% 0% 50%",
 });
 
 const Slide1 = () => {
   const classes = useStyles();
 
   const update = (swiper) => {
-    //console.log("visibleSlidesIndexes", swiper.activeIndex);
     swiper.slides.map((slide, index) => {
       if (index === swiper.activeIndex) {
         slide.removeAttribute("inert");
@@ -52,19 +76,19 @@ const Slide1 = () => {
   };
 
   let navigate = useNavigate();
-  const [dataSource, setDataSource] = useState([]);
-  axios
-    .get(
-      "https://game.phong940253.tk/games?_sort=id&_order=desc&_start=0&_limit=6"
-    )
-    .then((res) => {
-      setDataSource(res.data);
-    });
+  // const [dataSource, setDataSource] = useState([]);
+  // axios
+  //   .get(
+  //     "https://game.phong940253.tk/games?_sort=id&_order=desc&_start=0&_limit=6"
+  //   )
+  //   .then((res) => {
+  //     setDataSource(res.data);
+  //   });
+  const data = getNewGames(6);
 
   return (
-    <div className="wrapper">
-      <Swiper
-        className={classes.slider}
+    <>
+      <SwiperStyles
         loop={true}
         spaceBetween={30}
         centeredSlides={true}
@@ -83,12 +107,12 @@ const Slide1 = () => {
         pagination
         modules={[Autoplay, Navigation, Pagination]}
       >
-        {dataSource.map((value) => {
+        {data.map((value) => {
           return (
             <SwiperSlide key={value.id} className={classes.slider}>
-              <div key={value.id}>
-                <AtomGrid container className={classes.gridContainer}>
-                  <DivContainerCaptionSlider item xs={6}>
+              <AtomContainer maxWidth="xl" key={value.id}>
+                <GridContainerStyles container spacing={2} xs={12}>
+                  <AtomGrid item xs={6}>
                     <CaptionSlider>{value.caption}</CaptionSlider>
                     <DescriptionGameSlider>
                       {value.description}
@@ -99,17 +123,17 @@ const Slide1 = () => {
                         navigate(`/${value.id}`);
                       }}
                     />
-                  </DivContainerCaptionSlider>
+                  </AtomGrid>
                   <AtomGrid item xs={6}>
                     <ImageSlider src={value.image} alt="" />
                   </AtomGrid>
-                </AtomGrid>
-              </div>
+                </GridContainerStyles>
+              </AtomContainer>
             </SwiperSlide>
           );
         })}
-      </Swiper>
-    </div>
+      </SwiperStyles>
+    </>
   );
 };
 export default Slide1;
