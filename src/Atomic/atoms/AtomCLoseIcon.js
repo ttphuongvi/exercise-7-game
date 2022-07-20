@@ -1,4 +1,4 @@
-import CloseIcon from "@material-ui/icons/Close";
+import CloseIcon from "@mui/icons-material/Close";
 
 const AtomCloseIcon = CloseIcon;
 export default AtomCloseIcon;

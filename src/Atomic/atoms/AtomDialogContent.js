@@ -1,4 +1,4 @@
-import DialogContent from "@material-ui/core/DialogContent";
+import DialogContent from "@mui/material/DialogContent";
 
 const AtomDialogContent = DialogContent;
 export default AtomDialogContent;

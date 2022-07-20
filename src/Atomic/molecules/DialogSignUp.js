@@ -2,7 +2,7 @@ import React from "react";
 import AtomAvatar from "../atoms/AtomAvatar";
 import AtomButton from "../atoms/AtomButton";
 import AtomTextField from "../atoms/AtomTextField";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 import AtomDialog from "../atoms/AtomDialog";
 import axios from "axios";
 import AtomDialogTitle from "../atoms/AtomDialogTitle";
@@ -85,7 +85,7 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 margin="normal"
-                fullWidth
+                fullwidth
                 id="name"
                 label="Tên đăng nhập"
                 name="name"
@@ -97,7 +97,7 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 margin="normal"
-                fullWidth
+                fullwidth
                 id="email"
                 label="Email"
                 name="email"
@@ -110,7 +110,7 @@ export default function SignUp() {
                 variant="outlined"
                 margin="normal"
                 required
-                fullWidth
+                fullwidth
                 name="password"
                 label="Mật khẩu"
                 type="password"
@@ -122,7 +122,7 @@ export default function SignUp() {
 
               <AtomDialogActions className={classes.action}>
                 <ButtonStyle2
-                  fullWidth
+                  fullwidth
                   variant="contained"
                   color="primary"
                   label="Đăng ký"

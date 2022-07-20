@@ -1,4 +1,4 @@
-import Toolbar from "@material-ui/core/Toolbar";
+import Toolbar from "@mui/material/Toolbar";
 
 const AtomToolBar = Toolbar;
 export default AtomToolBar;

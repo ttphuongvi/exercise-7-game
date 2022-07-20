@@ -3,7 +3,7 @@ import AtomGrid from "../atoms/AtomGrid";
 import ImageLogo from "../molecules/ImageLogo";
 import logo from "../../img/hahalolo-logo-1.png";
 import AtomIconLocation from "../atoms/AtomIconLocation";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 import AtomTypography from "../atoms/AtomTypography";
 import AtomIconPhone from "../atoms/AtomIconPhone";
 import AtomIconEmail from "../atoms/AtomIconEmail";

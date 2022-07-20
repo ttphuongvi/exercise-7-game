@@ -1,4 +1,4 @@
-import CardContent from "@material-ui/core/CardContent";
+import CardContent from "@mui/material/CardContent";
 
 const AtomCardContent = CardContent;
 export default AtomCardContent;

@@ -1,4 +1,4 @@
-import Tabs from "@material-ui/core/Tabs";
+import Tabs from "@mui/material/Tabs";
 
 const AtomTabs = Tabs;
 export default AtomTabs;

@@ -1,4 +1,4 @@
-import { styled } from "@material-ui/core/styles";
+import { styled } from "@mui/styles";
 import AtomGrid from "../atoms/AtomGrid";
 const DivContainerCaptionSlider = styled(AtomGrid)({
   // backgroundImage: `url(${background})`,

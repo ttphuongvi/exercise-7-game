@@ -10,9 +10,9 @@ import TemplatePage from "../Atomic/templates/TemplatePage";
 import AtomCard from "../Atomic/atoms/AtomCard";
 import AtomCardContent from "../Atomic/atoms/AtomCardContent";
 import AtomCardAction from "../Atomic/atoms/AtomCardAction";
-import TitleCategory from "../Atomic/molecules/TitleCategory";
-import Container from "../Atomic/molecules/Container";
-import { styled } from "@material-ui/core/styles";
+import TitleCategory from "../Atomic/molecules/TittePage";
+import Container from "../Atomic/molecules/PageContainer";
+import { styled } from "@mui/styles";
 
 const ContainerDetaiGame = styled(Container)({
   width: "60%",
@@ -63,7 +63,6 @@ const DetailsGame = () => {
               <TitleCategory title="CHI TIẾT GAME"></TitleCategory>
               <AtomCard elevation={0}>
                 <CardMedia
-                  fullWidth
                   image={dataSource.image}
                   title={dataSource.caption}
                 ></CardMedia>

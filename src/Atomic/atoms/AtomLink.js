@@ -1,4 +1,4 @@
-import Link from "@material-ui/core/Link";
+import Link from "@mui/material/Link";
 
 const AtomLink = Link;
 export default AtomLink;

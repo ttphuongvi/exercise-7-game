@@ -5,19 +5,19 @@ const dataRoutes = [
   {
     name: "TRANG CHỦ",
     path: "/",
-    exact: "true",
+    exact: true,
     component: <Home />,
   },
   {
     name: "DANH SÁCH GAME",
     path: "/menu",
-    exact: "false",
+    // exact: false,
     component: <ListGame />,
   },
   {
     name: "LIÊN HỆ",
     path: "/contact",
-    exact: "false",
+    // exact: "false",
     component: <Contact />,
   },
 ];

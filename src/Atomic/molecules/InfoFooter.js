@@ -1,6 +1,6 @@
 import React from "react";
 import AtomTypography from "../atoms/AtomTypography";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 import AtomGrid from "../atoms/AtomGrid";
 
 const useStyles = makeStyles((theme) => ({

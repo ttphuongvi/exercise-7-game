@@ -1,4 +1,4 @@
-import { styled } from "@material-ui/core/styles";
+import { styled } from "@mui/styles";
 
 const ImageSlider = styled("img")({
   width: "60%",

@@ -1,11 +1,11 @@
 import { React, useState } from "react";
 import ButtonStyle1 from "../Atomic/molecules/ButtonStyle1";
 import AtomTextField from "../Atomic/atoms/AtomTextField";
-import { styled } from "@material-ui/core/styles";
+import { styled } from "@mui/styles";
 import TemplatePage from "../Atomic/templates/TemplatePage";
-import TitleCatogery from "../Atomic/molecules/TitleCategory";
+import TitleCatogery from "../Atomic/molecules/TittePage";
 import AtomBox from "../Atomic/atoms/AtomBox";
-import Container from "../Atomic/molecules/Container";
+import Container from "../Atomic/molecules/PageContainer";
 import AtomGrid from "../Atomic/atoms/AtomGrid";
 
 const Input = styled(AtomTextField)({

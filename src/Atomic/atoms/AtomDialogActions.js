@@ -1,4 +1,4 @@
-import DialogActions from "@material-ui/core/DialogActions";
+import DialogActions from "@mui/material/DialogActions";
 
 const AtomDialogActions = DialogActions;
 export default AtomDialogActions;

@@ -5,7 +5,7 @@ import DialogActions from "../atoms/AtomDialogActions";
 import DialogContent from "../atoms/AtomDialogContent";
 import DialogTitle from "../atoms/AtomDialogTitle";
 import ButtonStyle2 from "./ButtonStyle2";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 import AtomTextField from "../atoms/AtomTextField";
 import ButtonStyle1 from "./ButtonStyle1";
 import { useDispatch } from "react-redux";

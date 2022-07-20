@@ -1,14 +1,14 @@
 import { React, useState } from "react";
 import DateFnsUtils from "@date-io/date-fns";
-import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
+// import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
 import DialogCreateGame from "../Atomic/molecules/DialogCreateGame";
 import GridListGame from "../Atomic/organisms/GridListGame";
 import AtomTextField from "../Atomic/atoms/AtomTextField";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 import TemplatePage from "../Atomic/templates/TemplatePage";
 import AtomGrid from "../Atomic/atoms/AtomGrid";
-import TitleCatogery from "../Atomic/molecules/TitleCategory";
-import Container from "../Atomic/molecules/Container";
+import TitleCatogery from "../Atomic/molecules/TittePage";
+import Container from "../Atomic/molecules/PageContainer";
 import { useSelector } from "react-redux";
 
 const useStyles = makeStyles({
@@ -57,12 +57,12 @@ const ListGame = () => {
                   id="outlined-basic"
                   onChange={inputHandler}
                   variant="outlined"
-                  fullWidth
+                  fullwidth
                   label="Tìm kiếm game"
                 />
               </AtomGrid>
               <AtomGrid item>
-                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                {/* <MuiPickersUtilsProvider utils={DateFnsUtils}>
                   <DatePicker
                     views={["year"]}
                     inputVariant="outlined"
@@ -70,7 +70,7 @@ const ListGame = () => {
                     value={selectedDate}
                     onChange={handleDateChange}
                   />
-                </MuiPickersUtilsProvider>
+                </MuiPickersUtilsProvider> */}
               </AtomGrid>
             </AtomGrid>
             {user && user.isLogin ? (

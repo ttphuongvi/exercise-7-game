@@ -1,4 +1,4 @@
-import { styled } from "@material-ui/core/styles";
+import { styled } from "@mui/styles";
 
 const ImageNewGame = styled("img")({
   width: "100%",

@@ -1,4 +1,4 @@
-import CardHeader from "@material-ui/core/CardHeader";
+import CardHeader from "@mui/materialdHeader";
 
 const AtomCardHeader = CardHeader;
 export default AtomCardHeader;

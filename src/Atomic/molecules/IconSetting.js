@@ -1,13 +1,13 @@
-import { CssBaseline, Switch } from "@material-ui/core";
+import { CssBaseline, Switch } from "@mui/material";
 import React, { useState } from "react";
 import AtomIconButton from "../atoms/AtomIconButton";
 import AtomMenu from "../atoms/AtomMenu";
 import AtomMenuItem from "../atoms/AtomMenuItem";
 import AtomSettingIcon from "../atoms/AtomSettingIcon";
 import AtomTypography from "../atoms/AtomTypography";
-import { useTheme } from "@material-ui/core/styles";
-import Brightness4Icon from "@material-ui/icons/Brightness4";
-import Brightness7Icon from "@material-ui/icons/Brightness7";
+import { useTheme } from "@mui/styles";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
 import AtomBox from "../atoms/AtomBox";
 
 // const ColorModeContext = React.createContext({ toggleColorMode: () => {} });

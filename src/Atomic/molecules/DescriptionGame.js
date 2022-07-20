@@ -1,4 +1,4 @@
-import { styled } from "@material-ui/core/styles";
+import { styled } from "@mui/styles";
 import AtomTypography from "../atoms/AtomTypography";
 
 const DescriptionNewGame = styled(AtomTypography)({

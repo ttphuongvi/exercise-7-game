@@ -12,7 +12,7 @@ import ReleaseYear from "../molecules/ReleaseYear";
 import DescriptionGame from "../molecules/DescriptionGame";
 import CaptionGame from "../molecules/CaptionGame";
 import LinkStyle from "../molecules/LinkStyle";
-import { styled } from "@material-ui/core/styles";
+import { styled } from "@mui/styles";
 import AtomContainer from "../atoms/AtomContainer";
 
 const ContainerGridListGame = styled(AtomContainer)({

@@ -1,9 +1,8 @@
-import { styled } from "@material-ui/core/styles";
+import { styled } from "@mui/styles";
 
 const ImageLogo = styled("img")({
   width: "150px",
   height: "auto",
-  marginLeft: "4%",
 });
 
 export default ImageLogo;

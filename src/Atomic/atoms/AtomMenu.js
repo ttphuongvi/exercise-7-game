@@ -1,4 +1,4 @@
-import Menu from "@material-ui/core/Menu";
+import Menu from "@mui/material/Menu";
 
 const AtomMenu = Menu;
 export default AtomMenu;

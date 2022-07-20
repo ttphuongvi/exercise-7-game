@@ -15,7 +15,7 @@ import CaptionSlider from "../molecules/CaptionSlider";
 import DescriptionGameSlider from "../molecules/DescriptionGameSlider";
 import ButtonStyle1 from "../molecules/ButtonStyle1";
 import ImageSlider from "../molecules/ImageSlider";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 import waves from "../../img/waves.jpg";
 
 const useStyles = makeStyles({

@@ -10,8 +10,9 @@ import ImageNewGame from "../molecules/ImageNewGame";
 import ContainerContentNewGame from "../molecules/ContainerContentNewGame";
 import DescriptionGame from "../molecules/DescriptionGame";
 import CaptionGame from "../molecules/CaptionGame";
-import { createTheme, styled } from "@material-ui/core/styles";
+import { createTheme, styled } from "@mui/material/styles";
 import AtomContainer from "../atoms/AtomContainer";
+import getNewGames from "../../services/games";
 
 const theme = createTheme();
 
@@ -22,6 +23,7 @@ const CardContainerStyles = styled(AtomCard)({
     boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px;",
     transform: "scale(1.05)",
   },
+  transition: "transform 0.3s ",
 });
 
 const ThemeContainer = styled(CardContainerStyles)(({ theme }) => ({
@@ -32,17 +34,8 @@ const ThemeContainer = styled(CardContainerStyles)(({ theme }) => ({
   },
 }));
 
-const ContainerGridListNewGame = styled(AtomContainer)({
-  alignItems: "center",
-  justifyContent: "center",
-  display: "flex",
-  flexDirection: "column",
-  paddingRight: 0,
-  paddingLeft: 0,
-});
-
 const GridNewGame = () => {
-  const [dataSource, setDataSource] = useState([]);
+  const data = getNewGames(6);
 
   let navigate = useNavigate();
 
@@ -50,39 +43,23 @@ const GridNewGame = () => {
     navigate("/menu");
   };
 
-  useEffect(() => {
-    axios
-      .get(
-        "https://game.phong940253.tk/games?_sort=id&_order=desc&_start=0&_limit=6"
-      )
-      .then((res) => {
-        setDataSource(res.data);
-      });
-    // console.log(dataSource);
-  }, []);
-
   return (
-    <ContainerGridListNewGame>
+    <>
       <AtomGrid container spacing={3}>
-        {dataSource.map((value) => {
+        {data.map((value) => {
           return (
             <AtomGrid key={value.id} item xs={12} sm={6} md={6} lg={4}>
               <ThemeContainer>
                 <AtomGrid container>
                   <AtomGrid item xs={12}>
-                    <CaptionGame>{value.caption}</CaptionGame>
+                    <CaptionGame>{value?.caption}</CaptionGame>
                   </AtomGrid>
                   <AtomGrid item xs={6}>
                     <ContainerImageNewGame>
                       <ImageNewGame src={value.image} alt=""></ImageNewGame>
                     </ContainerImageNewGame>
                   </AtomGrid>
-                  <AtomGrid
-                    item
-                    xs={6}
-                    direction="column"
-                    alignItems="flex-end"
-                  >
+                  <AtomGrid item xs={6} alignItems="flex-end">
                     <ContainerContentNewGame>
                       <DescriptionGame>{value.description}</DescriptionGame>
                       <ButtonStyle1
@@ -100,7 +77,7 @@ const GridNewGame = () => {
         })}
       </AtomGrid>
       <ButtonStyle2 onClick={handleClick} label="Xem thêm"></ButtonStyle2>
-    </ContainerGridListNewGame>
+    </>
   );
 };
 

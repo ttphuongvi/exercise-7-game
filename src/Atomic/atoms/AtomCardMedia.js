@@ -1,4 +1,4 @@
-import CardMedia from "@material-ui/core/CardMedia";
+import CardMedia from "@mui/material/CardMedia";
 
 const AtomCardMedia = CardMedia;
 export default AtomCardMedia;

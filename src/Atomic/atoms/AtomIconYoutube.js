@@ -1,4 +1,4 @@
-import YouTubeIcon from "@material-ui/icons/YouTube";
+import YouTubeIcon from "@mui/icons-material/YouTube";
 
 const AtomIconYoutube = YouTubeIcon;
 export default AtomIconYoutube;
