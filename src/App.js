@@ -141,8 +141,11 @@ const App = () => {
         // ],
         typography: {
           subtitle1: {
-            fontSize: 14,
+            fontSize: "1.2rem",
             fontFamily: "Oswald",
+          },
+          caption: {
+            fontSize: "0.8rem",
           },
         },
       }),
