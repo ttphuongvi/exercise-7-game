@@ -14,7 +14,7 @@ import { styled } from "@mui/material/styles";
 
 const AppBarStyles = styled(AtomAppBar)(
   ({ theme }) => `
-  background-color: ${theme.palette.background.paper};
+  background-color: ${theme.palette.background.default};
   box-shadow: ${theme.shadows[3]};
 `
 );
@@ -26,7 +26,7 @@ const ResponsiveAppBar = () => {
     <AppBarStyles position="fixed">
       <AtomContainer maxWidth="xl">
         <AtomToolBar>
-          <AtomGrid container>
+          <AtomGrid container xs={12}>
             <AtomGrid container alignItems="center" item xs={6}>
               <ImageLogo alt="logo" src="/images/logo_hahalolo.png"></ImageLogo>
             </AtomGrid>
