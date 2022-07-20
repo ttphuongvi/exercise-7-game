@@ -3,7 +3,6 @@ import { makeStyles } from "@mui/styles";
 import { useSelector } from "react-redux";
 import AtomAppBar from "../atoms/AtomAppBar";
 import ImageLogo from "../molecules/ImageLogo";
-import Logo from "../../img/hahalolo-logo-1.png";
 import DialogLogin from "../molecules/DialogLogin";
 import DialogSignUp from "../molecules/DialogSignUp";
 import AtomGrid from "../atoms/AtomGrid";
@@ -39,7 +38,7 @@ const ResponsiveAppBar = () => {
         <AtomToolBar>
           <AtomGrid container>
             <AtomGrid container alignItems="center" item xs={6}>
-              <ImageLogo alt="logo" src={Logo}></ImageLogo>
+              <ImageLogo alt="logo" src="/images/logo_hahalolo.png"></ImageLogo>
             </AtomGrid>
             <AtomGrid container justifyContent="flex-end" item xs={4}>
               <MenuTab />

@@ -1,7 +1,6 @@
 import React from "react";
 import AtomGrid from "../atoms/AtomGrid";
 import ImageLogo from "../molecules/ImageLogo";
-import logo from "../../img/hahalolo-logo-1.png";
 import AtomIconLocation from "../atoms/AtomIconLocation";
 import { makeStyles } from "@mui/styles";
 import AtomTypography from "../atoms/AtomTypography";
@@ -49,7 +48,7 @@ const Footer = () => {
   return (
     <AtomGrid className={classes.container} container>
       <AtomGrid className={classes.item} item xs={4}>
-        <ImageLogo src={logo}></ImageLogo>
+        <ImageLogo src="/images/logo_hahalolo.png"></ImageLogo>
       </AtomGrid>
       <AtomGrid container xs={8}>
         <AtomGrid item xs={6}>

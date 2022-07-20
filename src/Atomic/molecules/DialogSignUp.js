@@ -7,7 +7,6 @@ import AtomDialog from "../atoms/AtomDialog";
 import axios from "axios";
 import AtomDialogTitle from "../atoms/AtomDialogTitle";
 import AtomDialogContent from "../atoms/AtomDialogContent";
-import logo from "../../img/hahalolo-logo.png";
 import AtomDialogActions from "../atoms/AtomDialogActions";
 import ButtonStyle2 from "./ButtonStyle2";
 
@@ -78,8 +77,10 @@ export default function SignUp() {
         <AtomDialogTitle id="form-dialog-title">Đăng ký</AtomDialogTitle>
         <AtomDialogContent>
           <div className={classes.paper}>
-            <AtomAvatar src={logo} className={classes.avatar}></AtomAvatar>
-
+            <AtomAvatar
+              src="/images/logo_none_text.png"
+              className={classes.avatar}
+            ></AtomAvatar>
             <form className={classes.form} noValidate>
               <AtomTextField
                 variant="outlined"

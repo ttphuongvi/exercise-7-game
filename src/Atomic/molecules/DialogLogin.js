@@ -9,7 +9,6 @@ import AtomDialogContent from "../atoms/AtomDialogContent";
 import AtomAvatar from "../atoms/AtomAvatar";
 import AtomTextField from "../atoms/AtomTextField";
 import AtomPaper from "../atoms/AtomPaper";
-import logo from "../../img/hahalolo-logo.png";
 import { useDispatch } from "react-redux";
 import ButtonStyle2 from "./ButtonStyle2";
 import AtomDialogAtions from "../atoms/AtomDialogActions";
@@ -116,7 +115,11 @@ const FormLogin = () => {
         </AtomDialogTitle>
         <AtomDialogContent>
           <AtomPaper className={classes.paper}>
-            <AtomAvatar src={logo} className={classes.avatar}></AtomAvatar>
+            <AtomAvatar
+              alt="logo"
+              src="/images/logo_none_text.png"
+              className={classes.avatar}
+            ></AtomAvatar>
             <form className={classes.form} noValidate>
               <AtomTextField
                 // onChange={(event) => handelAccount("username", event)}
