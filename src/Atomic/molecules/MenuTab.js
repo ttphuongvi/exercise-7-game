@@ -4,11 +4,11 @@ import AtomRouteLink from "../atoms/AtomRouteLink";
 import AtomTabs from "../atoms/AtomTabs";
 import dataRoutes from "../../routesGame/dataRoutes";
 
-const Tab = styled(AtomRouteLink)(
+const Link = styled(AtomRouteLink)(
   ({ theme }) => `
   text-decoration: none;
     margin-left: ${theme.spacing(2)};
-    font-family: "Oswald";
+    font-family: ${theme.typography.subtitle1.fontFamily};
     color: ${theme.palette.text.primary};
     :hover {
       color: ${theme.palette.primary.main};
@@ -28,13 +28,13 @@ const MenuTab = () => {
     <Tabs>
       {dataRoutes.map((route, index) => {
         return (
-          <Tab
+          <Link
             style={({ isActive }) => (isActive ? activeStyle : undefined)}
             key={index}
             to={route.path}
           >
             {route.name}
-          </Tab>
+          </Link>
         );
       })}
     </Tabs>
