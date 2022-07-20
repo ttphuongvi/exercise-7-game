@@ -8,37 +8,38 @@ import axios from "axios";
 import AtomDialogTitle from "../atoms/AtomDialogTitle";
 import AtomDialogContent from "../atoms/AtomDialogContent";
 import AtomDialogActions from "../atoms/AtomDialogActions";
-import ButtonStyle2 from "./ButtonStyle2";
+import HorizonetalStripeButton from "./HorizontalStripeButton";
+import ButtonLogin from "./ButtonLogin";
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(1),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-  button: {
-    fontFamily: "Oswald",
-    color: theme.palette.text.secondary,
-  },
-  action: {
-    justifyContent: "center",
-  },
-}));
+// const useStyles = makeStyles((theme) => ({
+//   paper: {
+//     marginTop: theme.spacing(1),
+//     display: "flex",
+//     flexDirection: "column",
+//     alignItems: "center",
+//   },
+//   avatar: {
+//     margin: theme.spacing(1),
+//     backgroundColor: theme.palette.secondary.main,
+//   },
+//   form: {
+//     width: "100%", // Fix IE 11 issue.
+//     marginTop: theme.spacing(3),
+//   },
+//   submit: {
+//     margin: theme.spacing(3, 0, 2),
+//   },
+//   button: {
+//     fontFamily: "Oswald",
+//     color: theme.palette.text.secondary,
+//   },
+//   action: {
+//     justifyContent: "center",
+//   },
+// }));
 
 export default function SignUp() {
-  const classes = useStyles();
+  // const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
 
@@ -66,9 +67,7 @@ export default function SignUp() {
 
   return (
     <div>
-      <AtomButton className={classes.button} onClick={handleClickOpen}>
-        Đăng ký
-      </AtomButton>
+      <ButtonLogin onClick={handleClickOpen}>Đăng ký</ButtonLogin>
       <AtomDialog
         open={open}
         onClose={handleClose}
@@ -76,12 +75,17 @@ export default function SignUp() {
       >
         <AtomDialogTitle id="form-dialog-title">Đăng ký</AtomDialogTitle>
         <AtomDialogContent>
-          <div className={classes.paper}>
+          <div
+          // className={classes.paper}
+          >
             <AtomAvatar
               src="/images/logo_none_text.png"
-              className={classes.avatar}
+              // className={classes.avatar}
             ></AtomAvatar>
-            <form className={classes.form} noValidate>
+            <form
+              // className={classes.form}
+              noValidate
+            >
               <AtomTextField
                 variant="outlined"
                 required
@@ -121,13 +125,15 @@ export default function SignUp() {
                 onChange={(event) => setPassword(event.target.value)}
               />
 
-              <AtomDialogActions className={classes.action}>
-                <ButtonStyle2
+              <AtomDialogActions
+              // className={classes.action}
+              >
+                <HorizonetalStripeButton
                   fullwidth
                   variant="contained"
                   color="primary"
                   label="Đăng ký"
-                  className={classes.submit}
+                  // className={classes.submit}
                   onClick={() => {
                     if (name && email && password) {
                       addUser();
@@ -135,7 +141,7 @@ export default function SignUp() {
                       handleClose();
                     }
                   }}
-                ></ButtonStyle2>
+                ></HorizonetalStripeButton>
               </AtomDialogActions>
             </form>
           </div>

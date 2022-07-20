@@ -8,25 +8,26 @@ import AtomToolBar from "../atoms/AtomToolbar";
 import AtomTypography from "../atoms/AtomTypography";
 import { makeStyles } from "@mui/styles";
 import Iframe from "react-iframe";
-import ButtonStyle1 from "./ButtonStyle1";
+import ButtonStyle1 from "./SquareStripeButton";
 
-const useStyles = makeStyles((theme) => ({
-  appBar: {
-    position: "relative",
-  },
-  title: {
-    marginLeft: theme.spacing(2),
-    flex: 1,
-  },
-  floatRight: {
-    float: "right",
-  },
-}));
+// const useStyles = makeStyles((theme) => ({
+//   appBar: {
+//     position: "relative",
+//   },
+//   title: {
+//     marginLeft: theme.spacing(2),
+//     flex: 1,
+//   },
+//   floatRight: {
+//     float: "right",
+//   },
+// }));
+
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <AtomSlide direction="up" ref={ref} {...props} />;
 });
 const DialogPlayGame = (props) => {
-  const classes = useStyles();
+  // const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -37,7 +38,9 @@ const DialogPlayGame = (props) => {
     setOpen(false);
   };
   return (
-    <div className={classes.floatRight}>
+    <div
+    // className={classes.floatRight}
+    >
       <ButtonStyle1 label="Chơi game" onClick={handleClickOpen}></ButtonStyle1>
       <AtomDialog
         fullScreen
@@ -45,7 +48,9 @@ const DialogPlayGame = (props) => {
         onClose={handleClose}
         TransitionComponent={Transition}
       >
-        <AtomAppBar className={classes.appBar}>
+        <AtomAppBar
+        //  className={classes.appBar}
+        >
           <AtomToolBar>
             <AtomIconButton
               edge="start"
@@ -58,7 +63,7 @@ const DialogPlayGame = (props) => {
             <AtomTypography
               component={"span"}
               variant="h6"
-              className={classes.title}
+              // className={classes.title}
             >
               {props.caption}
             </AtomTypography>

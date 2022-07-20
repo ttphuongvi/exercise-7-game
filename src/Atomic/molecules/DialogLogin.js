@@ -10,60 +10,70 @@ import AtomAvatar from "../atoms/AtomAvatar";
 import AtomTextField from "../atoms/AtomTextField";
 import AtomPaper from "../atoms/AtomPaper";
 import { useDispatch } from "react-redux";
-import ButtonStyle2 from "./ButtonStyle2";
 import AtomDialogAtions from "../atoms/AtomDialogActions";
+import { styled } from "@mui/material/styles";
+import ButtonLogin from "./ButtonLogin";
+import HorizontalStripeButton from "./../molecules/HorizontalStripeButton";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    height: "100vh",
-    // backgroundImage: `url(${image})`,
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  size: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-  },
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     height: "100vh",
+//     // backgroundImage: `url(${image})`,
+//     backgroundRepeat: "no-repeat",
+//     backgroundPosition: "center",
+//     backgroundSize: "cover",
+//     display: "flex",
+//     alignItems: "center",
+//     justifyContent: "center",
+//   },
+//   size: {
+//     display: "flex",
+//     flexDirection: "column",
+//     alignItems: "center",
+//     justifyContent: "center",
+//   },
 
-  paper: {
-    margin: theme.spacing(2, 6),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    boxShadow: "none",
-  },
-  avatar: {
-    margin: theme.spacing(0),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-  title: {
-    fontFamily: "Oswald",
-  },
-  action: {
-    justifyContent: "center",
-  },
-  button: {
-    fontFamily: "Oswald",
-    color: theme.palette.text.secondary,
-    // color: theme.palette.primary.main,
-  },
-}));
+//   paper: {
+//     margin: theme.spacing(2, 6),
+//     display: "flex",
+//     flexDirection: "column",
+//     alignItems: "center",
+//     boxShadow: "none",
+//   },
+//   avatar: {
+//     margin: theme.spacing(0),
+//     backgroundColor: theme.palette.secondary.main,
+//   },
+//   form: {
+//     width: "100%", // Fix IE 11 issue.
+//     marginTop: theme.spacing(1),
+//   },
+//   submit: {
+//     margin: theme.spacing(3, 0, 2),
+//   },
+//   title: {
+//     fontFamily: "Oswald",
+//   },
+//   action: {
+//     justifyContent: "center",
+//   },
+//   button: {
+//     fontFamily: "Oswald",
+//     color: theme.palette.text.secondary,
+//     // color: theme.palette.primary.main,
+//   },
+// }));
+
+const DialogTitleStyles = styled(AtomDialogTitle)(
+  ({ theme }) => `
+  font-family: ${theme.typography.subtitle1};
+
+  
+`
+);
 
 const FormLogin = () => {
-  const classes = useStyles();
+  // const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -102,25 +112,26 @@ const FormLogin = () => {
 
   return (
     <div>
-      <AtomButton className={classes.button} onClick={handleClickOpen}>
-        Đăng nhập
-      </AtomButton>
+      <ButtonLogin onClick={handleClickOpen}>Đăng nhập</ButtonLogin>
       <AtomDialog
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <AtomDialogTitle className={classes.title} id="form-dialog-title">
-          Đăng nhập
-        </AtomDialogTitle>
+        <DialogTitleStyles id="form-dialog-title">Đăng nhập</DialogTitleStyles>
         <AtomDialogContent>
-          <AtomPaper className={classes.paper}>
+          <AtomPaper
+          // className={classes.paper}
+          >
             <AtomAvatar
               alt="logo"
               src="/images/logo_none_text.png"
-              className={classes.avatar}
+              // className={classes.avatar}
             ></AtomAvatar>
-            <form className={classes.form} noValidate>
+            <form
+              // className={classes.form}
+              noValidate
+            >
               <AtomTextField
                 // onChange={(event) => handelAccount("username", event)}
                 variant="outlined"
@@ -148,14 +159,16 @@ const FormLogin = () => {
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
               />
-              <AtomDialogAtions className={classes.action}>
-                <ButtonStyle2
+              <AtomDialogAtions
+              // className={classes.action}
+              >
+                <HorizontalStripeButton
                   variant="contained"
                   color="primary"
-                  className={classes.submit}
+                  // className={classes.submit}
                   onClick={onLogin}
                   label="Đăng nhập"
-                ></ButtonStyle2>
+                ></HorizontalStripeButton>
               </AtomDialogAtions>
             </form>
           </AtomPaper>

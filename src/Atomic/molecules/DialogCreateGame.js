@@ -4,10 +4,10 @@ import Dialog from "../atoms/AtomDialog";
 import DialogActions from "../atoms/AtomDialogActions";
 import DialogContent from "../atoms/AtomDialogContent";
 import DialogTitle from "../atoms/AtomDialogTitle";
-import ButtonStyle2 from "./ButtonStyle2";
+import HorizontalStripeButton from "./HorizontalStripeButton";
 import { makeStyles } from "@mui/styles";
 import AtomTextField from "../atoms/AtomTextField";
-import ButtonStyle1 from "./ButtonStyle1";
+import ButtonStyle1 from "./SquareStripeButton";
 import { useDispatch } from "react-redux";
 import { ADD_GAME } from "../../store/const/index";
 
@@ -58,10 +58,10 @@ const DialogCreateGame = () => {
 
   return (
     <div>
-      <ButtonStyle2
+      <HorizontalStripeButton
         label=" + TẠO GAME MỚI"
         onClick={handleClickOpen}
-      ></ButtonStyle2>
+      ></HorizontalStripeButton>
       <Dialog
         open={open}
         onClose={handleClose}
