@@ -1,32 +1,20 @@
-import { createTheme, styled } from "@mui/material/styles";
-
+import { styled } from "@mui/material/styles";
 import React from "react";
 import AtomRouteLink from "../atoms/AtomRouteLink";
 import AtomTabs from "../atoms/AtomTabs";
 import dataRoutes from "../../routesGame/dataRoutes";
 
 const Tab = styled(AtomRouteLink)(
-  //   (theme) => ({
-  //   textDecoration: "none",
-  //   marginLeft: theme.spacing(2),
-  //   fontFamily: "Oswald",
-  //   color: theme.palette.text.secondary,
-  //   "&:hover": {
-  //     color: "#2AC0FF",
-  //   },
-  // }));
   ({ theme }) => `
-  textDecoration: "none";
-    marginLeft: ${theme.spacing(2)};
-    fontFamily: "Oswald";
-    color: ${theme.palette.text.secondary};
-    "&:hover": {
-      color: "#2AC0FF";
+  text-decoration: none;
+    margin-left: ${theme.spacing(2)};
+    font-family: "Oswald";
+    color: ${theme.palette.text.primary};
+    :hover {
+      color: ${theme.palette.primary.main};
     },
 `
 );
-
-// color: theme.status.white,
 
 const Tabs = styled(AtomTabs)({
   alignItems: "center",

@@ -1,5 +1,4 @@
 import React from "react";
-import { makeStyles } from "@mui/styles";
 import { useSelector } from "react-redux";
 import AtomAppBar from "../atoms/AtomAppBar";
 import ImageLogo from "../molecules/ImageLogo";
@@ -11,29 +10,20 @@ import { IconSetting } from "../../App";
 import IconAvatar from "../molecules/IconAvatar";
 import AtomContainer from "../atoms/AtomContainer";
 import AtomToolBar from "../atoms/AtomToolbar";
+import { styled } from "@mui/material/styles";
 
-const useStyles = makeStyles((theme) => ({
-  appbar: {
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)",
-  },
-  toolbar: {
-    justifyContent: "space-between",
-    padding: "0px",
-  },
-  menuRight: {
-    justifyContent: "center",
-    alignItems: "center",
-  },
-}));
+const AppBarStyles = styled(AtomAppBar)(
+  ({ theme }) => `
+  background-color: ${theme.palette.background.paper};
+  box-shadow: ${theme.shadows[3]};
+`
+);
 
 const ResponsiveAppBar = () => {
-  const classes = useStyles();
-
   const user = useSelector((state) => state.user.content);
 
   return (
-    <AtomAppBar color="primary" className={classes.appbar} position="fixed">
+    <AppBarStyles position="fixed">
       <AtomContainer maxWidth="xl">
         <AtomToolBar>
           <AtomGrid container>
@@ -60,7 +50,7 @@ const ResponsiveAppBar = () => {
           </AtomGrid>
         </AtomToolBar>
       </AtomContainer>
-    </AtomAppBar>
+    </AppBarStyles>
 
     // </AtomBox>
   );
