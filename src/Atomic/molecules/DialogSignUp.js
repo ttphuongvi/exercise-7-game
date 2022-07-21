@@ -1,8 +1,6 @@
 import React from "react";
 import AtomAvatar from "../atoms/AtomAvatar";
-import AtomButton from "../atoms/AtomButton";
 import AtomTextField from "../atoms/AtomTextField";
-import { makeStyles } from "@mui/styles";
 import AtomDialog from "../atoms/AtomDialog";
 import axios from "axios";
 import AtomDialogTitle from "../atoms/AtomDialogTitle";

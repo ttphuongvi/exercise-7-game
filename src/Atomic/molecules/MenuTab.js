@@ -2,12 +2,12 @@ import { styled } from "@mui/material/styles";
 import React from "react";
 import AtomRouteLink from "../atoms/AtomRouteLink";
 import AtomTabs from "../atoms/AtomTabs";
+import AtomTab from "../atoms/AtomTab";
 import dataRoutes from "../../routesGame/dataRoutes";
 
-const Link = styled(AtomRouteLink)(
+const TabStyles = styled(AtomTab)(
   ({ theme }) => `
-  text-decoration: none;
-    margin-left: ${theme.spacing(2)};
+    text-decoration: none;
     font-family: ${theme.typography.subtitle1.fontFamily};
     color: ${theme.palette.text.primary};
     :hover {
@@ -16,28 +16,32 @@ const Link = styled(AtomRouteLink)(
 `
 );
 
-const Tabs = styled(AtomTabs)({
-  alignItems: "center",
-});
-
 const MenuTab = () => {
-  let activeStyle = {
-    color: "#2AC0FF",
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
   };
+  // let activeStyle = {
+  //   color: "#2AC0FF",
+  // };
   return (
-    <Tabs>
+    <AtomTabs value={value} onChange={handleChange}>
       {dataRoutes.map((route, index) => {
         return (
-          <Link
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          <TabStyles
+            component={AtomRouteLink}
+            // style={({ isActive }) => (isActive ? activeStyle : undefined)}
             key={index}
             to={route.path}
+            label={route.name}
+            value={index}
           >
-            {route.name}
-          </Link>
+            {/* {route.name} */}
+          </TabStyles>
         );
       })}
-    </Tabs>
+    </AtomTabs>
   );
 };
 

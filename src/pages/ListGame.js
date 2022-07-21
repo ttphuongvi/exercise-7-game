@@ -1,5 +1,4 @@
 import { React, useState } from "react";
-import DateFnsUtils from "@date-io/date-fns";
 // import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
 import DialogCreateGame from "../Atomic/molecules/DialogCreateGame";
 import GridListGame from "../Atomic/organisms/GridListGame";
@@ -35,7 +34,7 @@ const ListGame = () => {
     var lowerCase = e.target.value.toLowerCase();
     setInputText(lowerCase);
   };
-  const [selectedDate, handleDateChange] = useState(new Date());
+  // const [selectedDate, handleDateChange] = useState(new Date());
 
   const classes = useStyles();
   return (
