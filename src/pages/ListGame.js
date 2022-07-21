@@ -48,10 +48,9 @@ const ListGame = () => {
             direction="row"
             justifyContent="space-between"
             alignItems="center"
-            xs={12}
             className={classes.gridContainer}
           >
-            <AtomGrid container xs={9} direction="row">
+            <AtomGrid item xs={9}>
               <AtomGrid className={classes.search} item xs={4}>
                 <AtomTextField
                   id="outlined-basic"
