@@ -1,7 +1,6 @@
 import { styled } from "@mui/material/styles";
 import React from "react";
 import AtomButton from "../atoms/AtomButton";
-import useStyles from "./Butto/styles";
 
 const ButtonLoadMoreStyles = styled(AtomButton)(({ theme }) => ({
   backgroundColor: "#2ac0ff",
@@ -66,10 +65,9 @@ const ButtonLoadMoreStyles = styled(AtomButton)(({ theme }) => ({
 }));
 
 const ButtonLoadMore = (props) => {
-  const classes = useStyles();
   return (
-    <ButtonLoadMoreStyles className={classes.button1} onClick={props.onClick}>
-      <span className={classes.label}>{props.label}</span>
+    <ButtonLoadMoreStyles onClick={props.onClick}>
+      <span>{props.label}</span>
     </ButtonLoadMoreStyles>
   );
 };
