@@ -13,6 +13,7 @@ import AtomCardAction from "../Atomic/atoms/AtomCardAction";
 import TitleCategory from "../Atomic/molecules/TittePage";
 import Container from "../Atomic/molecules/PageContainer";
 import { styled } from "@mui/styles";
+import AtomTypography from "../Atomic/atoms/AtomTypography";
 
 const ContainerDetaiGame = styled(Container)({
   width: "60%",
@@ -30,7 +31,7 @@ const CardContent = styled(AtomCardContent)({
   padding: "16px 0 16px 0",
 });
 
-const DescriptionGame = styled("div")({
+const DescriptionGame = styled(AtomTypography)({
   textAlign: "justify",
 });
 
