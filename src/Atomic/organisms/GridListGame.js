@@ -12,17 +12,18 @@ import ReleaseYear from "../molecules/ReleaseYear";
 import DescriptionGame from "../molecules/DescriptionGame";
 import CaptionGame from "../molecules/CaptionGame";
 import LinkStyle from "../molecules/LinkStyle";
-import { styled } from "@mui/styles";
+import { styled } from "@mui/material/styles";
+import AtomCardAction from "../atoms/AtomCardAction";
 
-const ItemCard = styled(AtomCard)({
+const ItemCard = styled(AtomCard)(({ theme }) => ({
   position: "relative",
   paddingBottom: "10%",
-
+  backgroundColor: theme.palette.background.card,
   "&:hover": {
     boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px;",
     transform: "scale(1.05)",
   },
-});
+}));
 
 const GridContainer = styled(AtomGrid)({
   marginBottom: "10px",
@@ -80,38 +81,50 @@ const GridListGame = (props) => {
   });
 
   return (
-    <>
-      <GridContainer container spacing={3}>
-        {filteredData &&
-          filteredData.map((value) => {
-            return (
-              <AtomGrid key={value.id} item xs={12} sm={4} md={3} lg={3}>
-                <ItemCard>
-                  <CardMediaStyle
-                    image={value.image}
-                    title={value.caption}
-                  ></CardMediaStyle>
-                  <ContentListGame>
-                    <LinkStyle to={`/${value.id}`}>
-                      {" "}
-                      <CaptionGame>{value.caption}</CaptionGame>
-                    </LinkStyle>
-                    <ReleaseYear>Phát hành ngày {value.release}</ReleaseYear>
-                    <DescriptionGame>{value.description}</DescriptionGame>
-                    <DialogPlayGame caption={value.caption} link={value.link} />
-                  </ContentListGame>
-                </ItemCard>
-              </AtomGrid>
-            );
-          })}
-      </GridContainer>
-      {!hiddenLoadding && (
-        <HorizontalStripeButton
-          onClick={onClickLoadding}
-          label="Tải thêm game"
-        ></HorizontalStripeButton>
-      )}
-    </>
+    <AtomGrid container alignItems={"center"} direction={"column"}>
+      <AtomGrid item>
+        {" "}
+        <GridContainer container spacing={3}>
+          {filteredData &&
+            filteredData.map((value) => {
+              return (
+                <AtomGrid key={value.id} item xs={12} sm={4} md={3} lg={3}>
+                  <ItemCard>
+                    <CardMediaStyle
+                      image={value.image}
+                      title={value.caption}
+                    ></CardMediaStyle>
+                    <ContentListGame>
+                      <LinkStyle to={`/${value.id}`}>
+                        {" "}
+                        <CaptionGame>{value.caption}</CaptionGame>
+                      </LinkStyle>
+                      <ReleaseYear>Phát hành ngày {value.release}</ReleaseYear>
+                      <DescriptionGame>
+                        {value.description}
+                      </DescriptionGame>{" "}
+                      <AtomCardAction style={{ justifyContent: "flex-end" }}>
+                        <DialogPlayGame
+                          caption={value.caption}
+                          link={value.link}
+                        />
+                      </AtomCardAction>
+                    </ContentListGame>
+                  </ItemCard>
+                </AtomGrid>
+              );
+            })}
+        </GridContainer>
+      </AtomGrid>
+      <AtomGrid item>
+        {!hiddenLoadding && (
+          <HorizontalStripeButton
+            onClick={onClickLoadding}
+            label="Tải thêm game"
+          ></HorizontalStripeButton>
+        )}
+      </AtomGrid>
+    </AtomGrid>
   );
 };
 

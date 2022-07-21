@@ -12,6 +12,7 @@ import AtomDivider from "../Atomic/atoms/AtomDivider";
 import AtomContainer from "../Atomic/atoms/AtomContainer";
 import AtomPaper from "../Atomic/atoms/AtomPaper";
 import AtomCardContent from "../Atomic/atoms/AtomCardContent";
+import { styled } from "@mui/material/styles";
 
 const useStyles = makeStyles({
   search: {
@@ -26,6 +27,10 @@ const useStyles = makeStyles({
     marginBottom: "20px",
   },
 });
+
+const PaperStyles = styled(AtomPaper)(({ theme }) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 
 const ListGame = () => {
   const user = useSelector((state) => state.user.content);
@@ -44,7 +49,7 @@ const ListGame = () => {
     <TemplatePage
       content={
         <AtomContainer maxWidth="xl" style={{ paddingTop: 24 }}>
-          <AtomPaper>
+          <PaperStyles>
             <AtomCardContent>
               <TitleCatogery title="DANH SÁCH GAME"></TitleCatogery>
               <AtomDivider
@@ -90,7 +95,7 @@ const ListGame = () => {
               </AtomGrid>
               <GridListGame input={inputText} />
             </AtomCardContent>
-          </AtomPaper>
+          </PaperStyles>
         </AtomContainer>
       }
     ></TemplatePage>

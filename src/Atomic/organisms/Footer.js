@@ -35,10 +35,11 @@ const GridInfoFooter = styled(AtomGrid)(({ theme }) => ({
 const GridContainerStyles = styled(AtomGrid)(
   ({ theme }) => ` 
   margin-top: ${theme.spacing(3)} ;
-padding: ${theme.spacing(2)};
-color: ${theme.palette.text.primary};
-font-family: ${theme.typography.subtitle1};
-box-shadow: ${theme.shadows[3]};
+  padding: ${theme.spacing(2)};
+  color: ${theme.palette.text.primary};
+  font-family: ${theme.typography.subtitle1};
+  box-shadow: ${theme.shadows[3]};
+  background-color: ${theme.palette.background.paper};
 `
 );
 const Footer = () => {

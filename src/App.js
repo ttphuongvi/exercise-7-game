@@ -18,6 +18,7 @@ import AtomSettingIcon from "./Atomic/atoms/AtomSettingIcon";
 import AtomMenu from "./Atomic/atoms/AtomMenu";
 import AtomMenuItem from "./Atomic/atoms/AtomMenuItem";
 import AtomTypography from "./Atomic/atoms/AtomTypography";
+import { grey } from "@mui/material/colors";
 // import AtomBox from "./Atomic/atoms/AtomBox";
 // import theme from "./theme";
 // // import theme from "./theme";
@@ -117,19 +118,22 @@ const App = () => {
             main: "#2AC0FF",
           },
 
-          // ...(mode === "dark"
-          //   ? {
-          //       background: {
-          //         default: grey[900],
-          //         paper: "#333",
-          //       },
-          //     }
-          //   : {
-          //       background: {
-          //         default: "#fff",
-          //         paper: "#F5F5F5",
-          //       },
-          //     }),
+          ...(mode === "dark"
+            ? {
+                background: {
+                  default: "#1E1E1E",
+                  paper: "#212121",
+                  card: "#333",
+                  // card: grey[900],
+                },
+              }
+            : {
+                background: {
+                  default: "#fff",
+
+                  card: "#fff",
+                },
+              }),
         },
         // shadows: [
         //   "none",
