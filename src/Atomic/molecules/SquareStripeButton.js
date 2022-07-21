@@ -1,8 +1,5 @@
 import React from "react";
 import AtomButton from "../atoms/AtomButton";
-// import useStyles from "./styles";
-import clsx from "clsx";
-import { makeStyles } from "@mui/styles";
 import { styled } from "@mui/material/styles";
 
 const ButtonStyles = styled(AtomButton)(({ theme }) => ({

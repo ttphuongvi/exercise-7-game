@@ -11,7 +11,6 @@ import {
 } from "@mui/material/styles";
 // import setTheme from "./theme";
 import { CssBaseline } from "@mui/material";
-import { grey } from "@mui/material/colors";
 import AtomIconButton from "./Atomic/atoms/AtomIconButton";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";

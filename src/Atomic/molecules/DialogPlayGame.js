@@ -6,7 +6,6 @@ import AtomIconButton from "../atoms/AtomIconButton";
 import AtomSlide from "../atoms/AtomSlide";
 import AtomToolBar from "../atoms/AtomToolbar";
 import AtomTypography from "../atoms/AtomTypography";
-import { makeStyles } from "@mui/styles";
 import Iframe from "react-iframe";
 import ButtonStyle1 from "./SquareStripeButton";
 

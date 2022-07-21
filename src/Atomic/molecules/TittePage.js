@@ -1,11 +1,9 @@
 import React from "react";
 import AtomTypography from "../atoms/AtomTypography";
-import AtomBox from "../atoms/AtomBox";
 import { styled } from "@mui/material/styles";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import AtomRouteLink from "../atoms/AtomRouteLink";
-import { Divider } from "@mui/material";
 
 const LinkStyles = styled(AtomRouteLink)(
   ({ theme }) => `
