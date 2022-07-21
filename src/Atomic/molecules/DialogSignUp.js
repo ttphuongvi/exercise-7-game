@@ -88,7 +88,7 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 margin="normal"
-                fullwidth
+                // fullwidth
                 id="name"
                 label="Tên đăng nhập"
                 name="name"
@@ -100,7 +100,7 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 margin="normal"
-                fullwidth
+                // fullwidth
                 id="email"
                 label="Email"
                 name="email"
@@ -113,7 +113,7 @@ export default function SignUp() {
                 variant="outlined"
                 margin="normal"
                 required
-                fullwidth
+                // fullwidth
                 name="password"
                 label="Mật khẩu"
                 type="password"
@@ -127,7 +127,7 @@ export default function SignUp() {
               // className={classes.action}
               >
                 <HorizonetalStripeButton
-                  fullwidth
+                  // fullwidth
                   variant="contained"
                   color="primary"
                   label="Đăng ký"

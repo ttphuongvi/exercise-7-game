@@ -7,12 +7,10 @@ import AtomContainer from "../Atomic/atoms/AtomContainer";
 import AtomPaper from "../Atomic/atoms/AtomPaper";
 import AtomCardContent from "../Atomic/atoms/AtomCardContent";
 import AtomDivider from "../Atomic/atoms/AtomDivider";
-import AtomGrid from "../Atomic/atoms/AtomGrid";
-import AtomCard from "../Atomic/atoms/AtomCard";
-import AtomCardHeader from "../Atomic/atoms/AtomCardHeader";
 import AtomCardAction from "../Atomic/atoms/AtomCardAction";
 import HorizontalStripeButton from "../Atomic/molecules/HorizontalStripeButton";
 import { useNavigate } from "react-router-dom";
+import ResponsiveAppBar from "../Atomic/organisms/AppBar";
 const Home = () => {
   let navigate = useNavigate();
 
@@ -21,6 +19,7 @@ const Home = () => {
   };
   return (
     <TemplatePage
+      appbar={<ResponsiveAppBar />}
       content={
         <div>
           <Slider />

@@ -13,16 +13,6 @@ import DescriptionGame from "../molecules/DescriptionGame";
 import CaptionGame from "../molecules/CaptionGame";
 import LinkStyle from "../molecules/LinkStyle";
 import { styled } from "@mui/styles";
-import AtomContainer from "../atoms/AtomContainer";
-
-const ContainerGridListGame = styled(AtomContainer)({
-  display: "flex",
-  flexDirection: "column",
-  flexGrow: 1,
-  alignItems: "center",
-  paddingRight: 0,
-  paddingLeft: 0,
-});
 
 const ItemCard = styled(AtomCard)({
   position: "relative",
@@ -90,7 +80,7 @@ const GridListGame = (props) => {
   });
 
   return (
-    <ContainerGridListGame>
+    <>
       <GridContainer container spacing={3}>
         {filteredData &&
           filteredData.map((value) => {
@@ -121,7 +111,7 @@ const GridListGame = (props) => {
           label="Tải thêm game"
         ></HorizontalStripeButton>
       )}
-    </ContainerGridListGame>
+    </>
   );
 };
 
