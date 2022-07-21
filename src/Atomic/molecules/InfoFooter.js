@@ -14,10 +14,8 @@ const GridInfoFooter = styled(AtomGrid)(({ theme }) => ({
 const InfoFooter = (props) => {
   return (
     <GridInfoFooter alignItems="flex-start" container spacing={1}>
-      <AtomGrid item sx={2}>
-        {props.icon}
-      </AtomGrid>
-      <AtomGrid item sx={10}>
+      <AtomGrid item>{props.icon}</AtomGrid>
+      <AtomGrid item>
         <TypographyInfo>{props.info}</TypographyInfo>
       </AtomGrid>
     </GridInfoFooter>
