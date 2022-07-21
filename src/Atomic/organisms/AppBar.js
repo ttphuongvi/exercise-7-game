@@ -26,25 +26,30 @@ const ResponsiveAppBar = () => {
     <AppBarStyles position="fixed">
       <AtomContainer maxWidth="xl">
         <AtomToolBar>
-          <AtomGrid container xs={12}>
-            <AtomGrid container alignItems="center" item xs={6}>
+          <AtomGrid container alignItems="center">
+            <AtomGrid item xs={6}>
               <ImageLogo alt="logo" src="/images/logo_hahalolo.png"></ImageLogo>
             </AtomGrid>
-            <AtomGrid container justifyContent="flex-end" item xs={4}>
-              <MenuTab />
-            </AtomGrid>
-            <AtomGrid container alignItems="center" item xs={2}>
-              <AtomGrid container item justifyContent="center" xs={3}>
-                <IconSetting />
+            <AtomGrid item xs={4}>
+              <AtomGrid container justifyContent="flex-end">
+                {" "}
+                <MenuTab />
               </AtomGrid>
-              <AtomGrid container item xs={9}>
-                {user && user.isLogin ? (
-                  <IconAvatar />
-                ) : (
-                  <AtomGrid container alignItems="center">
-                    <DialogLogin /> / <DialogSignUp />
-                  </AtomGrid>
-                )}
+            </AtomGrid>
+            <AtomGrid item xs={2}>
+              <AtomGrid container alignItems="center">
+                <AtomGrid item xs={3}>
+                  <IconSetting />
+                </AtomGrid>
+                <AtomGrid item xs={9}>
+                  {user && user.isLogin ? (
+                    <IconAvatar />
+                  ) : (
+                    <AtomGrid container alignItems="center">
+                      <DialogLogin /> / <DialogSignUp />
+                    </AtomGrid>
+                  )}
+                </AtomGrid>
               </AtomGrid>
             </AtomGrid>
           </AtomGrid>
