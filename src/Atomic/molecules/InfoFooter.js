@@ -1,30 +1,26 @@
 import React from "react";
 import AtomTypography from "../atoms/AtomTypography";
-import { makeStyles } from "@mui/styles";
 import AtomGrid from "../atoms/AtomGrid";
+import { styled } from "@mui/material/styles";
 
-const useStyles = makeStyles((theme) => ({
-  container: {
-    margin: theme.spacing(3),
-    display: "flex",
-  },
-  typography: {
-    marginLeft: theme.spacing(1),
-    fontFamily: "Oswald",
-    fontWeight: "400",
-  },
+const TypographyInfo = styled(AtomTypography)(({ theme }) => ({
+  fontFamily: theme.typography.subtitle1.fontFamily,
+}));
+
+const GridInfoFooter = styled(AtomGrid)(({ theme }) => ({
+  margin: theme.spacing(2),
 }));
 
 const InfoFooter = (props) => {
-  const classes = useStyles();
-
   return (
-    <AtomGrid alignItems="center" className={classes.container}>
-      {props.icon}
-      <AtomTypography className={classes.typography}>
-        {props.info}
-      </AtomTypography>
-    </AtomGrid>
+    <GridInfoFooter alignItems="flex-start" container spacing={1}>
+      <AtomGrid item sx={2}>
+        {props.icon}
+      </AtomGrid>
+      <AtomGrid item sx={10}>
+        <TypographyInfo>{props.info}</TypographyInfo>
+      </AtomGrid>
+    </GridInfoFooter>
   );
 };
 
