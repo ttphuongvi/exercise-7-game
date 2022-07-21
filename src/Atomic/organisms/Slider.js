@@ -111,7 +111,7 @@ const Slide1 = () => {
           return (
             <SwiperSlide key={value.id} className={classes.slider}>
               <AtomContainer maxWidth="xl" key={value.id}>
-                <GridContainerStyles container spacing={2} xs={12}>
+                <GridContainerStyles container spacing={2}>
                   <AtomGrid item xs={6}>
                     <CaptionSlider>{value.caption}</CaptionSlider>
                     <DescriptionGameSlider>
