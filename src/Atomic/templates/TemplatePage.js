@@ -9,10 +9,14 @@ const Content = styled(AtomBox)({
   marginTop: "64px",
 });
 
-const BoxContainer = styled(AtomBox)(({ theme }) => ({
-  backgroundColor: theme.palette.background.default,
-}));
+const BoxContainer = styled(AtomBox)(
+  ({ theme }) => `
+  
 
+  
+`
+);
+// background-color: ${theme.palette.background.paper};
 const TemplatePage = ({ appbar, content, footer }) => {
   return (
     <BoxContainer>

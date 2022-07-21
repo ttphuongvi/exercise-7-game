@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from "react";
 import axios from "axios";
-import ButtonStyle2 from "../molecules/ButtonStyle2";
+import HorizontalStripeButton from "./../molecules/HorizontalStripeButton";
 import DialogPlayGame from "../molecules/DialogPlayGame";
 import { useSelector, useDispatch } from "react-redux";
 import { SET_LIST_GAME } from "../../store/const";
@@ -116,10 +116,10 @@ const GridListGame = (props) => {
           })}
       </GridContainer>
       {!hiddenLoadding && (
-        <ButtonStyle2
+        <HorizontalStripeButton
           onClick={onClickLoadding}
           label="Tải thêm game"
-        ></ButtonStyle2>
+        ></HorizontalStripeButton>
       )}
     </ContainerGridListGame>
   );

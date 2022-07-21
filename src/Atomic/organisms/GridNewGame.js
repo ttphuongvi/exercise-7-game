@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import ButtonStyle2 from "../molecules/ButtonStyle2";
-import ButtonStyle1 from "../molecules/ButtonStyle1";
+import SquareStripeButton from "../molecules/SquareStripeButton";
 import AtomGrid from "../atoms/AtomGrid";
 import AtomCard from "../atoms/AtomCard";
 import ContainerImageNewGame from "../molecules/ContainerImageNewGame";
@@ -44,40 +43,37 @@ const GridNewGame = () => {
   };
 
   return (
-    <>
-      <AtomGrid container spacing={3}>
-        {data.map((value) => {
-          return (
-            <AtomGrid key={value.id} item xs={12} sm={6} md={6} lg={4}>
-              <ThemeContainer>
-                <AtomGrid container>
-                  <AtomGrid item xs={12}>
-                    <CaptionGame>{value?.caption}</CaptionGame>
-                  </AtomGrid>
-                  <AtomGrid item xs={6}>
-                    <ContainerImageNewGame>
-                      <ImageNewGame src={value.image} alt=""></ImageNewGame>
-                    </ContainerImageNewGame>
-                  </AtomGrid>
-                  <AtomGrid item xs={6} alignItems="flex-end">
-                    <ContainerContentNewGame>
-                      <DescriptionGame>{value.description}</DescriptionGame>
-                      <ButtonStyle1
-                        label="Xem chi tiết"
-                        onClick={() => {
-                          navigate(`/${value.id}`);
-                        }}
-                      />
-                    </ContainerContentNewGame>
-                  </AtomGrid>
+    <AtomGrid container spacing={3}>
+      {data.map((value) => {
+        return (
+          <AtomGrid key={value.id} item xs={12} sm={6} md={6} lg={4}>
+            <ThemeContainer>
+              <AtomGrid container spacing={1}>
+                <AtomGrid item xs={12}>
+                  <CaptionGame>{value?.caption}</CaptionGame>
                 </AtomGrid>
-              </ThemeContainer>
-            </AtomGrid>
-          );
-        })}
-      </AtomGrid>
-      <ButtonStyle2 onClick={handleClick} label="Xem thêm"></ButtonStyle2>
-    </>
+                <AtomGrid item xs={6}>
+                  <ContainerImageNewGame>
+                    <ImageNewGame src={value.image} alt=""></ImageNewGame>
+                  </ContainerImageNewGame>
+                </AtomGrid>
+                <AtomGrid item xs={6} alignItems="flex-end">
+                  <ContainerContentNewGame>
+                    <DescriptionGame>{value.description}</DescriptionGame>
+                    <SquareStripeButton
+                      label="Xem chi tiết"
+                      onClick={() => {
+                        navigate(`/${value.id}`);
+                      }}
+                    />
+                  </ContainerContentNewGame>
+                </AtomGrid>
+              </AtomGrid>
+            </ThemeContainer>
+          </AtomGrid>
+        );
+      })}
+    </AtomGrid>
   );
 };
 
