@@ -6,69 +6,17 @@ import AtomDialogTitle from "../atoms/AtomDialogTitle";
 import AtomDialogContent from "../atoms/AtomDialogContent";
 import AtomAvatar from "../atoms/AtomAvatar";
 import AtomTextField from "../atoms/AtomTextField";
-import AtomPaper from "../atoms/AtomPaper";
 import { useDispatch } from "react-redux";
 import AtomDialogAtions from "../atoms/AtomDialogActions";
 import { styled } from "@mui/material/styles";
 import ButtonLogin from "./ButtonLogin";
 import HorizontalStripeButton from "./../molecules/HorizontalStripeButton";
+import AtomStack from "../atoms/AtomStack";
+import AtomDivider from "../atoms/AtomDivider";
 
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     height: "100vh",
-//     // backgroundImage: `url(${image})`,
-//     backgroundRepeat: "no-repeat",
-//     backgroundPosition: "center",
-//     backgroundSize: "cover",
-//     display: "flex",
-//     alignItems: "center",
-//     justifyContent: "center",
-//   },
-//   size: {
-//     display: "flex",
-//     flexDirection: "column",
-//     alignItems: "center",
-//     justifyContent: "center",
-//   },
-
-//   paper: {
-//     margin: theme.spacing(2, 6),
-//     display: "flex",
-//     flexDirection: "column",
-//     alignItems: "center",
-//     boxShadow: "none",
-//   },
-//   avatar: {
-//     margin: theme.spacing(0),
-//     backgroundColor: theme.palette.secondary.main,
-//   },
-//   form: {
-//     width: "100%", // Fix IE 11 issue.
-//     marginTop: theme.spacing(1),
-//   },
-//   submit: {
-//     margin: theme.spacing(3, 0, 2),
-//   },
-//   title: {
-//     fontFamily: "Oswald",
-//   },
-//   action: {
-//     justifyContent: "center",
-//   },
-//   button: {
-//     fontFamily: "Oswald",
-//     color: theme.palette.text.secondary,
-//     // color: theme.palette.primary.main,
-//   },
-// }));
-
-const DialogTitleStyles = styled(AtomDialogTitle)(
-  ({ theme }) => `
-  font-family: ${theme.typography.subtitle1};
-
-  
-`
-);
+const DialogTitleStyles = styled(AtomDialogTitle)(({ theme }) => ({
+  fontFamily: theme.typography.subtitle1.fontFamily,
+}));
 
 const FormLogin = () => {
   // const classes = useStyles();
@@ -115,61 +63,56 @@ const FormLogin = () => {
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
+        maxWidth={"xs"}
+        fullWidth={true}
       >
         <DialogTitleStyles id="form-dialog-title">Đăng nhập</DialogTitleStyles>
+        <AtomDivider />
         <AtomDialogContent>
-          <AtomPaper
-          // className={classes.paper}
-          >
+          <AtomStack alignItems={"center"}>
             <AtomAvatar
               alt="logo"
               src="/images/logo_none_text.png"
-              // className={classes.avatar}
             ></AtomAvatar>
-            <form
-              // className={classes.form}
-              noValidate
+            <AtomTextField
+              // onChange={(event) => handelAccount("username", event)}
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="username"
+              label="Email"
+              name="username"
+              autoFocus
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+            />
+            <TextField
+              // onChange={(event) => handelAccount("password", event)}
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Mật khẩu"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+            />
+            <AtomDialogAtions
+            // className={classes.action}
             >
-              <AtomTextField
-                // onChange={(event) => handelAccount("username", event)}
-                variant="outlined"
-                margin="normal"
-                required
-                // fullwidth
-                id="username"
-                label="Email"
-                name="username"
-                autoFocus
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-              />
-              <TextField
-                // onChange={(event) => handelAccount("password", event)}
-                variant="outlined"
-                margin="normal"
-                required
-                // fullwidth
-                name="password"
-                label="Mật khẩu"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-              />
-              <AtomDialogAtions
-              // className={classes.action}
-              >
-                <HorizontalStripeButton
-                  variant="contained"
-                  color="primary"
-                  // className={classes.submit}
-                  onClick={onLogin}
-                  label="Đăng nhập"
-                ></HorizontalStripeButton>
-              </AtomDialogAtions>
-            </form>
-          </AtomPaper>
+              <HorizontalStripeButton
+                variant="contained"
+                color="primary"
+                // className={classes.submit}
+                onClick={onLogin}
+                label="Đăng nhập"
+              ></HorizontalStripeButton>
+            </AtomDialogAtions>
+          </AtomStack>
         </AtomDialogContent>
       </AtomDialog>
     </div>
