@@ -5,7 +5,7 @@ import { styled } from "@mui/material/styles";
 const ButtonStyles = styled(AtomButton)(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
   color: "#fff",
-  width: "130px",
+  width: "auto",
   height: "40px",
   boderRadius: "5px",
   padding: "10px 25px",
