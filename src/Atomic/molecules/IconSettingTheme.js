@@ -4,10 +4,10 @@ import AtomMenu from "../atoms/AtomMenu";
 import AtomMenuItem from "../atoms/AtomMenuItem";
 import AtomSettingIcon from "../atoms/AtomSettingIcon";
 import AtomTypography from "../atoms/AtomTypography";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { AppContext } from "../../context/context";
 import AtomButton from "../atoms/AtomButton";
+import AtomDarkMode from "../atoms/AtomDarkMode";
+import AtomLightMode from "../atoms/AtomLightMode";
 
 // const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -22,11 +22,14 @@ const IconSetting = (props) => {
     setAnchorElSetting(null);
   };
 
-  // const colorMode = React.useContext(props.ColorModeContext);
+  const [open, setOpen] = React.useState(true);
+
+  const handleClick = () => {
+    setOpen(!open);
+  };
 
   const { darkMode, changeDarkMode } = React.useContext(AppContext);
 
-  // const [mode, setMode] = useState("light");
   return (
     <>
       <AtomIconButton
@@ -55,36 +58,10 @@ const IconSetting = (props) => {
         onClose={handleCloseSettingMenu}
       >
         <AtomMenuItem>
-          {/* CHẾ ĐỘ
-          {theme.palette.mode}
-          <AtomIconButton
-            sx={{ ml: 1 }}
-            onClick={colorMode.toggleColorMode}
-            color="inherit"
-          >
-            {theme.palette.mode === "dark" ? (
-              <Brightness7Icon />
-            ) : (
-              <Brightness4Icon />
-            )}
-          </AtomIconButton> */}
-          {/* <AtomBox
-            sx={{
-              display: "flex",
-              width: "100%",
-              alignItems: "center",
-              justifyContent: "center",
-              bgcolor: "background.default",
-              color: "text.primary",
-              borderRadius: 1,
-              p: 3,
-            }}
-          > */}
-
           <AtomButton
             fullWidth
             color="inherit"
-            startIcon={darkMode ? <Brightness4Icon /> : <Brightness7Icon />}
+            startIcon={darkMode ? <AtomDarkMode /> : <AtomLightMode />}
             onClick={() => changeDarkMode()}
           >
             Chế độ {darkMode ? "tối" : "sáng"}

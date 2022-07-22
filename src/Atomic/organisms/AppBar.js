@@ -6,7 +6,7 @@ import DialogLogin from "../molecules/DialogMaxWidth/DialogLogin";
 import DialogSignUp from "../molecules/DialogMaxWidth/DialogSignUp";
 import AtomGrid from "../atoms/AtomGrid";
 import MenuTab from "../molecules/MenuTab";
-import IconSetting from "./../molecules/IconSetting";
+import IconSetting from "../molecules/IconSettingTheme";
 import IconAvatar from "../molecules/IconAvatar";
 import AtomContainer from "../atoms/AtomContainer";
 import AtomToolBar from "../atoms/AtomToolbar";
