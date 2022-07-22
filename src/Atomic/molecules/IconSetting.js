@@ -1,14 +1,13 @@
-import { CssBaseline, Switch } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 import AtomIconButton from "../atoms/AtomIconButton";
 import AtomMenu from "../atoms/AtomMenu";
 import AtomMenuItem from "../atoms/AtomMenuItem";
 import AtomSettingIcon from "../atoms/AtomSettingIcon";
 import AtomTypography from "../atoms/AtomTypography";
-import { useTheme } from "@mui/styles";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
-import AtomBox from "../atoms/AtomBox";
+import { AppContext } from "../../context/context";
+import AtomButton from "../atoms/AtomButton";
 
 // const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -23,8 +22,9 @@ const IconSetting = (props) => {
     setAnchorElSetting(null);
   };
 
-  const theme = useTheme();
-  const colorMode = React.useContext(props.ColorModeContext);
+  // const colorMode = React.useContext(props.ColorModeContext);
+
+  const { darkMode, changeDarkMode } = React.useContext(AppContext);
 
   // const [mode, setMode] = useState("light");
   return (
@@ -68,7 +68,7 @@ const IconSetting = (props) => {
               <Brightness4Icon />
             )}
           </AtomIconButton> */}
-          <AtomBox
+          {/* <AtomBox
             sx={{
               display: "flex",
               width: "100%",
@@ -79,20 +79,17 @@ const IconSetting = (props) => {
               borderRadius: 1,
               p: 3,
             }}
+          > */}
+
+          <AtomButton
+            fullWidth
+            color="inherit"
+            startIcon={darkMode ? <Brightness4Icon /> : <Brightness7Icon />}
+            onClick={() => changeDarkMode()}
           >
-            {theme.palette.mode} mode
-            <AtomIconButton
-              sx={{ ml: 1 }}
-              onClick={colorMode.toggleColorMode}
-              color="inherit"
-            >
-              {theme.palette.mode === "dark" ? (
-                <Brightness7Icon />
-              ) : (
-                <Brightness4Icon />
-              )}
-            </AtomIconButton>
-          </AtomBox>
+            Chế độ {darkMode ? "tối" : "sáng"}
+          </AtomButton>
+          {/* </AtomBox> */}
         </AtomMenuItem>
         <AtomMenuItem onClick={handleCloseSettingMenu}>
           <AtomTypography textalign="center">CHỌN CHỦ ĐỀ</AtomTypography>

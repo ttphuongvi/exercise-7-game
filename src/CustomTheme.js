@@ -89,15 +89,29 @@
 
 import { createTheme } from "@mui/material/styles";
 
-const useCustomTheme = (darkMode) => {
+const useCustomTheme = (darkMode, customTheme) => {
   const theme = createTheme({
     palette: {
       mode: darkMode ? "dark" : "light",
       primary: {
-        main: "#2AC0FF",
+        main: customTheme ? customTheme : "#2AC0FF",
       },
       secondary: {
         main: "#ffff00",
+      },
+      background: {
+        default: darkMode ? "#1E1E1E" : "#fff",
+        paper: darkMode ? "#212121" : "#F5F5F5",
+        card: darkMode ? "#333" : "#fff",
+      },
+    },
+    typography: {
+      subtitle1: {
+        fontSize: "1.2rem",
+        fontFamily: "Oswald",
+      },
+      caption: {
+        fontSize: "0.8rem",
       },
     },
   });

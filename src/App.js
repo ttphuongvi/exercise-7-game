@@ -3,12 +3,7 @@ import RoutesGame from "./routesGame/index";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import { reducers } from "./store/reducers";
-import {
-  createTheme,
-  styled,
-  ThemeProvider,
-  useTheme,
-} from "@mui/material/styles";
+import { styled, ThemeProvider, useTheme } from "@mui/material/styles";
 // import setTheme from "./theme";
 import { CssBaseline } from "@mui/material";
 import AtomIconButton from "./Atomic/atoms/AtomIconButton";
@@ -18,6 +13,8 @@ import AtomSettingIcon from "./Atomic/atoms/AtomSettingIcon";
 import AtomMenu from "./Atomic/atoms/AtomMenu";
 import AtomMenuItem from "./Atomic/atoms/AtomMenuItem";
 import AtomTypography from "./Atomic/atoms/AtomTypography";
+import useCustomTheme from "./CustomTheme";
+import { AppContext } from "./context/context";
 // import AtomBox from "./Atomic/atoms/AtomBox";
 // import theme from "./theme";
 // // import theme from "./theme";
@@ -97,71 +94,30 @@ export const IconSetting = () => {
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
 const App = () => {
-  const [mode, setMode] = React.useState("light");
-  const colorMode = React.useMemo(
-    () => ({
-      toggleColorMode: () => {
-        setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
-      },
-    }),
-    []
-  );
+  // const [mode, setMode] = React.useState("light");
+  // const colorMode = React.useMemo(
+  //   () => ({
+  //     toggleColorMode: () => {
+  //       setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+  //     },
+  //   }),
+  //   []
+  // );
 
-  const theme = React.useMemo(
-    () =>
-      createTheme({
-        palette: {
-          // mode,
-          mode,
-          primary: {
-            main: "#2AC0FF",
-          },
+  const appContext = React.useContext(AppContext);
 
-          ...(mode === "dark"
-            ? {
-                background: {
-                  default: "#1E1E1E",
-                  paper: "#212121",
-                  card: "#333",
-                  // card: grey[900],
-                },
-              }
-            : {
-                background: {
-                  default: "#fff",
+  const { darkMode, customTheme } = appContext;
 
-                  card: "#fff",
-                },
-              }),
-        },
-        // shadows: [
-        //   "none",
-        //   "rgba(0, 0, 0, 0.09) 0px 3px 12px;",
-        //   "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-        //   "rgba(0, 0, 0, 0.24) 0px 3px 8px;",
-        //   ...Array(21).fill("none"),
-        // ],
-        typography: {
-          subtitle1: {
-            fontSize: "1.2rem",
-            fontFamily: "Oswald",
-          },
-          caption: {
-            fontSize: "0.8rem",
-          },
-        },
-      }),
-    [mode]
-  );
+  const theme = useCustomTheme(darkMode, customTheme);
 
   return (
     <Provider store={store}>
-      <ColorModeContext.Provider value={colorMode}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <RoutesGame />
-        </ThemeProvider>
-      </ColorModeContext.Provider>
+      {/* <ColorModeContext.Provider value={colorMode}> */}
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <RoutesGame />
+      </ThemeProvider>
+      {/* </ColorModeContext.Provider> */}
     </Provider>
   );
 };
