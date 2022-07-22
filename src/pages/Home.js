@@ -6,11 +6,11 @@ import Slider from "../Atomic/organisms/Slider";
 import AtomContainer from "../Atomic/atoms/AtomContainer";
 import AtomPaper from "../Atomic/atoms/AtomPaper";
 import AtomCardContent from "../Atomic/atoms/AtomCardContent";
-import AtomDivider from "../Atomic/atoms/AtomDivider";
 import AtomCardAction from "../Atomic/atoms/AtomCardAction";
 import HorizontalStripeButton from "../Atomic/molecules/HorizontalStripeButton";
 import { useNavigate } from "react-router-dom";
 import ResponsiveAppBar from "../Atomic/organisms/AppBar";
+import Divider from "../Atomic/molecules/Divider";
 const Home = () => {
   let navigate = useNavigate();
 
@@ -27,10 +27,7 @@ const Home = () => {
             <AtomPaper>
               <AtomCardContent>
                 <TitleCatogery title="GAME MỚI NHẤT" />
-                <AtomDivider
-                  light
-                  style={{ width: "100%", marginBottom: "16px" }}
-                />
+                <Divider />
                 <GridNewGame />
               </AtomCardContent>
               <AtomCardAction style={{ justifyContent: "center" }}>

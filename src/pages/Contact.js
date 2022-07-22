@@ -1,28 +1,25 @@
 import { React, useState } from "react";
-import ButtonStyle1 from "../Atomic/molecules/SquareStripeButton";
+import SquareStripeButton from "../Atomic/molecules/SquareStripeButton";
 import AtomTextField from "../Atomic/atoms/AtomTextField";
 import { styled } from "@mui/styles";
 import TemplatePage from "../Atomic/templates/TemplatePage";
 import TitleCatogery from "../Atomic/molecules/TittePage";
 import AtomBox from "../Atomic/atoms/AtomBox";
-import Container from "../Atomic/molecules/PageContainer";
 import AtomGrid from "../Atomic/atoms/AtomGrid";
+import AtomCard from "../Atomic/atoms/AtomCard";
+import AtomCardContent from "../Atomic/atoms/AtomCardContent";
+import Divider from "../Atomic/molecules/Divider";
+import AtomCardAction from "../Atomic/atoms/AtomCardAction";
+import theme from "styled-theming";
+import AtomPaper from "../Atomic/atoms/AtomPaper";
 
-const Input = styled(AtomTextField)({
-  marginBottom: "15px",
-  width: "100%",
-  borderRadius: "10px",
-});
-
-const Content = styled(AtomBox)({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
+const ContainerContact = styled("div")({
   minHeight: "100vh",
 });
 
-const ContainerContact = styled(Container)({
+const PaperStyles = styled(AtomPaper)({
   width: "60%",
+  marginTop: "20px",
 });
 
 const Contact = () => {
@@ -32,42 +29,64 @@ const Contact = () => {
   return (
     <TemplatePage
       content={
-        <Content>
-          <ContainerContact>
-            <TitleCatogery title="Liên hệ" />
-            <AtomGrid container direction="column" alignItems="center">
-              <Input
-                id="outlined-basic"
-                variant="outlined"
-                label="Họ tên"
-                value={name}
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
-              />
-              <Input
-                id="outlined-basic"
-                variant="outlined"
-                label="Tiêu đề"
-                value={title}
-                onChange={(e) => {
-                  setTitle(e.target.value);
-                }}
-              ></Input>
-              <Input
-                id="outlined-basic"
-                variant="outlined"
-                label="Nội dung liên hệ"
-                value={content}
-                onChange={(e) => {
-                  setContent(e.target.value);
-                }}
-              ></Input>
-
-              <ButtonStyle1 label="Gửi yêu cầu"></ButtonStyle1>
-            </AtomGrid>
-          </ContainerContact>
-        </Content>
+        <ContainerContact>
+          <AtomGrid container justifyContent={"center"}>
+            <PaperStyles>
+              <AtomCardContent sx={{ paddingBottom: "0" }}>
+                <TitleCatogery title="Liên hệ" />
+                <Divider />
+                <AtomGrid container spacing={2} justifyContent="center">
+                  <AtomGrid item xs={12}>
+                    {" "}
+                    <AtomTextField
+                      fullWidth
+                      id="outlined-basic"
+                      variant="outlined"
+                      label="Họ tên"
+                      value={name}
+                      onChange={(e) => {
+                        setName(e.target.value);
+                      }}
+                    />
+                  </AtomGrid>
+                  <AtomGrid item xs={12}>
+                    {" "}
+                    <AtomTextField
+                      fullWidth
+                      id="outlined-basic"
+                      variant="outlined"
+                      label="Tiêu đề"
+                      value={title}
+                      onChange={(e) => {
+                        setTitle(e.target.value);
+                      }}
+                    ></AtomTextField>{" "}
+                  </AtomGrid>
+                  <AtomGrid item xs={12}>
+                    {" "}
+                    <AtomTextField
+                      fullWidth
+                      id="outlined-basic"
+                      variant="outlined"
+                      label="Nội dung liên hệ"
+                      multiline
+                      rows={3}
+                      value={content}
+                      onChange={(e) => {
+                        setContent(e.target.value);
+                      }}
+                    ></AtomTextField>{" "}
+                  </AtomGrid>
+                  <AtomGrid item>
+                    <SquareStripeButton label="Gửi yêu cầu">
+                      {" "}
+                    </SquareStripeButton>
+                  </AtomGrid>
+                </AtomGrid>{" "}
+              </AtomCardContent>
+            </PaperStyles>
+          </AtomGrid>
+        </ContainerContact>
       }
     ></TemplatePage>
   );

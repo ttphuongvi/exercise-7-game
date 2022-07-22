@@ -8,11 +8,11 @@ import TemplatePage from "../Atomic/templates/TemplatePage";
 import AtomGrid from "../Atomic/atoms/AtomGrid";
 import TitleCatogery from "../Atomic/molecules/TittePage";
 import { useSelector } from "react-redux";
-import AtomDivider from "../Atomic/atoms/AtomDivider";
 import AtomContainer from "../Atomic/atoms/AtomContainer";
 import AtomPaper from "../Atomic/atoms/AtomPaper";
 import AtomCardContent from "../Atomic/atoms/AtomCardContent";
 import { styled } from "@mui/material/styles";
+import Divider from "../Atomic/molecules/Divider";
 
 const useStyles = makeStyles({
   search: {
@@ -27,10 +27,6 @@ const useStyles = makeStyles({
     marginBottom: "20px",
   },
 });
-
-const PaperStyles = styled(AtomPaper)(({ theme }) => ({
-  backgroundColor: theme.palette.background.default,
-}));
 
 const ListGame = () => {
   const user = useSelector((state) => state.user.content);
@@ -49,13 +45,10 @@ const ListGame = () => {
     <TemplatePage
       content={
         <AtomContainer maxWidth="xl" style={{ paddingTop: 24 }}>
-          <PaperStyles>
+          <AtomPaper>
             <AtomCardContent>
               <TitleCatogery title="DANH SÁCH GAME"></TitleCatogery>
-              <AtomDivider
-                light
-                style={{ width: "100%", marginBottom: "16px" }}
-              />
+              <Divider />
               <AtomGrid
                 container
                 direction="row"
@@ -95,7 +88,7 @@ const ListGame = () => {
               </AtomGrid>
               <GridListGame input={inputText} />
             </AtomCardContent>
-          </PaperStyles>
+          </AtomPaper>
         </AtomContainer>
       }
     ></TemplatePage>

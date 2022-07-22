@@ -14,6 +14,7 @@ import getNewGames from "../../services/games";
 const CardStyles = styled(AtomCard)(({ theme }) => ({
   boxShadow: theme.shadows[2],
   padding: theme.spacing(2),
+  backgroundColor: theme.palette.background.card,
   "&:hover": {
     boxShadow: theme.shadows[2],
     transform: "scale(1.05)",
