@@ -11,7 +11,6 @@ import AtomContainer from "../Atomic/atoms/AtomContainer";
 import AtomPaper from "../Atomic/atoms/AtomPaper";
 import AtomCardContent from "../Atomic/atoms/AtomCardContent";
 import Divider from "../Atomic/molecules/Divider";
-import AtomStack from "../Atomic/atoms/AtomStack";
 
 const ListGame = () => {
   const user = useSelector((state) => state.user.content);
@@ -31,27 +30,27 @@ const ListGame = () => {
         <AtomContainer maxWidth="xl" style={{ paddingTop: 24 }}>
           <AtomPaper>
             <AtomCardContent>
-              <AtomStack spacing={2}>
-                <TitleCatogery title="DANH SÁCH GAME"></TitleCatogery>
-                <Divider />
-                <AtomGrid
-                  container
-                  direction="row"
-                  justifyContent="space-between"
-                  alignItems="center"
-                >
-                  <AtomGrid item xs={9}>
-                    <AtomGrid item xs={4}>
-                      <AtomTextField
-                        id="outlined-basic"
-                        onChange={inputHandler}
-                        variant="outlined"
-                        // fullwidth
-                        label="Tìm kiếm game"
-                      />
-                    </AtomGrid>
-                    <AtomGrid item>
-                      {/* <MuiPickersUtilsProvider utils={DateFnsUtils}>
+              <TitleCatogery title="DANH SÁCH GAME"></TitleCatogery>
+              <Divider />
+              <AtomGrid
+                mb={2}
+                container
+                direction="row"
+                justifyContent="space-between"
+                alignItems="center"
+              >
+                <AtomGrid item xs={9}>
+                  <AtomGrid item xs={4}>
+                    <AtomTextField
+                      id="outlined-basic"
+                      onChange={inputHandler}
+                      variant="outlined"
+                      // fullwidth
+                      label="Tìm kiếm game"
+                    />
+                  </AtomGrid>
+                  <AtomGrid item>
+                    {/* <MuiPickersUtilsProvider utils={DateFnsUtils}>
                   <DatePicker
                     views={["year"]}
                     inputVariant="outlined"
@@ -60,18 +59,17 @@ const ListGame = () => {
                     onChange={handleDateChange}
                   />
                 </MuiPickersUtilsProvider> */}
-                    </AtomGrid>
                   </AtomGrid>
-                  {user && user.isLogin ? (
-                    <AtomGrid>
-                      <DialogCreateGame />
-                    </AtomGrid>
-                  ) : (
-                    <></>
-                  )}
                 </AtomGrid>
-                <GridListGame input={inputText} />
-              </AtomStack>
+                {user && user.isLogin ? (
+                  <AtomGrid>
+                    <DialogCreateGame />
+                  </AtomGrid>
+                ) : (
+                  <></>
+                )}
+              </AtomGrid>
+              <GridListGame input={inputText} />
             </AtomCardContent>
           </AtomPaper>
         </AtomContainer>

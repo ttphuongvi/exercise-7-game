@@ -7,18 +7,14 @@ const TypographyInfo = styled(AtomTypography)(({ theme }) => ({
   fontFamily: theme.typography.subtitle1.fontFamily,
 }));
 
-const GridInfoFooter = styled(AtomGrid)(({ theme }) => ({
-  margin: theme.spacing(2),
-}));
-
 const InfoFooter = (props) => {
   return (
-    <GridInfoFooter alignItems="flex-start" container spacing={1}>
+    <AtomGrid m={2} alignItems="flex-start" container spacing={1}>
       <AtomGrid item>{props.icon}</AtomGrid>
       <AtomGrid item>
         <TypographyInfo>{props.info}</TypographyInfo>
       </AtomGrid>
-    </GridInfoFooter>
+    </AtomGrid>
   );
 };
 

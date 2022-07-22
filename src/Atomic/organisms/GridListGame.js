@@ -29,19 +29,15 @@ const GridContainer = styled(AtomGrid)({
   marginBottom: "10px",
 });
 
-const CardMediaStyle = styled(AtomCardMedia)({
-  height: 0,
+const CardMediaStyle = styled(AtomCardMedia)(({ theme }) => ({
   paddingTop: "56.25%",
-  margin: "10% 10% 0 10%",
-  border: "3px solid #22394c",
+  margin: theme.spacing(2),
   WebkitBoxShadow: "0px 2px 3px 1px rgb(0 0 0)",
   borderRadius: "5px",
   boxShadow: "0px 2px 3px 1px rgb(0 0 0)",
-});
+  border: "3px solid #22394c",
+}));
 
-const ContentListGame = styled(AtomCardContent)({
-  margin: "0 5% 0 5%",
-});
 const GridListGame = (props) => {
   const [hiddenLoadding, setHidden] = useState(false);
 
@@ -94,7 +90,7 @@ const GridListGame = (props) => {
                       image={value.image}
                       title={value.caption}
                     ></CardMediaStyle>
-                    <ContentListGame>
+                    <AtomCardContent>
                       <LinkStyle to={`/${value.id}`}>
                         {" "}
                         <CaptionGame>{value.caption}</CaptionGame>
@@ -109,14 +105,14 @@ const GridListGame = (props) => {
                           link={value.link}
                         />
                       </AtomCardAction>
-                    </ContentListGame>
+                    </AtomCardContent>
                   </ItemCard>
                 </AtomGrid>
               );
             })}
         </GridContainer>
       </AtomGrid>
-      <AtomGrid item>
+      <AtomGrid mt={2} item>
         {!hiddenLoadding && (
           <HorizontalStripeButton
             onClick={onClickLoadding}
