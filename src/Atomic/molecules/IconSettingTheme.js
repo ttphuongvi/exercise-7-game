@@ -1,13 +1,23 @@
 import React from "react";
 import AtomIconButton from "../atoms/AtomIconButton";
 import AtomMenu from "../atoms/AtomMenu";
-import AtomMenuItem from "../atoms/AtomMenuItem";
 import AtomSettingIcon from "../atoms/AtomSettingIcon";
-import AtomTypography from "../atoms/AtomTypography";
 import { AppContext } from "../../context/context";
-import AtomButton from "../atoms/AtomButton";
 import AtomDarkMode from "../atoms/AtomDarkMode";
 import AtomLightMode from "../atoms/AtomLightMode";
+import AtomList from "../atoms/AtomList";
+import AtomListItemButton from "../atoms/AtomListItemButton";
+import AtomListItemIcon from "../atoms/AtomListItemIcon";
+import AtomListItemText from "../atoms/AtomListItemText";
+import AtomPaletteOutlinedIcon from "../atoms/AtomPaletteOutlinedIcon ";
+import AtomExpandMore from "../atoms/AtomExpandMore";
+import AtomExpandLess from "../atoms/AtomExpandLess";
+import AtomCollapse from "../atoms/AtomCollapse";
+import AtomGrid from "../atoms/AtomGrid";
+import AtomButton from "../atoms/AtomButton";
+import { getCustomTheme } from "../../services/themes";
+import AtomBox from "../atoms/AtomBox";
+import AtomStack from "../atoms/AtomStack";
 
 // const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -28,7 +38,10 @@ const IconSetting = (props) => {
     setOpen(!open);
   };
 
-  const { darkMode, changeDarkMode } = React.useContext(AppContext);
+  const { darkMode, changeDarkMode, customTheme, changeCustomTheme } =
+    React.useContext(AppContext);
+
+  const customThemes = getCustomTheme();
 
   return (
     <>
@@ -57,7 +70,7 @@ const IconSetting = (props) => {
         open={Boolean(anchorElSetting)}
         onClose={handleCloseSettingMenu}
       >
-        <AtomMenuItem>
+        {/* <AtomMenuItem>
           <AtomButton
             fullWidth
             color="inherit"
@@ -65,12 +78,74 @@ const IconSetting = (props) => {
             onClick={() => changeDarkMode()}
           >
             Chế độ {darkMode ? "tối" : "sáng"}
-          </AtomButton>
-          {/* </AtomBox> */}
-        </AtomMenuItem>
+          </AtomButton> */}
+        {/* </AtomBox> */}
+        {/* </AtomMenuItem>
         <AtomMenuItem onClick={handleCloseSettingMenu}>
           <AtomTypography textalign="center">CHỌN CHỦ ĐỀ</AtomTypography>
-        </AtomMenuItem>
+        </AtomMenuItem> */}
+        <AtomList
+          sx={{
+            width: "100%",
+            minWidth: 230,
+            maxWidth: 230,
+            bgcolor: "background.defalt",
+          }}
+          component="nav"
+          aria-labelledby="nested-list-subheader"
+          // subheader={
+          //   <AtomListSubheader component="div" id="nested-list-subheader">
+          //     Cài đặt chủ đề
+          //   </AtomListSubheader>
+          // }
+        >
+          <AtomListItemButton onClick={() => changeDarkMode()}>
+            <AtomListItemIcon>
+              {darkMode ? <AtomDarkMode /> : <AtomLightMode />}
+            </AtomListItemIcon>
+            <AtomListItemText primary={`Chế độ ${darkMode ? "tối" : "sáng"}`} />
+          </AtomListItemButton>
+          <AtomListItemButton onClick={handleClick}>
+            <AtomListItemIcon>
+              <AtomPaletteOutlinedIcon />
+            </AtomListItemIcon>
+            <AtomListItemText primary="Chọn chủ đề" />
+            {open ? <AtomExpandLess /> : <AtomExpandMore />}
+          </AtomListItemButton>
+          <AtomCollapse in={open} timeout="auto" unmountOnExit>
+            <AtomList component="div">
+              <AtomGrid justifyContent={"center"} container spacing={3}>
+                {customThemes.map((theme) => {
+                  const buttonColor = theme["500"];
+                  return (
+                    <AtomGrid item>
+                      <AtomButton
+                        sx={{
+                          bgcolor: buttonColor,
+                          borderRadius: "50%",
+                          minWidth: "30px",
+                          width: "30px",
+                          height: "30px",
+                        }}
+                        onClick={() => {
+                          changeCustomTheme(buttonColor);
+                        }}
+                      ></AtomButton>
+                    </AtomGrid>
+                  );
+                })}
+              </AtomGrid>
+              <AtomStack mt={1} justifyContent={"center"}>
+                <AtomButton
+                  sx={{ textTransform: "none" }}
+                  onClick={() => changeCustomTheme(null)}
+                >
+                  Đặt lại chủ đề
+                </AtomButton>
+              </AtomStack>
+            </AtomList>
+          </AtomCollapse>
+        </AtomList>
       </AtomMenu>
     </>
   );

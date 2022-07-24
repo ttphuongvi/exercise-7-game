@@ -3,14 +3,13 @@ import React from "react";
 import AtomButton from "../atoms/AtomButton";
 
 const ButtonLoadMoreStyles = styled(AtomButton)(({ theme }) => ({
-  backgroundColor: "#2ac0ff",
+  backgroundColor: theme.palette.primary.main,
   border: "none",
   color: "#ffffff",
   cursor: "pointer",
   display: "inline-block",
-  fontFamily: '"Oswald", sans-serif',
+  fontFamily: theme.typography.subtitle1.fontFamily,
   fontSize: "1em",
-  /* font-size: 22px; */
   width: "200px",
   lineHeight: "1em",
   outline: "none",
@@ -30,19 +29,19 @@ const ButtonLoadMoreStyles = styled(AtomButton)(({ theme }) => ({
     width: "24px",
   },
   "&:before": {
-    borderColor: "#2ac0ff",
+    borderColor: theme.palette.primary.main,
     borderTopWidth: "2px",
     left: "0px",
     top: "-5px",
   },
   "&:after": {
-    borderColor: "#2ac0ff",
+    borderColor: theme.palette.primary.main,
     borderBottomWidth: "2px",
     right: "0px",
     bottom: "-5px",
   },
   "&:hover": {
-    backgroundColor: "#2ac0ff",
+    backgroundColor: theme.palette.primary.main,
     "&:before": {
       height: "100%",
       width: "100%",
@@ -63,7 +62,7 @@ const ButtonLoadMoreStyles = styled(AtomButton)(({ theme }) => ({
   },
 }));
 
-const ButtonLoadMore = (props) => {
+const HorizonetalStripeButton = (props) => {
   return (
     <ButtonLoadMoreStyles onClick={props.onClick}>
       <span>{props.label}</span>
@@ -71,4 +70,4 @@ const ButtonLoadMore = (props) => {
   );
 };
 
-export default ButtonLoadMore;
+export default HorizonetalStripeButton;

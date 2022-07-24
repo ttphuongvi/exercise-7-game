@@ -16,7 +16,7 @@ export const ContextProvider = (props) => {
     setDarkMode(!darkMode);
   };
 
-  const changeCustomColor = (colorString) => {
+  const changeCustomTheme = (colorString) => {
     setCustomTheme(colorString);
   };
 
@@ -26,7 +26,7 @@ export const ContextProvider = (props) => {
         darkMode,
         customTheme,
         changeDarkMode,
-        changeCustomColor,
+        changeCustomTheme,
       }}
       {...props}
     ></AppContext.Provider>
