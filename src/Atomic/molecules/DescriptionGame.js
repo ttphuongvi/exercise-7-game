@@ -5,14 +5,14 @@ const DescriptionNewGame = styled(AtomTypography)({
   textAlign: "justify",
   marginTop: "0px",
   fontSize: "14px",
-  height: "192px",
+  height: "190px",
   width: "100%",
   fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
   marginBottom: "5px",
   overflow: "hidden",
   display: "-webkit-box",
   WebkitBoxOrient: "vertical",
-  WebkitLineClamp: 8,
+  WebkitLineClamp: 9,
 });
 
 export default DescriptionNewGame;

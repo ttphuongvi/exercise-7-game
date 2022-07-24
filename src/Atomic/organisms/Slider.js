@@ -8,58 +8,62 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useNavigate } from "react-router-dom";
 import AtomGrid from "../atoms/AtomGrid";
-import DescriptionGameSlider from "../molecules/DescriptionGameSlider";
 import ButtonStyle1 from "../molecules/SquareStripeButton";
-import { makeStyles } from "@mui/styles";
-// import waves from "/images/waves.jpg";
-import { styled } from "@mui/material/styles";
+import { alpha, styled } from "@mui/material/styles";
 import getNewGames from "../../services/games";
 import AtomContainer from "../atoms/AtomContainer";
 import AtomTypography from "../atoms/AtomTypography";
+import AtomStack from "../atoms/AtomStack";
 
-const useStyles = makeStyles({
-  gridContainer: {
-    padding: "10% 0px 10% 0px",
-  },
-});
-
-const SwiperStyles = styled(Swiper)({
-  backgroundImage: `url(/images/waves.jpg)`,
-  backgroundRepeat: "no-repeat",
-  backgroundSize: "cover",
-});
+const SwiperStyles = styled(Swiper)(({ theme }) => ({
+  backgroundColor: alpha(theme.palette.primary.main, 0.2),
+  height: "100vh",
+}));
 
 const GridContainerStyles = styled(AtomGrid)(
   ({ theme }) => `
-  padding: ${theme.spacing(20)} ${theme.spacing(4)}`
+  // padding: ${theme.spacing(20)} ${theme.spacing(4)}
+  minHeight: "100vh";
+  `
 );
 
 const CaptionSlider = styled(AtomTypography)({
-  color: "#fff",
-  fontSize: "50px",
+  fontSize: "40px",
   width: "100%",
-  top: "15px",
-  zIndex: 1,
+  zIndex: 99,
   textShadow: "1px 1px 1px rgba(0, 0, 0, 0.1)",
   fontFamily: '"Economica", Arial, sans-serif',
   fontWeight: 700,
   // textShadow: '0px 2px 3px rgba(0, 0, 0, 1)',
 });
 
+const DescriptionGameSlider = styled(AtomTypography)(({ theme }) => ({
+  color: alpha(theme.palette.primary.main, 0.8),
+  fontSize: "16px",
+  marginBottom: theme.spacing(2),
+  overflow: "hidden",
+  fontFamily: '"Economica", Arial, sans-serif',
+  fontWeight: 400,
+  fontStyle: "italic",
+  textShadow: "0px 1px 1px rgba(0, 0, 0, 1)",
+  WebkitBoxOrient: "vertical",
+  WebkitLineClamp: 7,
+  display: "-webkit-box",
+  textAlign: "justify",
+}));
+
 const ImageSlider = styled("img")({
-  width: "55%",
+  width: "80%",
   height: "100%",
   objectFit: "fill",
   position: "absolute",
   zIndex: 1,
   top: "0px",
   right: "0px",
-  borderRadius: "50% 0% 0% 50%",
+  // borderRadius: "50% 0% 0% 50%",
 });
 
 const Slide1 = () => {
-  const classes = useStyles();
-
   const update = (swiper) => {
     swiper.slides.map((slide, index) => {
       if (index === swiper.activeIndex) {
@@ -109,22 +113,24 @@ const Slide1 = () => {
       >
         {data.map((value) => {
           return (
-            <SwiperSlide key={value.id} className={classes.slider}>
+            <SwiperSlide key={value.id}>
               <AtomContainer maxWidth="xl" key={value.id}>
                 <GridContainerStyles container spacing={2}>
-                  <AtomGrid item xs={6}>
-                    <CaptionSlider>{value.caption}</CaptionSlider>
-                    <DescriptionGameSlider>
-                      {value.description}
-                    </DescriptionGameSlider>
-                    <ButtonStyle1
-                      label="Xem chi tiết"
-                      onClick={() => {
-                        navigate(`/${value.id}`);
-                      }}
-                    />
+                  <AtomGrid item xs={2}>
+                    <AtomStack justifyContent={"center"}>
+                      <CaptionSlider>{value.caption}</CaptionSlider>
+                      <DescriptionGameSlider>
+                        {value.description}
+                      </DescriptionGameSlider>
+                      <ButtonStyle1
+                        label="Xem chi tiết"
+                        onClick={() => {
+                          navigate(`/${value.id}`);
+                        }}
+                      />
+                    </AtomStack>{" "}
                   </AtomGrid>
-                  <AtomGrid item xs={6}>
+                  <AtomGrid item xs={10}>
                     <ImageSlider src={value.image} alt="" />
                   </AtomGrid>
                 </GridContainerStyles>

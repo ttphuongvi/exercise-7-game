@@ -92,11 +92,6 @@ const IconSetting = (props) => {
           }}
           component="nav"
           aria-labelledby="nested-list-subheader"
-          // subheader={
-          //   <AtomListSubheader component="div" id="nested-list-subheader">
-          //     Cài đặt chủ đề
-          //   </AtomListSubheader>
-          // }
         >
           <AtomListItemButton onClick={() => changeDarkMode()}>
             <AtomListItemIcon>
@@ -114,10 +109,10 @@ const IconSetting = (props) => {
           <AtomCollapse in={open} timeout="auto" unmountOnExit>
             <AtomList component="div">
               <AtomGrid justifyContent={"center"} container spacing={3}>
-                {customThemes.map((theme) => {
+                {customThemes.map((theme, index) => {
                   const buttonColor = theme["500"];
                   return (
-                    <AtomGrid item>
+                    <AtomGrid item key={index}>
                       <AtomButton
                         sx={{
                           bgcolor: buttonColor,
