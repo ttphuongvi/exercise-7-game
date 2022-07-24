@@ -16,7 +16,6 @@ import AtomCollapse from "../atoms/AtomCollapse";
 import AtomGrid from "../atoms/AtomGrid";
 import AtomButton from "../atoms/AtomButton";
 import { getCustomTheme } from "../../services/themes";
-import AtomBox from "../atoms/AtomBox";
 import AtomStack from "../atoms/AtomStack";
 
 // const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
@@ -38,7 +37,7 @@ const IconSetting = (props) => {
     setOpen(!open);
   };
 
-  const { darkMode, changeDarkMode, customTheme, changeCustomTheme } =
+  const { darkMode, changeDarkMode, changeCustomTheme } =
     React.useContext(AppContext);
 
   const customThemes = getCustomTheme();
