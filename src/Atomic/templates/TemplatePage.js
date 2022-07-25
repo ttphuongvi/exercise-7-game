@@ -6,7 +6,6 @@ import Footer from "../organisms/Footer";
 import { styled } from "@mui/styles";
 import Drawer from "../organisms/Drawer";
 import { CssBaseline } from "@mui/material";
-import AtomToolBar from "../atoms/AtomToolbar";
 
 const Content = styled(AtomBox)({
   marginTop: "64px",
