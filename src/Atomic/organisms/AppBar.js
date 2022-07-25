@@ -11,6 +11,7 @@ import IconAvatar from "../molecules/IconAvatar";
 import AtomContainer from "../atoms/AtomContainer";
 import AtomToolBar from "../atoms/AtomToolbar";
 import { styled } from "@mui/material/styles";
+import AtomStack from "../atoms/AtomStack";
 
 const AppBarStyles = styled(AtomAppBar)(
   ({ theme }) => `
@@ -24,7 +25,7 @@ const ResponsiveAppBar = () => {
 
   return (
     <AppBarStyles position="fixed">
-      <AtomContainer maxWidth="xl">
+      <AtomContainer maxWidth={false}>
         <AtomToolBar>
           <AtomGrid container alignItems="center">
             <AtomGrid item xs={6}>
@@ -37,20 +38,17 @@ const ResponsiveAppBar = () => {
               </AtomGrid>
             </AtomGrid>
             <AtomGrid item xs={2}>
-              <AtomGrid container alignItems="center">
-                <AtomGrid item xs={3}>
-                  <IconSetting />
-                </AtomGrid>
-                <AtomGrid item xs={9}>
-                  {user && user.isLogin ? (
-                    <IconAvatar />
-                  ) : (
-                    <AtomGrid container alignItems="center">
-                      <DialogLogin /> / <DialogSignUp />
-                    </AtomGrid>
-                  )}
-                </AtomGrid>
-              </AtomGrid>
+              <AtomStack direction={"row"} spacing={1} alignItems="center">
+                <IconSetting />
+
+                {user && user.isLogin ? (
+                  <IconAvatar />
+                ) : (
+                  <AtomStack direction={"row"} alignItems="center">
+                    <DialogLogin /> / <DialogSignUp />
+                  </AtomStack>
+                )}
+              </AtomStack>
             </AtomGrid>
           </AtomGrid>
         </AtomToolBar>

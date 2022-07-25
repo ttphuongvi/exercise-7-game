@@ -16,13 +16,13 @@ import AtomTypography from "../atoms/AtomTypography";
 
 const SwiperStyles = styled(Swiper)(({ theme }) => ({
   backgroundColor: alpha(theme.palette.primary.main, 0.2),
-  // height: "100vh",
 }));
 
 const GridContainerStyles = styled(AtomGrid)(
   ({ theme }) => `
   padding: ${theme.spacing(20)} ${theme.spacing(4)}
   // minHeight: "100vh";
+  // height: "100vh",
   `
 );
 
@@ -114,18 +114,9 @@ const Slide1 = () => {
           return (
             <SwiperSlide key={value.id}>
               <AtomContainer maxWidth="xl" key={value.id}>
-                <GridContainerStyles
-                  justifyContent={"center"}
-                  alignItems={"center"}
-                  container
-                  spacing={2}
-                >
+                <GridContainerStyles container spacing={2}>
                   <AtomGrid item xs={2}>
-                    <AtomGrid
-                      container
-                      alignItems={"center"}
-                      justifyContent={"center"}
-                    >
+                    <AtomGrid container>
                       <CaptionSlider>{value.caption}</CaptionSlider>
                       <DescriptionGameSlider>
                         {value.description}
