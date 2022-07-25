@@ -5,7 +5,6 @@ const CaptionGame = styled(AtomTypography)(({ theme }) => ({
   textShadow: "none",
   display: "block",
   height: "20px",
-  fontSize: theme.typography.caption.fontSize,
   textTransform: "uppercase",
   padding: "0px 0px 10px 0px",
 

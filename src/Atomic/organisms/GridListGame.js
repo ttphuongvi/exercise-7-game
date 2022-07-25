@@ -8,12 +8,14 @@ import AtomGrid from "../atoms/AtomGrid";
 import AtomCard from "../atoms/AtomCard";
 import AtomCardMedia from "../atoms/AtomCardMedia";
 import AtomCardContent from "../atoms/AtomCardContent";
-import ReleaseYear from "../molecules/ReleaseYear";
 import DescriptionGame from "../molecules/DescriptionGame";
 import CaptionGame from "../molecules/CaptionGame";
 import LinkStyle from "../molecules/LinkStyle";
 import { styled } from "@mui/material/styles";
 import AtomCardAction from "../atoms/AtomCardAction";
+import AtomTypography from "../atoms/AtomTypography";
+import AtomStack from "../atoms/AtomStack";
+import { Divider } from "@mui/material";
 
 const ItemCard = styled(AtomCard)(({ theme }) => ({
   position: "relative",
@@ -91,20 +93,25 @@ const GridListGame = (props) => {
                       title={value.caption}
                     ></CardMediaStyle>
                     <AtomCardContent>
-                      <LinkStyle to={`/${value.id}`}>
-                        {" "}
-                        <CaptionGame>{value.caption}</CaptionGame>
-                      </LinkStyle>
-                      <ReleaseYear>Phát hành ngày {value.release}</ReleaseYear>
-                      <DescriptionGame>
-                        {value.description}
-                      </DescriptionGame>{" "}
-                      <AtomCardAction style={{ justifyContent: "flex-end" }}>
-                        <DialogPlayGame
-                          caption={value.caption}
-                          link={value.link}
-                        />
-                      </AtomCardAction>
+                      <AtomStack spacing={1}>
+                        <LinkStyle to={`/${value.id}`}>
+                          {" "}
+                          <CaptionGame>{value.caption}</CaptionGame>
+                        </LinkStyle>
+                        <AtomTypography variant="subtitle2">
+                          Phát hành ngày {value.release}
+                        </AtomTypography>
+                        <Divider />
+                        <DescriptionGame>
+                          {value.description}
+                        </DescriptionGame>{" "}
+                        <AtomCardAction style={{ justifyContent: "flex-end" }}>
+                          <DialogPlayGame
+                            caption={value.caption}
+                            link={value.link}
+                          />
+                        </AtomCardAction>
+                      </AtomStack>
                     </AtomCardContent>
                   </ItemCard>
                 </AtomGrid>
