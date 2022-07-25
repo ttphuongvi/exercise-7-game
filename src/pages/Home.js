@@ -24,6 +24,7 @@ const Home = () => {
         <div>
           <Slider />
           <AtomContainer
+            id="new-game"
             maxWidth="xl"
             sx={(theme) => ({
               paddingTop: theme.spacing(2),

@@ -9,29 +9,110 @@ import AtomToolBar from "../atoms/AtomToolbar";
 import AtomBox from "../atoms/AtomBox";
 import PropTypes from "prop-types";
 import dataRoutes from "../../routesGame/dataRoutes";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import AtomCollapse from "../atoms/AtomCollapse";
+import AtomExpandLess from "../atoms/AtomExpandLess";
+import AtomExpandMore from "../atoms/AtomExpandMore";
+import AtomLink from "../atoms/AtomLink";
+import { alpha } from "@mui/material";
 
 const drawerWidth = 240;
 
 const Drawer = (props, { handleDrawerToggle, mobileOpen }) => {
   const { window } = props;
   let navigate = useNavigate();
+
+  //   const [open, setOpen] = React.useState(true);
+
+  const [openState, setOpenState] = React.useState([
+    { open: false },
+    { open: false },
+    { open: false },
+  ]);
+  console.log(openState);
+  const handleClick = (index, value) => {
+    const newOpenState = [...openState];
+    newOpenState[index].open = value;
+    setOpenState(newOpenState);
+  };
+  const location = useLocation();
+
   const drawer = (
     <div>
       <AtomToolBar />
       <Divider />
-      <AtomList>
-        {dataRoutes.map((route, index) => (
-          <AtomListItem key={index} disablePadding>
+      <AtomList component="nav">
+        {dataRoutes.map((route, indexRoute) => (
+          <div key={indexRoute}>
             <AtomListItemButton
               onClick={() => {
                 navigate(`${route.path}`);
+                handleClick(indexRoute, !openState[indexRoute].open);
               }}
             >
               <AtomListItemText primary={route.name}></AtomListItemText>
+              {openState[indexRoute].open ? (
+                <AtomExpandLess />
+              ) : (
+                <AtomExpandMore />
+              )}
             </AtomListItemButton>
-          </AtomListItem>
+            <AtomCollapse
+              in={openState[indexRoute].open}
+              timeout="auto"
+              unmountOnExit
+            >
+              <AtomList disablePadding>
+                {route.hashLink.map((hash, indexHash) => {
+                  console.log(location.hash === hash.href);
+                  return (
+                    <AtomListItem
+                      key={indexHash}
+                      sx={{ pl: 4 }}
+                      selected={location.hash === hash.href}
+                    >
+                      <AtomLink
+                        underline="none"
+                        sx={(theme) => ({
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          color: theme.palette.text.primary,
+                          "&:hover": {
+                            backgroundColor: alpha(
+                              theme.palette.primary.main,
+                              0.2
+                            ),
+                            color: theme.palette.primary.main,
+                          },
+                          "&.active": {
+                            backgroundColor: alpha(
+                              theme.palette.primary.main,
+                              0.2
+                            ),
+                          },
+                        })}
+                        href={hash.href}
+                      >
+                        {hash.name}
+                        {/* <AtomLink href={hash.href}>{hash.name}</AtomLink> */}
+                      </AtomLink>
+                    </AtomListItem>
+                  );
+                })}
+              </AtomList>
+            </AtomCollapse>
+          </div>
         ))}
+        {/* {dataRoutes[(0, 1, 2)].haskLink.map((route, index) => (
+          <AtomCollapse in={open} timeout="auto" unmountOnExit>
+            <AtomList disablePadding>
+              <AtomListItem sx={{ pl: 4 }}>
+                <AtomLink href={route.href}>{route.name}</AtomLink>
+              </AtomListItem>
+            </AtomList>
+          </AtomCollapse>
+        ))} */}
       </AtomList>
     </div>
   );

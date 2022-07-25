@@ -16,7 +16,7 @@ import AtomTypography from "../atoms/AtomTypography";
 import AtomBox from "../atoms/AtomBox";
 
 const SwiperStyles = styled(Swiper)(({ theme }) => ({
-  backgroundColor: alpha(theme.palette.primary.main, 0.2),
+  backgroundColor: alpha(theme.palette.primary.main, 0.1),
 }));
 
 const GridContainerStyles = styled(AtomGrid)(
@@ -90,57 +90,59 @@ const Slide1 = () => {
   const data = getNewGames(6);
 
   return (
-    <AtomBox maxWidth={"lg"} id="#slider">
-      <SwiperStyles
-        loop={true}
-        spaceBetween={30}
-        centeredSlides={true}
-        slidesPerView={1}
-        onSlideChangeTransitionEnd={(swiper) => update(swiper)}
-        onSlideChange={(swiper) => update(swiper)}
-        onSwiper={(swiper) => {
-          update(swiper);
-        }}
-        // navigation={true}
-        autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
-        }}
-        navigation
-        pagination
-        modules={[Autoplay, Navigation, Pagination]}
-      >
-        {data.map((value) => {
-          return (
-            <SwiperSlide key={value.id}>
-              <AtomContainer maxWidth="xl" key={value.id}>
-                <GridContainerStyles container spacing={2}>
-                  <AtomGrid item xs={4}>
-                    <AtomGrid container>
-                      <CaptionSlider variant="h4">
-                        {value.caption}
-                      </CaptionSlider>
-                      <DescriptionGameSlider>
-                        {value.description}
-                      </DescriptionGameSlider>
-                      <ButtonStyle1
-                        label="Xem chi tiết"
-                        onClick={() => {
-                          navigate(`/${value.id}`);
-                        }}
-                      />
-                    </AtomGrid>{" "}
-                  </AtomGrid>
-                  <AtomGrid item xs={8}>
-                    <ImageSlider src={value.image} alt="" />
-                  </AtomGrid>
-                </GridContainerStyles>
-              </AtomContainer>
-            </SwiperSlide>
-          );
-        })}
-      </SwiperStyles>
-    </AtomBox>
+    <div id="slider">
+      <AtomBox maxWidth={"lg"}>
+        <SwiperStyles
+          loop={true}
+          spaceBetween={30}
+          centeredSlides={true}
+          slidesPerView={1}
+          onSlideChangeTransitionEnd={(swiper) => update(swiper)}
+          onSlideChange={(swiper) => update(swiper)}
+          onSwiper={(swiper) => {
+            update(swiper);
+          }}
+          // navigation={true}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+          navigation
+          pagination
+          modules={[Autoplay, Navigation, Pagination]}
+        >
+          {data.map((value) => {
+            return (
+              <SwiperSlide key={value.id}>
+                <AtomContainer maxWidth="xl" key={value.id}>
+                  <GridContainerStyles container spacing={2}>
+                    <AtomGrid item xs={4}>
+                      <AtomGrid container>
+                        <CaptionSlider variant="h4">
+                          {value.caption}
+                        </CaptionSlider>
+                        <DescriptionGameSlider>
+                          {value.description}
+                        </DescriptionGameSlider>
+                        <ButtonStyle1
+                          label="Xem chi tiết"
+                          onClick={() => {
+                            navigate(`/${value.id}`);
+                          }}
+                        />
+                      </AtomGrid>{" "}
+                    </AtomGrid>
+                    <AtomGrid item xs={8}>
+                      <ImageSlider src={value.image} alt="" />
+                    </AtomGrid>
+                  </GridContainerStyles>
+                </AtomContainer>
+              </SwiperSlide>
+            );
+          })}
+        </SwiperStyles>
+      </AtomBox>
+    </div>
   );
 };
 export default Slide1;

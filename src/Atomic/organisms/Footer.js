@@ -21,7 +21,7 @@ const IconYoutube = styled(AtomIconYoutube)({
 });
 
 const LinkStyles = styled(AtomLink)(({ theme }) => ({
-  marginRight: theme.spacing(1),
+  // marginRight: theme.spacing(1),
 }));
 
 const TypoContact = styled(AtomTypography)(({ theme }) => ({
