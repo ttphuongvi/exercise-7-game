@@ -8,23 +8,17 @@ import AtomBox from "../Atomic/atoms/AtomBox";
 import TemplatePage from "../Atomic/templates/TemplatePage";
 import AtomCardAction from "../Atomic/atoms/AtomCardAction";
 import TitleCategory from "../Atomic/molecules/TittePage";
-import Container from "../Atomic/molecules/PageContainer";
 import { styled } from "@mui/material/styles";
 import AtomTypography from "../Atomic/atoms/AtomTypography";
 import AtomPaper from "../Atomic/atoms/AtomPaper";
 import Divider from "../Atomic/molecules/Divider";
 import AtomStack from "../Atomic/atoms/AtomStack";
-
-const ContainerDetaiGame = styled(Container)(({ theme }) => ({
-  width: "60%",
-  "&:hover": {
-    boxShadow:
-      "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-  },
-}));
+import AtomContainer from "../Atomic/atoms/AtomContainer";
 
 const PaperStyles = styled(AtomPaper)(({ theme }) => ({
+  // width: "60%",
   marginTop: theme.spacing(2),
+  boxShadow: theme.shadows[1],
 }));
 
 const CardAction = styled(AtomCardAction)({
@@ -60,7 +54,7 @@ const DetailsGame = () => {
       {dataSource && (
         <TemplatePage
           content={
-            <ContainerDetaiGame maxWidth={false}>
+            <AtomContainer maxWidth="md">
               <AtomStack>
                 <PaperStyles>
                   <AtomBox
@@ -97,7 +91,7 @@ const DetailsGame = () => {
                   </AtomBox>
                 </PaperStyles>
               </AtomStack>
-            </ContainerDetaiGame>
+            </AtomContainer>
           }
         ></TemplatePage>
       )}

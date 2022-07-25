@@ -27,7 +27,7 @@ const Contact = () => {
   return (
     <TemplatePage
       content={
-        <ContainerContact maxWidth={false}>
+        <ContainerContact>
           <AtomStack alignItems={"center"}>
             <PaperStyles>
               <AtomCardContent sx={{ paddingBottom: "0" }}>

@@ -27,7 +27,12 @@ const ListGame = () => {
   return (
     <TemplatePage
       content={
-        <AtomContainer maxWidth="xl" style={{ paddingTop: 24 }}>
+        <AtomContainer
+          maxWidth="xl"
+          sx={(theme) => ({
+            paddingTop: theme.spacing(2),
+          })}
+        >
           <AtomPaper>
             <AtomCardContent>
               <TitleCatogery title="DANH SÁCH GAME"></TitleCatogery>
