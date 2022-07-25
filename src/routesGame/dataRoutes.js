@@ -3,19 +3,19 @@ import ListGame from "../pages/ListGame";
 import Contact from "../pages/Contact";
 const dataRoutes = [
   {
-    name: "TRANG CHỦ",
+    name: "Trang chủ",
     path: "/",
     exact: true,
     component: <Home />,
   },
   {
-    name: "DANH SÁCH GAME",
+    name: "Danh sách game",
     path: "/menu",
     // exact: false,
     component: <ListGame />,
   },
   {
-    name: "LIÊN HỆ",
+    name: "Liên hệ",
     path: "/contact",
     // exact: "false",
     component: <Contact />,

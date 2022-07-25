@@ -13,6 +13,7 @@ import { alpha, styled } from "@mui/material/styles";
 import getNewGames from "../../services/games";
 import AtomContainer from "../atoms/AtomContainer";
 import AtomTypography from "../atoms/AtomTypography";
+import AtomBox from "../atoms/AtomBox";
 
 const SwiperStyles = styled(Swiper)(({ theme }) => ({
   backgroundColor: alpha(theme.palette.primary.main, 0.2),
@@ -27,7 +28,6 @@ const GridContainerStyles = styled(AtomGrid)(
 );
 
 const CaptionSlider = styled(AtomTypography)({
-  fontSize: "40px",
   width: "100%",
   zIndex: 99,
   textShadow: "1px 1px 1px rgba(0, 0, 0, 0.1)",
@@ -52,14 +52,14 @@ const DescriptionGameSlider = styled(AtomTypography)(({ theme }) => ({
 }));
 
 const ImageSlider = styled("img")({
-  width: "80%",
+  width: "65%",
   height: "100%",
   objectFit: "fill",
   position: "absolute",
   zIndex: 1,
   top: "0px",
   right: "0px",
-  // borderRadius: "50% 0% 0% 50%",
+  borderRadius: "40% 0% 0% 40%",
 });
 
 const Slide1 = () => {
@@ -90,7 +90,7 @@ const Slide1 = () => {
   const data = getNewGames(6);
 
   return (
-    <>
+    <AtomBox maxWidth={"lg"} id="#slider">
       <SwiperStyles
         loop={true}
         spaceBetween={30}
@@ -115,9 +115,11 @@ const Slide1 = () => {
             <SwiperSlide key={value.id}>
               <AtomContainer maxWidth="xl" key={value.id}>
                 <GridContainerStyles container spacing={2}>
-                  <AtomGrid item xs={2}>
+                  <AtomGrid item xs={4}>
                     <AtomGrid container>
-                      <CaptionSlider>{value.caption}</CaptionSlider>
+                      <CaptionSlider variant="h4">
+                        {value.caption}
+                      </CaptionSlider>
                       <DescriptionGameSlider>
                         {value.description}
                       </DescriptionGameSlider>
@@ -129,7 +131,7 @@ const Slide1 = () => {
                       />
                     </AtomGrid>{" "}
                   </AtomGrid>
-                  <AtomGrid item xs={10}>
+                  <AtomGrid item xs={8}>
                     <ImageSlider src={value.image} alt="" />
                   </AtomGrid>
                 </GridContainerStyles>
@@ -138,7 +140,7 @@ const Slide1 = () => {
           );
         })}
       </SwiperStyles>
-    </>
+    </AtomBox>
   );
 };
 export default Slide1;

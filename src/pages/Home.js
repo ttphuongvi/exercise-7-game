@@ -23,7 +23,12 @@ const Home = () => {
       content={
         <div>
           <Slider />
-          <AtomContainer maxWidth="xl" style={{ paddingTop: 24 }}>
+          <AtomContainer
+            maxWidth="xl"
+            sx={(theme) => ({
+              paddingTop: theme.spacing(2),
+            })}
+          >
             <AtomPaper>
               <AtomCardContent>
                 <TitleCatogery title="GAME MỚI NHẤT" />

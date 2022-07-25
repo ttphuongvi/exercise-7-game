@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import PropTypes from "prop-types";
 import AtomAppBar from "../atoms/AtomAppBar";
 import ImageLogo from "../molecules/ImageLogo";
 import DialogLogin from "../molecules/DialogMaxWidth/DialogLogin";
@@ -12,6 +13,11 @@ import AtomContainer from "../atoms/AtomContainer";
 import AtomToolBar from "../atoms/AtomToolbar";
 import { styled } from "@mui/material/styles";
 import AtomStack from "../atoms/AtomStack";
+import AtomBox from "../atoms/AtomBox";
+import { CssBaseline } from "@mui/material";
+import Drawer from "./Drawer";
+import AtomIconButton from "../atoms/AtomIconButton";
+import AtomMenuIcon from "../atoms/AtomMenuIcon";
 
 const AppBarStyles = styled(AtomAppBar)(
   ({ theme }) => `
@@ -20,13 +26,30 @@ const AppBarStyles = styled(AtomAppBar)(
 `
 );
 
-const ResponsiveAppBar = () => {
+const drawerWidth = 240;
+
+const AppBar = ({ handleDrawerToggle }) => {
   const user = useSelector((state) => state.user.content);
 
   return (
-    <AppBarStyles position="fixed">
+    <AppBarStyles
+      sx={{
+        width: { sm: `calc(100% - ${drawerWidth}px)` },
+        ml: { sm: `${drawerWidth}px` },
+      }}
+      position="fixed"
+    >
       <AtomContainer maxWidth={false}>
         <AtomToolBar>
+          <AtomIconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: "none" } }}
+          >
+            <AtomMenuIcon />
+          </AtomIconButton>
           <AtomGrid container alignItems="center">
             <AtomGrid item xs={6}>
               <ImageLogo alt="logo" src="/images/logo_hahalolo.png"></ImageLogo>
@@ -54,8 +77,10 @@ const ResponsiveAppBar = () => {
         </AtomToolBar>
       </AtomContainer>
     </AppBarStyles>
-
-    // </AtomBox>
   );
 };
-export default ResponsiveAppBar;
+
+AppBar.propTypes = {
+  handleDrawerToggle: PropTypes.func,
+};
+export default AppBar;

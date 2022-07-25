@@ -15,10 +15,7 @@ const ContainerContact = styled(AtomContainer)({
   minHeight: "100vh",
 });
 
-const PaperStyles = styled(AtomPaper)(({ theme }) => ({
-  width: "60%",
-  marginTop: theme.spacing(2),
-}));
+const PaperStyles = styled(AtomPaper)(({ theme }) => ({ width: "60%" }));
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -27,7 +24,12 @@ const Contact = () => {
   return (
     <TemplatePage
       content={
-        <ContainerContact>
+        <ContainerContact
+          maxWidth={"xl"}
+          sx={(theme) => ({
+            paddingTop: theme.spacing(2),
+          })}
+        >
           <AtomStack alignItems={"center"}>
             <PaperStyles>
               <AtomCardContent sx={{ paddingBottom: "0" }}>
