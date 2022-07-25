@@ -4,31 +4,31 @@ import axios from "axios";
 import DialogPlayGame from "../Atomic/molecules/DialogPlayGame";
 import AtomCardMedia from "../Atomic/atoms/AtomCardMedia";
 import CaptionGame from "../Atomic/molecules/CaptionGame";
-import ReleaseYear from "../Atomic/molecules/ReleaseYear";
 import AtomBox from "../Atomic/atoms/AtomBox";
 import TemplatePage from "../Atomic/templates/TemplatePage";
-import AtomCard from "../Atomic/atoms/AtomCard";
-import AtomCardContent from "../Atomic/atoms/AtomCardContent";
 import AtomCardAction from "../Atomic/atoms/AtomCardAction";
 import TitleCategory from "../Atomic/molecules/TittePage";
 import Container from "../Atomic/molecules/PageContainer";
-import { styled } from "@mui/styles";
+import { styled } from "@mui/material/styles";
 import AtomTypography from "../Atomic/atoms/AtomTypography";
+import AtomPaper from "../Atomic/atoms/AtomPaper";
+import Divider from "../Atomic/molecules/Divider";
+import AtomStack from "../Atomic/atoms/AtomStack";
 
-const ContainerDetaiGame = styled(Container)({
+const ContainerDetaiGame = styled(Container)(({ theme }) => ({
   width: "60%",
   "&:hover": {
     boxShadow:
       "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
   },
-});
+}));
+
+const PaperStyles = styled(AtomPaper)(({ theme }) => ({
+  marginTop: theme.spacing(2),
+}));
 
 const CardAction = styled(AtomCardAction)({
   justifyContent: "center",
-});
-
-const CardContent = styled(AtomCardContent)({
-  padding: "16px 0 16px 0",
 });
 
 const DescriptionGame = styled(AtomTypography)({
@@ -60,28 +60,43 @@ const DetailsGame = () => {
       {dataSource && (
         <TemplatePage
           content={
-            <ContainerDetaiGame>
-              <TitleCategory title="CHI TIẾT GAME"></TitleCategory>
-              <AtomCard elevation={0}>
-                <CardMedia
-                  image={dataSource.image}
-                  title={dataSource.caption}
-                ></CardMedia>
-                <CardContent>
-                  <CaptionGame>{dataSource.caption}</CaptionGame>
-                  <ReleaseYear>
-                    {" "}
-                    Ngày phát hành {dataSource.release}
-                  </ReleaseYear>
-                  <DescriptionGame>{dataSource.description}</DescriptionGame>
-                </CardContent>
-                <CardAction>
-                  <DialogPlayGame
-                    caption={dataSource.caption}
-                    link={dataSource.link}
-                  />
-                </CardAction>
-              </AtomCard>
+            <ContainerDetaiGame maxWidth={false}>
+              <AtomStack>
+                <PaperStyles>
+                  <AtomBox
+                    sx={(theme) => ({
+                      padding: theme.spacing(2),
+                    })}
+                  >
+                    <TitleCategory title="CHI TIẾT GAME"></TitleCategory>
+                    <Divider />
+                    <AtomStack spacing={2}>
+                      <CardMedia
+                        image={dataSource.image}
+                        title={dataSource.caption}
+                      ></CardMedia>
+                      <AtomStack spacing={1}>
+                        <CaptionGame>{dataSource.caption}</CaptionGame>
+                        <AtomTypography variant="subtitle2">
+                          {" "}
+                          Ngày phát hành {dataSource.release}
+                        </AtomTypography>
+                        <Divider />
+                        <DescriptionGame>
+                          {dataSource.description}
+                        </DescriptionGame>
+                      </AtomStack>
+
+                      <CardAction>
+                        <DialogPlayGame
+                          caption={dataSource.caption}
+                          link={dataSource.link}
+                        />
+                      </CardAction>
+                    </AtomStack>
+                  </AtomBox>
+                </PaperStyles>
+              </AtomStack>
             </ContainerDetaiGame>
           }
         ></TemplatePage>
