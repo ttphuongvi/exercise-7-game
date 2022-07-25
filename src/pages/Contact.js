@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import SquareStripeButton from "../Atomic/molecules/SquareStripeButton";
 import AtomTextField from "../Atomic/atoms/AtomTextField";
-import { styled } from "@mui/styles";
+import { styled } from "@mui/material/styles";
 import TemplatePage from "../Atomic/templates/TemplatePage";
 import TitleCatogery from "../Atomic/molecules/TittePage";
 import AtomGrid from "../Atomic/atoms/AtomGrid";
@@ -9,12 +9,16 @@ import AtomCardContent from "../Atomic/atoms/AtomCardContent";
 import Divider from "../Atomic/molecules/Divider";
 import AtomPaper from "../Atomic/atoms/AtomPaper";
 import AtomStack from "../Atomic/atoms/AtomStack";
+import AtomContainer from "../Atomic/atoms/AtomContainer";
 
-const ContainerContact = styled("div")({
+const ContainerContact = styled(AtomContainer)({
   minHeight: "100vh",
 });
 
-const PaperStyles = styled(AtomPaper)({ width: "60%", marginTop: "20px" });
+const PaperStyles = styled(AtomPaper)(({ theme }) => ({
+  width: "60%",
+  marginTop: theme.spacing(2),
+}));
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -23,7 +27,7 @@ const Contact = () => {
   return (
     <TemplatePage
       content={
-        <ContainerContact>
+        <ContainerContact maxWidth={false}>
           <AtomStack alignItems={"center"}>
             <PaperStyles>
               <AtomCardContent sx={{ paddingBottom: "0" }}>

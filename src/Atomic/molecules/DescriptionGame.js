@@ -4,7 +4,6 @@ import AtomTypography from "../atoms/AtomTypography";
 const DescriptionNewGame = styled(AtomTypography)({
   textAlign: "justify",
   marginTop: "0px",
-  fontSize: "14px",
   height: "190px",
   width: "100%",
   fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
@@ -12,7 +11,7 @@ const DescriptionNewGame = styled(AtomTypography)({
   overflow: "hidden",
   display: "-webkit-box",
   WebkitBoxOrient: "vertical",
-  WebkitLineClamp: 9,
+  WebkitLineClamp: 8,
 });
 
 export default DescriptionNewGame;

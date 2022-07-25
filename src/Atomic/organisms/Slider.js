@@ -13,17 +13,16 @@ import { alpha, styled } from "@mui/material/styles";
 import getNewGames from "../../services/games";
 import AtomContainer from "../atoms/AtomContainer";
 import AtomTypography from "../atoms/AtomTypography";
-import AtomStack from "../atoms/AtomStack";
 
 const SwiperStyles = styled(Swiper)(({ theme }) => ({
   backgroundColor: alpha(theme.palette.primary.main, 0.2),
-  height: "100vh",
+  // height: "100vh",
 }));
 
 const GridContainerStyles = styled(AtomGrid)(
   ({ theme }) => `
-  // padding: ${theme.spacing(20)} ${theme.spacing(4)}
-  minHeight: "100vh";
+  padding: ${theme.spacing(20)} ${theme.spacing(4)}
+  // minHeight: "100vh";
   `
 );
 
@@ -115,9 +114,18 @@ const Slide1 = () => {
           return (
             <SwiperSlide key={value.id}>
               <AtomContainer maxWidth="xl" key={value.id}>
-                <GridContainerStyles container spacing={2}>
+                <GridContainerStyles
+                  justifyContent={"center"}
+                  alignItems={"center"}
+                  container
+                  spacing={2}
+                >
                   <AtomGrid item xs={2}>
-                    <AtomStack justifyContent={"center"}>
+                    <AtomGrid
+                      container
+                      alignItems={"center"}
+                      justifyContent={"center"}
+                    >
                       <CaptionSlider>{value.caption}</CaptionSlider>
                       <DescriptionGameSlider>
                         {value.description}
@@ -128,7 +136,7 @@ const Slide1 = () => {
                           navigate(`/${value.id}`);
                         }}
                       />
-                    </AtomStack>{" "}
+                    </AtomGrid>{" "}
                   </AtomGrid>
                   <AtomGrid item xs={10}>
                     <ImageSlider src={value.image} alt="" />
