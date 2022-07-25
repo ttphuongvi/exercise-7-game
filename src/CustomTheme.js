@@ -101,7 +101,7 @@ const useCustomTheme = (darkMode, customTheme) => {
       },
       background: {
         default: darkMode ? "#1E1E1E" : "#fff",
-        paper: darkMode ? "#212121" : "#F5F5F5",
+        paper: darkMode ? "#212121" : "#FFF",
         card: darkMode ? "#333" : "#fff",
       },
     },
