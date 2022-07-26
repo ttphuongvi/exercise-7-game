@@ -1,20 +1,12 @@
 import React from "react";
-import AtomTypography from "../atoms/AtomTypography";
-import AtomGrid from "../atoms/AtomGrid";
-import { styled } from "@mui/material/styles";
-
-const TypographyInfo = styled(AtomTypography)(({ theme }) => ({
-  fontFamily: theme.typography.subtitle1.fontFamily,
-}));
+import AtomStack from "../atoms/AtomStack";
 
 const InfoFooter = (props) => {
   return (
-    <AtomGrid m={2} alignItems="flex-start" container spacing={1}>
-      <AtomGrid item>{props.icon}</AtomGrid>
-      <AtomGrid item>
-        <TypographyInfo>{props.info}</TypographyInfo>
-      </AtomGrid>
-    </AtomGrid>
+    <AtomStack m={2} direction={"row"} spacing={1}>
+      {props.left}
+      {props.right}
+    </AtomStack>
   );
 };
 

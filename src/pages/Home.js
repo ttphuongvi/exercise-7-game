@@ -8,7 +8,6 @@ import AtomPaper from "../Atomic/atoms/AtomPaper";
 import AtomCardContent from "../Atomic/atoms/AtomCardContent";
 import HorizontalStripeButton from "../Atomic/molecules/HorizontalStripeButton";
 import { useNavigate } from "react-router-dom";
-import ResponsiveAppBar from "../Atomic/organisms/AppBar";
 import Divider from "../Atomic/molecules/Divider";
 import AtomStack from "../Atomic/atoms/AtomStack";
 const Home = () => {
@@ -19,7 +18,6 @@ const Home = () => {
   };
   return (
     <TemplatePage
-      appbar={<ResponsiveAppBar />}
       content={
         <div>
           <Slider />

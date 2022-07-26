@@ -7,18 +7,16 @@ import AtomListItemButton from "../atoms/AtomListItemButton";
 import AtomListItemText from "../atoms/AtomListItemText";
 import AtomToolBar from "../atoms/AtomToolbar";
 import AtomBox from "../atoms/AtomBox";
-import PropTypes from "prop-types";
 import dataRoutes from "../../routesGame/dataRoutes";
 import { useLocation, useNavigate } from "react-router-dom";
 import AtomCollapse from "../atoms/AtomCollapse";
 import AtomExpandLess from "../atoms/AtomExpandLess";
 import AtomExpandMore from "../atoms/AtomExpandMore";
 import AtomLink from "../atoms/AtomLink";
-import { alpha } from "@mui/material";
 
 const drawerWidth = 240;
 
-const Drawer = (props, { handleDrawerToggle, mobileOpen }) => {
+const Drawer = (props) => {
   const { window } = props;
   let navigate = useNavigate();
 
@@ -79,17 +77,7 @@ const Drawer = (props, { handleDrawerToggle, mobileOpen }) => {
                           justifyContent: "space-between",
                           color: theme.palette.text.primary,
                           "&:hover": {
-                            backgroundColor: alpha(
-                              theme.palette.primary.main,
-                              0.2
-                            ),
                             color: theme.palette.primary.main,
-                          },
-                          "&.active": {
-                            backgroundColor: alpha(
-                              theme.palette.primary.main,
-                              0.2
-                            ),
                           },
                         })}
                         href={hash.href}
@@ -129,8 +117,8 @@ const Drawer = (props, { handleDrawerToggle, mobileOpen }) => {
       <AtomDrawer
         container={container}
         variant="temporary"
-        open={mobileOpen}
-        onClose={handleDrawerToggle}
+        open={props.mobileOpen}
+        onClose={props.handleDrawerToggle}
         ModalProps={{
           keepMounted: true, // Better open performance on mobile.
         }}
@@ -153,11 +141,6 @@ const Drawer = (props, { handleDrawerToggle, mobileOpen }) => {
       </AtomDrawer>
     </AtomBox>
   );
-};
-
-Drawer.propTypes = {
-  handleDrawerToggle: PropTypes.func,
-  mobileOpen: PropTypes.bool,
 };
 
 export default Drawer;

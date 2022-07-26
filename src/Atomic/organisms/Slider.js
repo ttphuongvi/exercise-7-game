@@ -11,7 +11,6 @@ import AtomGrid from "../atoms/AtomGrid";
 import ButtonStyle1 from "../molecules/SquareStripeButton";
 import { alpha, styled } from "@mui/material/styles";
 import getNewGames from "../../services/games";
-import AtomContainer from "../atoms/AtomContainer";
 import AtomTypography from "../atoms/AtomTypography";
 import AtomBox from "../atoms/AtomBox";
 
@@ -21,7 +20,7 @@ const SwiperStyles = styled(Swiper)(({ theme }) => ({
 
 const GridContainerStyles = styled(AtomGrid)(
   ({ theme }) => `
-  padding: ${theme.spacing(20)} ${theme.spacing(4)}
+  // padding: ${theme.spacing(20)} ${theme.spacing(4)}
   // minHeight: "100vh";
   // height: "100vh",
   `
@@ -52,7 +51,7 @@ const DescriptionGameSlider = styled(AtomTypography)(({ theme }) => ({
 }));
 
 const ImageSlider = styled("img")({
-  width: "65%",
+  width: "72%",
   height: "100%",
   objectFit: "fill",
   position: "absolute",
@@ -90,59 +89,54 @@ const Slide1 = () => {
   const data = getNewGames(6);
 
   return (
-    <div id="slider">
-      <AtomBox maxWidth={"lg"}>
-        <SwiperStyles
-          loop={true}
-          spaceBetween={30}
-          centeredSlides={true}
-          slidesPerView={1}
-          onSlideChangeTransitionEnd={(swiper) => update(swiper)}
-          onSlideChange={(swiper) => update(swiper)}
-          onSwiper={(swiper) => {
-            update(swiper);
-          }}
-          // navigation={true}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-          }}
-          navigation
-          pagination
-          modules={[Autoplay, Navigation, Pagination]}
-        >
-          {data.map((value) => {
-            return (
-              <SwiperSlide key={value.id}>
-                <AtomContainer maxWidth="xl" key={value.id}>
-                  <GridContainerStyles container spacing={2}>
-                    <AtomGrid item xs={4}>
-                      <AtomGrid container>
-                        <CaptionSlider variant="h4">
-                          {value.caption}
-                        </CaptionSlider>
-                        <DescriptionGameSlider>
-                          {value.description}
-                        </DescriptionGameSlider>
-                        <ButtonStyle1
-                          label="Xem chi tiết"
-                          onClick={() => {
-                            navigate(`/${value.id}`);
-                          }}
-                        />
-                      </AtomGrid>{" "}
-                    </AtomGrid>
-                    <AtomGrid item xs={8}>
-                      <ImageSlider src={value.image} alt="" />
-                    </AtomGrid>
-                  </GridContainerStyles>
-                </AtomContainer>
-              </SwiperSlide>
-            );
-          })}
-        </SwiperStyles>
-      </AtomBox>
-    </div>
+    <AtomBox id="slider" maxWidth={"lg"}>
+      <SwiperStyles
+        loop={true}
+        spaceBetween={30}
+        centeredSlides={true}
+        slidesPerView={1}
+        onSlideChangeTransitionEnd={(swiper) => update(swiper)}
+        onSlideChange={(swiper) => update(swiper)}
+        onSwiper={(swiper) => {
+          update(swiper);
+        }}
+        // navigation={true}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
+        navigation
+        pagination
+        modules={[Autoplay, Navigation, Pagination]}
+      >
+        {data.map((value) => {
+          return (
+            <SwiperSlide key={value.id}>
+              <GridContainerStyles p={5} pt={20} pb={20} container spacing={2}>
+                <AtomGrid item xs={3}>
+                  <AtomGrid container>
+                    <CaptionSlider variant="h4">{value.caption}</CaptionSlider>
+                    <DescriptionGameSlider>
+                      {value.description}
+                    </DescriptionGameSlider>
+                    <ButtonStyle1
+                      label="Xem chi tiết"
+                      onClick={() => {
+                        navigate(`/${value.id}`);
+                      }}
+                    />
+                  </AtomGrid>{" "}
+                </AtomGrid>
+                <AtomGrid item xs={9}>
+                  <ImageSlider src={value.image} alt="" />
+                </AtomGrid>
+              </GridContainerStyles>
+              {/* </AtomContainer> */}
+            </SwiperSlide>
+          );
+        })}
+      </SwiperStyles>
+    </AtomBox>
   );
 };
 export default Slide1;

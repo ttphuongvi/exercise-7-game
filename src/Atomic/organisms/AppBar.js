@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import PropTypes from "prop-types";
 import AtomAppBar from "../atoms/AtomAppBar";
 import ImageLogo from "../molecules/ImageLogo";
 import DialogLogin from "../molecules/DialogMaxWidth/DialogLogin";
@@ -25,7 +24,7 @@ const AppBarStyles = styled(AtomAppBar)(
 
 const drawerWidth = 240;
 
-const AppBar = ({ handleDrawerToggle }) => {
+const AppBar = (props) => {
   const user = useSelector((state) => state.user.content);
 
   return (
@@ -42,7 +41,7 @@ const AppBar = ({ handleDrawerToggle }) => {
             color="inherit"
             aria-label="open drawer"
             edge="start"
-            onClick={handleDrawerToggle}
+            onClick={props.handleDrawerToggle}
             sx={{ mr: 2, display: { sm: "none" } }}
           >
             <AtomMenuIcon />
@@ -77,7 +76,4 @@ const AppBar = ({ handleDrawerToggle }) => {
   );
 };
 
-AppBar.propTypes = {
-  handleDrawerToggle: PropTypes.func,
-};
 export default AppBar;

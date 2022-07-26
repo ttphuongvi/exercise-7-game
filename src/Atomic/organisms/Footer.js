@@ -11,6 +11,7 @@ import InfoFooter from "../molecules/InfoFooter";
 import AtomLink from "../atoms/AtomLink";
 import { styled } from "@mui/material/styles";
 import { blue, red } from "@mui/material/colors";
+import AtomStack from "../atoms/AtomStack";
 
 const IconFaceBook = styled(AtomIconFacebook)({
   color: blue[500],
@@ -20,16 +21,8 @@ const IconYoutube = styled(AtomIconYoutube)({
   color: red[500],
 });
 
-const LinkStyles = styled(AtomLink)(({ theme }) => ({
-  // marginRight: theme.spacing(1),
-}));
-
 const TypoContact = styled(AtomTypography)(({ theme }) => ({
   fontFamily: theme.typography.subtitle1.fontFamily,
-}));
-
-const GridInfoFooter = styled(AtomGrid)(({ theme }) => ({
-  margin: theme.spacing(3),
 }));
 
 const GridContainerStyles = styled(AtomGrid)(
@@ -40,6 +33,7 @@ const GridContainerStyles = styled(AtomGrid)(
   font-family: ${theme.typography.subtitle1};
   box-shadow: ${theme.shadows[3]};
   background-color: ${theme.palette.background.paper};
+
 `
 );
 const Footer = () => {
@@ -52,43 +46,46 @@ const Footer = () => {
         </AtomGrid>
       </AtomGrid>
       <AtomGrid item xs={8}>
-        <AtomGrid container alignContent="center" spacing={3}>
-          <AtomGrid item xs={6}>
+        <AtomGrid container>
+          <AtomGrid item xs={7}>
             <InfoFooter
-              icon={<AtomIconLocation />}
-              info="400/8B Ung Văn Khiêm, P.25, Q.Bình Thạnh, TP.HCM"
+              left={<AtomIconLocation />}
+              right={
+                <TypoContact>
+                  400/8B Ung Văn Khiêm, P.25, Q.Bình Thạnh, TP.HCM
+                </TypoContact>
+              }
             ></InfoFooter>
             <InfoFooter
-              icon={<AtomIconPhone />}
-              info="(+84) 911 432 933"
+              left={<AtomIconPhone />}
+              right={<TypoContact>(+84) 911 432 933</TypoContact>}
             ></InfoFooter>
           </AtomGrid>
-          <AtomGrid item xs={6}>
+          <AtomGrid item xs={5}>
             <InfoFooter
-              icon={<AtomIconEmail />}
-              info="Cskh@hahalolo.com"
+              left={<AtomIconEmail />}
+              right={<TypoContact>Cskh@hahalolo.com</TypoContact>}
             ></InfoFooter>
-            <GridInfoFooter container>
-              <AtomGrid item>
-                <TypoContact>Kết nối: </TypoContact>
-              </AtomGrid>
-              <AtomGrid item>
-                <AtomGrid container justifyContent={"center"}>
-                  <LinkStyles
+            <InfoFooter
+              left={<TypoContact>Kết nối: </TypoContact>}
+              right={
+                <AtomStack spacing={1} direction={"row"}>
+                  {" "}
+                  <AtomLink
                     href="https://www.facebook.com/HahaloloVN/"
                     target={"_blank"}
                   >
                     <IconFaceBook />
-                  </LinkStyles>
-                  <LinkStyles
+                  </AtomLink>
+                  <AtomLink
                     href="https://www.youtube.com/channel/UCatAZ8yjCYTevBWfexZ2qqA"
                     target={"_blank"}
                   >
                     <IconYoutube />
-                  </LinkStyles>
-                </AtomGrid>
-              </AtomGrid>
-            </GridInfoFooter>
+                  </AtomLink>
+                </AtomStack>
+              }
+            ></InfoFooter>
           </AtomGrid>
         </AtomGrid>
       </AtomGrid>

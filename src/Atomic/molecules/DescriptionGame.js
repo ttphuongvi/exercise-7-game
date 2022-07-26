@@ -6,11 +6,10 @@ const DescriptionNewGame = styled(AtomTypography)({
   marginTop: "0px",
   height: "190px",
   width: "100%",
-  fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-  marginBottom: "5px",
   overflow: "hidden",
   display: "-webkit-box",
   WebkitBoxOrient: "vertical",
+  textOverflow: "ellipsis",
   WebkitLineClamp: 8,
 });
 

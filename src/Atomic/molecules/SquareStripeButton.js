@@ -6,6 +6,7 @@ const ButtonStyles = styled(AtomButton)(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
   color: "#fff",
   width: "auto",
+  maxWidth: "135px",
   height: "40px",
   boderRadius: "5px",
   padding: "10px 25px",
