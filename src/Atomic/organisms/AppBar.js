@@ -47,7 +47,7 @@ const AppBar = (props) => {
             <AtomMenuIcon />
           </AtomIconButton>
           <AtomGrid container alignItems="center">
-            <AtomGrid item xs={6}>
+            <AtomGrid item xs={5.5}>
               <ImageLogo alt="logo" src="/images/logo_hahalolo.png"></ImageLogo>
             </AtomGrid>
             <AtomGrid item xs={4}>
@@ -56,7 +56,7 @@ const AppBar = (props) => {
                 <MenuTab />
               </AtomGrid>
             </AtomGrid>
-            <AtomGrid item xs={2}>
+            <AtomGrid item xs={2.5}>
               <AtomStack direction={"row"} spacing={1} alignItems="center">
                 <IconSetting />
 
