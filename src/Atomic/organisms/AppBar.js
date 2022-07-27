@@ -47,16 +47,16 @@ const AppBar = (props) => {
             <AtomMenuIcon />
           </AtomIconButton>
           <AtomGrid container alignItems="center">
-            <AtomGrid item xs={5.5}>
+            <AtomGrid item xl={5.5} lg={5.5} md={5} sm={5} xs={6}>
               <ImageLogo alt="logo" src="/images/logo_hahalolo.png"></ImageLogo>
             </AtomGrid>
-            <AtomGrid item xs={4}>
+            <AtomGrid item xl={4} lg={4} md={4} sm={0.0001} xs={0.0001}>
               <AtomGrid container justifyContent="flex-end">
                 {" "}
                 <MenuTab />
               </AtomGrid>
             </AtomGrid>
-            <AtomGrid item xs={2.5}>
+            <AtomGrid item xl={2.5} lg={2.5} md={3} sm={7} xs={6}>
               <AtomStack direction={"row"} spacing={1} alignItems="center">
                 <IconSetting />
 

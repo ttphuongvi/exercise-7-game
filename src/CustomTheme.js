@@ -97,7 +97,7 @@ const useCustomTheme = (darkMode, customTheme) => {
         main: customTheme ? customTheme : "#2AC0FF",
       },
       secondary: {
-        main: "#ffff00",
+        main: "#000",
       },
       background: {
         default: darkMode ? "#1E1E1E" : "#fff",

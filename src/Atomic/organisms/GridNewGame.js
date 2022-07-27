@@ -31,13 +31,13 @@ const GridNewGame = () => {
     <AtomGrid container spacing={3}>
       {data.map((value) => {
         return (
-          <AtomGrid key={value.id} item xs={12} sm={6} md={6} lg={4}>
+          <AtomGrid key={value.id} item xs={12} sm={6} md={6} lg={4} xl={4}>
             <CardStyles>
               <AtomGrid container spacing={1}>
                 <AtomGrid item xs={12}>
                   <CaptionGame>{value?.caption}</CaptionGame>
                 </AtomGrid>
-                <AtomGrid item lg={6} md={6} sm={6} xs={12}>
+                <AtomGrid item xl={6} lg={6} md={6} sm={6} xs={12}>
                   <ContainerImageNewGame>
                     <ImageNewGame src={value.image} alt=""></ImageNewGame>
                   </ContainerImageNewGame>

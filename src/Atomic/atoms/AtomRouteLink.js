@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const AtomRouteLink = NavLink;
+const AtomRouteLink = Link;
 export default AtomRouteLink;

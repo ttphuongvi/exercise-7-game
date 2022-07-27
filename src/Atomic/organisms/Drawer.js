@@ -27,7 +27,7 @@ const Drawer = (props) => {
     { open: false },
     { open: false },
   ]);
-  console.log(openState);
+  // console.log(openState);
   const handleClick = (index, value) => {
     const newOpenState = [...openState];
     newOpenState[index].open = value;
@@ -62,7 +62,7 @@ const Drawer = (props) => {
             >
               <AtomList disablePadding>
                 {route.hashLink.map((hash, indexHash) => {
-                  console.log(location.hash === hash.href);
+                  // console.log(location.hash === hash.href);
                   return (
                     <AtomListItem
                       key={indexHash}
@@ -70,12 +70,15 @@ const Drawer = (props) => {
                       selected={location.hash === hash.href}
                     >
                       <AtomLink
+                        color={
+                          location.hash === hash.href ? "primary" : "secondary"
+                        }
                         underline="none"
                         sx={(theme) => ({
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "space-between",
-                          color: theme.palette.text.primary,
+                          // color: theme.palette.text.primary,
                           "&:hover": {
                             color: theme.palette.primary.main,
                           },

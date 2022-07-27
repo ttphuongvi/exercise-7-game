@@ -13,18 +13,11 @@ import { alpha, styled } from "@mui/material/styles";
 import getNewGames from "../../services/games";
 import AtomTypography from "../atoms/AtomTypography";
 import AtomBox from "../atoms/AtomBox";
+import AtomCardMedia from "../atoms/AtomCardMedia";
 
 const SwiperStyles = styled(Swiper)(({ theme }) => ({
   backgroundColor: alpha(theme.palette.primary.main, 0.1),
 }));
-
-const GridContainerStyles = styled(AtomGrid)(
-  ({ theme }) => `
-  // padding: ${theme.spacing(20)} ${theme.spacing(4)}
-  // minHeight: "100vh";
-  // height: "100vh",
-  `
-);
 
 const CaptionSlider = styled(AtomTypography)({
   width: "100%",
@@ -112,8 +105,8 @@ const Slide1 = () => {
         {data.map((value) => {
           return (
             <SwiperSlide key={value.id}>
-              <GridContainerStyles p={5} pt={20} pb={20} container spacing={2}>
-                <AtomGrid item xs={3}>
+              <AtomGrid p={5} pt={20} pb={20} container spacing={2}>
+                <AtomGrid item xs={3} sm={3} md={3} lg={3} xl={3}>
                   <AtomGrid container>
                     <CaptionSlider variant="h4">{value.caption}</CaptionSlider>
                     <DescriptionGameSlider>
@@ -127,10 +120,14 @@ const Slide1 = () => {
                     />
                   </AtomGrid>{" "}
                 </AtomGrid>
-                <AtomGrid item xs={9}>
+                <AtomGrid item xs={9} sm={9} md={9} lg={9} xl={9}>
                   <ImageSlider src={value.image} alt="" />
+                  {/* <AtomCardMedia
+                    component={"img"}
+                    image={value.image}
+                  ></AtomCardMedia> */}
                 </AtomGrid>
-              </GridContainerStyles>
+              </AtomGrid>
               {/* </AtomContainer> */}
             </SwiperSlide>
           );
