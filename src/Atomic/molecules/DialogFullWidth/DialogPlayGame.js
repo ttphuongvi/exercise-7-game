@@ -41,7 +41,7 @@ const DialogPlayGame = (props) => {
             >
               <AtomCloseIcon />
             </AtomIconButton>
-            <AtomTypography component={"span"} variant="subtitle2">
+            <AtomTypography component={"span"} variant="titleGame">
               {props.caption}
             </AtomTypography>
           </AtomToolBar>

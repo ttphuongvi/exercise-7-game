@@ -8,7 +8,7 @@ const ButtonLoadMoreStyles = styled(AtomButton)(({ theme }) => ({
   color: "#ffffff",
   cursor: "pointer",
   display: "inline-block",
-  fontFamily: theme.typography.subtitle2.fontFamily,
+  fontFamily: theme.typography.titleGame.fontFamily,
   fontSize: "1em",
   width: "200px",
   lineHeight: "1em",

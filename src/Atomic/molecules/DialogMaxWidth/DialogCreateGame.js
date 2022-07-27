@@ -13,7 +13,7 @@ import axios from "axios";
 import { ADD_GAME } from "../../../store/const";
 
 const DialogTitleStyles = styled(AtomDialogTitle)(({ theme }) => ({
-  fontFamily: theme.typography.subtitle2.fontFamily,
+  fontFamily: theme.typography.titleGame.fontFamily,
 }));
 
 const DialogCreateGame = (props) => {

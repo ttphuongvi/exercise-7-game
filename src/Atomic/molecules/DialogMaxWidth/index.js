@@ -12,7 +12,7 @@ import PropTypes from "prop-types";
 import AtomAvatar from "../../atoms/AtomAvatar";
 
 const DialogTitleStyles = styled(AtomDialogTitle)(({ theme }) => ({
-  fontFamily: theme.typography.subtitle2.fontFamily,
+  fontFamily: theme.typography.titleGame.fontFamily,
 }));
 
 const DialogMaxWidth = ({ actionName, content, onClick }) => {

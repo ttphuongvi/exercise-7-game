@@ -7,13 +7,13 @@ import { styled } from "@mui/styles";
 import Drawer from "../organisms/Drawer";
 import { CssBaseline } from "@mui/material";
 
-const drawerWidth = 240;
+// const drawerWidth = 240;
 
 const Content = styled(AtomBox)({
   marginTop: "64px",
   flexGrow: 1,
-  p: 3,
-  width: { sm: `calc(100% - ${drawerWidth}px)` },
+
+  // width: { sm: `calc(100% - ${drawerWidth}px)` },
 });
 
 const TemplatePage = ({ appbar, drawer, content, footer }) => {

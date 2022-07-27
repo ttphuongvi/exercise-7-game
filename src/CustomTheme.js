@@ -51,7 +51,7 @@
 //   //   ...Array(21).fill("none"),
 //   // ],
 //   typography: {
-//     subtitle2: {
+//     titleGame: {
 //       fontSize: 12,
 //       fontFamily: "Oswald",
 //     },
@@ -106,15 +106,12 @@ const useCustomTheme = (darkMode, customTheme) => {
       },
     },
     typography: {
-      subtitle1: {
-        fontSize: "1.2rem",
-      },
-      subtitle2: {
-        fontFamily: "Oswald",
-      },
-
       caption: {
         fontSize: "0.8rem",
+      },
+      titleGame: {
+        fontFamily: "Oswald",
+        fontSize: "1.2rem",
       },
     },
   });

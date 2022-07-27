@@ -15,8 +15,8 @@ const LinkStyles = styled(AtomRouteLink)(
 
 const TypographyStyles = styled(AtomTypography)(({ theme }) => ({
   color: theme.palette.text.primary,
-  fontFamily: theme.typography.subtitle2.fontFamily,
-  fontSize: theme.typography.subtitle2.fontSize,
+  fontFamily: theme.typography.titleGame.fontFamily,
+  fontSize: theme.typography.titleGame.fontSize,
 }));
 
 const TitlePage = (props) => {
@@ -25,7 +25,7 @@ const TitlePage = (props) => {
       separator={<NavigateNextIcon fontSize="small" />}
       aria-label="breadcrumb"
     >
-      <AtomTypography variant="subtitle2">
+      <AtomTypography variant="titleGame">
         <LinkStyles to="/">HAHALOLO</LinkStyles>
       </AtomTypography>
       <TypographyStyles>{props.title}</TypographyStyles>

@@ -22,7 +22,7 @@ const Contact = () => {
     <TemplatePage
       content={
         <ContainerContact
-          maxWidth={"md"}
+          maxWidth={"sm"}
           sx={(theme) => ({
             paddingTop: theme.spacing(2),
           })}

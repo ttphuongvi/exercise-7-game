@@ -9,7 +9,7 @@ const CaptionGame = styled(AtomTypography)(({ theme }) => ({
   padding: "0px 0px 10px 0px",
 
   color: theme.palette.primary.main,
-  fontFamily: theme.typography.subtitle2.fontFamily,
+  fontFamily: theme.typography.titleGame.fontFamily,
   textDecoration: "none",
 }));
 
