@@ -11,6 +11,10 @@ import AtomContainer from "../Atomic/atoms/AtomContainer";
 import AtomPaper from "../Atomic/atoms/AtomPaper";
 import AtomCardContent from "../Atomic/atoms/AtomCardContent";
 import Divider from "../Atomic/molecules/Divider";
+import AtomDatePicker from "../Atomic/atoms/AtomDatePicker";
+import AtomLocalizationProvider from "../Atomic/atoms/AtomLocalizationProvider";
+import AtomAdapterDateFns from "../Atomic/atoms/AtomAdapterDateFns";
+import AtomStack from "../Atomic/atoms/AtomStack";
 
 const ListGame = () => {
   const user = useSelector((state) => state.user.content);
@@ -23,7 +27,7 @@ const ListGame = () => {
     setInputText(lowerCase);
   };
   // const [selectedDate, handleDateChange] = useState(new Date());
-
+  const [value, setValue] = useState(new Date());
   return (
     <TemplatePage
       content={
@@ -40,39 +44,41 @@ const ListGame = () => {
               <AtomGrid
                 mb={2}
                 container
-                direction="row"
                 justifyContent="space-between"
                 alignItems="center"
               >
-                <AtomGrid item xs={9}>
-                  <AtomGrid item xs={4}>
+                <AtomGrid item xs={6}>
+                  <AtomStack id="search-game" direction={"row"} spacing={2}>
                     <AtomTextField
-                      id="search-game"
                       onChange={inputHandler}
                       variant="outlined"
-                      // fullwidth
                       label="Tìm kiếm game"
                     />
-                  </AtomGrid>
-                  <AtomGrid item>
-                    {/* <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                  <DatePicker
-                    views={["year"]}
-                    inputVariant="outlined"
-                    label="Năm phát hành"
-                    value={selectedDate}
-                    onChange={handleDateChange}
-                  />
-                </MuiPickersUtilsProvider> */}
-                  </AtomGrid>
+                    <AtomLocalizationProvider dateAdapter={AtomAdapterDateFns}>
+                      <AtomDatePicker
+                        views={["year"]}
+                        label="Năm phát hành"
+                        value={value}
+                        onChange={(newValue) => {
+                          setValue(newValue);
+                        }}
+                        renderInput={(params) => (
+                          <AtomTextField {...params} helperText={null} />
+                        )}
+                      />
+                    </AtomLocalizationProvider>
+                  </AtomStack>
                 </AtomGrid>
-                {user && user.isLogin ? (
-                  <AtomGrid>
-                    <DialogCreateGame id="create-game" />
-                  </AtomGrid>
-                ) : (
-                  <></>
-                )}
+
+                <AtomGrid item>
+                  {user && user.isLogin ? (
+                    <AtomGrid>
+                      <DialogCreateGame id="create-game" />
+                    </AtomGrid>
+                  ) : (
+                    <></>
+                  )}
+                </AtomGrid>
               </AtomGrid>
               <GridListGame input={inputText} />
             </AtomCardContent>

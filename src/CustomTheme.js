@@ -51,7 +51,7 @@
 //   //   ...Array(21).fill("none"),
 //   // ],
 //   typography: {
-//     subtitle1: {
+//     subtitle2: {
 //       fontSize: 12,
 //       fontFamily: "Oswald",
 //     },
@@ -97,7 +97,7 @@ const useCustomTheme = (darkMode, customTheme) => {
         main: customTheme ? customTheme : "#2AC0FF",
       },
       secondary: {
-        main: "#000",
+        main: darkMode ? "#f5f5f5" : "#000",
       },
       background: {
         default: darkMode ? "#1E1E1E" : "#fff",
@@ -108,8 +108,11 @@ const useCustomTheme = (darkMode, customTheme) => {
     typography: {
       subtitle1: {
         fontSize: "1.2rem",
+      },
+      subtitle2: {
         fontFamily: "Oswald",
       },
+
       caption: {
         fontSize: "0.8rem",
       },

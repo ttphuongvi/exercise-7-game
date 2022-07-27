@@ -11,7 +11,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 const TabStyles = styled(AtomTab)(
   ({ theme }) => `
     text-decoration: none;
-    font-family: ${theme.typography.subtitle1.fontFamily};
+    font-family: ${theme.typography.subtitle2.fontFamily};
     color: ${theme.palette.text.primary};
     :hover {
       color: ${theme.palette.primary.main};
@@ -42,7 +42,7 @@ const MenuTab = () => {
     //         // color={location.pathname === route.path ? "primary" : "secondary"}
     //         color="primary"
     //         sx={(theme) => ({
-    //           fontFamily: theme.typography.subtitle1.fontFamily,
+    //           fontFamily: theme.typography.subtitle2.fontFamily,
     //           color: theme.palette.text.primary,
     //           "&:hover": {
     //             backgroundColor: alpha(theme.palette.primary.main, 0.1),

@@ -22,7 +22,7 @@ const IconYoutube = styled(AtomIconYoutube)({
 });
 
 const TypoContact = styled(AtomTypography)(({ theme }) => ({
-  fontFamily: theme.typography.subtitle1.fontFamily,
+  fontFamily: theme.typography.subtitle2.fontFamily,
 }));
 
 const GridContainerStyles = styled(AtomGrid)(
@@ -30,7 +30,7 @@ const GridContainerStyles = styled(AtomGrid)(
   margin-top: ${theme.spacing(3)} ;
   padding: ${theme.spacing(2)};
   color: ${theme.palette.text.primary};
-  font-family: ${theme.typography.subtitle1};
+  font-family: ${theme.typography.subtitle2};
   box-shadow: ${theme.shadows[3]};
   background-color: ${theme.palette.background.paper};
 

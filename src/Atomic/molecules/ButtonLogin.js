@@ -3,7 +3,7 @@ import AtomButton from "../atoms/AtomButton";
 
 const ButtonLogin = styled(AtomButton)(
   ({ theme }) => `
-    font-family: ${theme.typography.subtitle1.fontFamily};
+    font-family: ${theme.typography.subtitle2.fontFamily};
     color: ${theme.palette.text.primary};
     :hover {
       color: ${theme.palette.primary.main};
