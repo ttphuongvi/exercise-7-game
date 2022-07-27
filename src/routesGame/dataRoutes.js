@@ -25,6 +25,14 @@ const dataRoutes = [
     component: <ListGame />,
     hashLink: [
       {
+        name: "Tìm kiếm game",
+        href: "#search-game",
+      },
+      {
+        name: "Tạo game",
+        href: "#create-game",
+      },
+      {
         name: "Danh sách game",
         href: "#list-game",
       },

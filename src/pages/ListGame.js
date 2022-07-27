@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 // import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
-import DialogCreateGame from "../Atomic/molecules/DialogCreateGame";
+import DialogCreateGame from "../Atomic/molecules/DialogMaxWidth/DialogCreateGame";
 import GridListGame from "../Atomic/organisms/GridListGame";
 import AtomTextField from "../Atomic/atoms/AtomTextField";
 import TemplatePage from "../Atomic/templates/TemplatePage";
@@ -47,7 +47,7 @@ const ListGame = () => {
                 <AtomGrid item xs={9}>
                   <AtomGrid item xs={4}>
                     <AtomTextField
-                      id="outlined-basic"
+                      id="search-game"
                       onChange={inputHandler}
                       variant="outlined"
                       // fullwidth
@@ -68,7 +68,7 @@ const ListGame = () => {
                 </AtomGrid>
                 {user && user.isLogin ? (
                   <AtomGrid>
-                    <DialogCreateGame />
+                    <DialogCreateGame id="create-game" />
                   </AtomGrid>
                 ) : (
                   <></>
