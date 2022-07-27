@@ -23,6 +23,7 @@ const ItemCard = styled(AtomCard)(({ theme }) => ({
   "&:hover": {
     boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px;",
     transform: "scale(1.05)",
+    transition: "all 0.3s ease-in-out",
   },
 }));
 
