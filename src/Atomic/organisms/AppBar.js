@@ -6,7 +6,6 @@ import DialogLogin from "../molecules/DialogMaxWidth/DialogLogin";
 import DialogSignUp from "../molecules/DialogMaxWidth/DialogSignUp";
 import AtomGrid from "../atoms/AtomGrid";
 import MenuTab from "../molecules/MenuTab";
-import IconSetting from "../molecules/IconSettingTheme";
 import IconAvatar from "../molecules/IconAvatar";
 import AtomContainer from "../atoms/AtomContainer";
 import AtomToolBar from "../atoms/AtomToolbar";
@@ -14,6 +13,7 @@ import { styled } from "@mui/material/styles";
 import AtomStack from "../atoms/AtomStack";
 import AtomIconButton from "../atoms/AtomIconButton";
 import AtomMenuIcon from "../atoms/AtomMenuIcon";
+import Settings from "../molecules/Settings";
 
 const AppBarStyles = styled(AtomAppBar)(
   ({ theme }) => `
@@ -36,7 +36,7 @@ const AppBar = (props) => {
       position="fixed"
     >
       <AtomContainer maxWidth={false}>
-        <AtomToolBar>
+        <AtomToolBar disableGutters>
           <AtomIconButton
             color="inherit"
             aria-label="open drawer"
@@ -46,27 +46,33 @@ const AppBar = (props) => {
           >
             <AtomMenuIcon />
           </AtomIconButton>
-          <AtomGrid container alignItems="center">
-            <AtomGrid item xl={5.5} lg={5.5} md={5} sm={5} xs={6}>
+          <AtomGrid
+            container
+            alignItems="center"
+            justifyContent={"space-between"}
+          >
+            <AtomGrid item xl={7} lg={7} md={7} sm={5} xs={7}>
               <ImageLogo alt="logo" src="/images/logo_hahalolo.png"></ImageLogo>
             </AtomGrid>
-            <AtomGrid item xl={4} lg={4} md={4} sm={0.0001} xs={0.0001}>
-              <AtomGrid container justifyContent="flex-end">
-                {" "}
-                <MenuTab />
-              </AtomGrid>
-            </AtomGrid>
-            <AtomGrid item xl={2.5} lg={2.5} md={3} sm={7} xs={6}>
-              <AtomStack direction={"row"} spacing={1} alignItems="center">
-                <IconSetting />
 
-                {user && user.isLogin ? (
-                  <IconAvatar />
-                ) : (
-                  <AtomStack direction={"row"} alignItems="center">
-                    <DialogLogin /> / <DialogSignUp />
-                  </AtomStack>
-                )}
+            <AtomGrid item xl={5} lg={5} md={5} xs={5}>
+              <AtomStack direction={"row"}>
+                {/* <Settings /> */}
+                <AtomStack direction={"row"} spacing={1} alignItems="center">
+                  <MenuTab />
+                  <Settings />
+                  {user && user.isLogin ? (
+                    <IconAvatar />
+                  ) : (
+                    <AtomStack
+                      sx={{ display: { xs: "none", md: "flex" } }}
+                      direction={"row"}
+                      alignItems="center"
+                    >
+                      <DialogLogin /> / <DialogSignUp />
+                    </AtomStack>
+                  )}
+                </AtomStack>
               </AtomStack>
             </AtomGrid>
           </AtomGrid>

@@ -13,7 +13,6 @@ import { alpha, styled } from "@mui/material/styles";
 import getNewGames from "../../services/games";
 import AtomTypography from "../atoms/AtomTypography";
 import AtomBox from "../atoms/AtomBox";
-import AtomCardMedia from "../atoms/AtomCardMedia";
 
 const SwiperStyles = styled(Swiper)(({ theme }) => ({
   backgroundColor: alpha(theme.palette.primary.main, 0.1),
@@ -47,7 +46,7 @@ const ImageSlider = styled("img")({
   width: "72%",
   height: "100%",
   objectFit: "fill",
-  position: "absolute",
+  // position: "absolute",
   zIndex: 1,
   top: "0px",
   right: "0px",
@@ -105,7 +104,14 @@ const Slide1 = () => {
         {data.map((value) => {
           return (
             <SwiperSlide key={value.id}>
-              <AtomGrid p={5} pt={20} pb={20} container spacing={2}>
+              <AtomGrid
+                p={5}
+                pt={20}
+                pb={20}
+                container
+                spacing={2}
+                alignItems={"center"}
+              >
                 <AtomGrid item xs={3} sm={3} md={3} lg={3} xl={3}>
                   <AtomGrid container>
                     <CaptionSlider variant="h4">{value.caption}</CaptionSlider>

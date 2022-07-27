@@ -17,12 +17,12 @@ import AtomGrid from "../atoms/AtomGrid";
 import AtomButton from "../atoms/AtomButton";
 import { getCustomTheme } from "../../services/themes";
 import AtomStack from "../atoms/AtomStack";
-import AtomLogin from "../atoms/AtomLogin";
 import DialogLogin from "./DialogMaxWidth/DialogLogin";
+import AtomLogin from "../atoms/AtomLogin";
 import AtomAppRegistrationIcon from "../atoms/AtomAppRegistrationIcon";
 import DialogSignUp from "./DialogMaxWidth/DialogSignUp";
-import { useSelector } from "react-redux";
 import { styled } from "@mui/material/styles";
+import { useSelector } from "react-redux";
 
 const ListItemText = styled(AtomListItemText)(({ theme }) => ({
   fontFamily: theme.typography.titleGame.fontFamily,
@@ -33,7 +33,8 @@ const ListItemText = styled(AtomListItemText)(({ theme }) => ({
 
 // const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
-const IconSetting = (props) => {
+const Setting = (props) => {
+  const user = useSelector((state) => state.user.content);
   const [anchorElSetting, setAnchorElSetting] = React.useState(null);
 
   const handleOpenSettingMenu = (event) => {
@@ -55,8 +56,6 @@ const IconSetting = (props) => {
 
   const customThemes = getCustomTheme();
 
-  const user = useSelector((state) => state.user.content);
-
   return (
     <>
       <AtomIconButton
@@ -65,7 +64,6 @@ const IconSetting = (props) => {
         aria-controls="menu-appbar"
         aria-haspopup="true"
         onClick={handleOpenSettingMenu}
-        // sx={{ display: { xs: "flex", md: "flex" } }}
       >
         <AtomSettingIcon />
       </AtomIconButton>
@@ -132,17 +130,21 @@ const IconSetting = (props) => {
               </AtomListItemButton>
             </>
           )}
+
           <AtomListItemButton onClick={() => changeDarkMode()}>
             <AtomListItemIcon>
               {darkMode ? <AtomDarkMode /> : <AtomLightMode />}
             </AtomListItemIcon>
-            <ListItemText primary={`Chế độ ${darkMode ? "tối" : "sáng"}`} />
+            <ListItemText
+              disableTypography
+              primary={`Chế độ ${darkMode ? "tối" : "sáng"}`}
+            />
           </AtomListItemButton>
           <AtomListItemButton onClick={handleClick}>
             <AtomListItemIcon>
               <AtomPaletteOutlinedIcon />
             </AtomListItemIcon>
-            <ListItemText primary="Chọn chủ đề" />
+            <ListItemText disableTypography primary="Chọn chủ đề" />
             {open ? <AtomExpandLess /> : <AtomExpandMore />}
           </AtomListItemButton>
           <AtomCollapse in={open} timeout="auto" unmountOnExit>
@@ -184,4 +186,4 @@ const IconSetting = (props) => {
   );
 };
 
-export default IconSetting;
+export default Setting;

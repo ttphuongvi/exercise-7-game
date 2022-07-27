@@ -4,19 +4,14 @@ import AtomRouteLink from "../atoms/AtomRouteLink";
 import dataRoutes from "../../routesGame/dataRoutes";
 import AtomGrid from "../atoms/AtomGrid";
 import AtomButton from "../atoms/AtomButton";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const MenuTab = () => {
   let navigate = useNavigate();
 
-  const location = useLocation();
-
   return (
-    <AtomGrid>
+    <AtomGrid sx={{ display: { xs: "none", md: "flex" } }}>
       {dataRoutes.map((route, index) => {
-        console.log(location.pathname === route.path);
-        console.log(route.path);
-        console.log(location.pathname);
         return (
           <AtomButton
             sx={(theme) => ({
@@ -42,22 +37,6 @@ const MenuTab = () => {
         );
       })}
     </AtomGrid>
-    // <AtomTabs value={value} onChange={handleChange}>
-    //   {dataRoutes.map((route, index) => {
-    //     return (
-    //       <TabStyles
-    //         component={AtomRouteLink}
-    //         // style={({ isActive }) => (isActive ? activeStyle : undefined)}
-    //         key={index}
-    //         to={route.path}
-    //         label={route.name}
-    //         value={index}
-    //       >
-    //         {/* {route.name} */}
-    //       </TabStyles>
-    //     );
-    //   })}
-    // </AtomTabs>
   );
 };
 

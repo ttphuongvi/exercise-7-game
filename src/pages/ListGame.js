@@ -14,7 +14,6 @@ import Divider from "../Atomic/molecules/Divider";
 import AtomDatePicker from "../Atomic/atoms/AtomDatePicker";
 import AtomLocalizationProvider from "../Atomic/atoms/AtomLocalizationProvider";
 import AtomAdapterDateFns from "../Atomic/atoms/AtomAdapterDateFns";
-import AtomStack from "../Atomic/atoms/AtomStack";
 
 const ListGame = () => {
   const user = useSelector((state) => state.user.content);
@@ -35,6 +34,7 @@ const ListGame = () => {
           maxWidth="xl"
           sx={(theme) => ({
             paddingTop: theme.spacing(2),
+            minHeight: "100vh",
           })}
         >
           <AtomPaper>
@@ -46,28 +46,37 @@ const ListGame = () => {
                 container
                 justifyContent="space-between"
                 alignItems="center"
+                spacing={2}
               >
-                <AtomGrid item xs={6}>
-                  <AtomStack id="search-game" direction={"row"} spacing={2}>
-                    <AtomTextField
-                      onChange={inputHandler}
-                      variant="outlined"
-                      label="Tìm kiếm game"
-                    />
-                    <AtomLocalizationProvider dateAdapter={AtomAdapterDateFns}>
-                      <AtomDatePicker
-                        views={["year"]}
-                        label="Năm phát hành"
-                        value={value}
-                        onChange={(newValue) => {
-                          setValue(newValue);
-                        }}
-                        renderInput={(params) => (
-                          <AtomTextField {...params} helperText={null} />
-                        )}
+                <AtomGrid item xs={12} sm={12}>
+                  {/* <AtomStack id="search-game" direction={"row"} spacing={2}> */}
+                  <AtomGrid container spacing={2}>
+                    <AtomGrid item xs={6} sm={6} md={6}>
+                      <AtomTextField
+                        onChange={inputHandler}
+                        variant="outlined"
+                        label="Tìm kiếm game"
                       />
-                    </AtomLocalizationProvider>
-                  </AtomStack>
+                    </AtomGrid>
+                    <AtomGrid item xs={6} sm={6}>
+                      <AtomLocalizationProvider
+                        dateAdapter={AtomAdapterDateFns}
+                      >
+                        <AtomDatePicker
+                          views={["year"]}
+                          label="Năm phát hành"
+                          value={value}
+                          onChange={(newValue) => {
+                            setValue(newValue);
+                          }}
+                          renderInput={(params) => (
+                            <AtomTextField {...params} helperText={null} />
+                          )}
+                        />
+                      </AtomLocalizationProvider>
+                    </AtomGrid>
+                  </AtomGrid>
+                  {/* </AtomStack> */}
                 </AtomGrid>
 
                 <AtomGrid item>
