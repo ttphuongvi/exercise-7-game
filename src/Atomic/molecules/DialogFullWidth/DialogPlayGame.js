@@ -1,32 +1,18 @@
 import React from "react";
-import AtomAppBar from "../atoms/AtomAppBar";
-import AtomCloseIcon from "../atoms/AtomCLoseIcon";
-import AtomDialog from "../atoms/AtomDialog";
-import AtomIconButton from "../atoms/AtomIconButton";
-import AtomSlide from "../atoms/AtomSlide";
-import AtomToolBar from "../atoms/AtomToolbar";
-import AtomTypography from "../atoms/AtomTypography";
+import AtomAppBar from "../../atoms/AtomAppBar";
+import AtomCloseIcon from "../../atoms/AtomCLoseIcon";
+import AtomDialog from "../../atoms/AtomDialog";
+import AtomIconButton from "../../atoms/AtomIconButton";
+import AtomSlide from "../../atoms/AtomSlide";
+import AtomToolBar from "../../atoms/AtomToolbar";
+import AtomTypography from "../../atoms/AtomTypography";
 import Iframe from "react-iframe";
-import ButtonStyle1 from "./SquareStripeButton";
-
-// const useStyles = makeStyles((theme) => ({
-//   appBar: {
-//     position: "relative",
-//   },
-//   title: {
-//     marginLeft: theme.spacing(2),
-//     flex: 1,
-//   },
-//   floatRight: {
-//     float: "right",
-//   },
-// }));
+import ButtonStyle1 from "../SquareStripeButton";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <AtomSlide direction="up" ref={ref} {...props} />;
 });
 const DialogPlayGame = (props) => {
-  // const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -37,9 +23,7 @@ const DialogPlayGame = (props) => {
     setOpen(false);
   };
   return (
-    <div
-    // className={classes.floatRight}
-    >
+    <div>
       <ButtonStyle1 label="Chơi game" onClick={handleClickOpen}></ButtonStyle1>
       <AtomDialog
         fullScreen
@@ -47,9 +31,7 @@ const DialogPlayGame = (props) => {
         onClose={handleClose}
         TransitionComponent={Transition}
       >
-        <AtomAppBar
-        //  className={classes.appBar}
-        >
+        <AtomAppBar>
           <AtomToolBar>
             <AtomIconButton
               edge="start"
@@ -59,11 +41,7 @@ const DialogPlayGame = (props) => {
             >
               <AtomCloseIcon />
             </AtomIconButton>
-            <AtomTypography
-              component={"span"}
-              variant="h6"
-              // className={classes.title}
-            >
+            <AtomTypography component={"span"} variant="subtitle1">
               {props.caption}
             </AtomTypography>
           </AtomToolBar>
