@@ -7,11 +7,14 @@ import { styled } from "@mui/styles";
 import Drawer from "../organisms/Drawer";
 import { CssBaseline } from "@mui/material";
 
+const drawerWidth = 240;
+
 const Content = styled(AtomBox)({
   marginTop: "64px",
+  flexGrow: 1,
+  p: 3,
+  width: { sm: `calc(100% - ${drawerWidth}px)` },
 });
-
-const drawerWidth = 240;
 
 const TemplatePage = ({ appbar, drawer, content, footer }) => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -26,14 +29,7 @@ const TemplatePage = ({ appbar, drawer, content, footer }) => {
       {/* {appbar} */}
       {/* {drawer} */}
       <Drawer mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
-      <Content
-        component="main"
-        sx={{
-          flexGrow: 1,
-          p: 3,
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-        }}
-      >
+      <Content component="main">
         {content}
         {footer}
       </Content>
