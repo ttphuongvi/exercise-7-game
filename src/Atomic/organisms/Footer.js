@@ -37,7 +37,6 @@ const GridContainerStyles = styled(AtomGrid)(
 `
 );
 const Footer = () => {
-  // const classes = useStyles();
   return (
     <GridContainerStyles alignItems="center" container>
       <AtomGrid item xs={4}>

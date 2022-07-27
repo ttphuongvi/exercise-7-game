@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import axios from "axios";
 import HorizontalStripeButton from "./../molecules/HorizontalStripeButton";
-import DialogPlayGame from "../molecules/DialogPlayGame";
+import DialogPlayGame from "../molecules/DialogFullWidth/DialogPlayGame";
 import { useSelector, useDispatch } from "react-redux";
 import { SET_LIST_GAME } from "../../store/const";
 import AtomGrid from "../atoms/AtomGrid";
@@ -79,7 +79,12 @@ const GridListGame = (props) => {
   });
 
   return (
-    <AtomGrid container alignItems={"center"} direction={"column"}>
+    <AtomGrid
+      id="list-game"
+      container
+      alignItems={"center"}
+      direction={"column"}
+    >
       <AtomGrid item>
         {" "}
         <GridContainer container spacing={3}>
@@ -105,12 +110,12 @@ const GridListGame = (props) => {
                         <DescriptionGame>
                           {value.description}
                         </DescriptionGame>{" "}
-                        <AtomCardAction style={{ justifyContent: "flex-end" }}>
+                        <AtomStack alignItems={"flex-end"}>
                           <DialogPlayGame
                             caption={value.caption}
                             link={value.link}
                           />
-                        </AtomCardAction>
+                        </AtomStack>
                       </AtomStack>
                     </AtomCardContent>
                   </ItemCard>

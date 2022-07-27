@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import DialogPlayGame from "../Atomic/molecules/DialogPlayGame";
+import DialogPlayGame from "../Atomic/molecules/DialogFullWidth/DialogPlayGame";
 import AtomCardMedia from "../Atomic/atoms/AtomCardMedia";
 import CaptionGame from "../Atomic/molecules/CaptionGame";
 import AtomBox from "../Atomic/atoms/AtomBox";

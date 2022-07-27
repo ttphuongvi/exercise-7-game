@@ -16,7 +16,6 @@ const DialogTitleStyles = styled(AtomDialogTitle)(({ theme }) => ({
 }));
 
 const DialogMaxWidth = ({ actionName, content, onClick }) => {
-  // const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -49,7 +48,6 @@ const DialogMaxWidth = ({ actionName, content, onClick }) => {
               <HorizontalStripeButton
                 variant="contained"
                 color="primary"
-                // className={classes.submit}
                 onClick={onClick}
                 label={actionName}
               ></HorizontalStripeButton>
