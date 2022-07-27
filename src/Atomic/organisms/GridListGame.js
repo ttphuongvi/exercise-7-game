@@ -12,7 +12,6 @@ import DescriptionGame from "../molecules/DescriptionGame";
 import CaptionGame from "../molecules/CaptionGame";
 import LinkStyle from "../molecules/LinkStyle";
 import { styled } from "@mui/material/styles";
-import AtomCardAction from "../atoms/AtomCardAction";
 import AtomTypography from "../atoms/AtomTypography";
 import AtomStack from "../atoms/AtomStack";
 import { Divider } from "@mui/material";
