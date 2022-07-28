@@ -48,17 +48,18 @@ const ListGame = () => {
                 alignItems="center"
                 spacing={2}
               >
-                <AtomGrid item xs={12} sm={12}>
+                <AtomGrid item xs={12} sm={12} lg={7} md={8}>
                   {/* <AtomStack id="search-game" direction={"row"} spacing={2}> */}
                   <AtomGrid container spacing={2}>
-                    <AtomGrid item xs={6} sm={6} md={6}>
+                    <AtomGrid item xs={6} sm={6} md={6} lg={5}>
                       <AtomTextField
                         onChange={inputHandler}
                         variant="outlined"
                         label="Tìm kiếm game"
+                        fullWidth
                       />
                     </AtomGrid>
-                    <AtomGrid item xs={6} sm={6}>
+                    <AtomGrid item xs={6} sm={6} md={6}>
                       <AtomLocalizationProvider
                         dateAdapter={AtomAdapterDateFns}
                       >

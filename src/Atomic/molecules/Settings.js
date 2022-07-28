@@ -111,7 +111,9 @@ const Setting = (props) => {
             <></>
           ) : (
             <>
-              <AtomListItemButton sx={{ display: { xs: "flex", md: "none" } }}>
+              <AtomListItemButton
+                sx={{ display: { xs: "flex", md: "flex", lg: "none" } }}
+              >
                 <AtomListItemIcon>
                   <AtomLogin />
                 </AtomListItemIcon>
@@ -120,7 +122,9 @@ const Setting = (props) => {
                   <DialogLogin />
                 </AtomListItemText>
               </AtomListItemButton>
-              <AtomListItemButton sx={{ display: { xs: "flex", md: "none" } }}>
+              <AtomListItemButton
+                sx={{ display: { xs: "flex", md: "flex", lg: "none" } }}
+              >
                 <AtomListItemIcon>
                   <AtomAppRegistrationIcon />
                 </AtomListItemIcon>

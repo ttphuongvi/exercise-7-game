@@ -51,12 +51,12 @@ const AppBar = (props) => {
             alignItems="center"
             justifyContent={"space-between"}
           >
-            <AtomGrid item xl={7} lg={7} md={7} sm={5} xs={7}>
+            <AtomGrid item xl={6} lg={6} md={5.5} xs={7} sm={9}>
               <ImageLogo alt="logo" src="/images/logo_hahalolo.png"></ImageLogo>
             </AtomGrid>
 
-            <AtomGrid item xl={5} lg={5} md={5} xs={5}>
-              <AtomStack direction={"row"}>
+            <AtomGrid item xl={6} lg={6} md={6.5} xs={5} sm={3}>
+              <AtomStack direction={"row"} justifyContent="flex-end">
                 {/* <Settings /> */}
                 <AtomStack direction={"row"} spacing={1} alignItems="center">
                   <MenuTab />
@@ -65,7 +65,7 @@ const AppBar = (props) => {
                     <IconAvatar />
                   ) : (
                     <AtomStack
-                      sx={{ display: { xs: "none", md: "flex" } }}
+                      sx={{ display: { xs: "none", md: "none", lg: "flex" } }}
                       direction={"row"}
                       alignItems="center"
                     >

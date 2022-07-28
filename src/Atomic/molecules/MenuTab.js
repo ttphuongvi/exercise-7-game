@@ -10,7 +10,7 @@ const MenuTab = () => {
   let navigate = useNavigate();
 
   return (
-    <AtomGrid sx={{ display: { xs: "none", md: "flex" } }}>
+    <AtomGrid sx={{ display: { xs: "none", md: "none", lg: "flex" } }}>
       {dataRoutes.map((route, index) => {
         return (
           <AtomButton

@@ -91,7 +91,7 @@ const GridListGame = (props) => {
           {filteredData &&
             filteredData.map((value) => {
               return (
-                <AtomGrid key={value.id} item xs={12} sm={4} md={3} lg={3}>
+                <AtomGrid key={value.id} item xs={12} sm={6} md={6} lg={3}>
                   <ItemCard>
                     <CardMediaStyle
                       image={value.image}

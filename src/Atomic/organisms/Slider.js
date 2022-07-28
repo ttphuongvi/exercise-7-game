@@ -46,7 +46,7 @@ const ImageSlider = styled("img")({
   width: "72%",
   height: "100%",
   objectFit: "fill",
-  // position: "absolute",
+  position: "absolute",
   zIndex: 1,
   top: "0px",
   right: "0px",
