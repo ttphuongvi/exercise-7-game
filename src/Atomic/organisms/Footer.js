@@ -44,13 +44,13 @@ const Footer = () => {
           <ImageLogo src="/images/logo_hahalolo.png"></ImageLogo>
         </AtomGrid>
       </AtomGrid>
-      <AtomGrid item xl={8} lg={8} xs={12} md={12}>
+      <AtomGrid item xl={8} lg={8} xs={12} md={12} sm={12}>
         <AtomGrid
           container
           alignItems={"center"}
           justifyContent={"space-evenly"}
         >
-          <AtomGrid item xl={7} lg={7} xs={12} md={7}>
+          <AtomGrid item xl={7} lg={7} xs={12} md={7} sm={7}>
             <InfoFooter
               left={<AtomIconLocation />}
               right={
@@ -64,7 +64,7 @@ const Footer = () => {
               right={<TypoContact>(+84) 911 432 933</TypoContact>}
             ></InfoFooter>
           </AtomGrid>
-          <AtomGrid item xl={5}>
+          <AtomGrid item xl={5} lg={5}>
             <InfoFooter
               left={<AtomIconEmail />}
               right={<TypoContact>Cskh@hahalolo.com</TypoContact>}
