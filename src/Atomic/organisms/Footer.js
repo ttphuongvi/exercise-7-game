@@ -39,12 +39,12 @@ const GridContainerStyles = styled(AtomGrid)(
 const Footer = () => {
   return (
     <GridContainerStyles alignItems="center" container>
-      <AtomGrid item xl={4} lg={4} xs={12} md={12}>
+      <AtomGrid item xl={4} lg={3} xs={12} md={12}>
         <AtomGrid container justifyContent={"center"}>
           <ImageLogo src="/images/logo_hahalolo.png"></ImageLogo>
         </AtomGrid>
       </AtomGrid>
-      <AtomGrid item xl={8} lg={8} xs={12} md={12} sm={12}>
+      <AtomGrid item xl={8} lg={9} xs={12} md={12} sm={12}>
         <AtomGrid
           container
           alignItems={"center"}
@@ -64,7 +64,7 @@ const Footer = () => {
               right={<TypoContact>(+84) 911 432 933</TypoContact>}
             ></InfoFooter>
           </AtomGrid>
-          <AtomGrid item xl={5} lg={5}>
+          <AtomGrid item xl={5}>
             <InfoFooter
               left={<AtomIconEmail />}
               right={<TypoContact>Cskh@hahalolo.com</TypoContact>}
