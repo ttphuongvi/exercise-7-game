@@ -10,20 +10,22 @@ import HorizontalStripeButton from "../Atomic/molecules/HorizontalStripeButton";
 import { useNavigate } from "react-router-dom";
 import Divider from "../Atomic/molecules/Divider";
 import AtomStack from "../Atomic/atoms/AtomStack";
+import { styled } from "@mui/material/styles";
 const Home = () => {
   let navigate = useNavigate();
 
   const handleClick = () => {
     navigate("/menu");
   };
+
   return (
     <TemplatePage
       content={
-        <div>
+        <div style={{ minHeight: "100vh" }}>
           <Slider />
           <AtomContainer
             id="new-game"
-            maxWidth="xl"
+            maxWidth={false}
             sx={(theme) => ({
               paddingTop: theme.spacing(2),
             })}

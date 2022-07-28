@@ -16,6 +16,15 @@ import AtomBox from "../atoms/AtomBox";
 
 const SwiperStyles = styled(Swiper)(({ theme }) => ({
   backgroundColor: alpha(theme.palette.primary.main, 0.1),
+  // [theme.breakpoints.down("xs")]: {
+  //   width: 375,
+  // },
+  [theme.breakpoints.down("sm")]: {
+    width: 600,
+  },
+  [theme.breakpoints.down("xl")]: {
+    width: 1200,
+  },
 }));
 
 const CaptionSlider = styled(AtomTypography)({
@@ -53,6 +62,8 @@ const ImageSlider = styled("img")({
   borderRadius: "40% 0% 0% 40%",
 });
 
+const BoxStyles = styled(AtomBox)(({ theme }) => ({}));
+
 const Slide1 = () => {
   const update = (swiper) => {
     swiper.slides.map((slide, index) => {
@@ -81,8 +92,18 @@ const Slide1 = () => {
   const data = getNewGames(6);
 
   return (
-    <AtomBox id="slider" maxWidth={"lg"}>
+    <BoxStyles id="slider">
       <SwiperStyles
+        breakpoints={{
+          600: {
+            width: 600,
+            slidesPerView: 0,
+          },
+          1200: {
+            width: 1200,
+            slidesPerView: 0,
+          },
+        }}
         loop={true}
         spaceBetween={30}
         centeredSlides={true}
@@ -106,8 +127,8 @@ const Slide1 = () => {
             <SwiperSlide key={value.id}>
               <AtomGrid
                 p={5}
-                pt={20}
-                pb={20}
+                pt={"10%"}
+                pb={"10%"}
                 container
                 spacing={2}
                 alignItems={"center"}
@@ -139,7 +160,7 @@ const Slide1 = () => {
           );
         })}
       </SwiperStyles>
-    </AtomBox>
+    </BoxStyles>
   );
 };
 export default Slide1;

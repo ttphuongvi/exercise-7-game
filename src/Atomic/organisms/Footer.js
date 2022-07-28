@@ -39,12 +39,12 @@ const GridContainerStyles = styled(AtomGrid)(
 const Footer = () => {
   return (
     <GridContainerStyles alignItems="center" container>
-      <AtomGrid item xl={4} lg={3} xs={12} md={12}>
+      <AtomGrid item xl={5} lg={3} xs={12} md={12}>
         <AtomGrid container justifyContent={"center"}>
           <ImageLogo src="/images/logo_hahalolo.png"></ImageLogo>
         </AtomGrid>
       </AtomGrid>
-      <AtomGrid item xl={8} lg={9} xs={12} md={12} sm={12}>
+      <AtomGrid item xl={7} lg={9} xs={12} md={12} sm={12}>
         <AtomGrid
           container
           alignItems={"center"}

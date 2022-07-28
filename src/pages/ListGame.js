@@ -31,7 +31,7 @@ const ListGame = () => {
     <TemplatePage
       content={
         <AtomContainer
-          maxWidth="xl"
+          maxWidth={false}
           sx={(theme) => ({
             paddingTop: theme.spacing(2),
             minHeight: "100vh",
@@ -50,7 +50,7 @@ const ListGame = () => {
               >
                 <AtomGrid item xs={12} sm={12} lg={7} md={12}>
                   {/* <AtomStack id="search-game" direction={"row"} spacing={2}> */}
-                  <AtomGrid container spacing={2}>
+                  <AtomGrid id="search-game" container spacing={2}>
                     <AtomGrid item xs={6} sm={6} md={6} lg={5}>
                       <AtomTextField
                         onChange={inputHandler}
