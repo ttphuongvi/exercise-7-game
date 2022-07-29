@@ -17,13 +17,10 @@ import AtomStack from "../atoms/AtomStack";
 import { Divider } from "@mui/material";
 
 const ItemCard = styled(AtomCard)(({ theme }) => ({
-  position: "relative",
-
+  padding: theme.spacing(2),
   backgroundColor: theme.palette.background.card,
   "&:hover": {
-    boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px;",
-    transform: "scale(1.05)",
-    transition: "all 0.3s ease-in-out",
+    boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
   },
 }));
 
@@ -92,7 +89,7 @@ const GridListGame = (props) => {
             filteredData.map((value) => {
               return (
                 <AtomGrid key={value.id} item xs={12} sm={6} md={6} lg={3}>
-                  <ItemCard>
+                  <ItemCard elevation={0} variant="outlined">
                     <CardMediaStyle
                       image={value.image}
                       title={value.caption}

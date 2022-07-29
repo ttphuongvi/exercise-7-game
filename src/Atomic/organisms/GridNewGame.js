@@ -12,13 +12,10 @@ import getNewGames from "../../services/games";
 import AtomStack from "../atoms/AtomStack";
 
 const CardStyles = styled(AtomCard)(({ theme }) => ({
-  boxShadow: theme.shadows[2],
   padding: theme.spacing(2),
   backgroundColor: theme.palette.background.card,
   "&:hover": {
-    boxShadow: theme.shadows[2],
-    transform: "scale(1.05)",
-    transition: "all 0.3s ease-in-out",
+    boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
   },
 }));
 
@@ -32,7 +29,7 @@ const GridNewGame = () => {
       {data.map((value) => {
         return (
           <AtomGrid key={value.id} item xs={12} sm={6} md={6} lg={4} xl={4}>
-            <CardStyles>
+            <CardStyles elevation={0} variant="outlined">
               <AtomGrid container spacing={1}>
                 <AtomGrid item xs={12}>
                   <CaptionGame>{value?.caption}</CaptionGame>
