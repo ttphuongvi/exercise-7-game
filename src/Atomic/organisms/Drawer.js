@@ -1,6 +1,5 @@
 import React from "react";
 import AtomDrawer from "../atoms/AtomDrawer";
-import Divider from "../molecules/Divider";
 import AtomList from "../atoms/AtomList";
 import AtomListItem from "../atoms/AtomListItem";
 import AtomListItemButton from "../atoms/AtomListItemButton";
@@ -13,6 +12,7 @@ import AtomCollapse from "../atoms/AtomCollapse";
 import AtomExpandLess from "../atoms/AtomExpandLess";
 import AtomExpandMore from "../atoms/AtomExpandMore";
 import AtomLink from "../atoms/AtomLink";
+import AtomDivider from "../atoms/AtomDivider";
 
 const drawerWidth = 240;
 
@@ -38,7 +38,7 @@ const Drawer = (props) => {
   const drawer = (
     <div>
       <AtomToolBar />
-      <Divider />
+      <AtomDivider />
       <AtomList component="nav">
         {dataRoutes.map((route, indexRoute) => (
           <div key={indexRoute}>

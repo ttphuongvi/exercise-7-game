@@ -9,60 +9,37 @@ import "swiper/css/pagination";
 import { useNavigate } from "react-router-dom";
 import AtomGrid from "../atoms/AtomGrid";
 import ButtonStyle1 from "../molecules/SquareStripeButton";
-import { alpha, styled } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import getNewGames from "../../services/games";
 import AtomTypography from "../atoms/AtomTypography";
 import AtomBox from "../atoms/AtomBox";
-
-const SwiperStyles = styled(Swiper)(({ theme }) => ({
-  backgroundColor: alpha(theme.palette.primary.main, 0.1),
-  // [theme.breakpoints.down("xs")]: {
-  //   width: 375,
-  // },
-  [theme.breakpoints.down("sm")]: {
-    width: 600,
-  },
-  [theme.breakpoints.down("xl")]: {
-    width: 1200,
-  },
-}));
-
-const CaptionSlider = styled(AtomTypography)({
-  width: "100%",
-  zIndex: 99,
-  textShadow: "1px 1px 1px rgba(0, 0, 0, 0.1)",
-  fontFamily: '"Economica", Arial, sans-serif',
-  fontWeight: 700,
-  // textShadow: '0px 2px 3px rgba(0, 0, 0, 1)',
-});
+import AtomStack from "../atoms/AtomStack";
 
 const DescriptionGameSlider = styled(AtomTypography)(({ theme }) => ({
-  color: alpha(theme.palette.primary.main, 0.8),
-  fontSize: "16px",
-  marginBottom: theme.spacing(2),
+  // color: alpha(theme.palette.primary.main, 0.8),
+  // fontSize: "16px",
+  // marginBottom: theme.spacing(2),
   overflow: "hidden",
-  fontFamily: '"Economica", Arial, sans-serif',
-  fontWeight: 400,
-  fontStyle: "italic",
-  textShadow: "0px 1px 1px rgba(0, 0, 0, 1)",
+  // fontFamily: '"Economica", Arial, sans-serif',
+  // fontWeight: 400,
+  // fontStyle: "italic",
+  // textShadow: "0px 1px 1px rgba(0, 0, 0, 1)",
   WebkitBoxOrient: "vertical",
-  WebkitLineClamp: 7,
+  WebkitLineClamp: 3,
   display: "-webkit-box",
-  textAlign: "justify",
+  // textAlign: "justify",
 }));
 
 const ImageSlider = styled("img")({
-  width: "72%",
-  height: "100%",
-  objectFit: "fill",
-  position: "absolute",
-  zIndex: 1,
-  top: "0px",
-  right: "0px",
-  borderRadius: "40% 0% 0% 40%",
+  // width: "72%",
+  // height: "100%",
+  // objectFit: "fill",
+  // position: "absolute",
+  // zIndex: 1,
+  // top: "0px",
+  // right: "0px",
+  // borderRadius: "40% 0% 0% 40%",
 });
-
-const BoxStyles = styled(AtomBox)(({ theme }) => ({}));
 
 const Slide1 = () => {
   const update = (swiper) => {
@@ -92,18 +69,9 @@ const Slide1 = () => {
   const data = getNewGames(6);
 
   return (
-    <BoxStyles id="slider">
-      <SwiperStyles
-        breakpoints={{
-          600: {
-            width: 600,
-            slidesPerView: 0,
-          },
-          1200: {
-            width: 1200,
-            slidesPerView: 0,
-          },
-        }}
+    <>
+      <Swiper
+        sx={{}}
         loop={true}
         spaceBetween={30}
         centeredSlides={true}
@@ -125,42 +93,91 @@ const Slide1 = () => {
         {data.map((value) => {
           return (
             <SwiperSlide key={value.id}>
-              <AtomGrid
-                p={5}
-                pt={"10%"}
-                pb={"10%"}
-                container
-                spacing={2}
-                alignItems={"center"}
+              <AtomBox
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  position: "relative",
+                  // height: 500,
+                }}
               >
-                <AtomGrid item xs={3} sm={3} md={3} lg={3} xl={3}>
-                  <AtomGrid container>
-                    <CaptionSlider variant="h4">{value.caption}</CaptionSlider>
-                    <DescriptionGameSlider>
-                      {value.description}
-                    </DescriptionGameSlider>
-                    <ButtonStyle1
-                      label="Xem chi tiết"
-                      onClick={() => {
-                        navigate(`/${value.id}`);
-                      }}
-                    />
-                  </AtomGrid>{" "}
-                </AtomGrid>
-                <AtomGrid item xs={9} sm={9} md={9} lg={9} xl={9}>
-                  <ImageSlider src={value.image} alt="" />
-                  {/* <AtomCardMedia
+                <AtomBox
+                  component="img"
+                  src={value.image}
+                  sx={{
+                    width: "100%",
+                    // height: "100%",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    filter: "blur(3px)",
+                    webkitFilter: " blur(3px)",
+                    position: "absolute",
+                  }}
+                ></AtomBox>
+                <AtomBox>
+                  <AtomGrid
+                    pl={5}
+                    pr={5}
+                    // pt={"10%"}
+                    // pb={"10%"}
+                    container
+                    spacing={2}
+                    // alignItems={"center"}
+                  >
+                    <AtomGrid item xs={3} sm={3} md={3} lg={3} xl={3}>
+                      <AtomBox
+                        sx={(theme) => ({
+                          position: "absolute",
+                          bottom: "0%",
+                          left: "50%",
+                          transform: "translate3d(-50%, -50%, 0)",
+                          zIndex: 99,
+                          textAlign: "center",
+                          width: "70%",
+                          fontWeight: 300,
+                          backgroundColor: "rgba(255,255,255,.85)",
+                          boxShadow: "0 1em 2em -1em rgba(0,0,0,.5)",
+                          padding: "1em 2em",
+                          lineHeight: 1.5,
+                          color: "#333",
+                          borderRadius: "0.5em",
+                        })}
+                      >
+                        <AtomStack spacing={1} alignItems="center">
+                          <AtomTypography sx={{}} variant="h4">
+                            {value.caption}
+                          </AtomTypography>
+                          <DescriptionGameSlider>
+                            {value.description}
+                          </DescriptionGameSlider>
+                          <ButtonStyle1
+                            label="Xem chi tiết"
+                            onClick={() => {
+                              navigate(`/${value.id}`);
+                            }}
+                          />
+                        </AtomStack>
+                      </AtomBox>{" "}
+                    </AtomGrid>
+                    <AtomGrid item xs={9} sm={9} md={9} lg={9} xl={9}>
+                      <ImageSlider src={value.image} alt="" />
+                      {/* <AtomCardMedia
                     component={"img"}
                     image={value.image}
                   ></AtomCardMedia> */}
-                </AtomGrid>
-              </AtomGrid>
+                    </AtomGrid>
+                  </AtomGrid>
+                </AtomBox>
+              </AtomBox>
+
               {/* </AtomContainer> */}
             </SwiperSlide>
           );
         })}
-      </SwiperStyles>
-    </BoxStyles>
+      </Swiper>
+    </>
   );
 };
 export default Slide1;

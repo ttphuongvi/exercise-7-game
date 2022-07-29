@@ -7,11 +7,13 @@ import { styled } from "@mui/styles";
 import Drawer from "../organisms/Drawer";
 import { CssBaseline } from "@mui/material";
 
-// const drawerWidth = 240;
+const drawerWidth = 240;
 
 const Content = styled(AtomBox)({
   marginTop: "64px",
   flexGrow: 1,
+  p: 3,
+  width: `calc(100% - ${drawerWidth}px)`,
 
   // width: { sm: `calc(100% - ${drawerWidth}px)` },
 });
@@ -28,8 +30,27 @@ const TemplatePage = ({ appbar, drawer, content, footer }) => {
       <AppBar handleDrawerToggle={handleDrawerToggle} />
       {/* {appbar} */}
       {/* {drawer} */}
-      <Drawer mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
-      <Content component="main">
+      <AtomBox
+        component="nav"
+        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+        aria-label="mailbox folders"
+      >
+        <Drawer
+          mobileOpen={mobileOpen}
+          handleDrawerToggle={handleDrawerToggle}
+        />
+      </AtomBox>
+
+      <Content
+        sx={
+          {
+            // flexGrow: 1,
+            // p: 3,
+            // width: { xs: "100%", sm: `calc(100% - ${drawerWidth}px)` },
+          }
+        }
+        component="main"
+      >
         {content}
         {footer}
       </Content>
