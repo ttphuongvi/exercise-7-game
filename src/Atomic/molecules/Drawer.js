@@ -1,17 +1,12 @@
 import React from "react";
 import AtomDrawer from "../atoms/AtomDrawer";
 import AtomList from "../atoms/AtomList";
-import AtomListItem from "../atoms/AtomListItem";
 import AtomListItemButton from "../atoms/AtomListItemButton";
 import AtomListItemText from "../atoms/AtomListItemText";
 import AtomToolBar from "../atoms/AtomToolbar";
 import AtomBox from "../atoms/AtomBox";
 import dataRoutes from "../../routesGame/dataRoutes";
-import { useLocation, useNavigate } from "react-router-dom";
-import AtomCollapse from "../atoms/AtomCollapse";
-import AtomExpandLess from "../atoms/AtomExpandLess";
-import AtomExpandMore from "../atoms/AtomExpandMore";
-import AtomLink from "../atoms/AtomLink";
+import { useNavigate } from "react-router-dom";
 import AtomDivider from "../atoms/AtomDivider";
 
 const drawerWidth = 240;
@@ -33,7 +28,6 @@ const Drawer = (props) => {
     newOpenState[index].open = value;
     setOpenState(newOpenState);
   };
-  const location = useLocation();
 
   const drawer = (
     <div>
@@ -49,13 +43,13 @@ const Drawer = (props) => {
               }}
             >
               <AtomListItemText primary={route.name}></AtomListItemText>
-              {openState[indexRoute].open ? (
+              {/* {openState[indexRoute].open ? (
                 <AtomExpandLess />
               ) : (
                 <AtomExpandMore />
-              )}
+              )} */}
             </AtomListItemButton>
-            <AtomCollapse
+            {/* <AtomCollapse
               in={openState[indexRoute].open}
               timeout="auto"
               unmountOnExit
@@ -67,11 +61,11 @@ const Drawer = (props) => {
                     <AtomListItem
                       key={indexHash}
                       sx={{ pl: 4 }}
-                      selected={location.hash === hash.href}
+                      selected={location.hash === hash.path}
                     >
                       <AtomLink
                         color={
-                          location.hash === hash.href ? "primary" : "secondary"
+                          location.hash === hash.path ? "primary" : "secondary"
                         }
                         underline="none"
                         sx={(theme) => ({
@@ -83,16 +77,16 @@ const Drawer = (props) => {
                             color: theme.palette.primary.main,
                           },
                         })}
-                        href={hash.href}
+                        href={hash.path}
                       >
                         {hash.name}
-                        {/* <AtomLink href={hash.href}>{hash.name}</AtomLink> */}
+                        {/* <AtomLink href={hash.href}>{hash.name}</AtomLink> 
                       </AtomLink>
                     </AtomListItem>
                   );
                 })}
               </AtomList>
-            </AtomCollapse>
+            </AtomCollapse> */}
           </div>
         ))}
         {/* {dataRoutes[(0, 1, 2)].haskLink.map((route, index) => (
