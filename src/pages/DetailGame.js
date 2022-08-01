@@ -18,7 +18,7 @@ import AtomContainer from "../Atomic/atoms/AtomContainer";
 const PaperStyles = styled(AtomPaper)(({ theme }) => ({
   // width: "60%",
   marginTop: theme.spacing(2),
-  boxShadow: theme.shadows[1],
+  boxShadow: " rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;",
 }));
 
 const CardAction = styled(AtomCardAction)({
