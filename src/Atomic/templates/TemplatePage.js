@@ -3,20 +3,21 @@ import PropTypes from "prop-types";
 import AtomBox from "../atoms/AtomBox";
 import AppBar from "../organisms/AppBar";
 import Footer from "../organisms/Footer";
-import { styled } from "@mui/styles";
+import { styled } from "@mui/material/styles";
 import Drawer from "../molecules/Drawer";
 import { CssBaseline } from "@mui/material";
 
 const drawerWidth = 240;
 
-const Content = styled(AtomBox)({
-  marginTop: "64px",
+const Content = styled(AtomBox)(({ theme }) => ({
   flexGrow: 1,
   p: 3,
   width: `calc(100% - ${drawerWidth}px)`,
+  // marginTop: "64px",
+  marginTop: theme.mixins.toolbar.minHeight,
+}));
 
-  // width: { sm: `calc(100% - ${drawerWidth}px)` },
-});
+// width: { sm: `calc(100% - ${drawerWidth}px)` },
 
 const TemplatePage = ({ appbar, drawer, content, footer }) => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -69,3 +70,25 @@ TemplatePage.defaultProps = {
 };
 
 export default TemplatePage;
+
+// import { useMediaQuery, useTheme } from '@mui/material';
+
+// export default function useAppBarHeight() {
+//     const {
+//         mixins: { toolbar },
+//         breakpoints,
+//     } = useTheme();
+//     const toolbarDesktopQuery = breakpoints.up('sm');
+//     const toolbarLandscapeQuery = `${breakpoints.up('xs')} and (orientation: landscape)`;
+//     const isDesktop = useMediaQuery(toolbarDesktopQuery);
+//     const isLandscape = useMediaQuery(toolbarLandscapeQuery);
+//     let currentToolbarMinHeight;
+//     if (isDesktop) {
+//         currentToolbarMinHeight = toolbar[toolbarDesktopQuery];
+//     } else if (isLandscape) {
+//         currentToolbarMinHeight = toolbar[toolbarLandscapeQuery];
+//     } else {
+//         currentToolbarMinHeight = toolbar;
+//     }
+//     return currentToolbarMinHeight?.minHeight;
+// }

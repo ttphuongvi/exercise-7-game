@@ -6,12 +6,13 @@ import AtomListItemText from "../atoms/AtomListItemText";
 import AtomToolBar from "../atoms/AtomToolbar";
 import AtomBox from "../atoms/AtomBox";
 import dataRoutes from "../../routesGame/dataRoutes";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import AtomDivider from "../atoms/AtomDivider";
 import DialogLogin from "./DialogMaxWidth/DialogLogin";
 import DialogSignUp from "./DialogMaxWidth/DialogSignUp";
 import { useSelector } from "react-redux";
 import AtomButton from "../atoms/AtomButton";
+import { alpha } from "@mui/material";
 
 const drawerWidth = 240;
 
@@ -34,6 +35,8 @@ const Drawer = (props) => {
   };
 
   const user = useSelector((state) => state.user.content);
+
+  const location = useLocation();
   const drawer = (
     <div>
       <AtomToolBar />
@@ -47,14 +50,14 @@ const Drawer = (props) => {
                 handleClick(indexRoute, !openState[indexRoute].open);
               }}
               sx={(theme) => ({
-                "&.Mui-selected": {
-                  backgroundColor: "rgba(220, 0, 50, 0.1)",
+                "&:hover": {
+                  backgroundColor: alpha(theme.palette.primary.main, 0.1),
+                  // color: theme.palette.primary.main,
                 },
               })}
-              selected={0}
+              selected={location.pathname === route.path}
             >
               <AtomListItemText
-                disableTypography
                 sx={(theme) => ({
                   fontFamily: theme.typography.titleGame.fontFamily,
                   fontSize: theme.typography.body2.fontSize,
@@ -63,6 +66,7 @@ const Drawer = (props) => {
                   paddingBottom: theme.spacing(1),
                   paddingLeft: theme.spacing(1),
                 })}
+                disableTypography
                 primary={route.name}
               ></AtomListItemText>
             </AtomListItemButton>
