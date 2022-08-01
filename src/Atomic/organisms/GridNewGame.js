@@ -14,8 +14,9 @@ import AtomStack from "../atoms/AtomStack";
 const CardStyles = styled(AtomCard)(({ theme }) => ({
   padding: theme.spacing(2),
   backgroundColor: theme.palette.background.card,
+  boxShadow: "rgba(0, 0, 0, 0.1) 0px 0px 0px 1px",
   "&:hover": {
-    boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+    boxShadow: "rgba(0, 0, 0, 0.14) 0px 3px 8px",
   },
 }));
 
@@ -28,8 +29,8 @@ const GridNewGame = () => {
     <AtomGrid container spacing={3}>
       {data.map((value) => {
         return (
-          <AtomGrid key={value.id} item xs={12} sm={6} md={6} lg={4} xl={4}>
-            <CardStyles elevation={0} variant="outlined">
+          <AtomGrid key={value.id} item xs={12} sm={12} md={6} lg={4} xl={4}>
+            <CardStyles elevation={0}>
               <AtomGrid container spacing={1}>
                 <AtomGrid item xs={12}>
                   <CaptionGame>{value?.caption}</CaptionGame>

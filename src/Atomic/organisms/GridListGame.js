@@ -19,8 +19,9 @@ import { Divider } from "@mui/material";
 const ItemCard = styled(AtomCard)(({ theme }) => ({
   padding: theme.spacing(2),
   backgroundColor: theme.palette.background.card,
+  boxShadow: "rgba(0, 0, 0, 0.1) 0px 0px 0px 1px",
   "&:hover": {
-    boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+    boxShadow: "rgba(0, 0, 0, 0.14) 0px 3px 8px",
   },
 }));
 
@@ -89,33 +90,33 @@ const GridListGame = (props) => {
             filteredData.map((value) => {
               return (
                 <AtomGrid key={value.id} item xs={12} sm={6} md={6} lg={3}>
-                  <ItemCard elevation={0} variant="outlined">
-                    <CardMediaStyle
-                      image={value.image}
-                      title={value.caption}
-                    ></CardMediaStyle>
-                    <AtomCardContent>
-                      <AtomStack spacing={1}>
-                        <LinkStyle to={`/${value.id}`}>
+                  <LinkStyle to={`/${value.id}`}>
+                    <ItemCard elevation={0}>
+                      <CardMediaStyle
+                        image={value.image}
+                        title={value.caption}
+                      ></CardMediaStyle>
+                      <AtomCardContent>
+                        <AtomStack spacing={1}>
                           {" "}
                           <CaptionGame>{value.caption}</CaptionGame>
-                        </LinkStyle>
-                        <AtomTypography variant="subtitle2">
-                          Phát hành ngày {value.release}
-                        </AtomTypography>
-                        <Divider />
-                        <DescriptionGame>
-                          {value.description}
-                        </DescriptionGame>{" "}
-                        <AtomStack alignItems={"flex-end"}>
-                          <DialogPlayGame
-                            caption={value.caption}
-                            link={value.link}
-                          />
+                          <AtomTypography variant="subtitle2">
+                            Phát hành ngày {value.release}
+                          </AtomTypography>
+                          <Divider />
+                          <DescriptionGame>
+                            {value.description}
+                          </DescriptionGame>{" "}
+                          <AtomStack alignItems={"flex-end"}>
+                            <DialogPlayGame
+                              caption={value.caption}
+                              link={value.link}
+                            />
+                          </AtomStack>
                         </AtomStack>
-                      </AtomStack>
-                    </AtomCardContent>
-                  </ItemCard>
+                      </AtomCardContent>
+                    </ItemCard>
+                  </LinkStyle>
                 </AtomGrid>
               );
             })}

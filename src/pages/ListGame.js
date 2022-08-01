@@ -37,7 +37,7 @@ const ListGame = () => {
             minHeight: "100vh",
           })}
         >
-          <AtomPaper>
+          <AtomPaper sx={{ boxShadow: " rgba(0, 0, 0, 0.1) 0px 1px 2px 0px" }}>
             <AtomCardContent>
               <TitleCatogery title="DANH SÁCH GAME"></TitleCatogery>
               <Divider />

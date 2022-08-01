@@ -22,51 +22,53 @@ const Contact = () => {
     <TemplatePage
       content={
         <ContainerContact
-          maxWidth={"sm"}
+          maxWidth={false}
           sx={(theme) => ({
             paddingTop: theme.spacing(2),
           })}
         >
-          <AtomPaper>
+          <AtomPaper sx={{ boxShadow: " rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;" }}>
             <AtomCardContent sx={{ paddingBottom: "0" }}>
               <TitleCatogery title="Liên hệ" />
               <Divider />
-              <AtomStack spacing={2} alignItems="center">
-                {" "}
-                <AtomTextField
-                  fullWidth
-                  id="outlined-basic"
-                  variant="outlined"
-                  label="Họ tên"
-                  value={name}
-                  onChange={(e) => {
-                    setName(e.target.value);
-                  }}
-                />{" "}
-                <AtomTextField
-                  fullWidth
-                  id="outlined-basic"
-                  variant="outlined"
-                  label="Tiêu đề"
-                  value={title}
-                  onChange={(e) => {
-                    setTitle(e.target.value);
-                  }}
-                ></AtomTextField>{" "}
-                <AtomTextField
-                  fullWidth
-                  id="outlined-basic"
-                  variant="outlined"
-                  label="Nội dung liên hệ"
-                  multiline
-                  rows={3}
-                  value={content}
-                  onChange={(e) => {
-                    setContent(e.target.value);
-                  }}
-                ></AtomTextField>{" "}
-                <SquareStripeButton label="Gửi yêu cầu"> </SquareStripeButton>
-              </AtomStack>{" "}
+              <AtomContainer maxWidth={"sm"}>
+                <AtomStack spacing={2} alignItems="center">
+                  {" "}
+                  <AtomTextField
+                    fullWidth
+                    id="outlined-basic"
+                    variant="outlined"
+                    label="Họ tên"
+                    value={name}
+                    onChange={(e) => {
+                      setName(e.target.value);
+                    }}
+                  />{" "}
+                  <AtomTextField
+                    fullWidth
+                    id="outlined-basic"
+                    variant="outlined"
+                    label="Tiêu đề"
+                    value={title}
+                    onChange={(e) => {
+                      setTitle(e.target.value);
+                    }}
+                  ></AtomTextField>{" "}
+                  <AtomTextField
+                    fullWidth
+                    id="outlined-basic"
+                    variant="outlined"
+                    label="Nội dung liên hệ"
+                    multiline
+                    rows={3}
+                    value={content}
+                    onChange={(e) => {
+                      setContent(e.target.value);
+                    }}
+                  ></AtomTextField>{" "}
+                  <SquareStripeButton label="Gửi yêu cầu"> </SquareStripeButton>
+                </AtomStack>{" "}
+              </AtomContainer>
             </AtomCardContent>
           </AtomPaper>
         </ContainerContact>
