@@ -1,8 +1,6 @@
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
 import { Autoplay } from "swiper";
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -20,19 +18,7 @@ const DescriptionGameSlider = styled(AtomTypography)(({ theme }) => ({
   WebkitBoxOrient: "vertical",
   WebkitLineClamp: 3,
   display: "-webkit-box",
-  // textAlign: "justify",
 }));
-
-const ImageSlider = styled("img")({
-  // width: "72%",
-  // height: "100%",
-  // objectFit: "fill",
-  // position: "absolute",
-  // zIndex: 1,
-  // top: "0px",
-  // right: "0px",
-  // borderRadius: "40% 0% 0% 40%",
-});
 
 const Slide1 = () => {
   const update = (swiper) => {
@@ -74,7 +60,6 @@ const Slide1 = () => {
         onSwiper={(swiper) => {
           update(swiper);
         }}
-        // navigation={true}
         autoplay={{
           delay: 5000,
           disableOnInteraction: false,
@@ -100,7 +85,7 @@ const Slide1 = () => {
                   src={value.image}
                   sx={{
                     width: "100%",
-                    // height: "100%",
+
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
@@ -110,15 +95,7 @@ const Slide1 = () => {
                   }}
                 ></AtomBox>
                 <AtomBox>
-                  <AtomGrid
-                    pl={5}
-                    pr={5}
-                    // pt={"10%"}
-                    // pb={"10%"}
-                    container
-                    spacing={2}
-                    // alignItems={"center"}
-                  >
+                  <AtomGrid pl={5} pr={5} container spacing={2}>
                     <AtomGrid item xs={3} sm={3} md={3} lg={3} xl={3}>
                       <AtomBox
                         sx={(theme) => ({
@@ -155,7 +132,7 @@ const Slide1 = () => {
                       </AtomBox>{" "}
                     </AtomGrid>
                     <AtomGrid item xs={9} sm={9} md={9} lg={9} xl={9}>
-                      <ImageSlider src={value.image} alt="" />
+                      <img src={value.image} alt="" />
                       {/* <AtomCardMedia
                     component={"img"}
                     image={value.image}

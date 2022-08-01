@@ -31,8 +31,6 @@ const ListItemText = styled(AtomListItemText)(({ theme }) => ({
   padding: theme.spacing(1, 1),
 }));
 
-// const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
-
 const IconSetting = (props) => {
   const [anchorElSetting, setAnchorElSetting] = React.useState(null);
 
@@ -65,7 +63,6 @@ const IconSetting = (props) => {
         aria-controls="menu-appbar"
         aria-haspopup="true"
         onClick={handleOpenSettingMenu}
-        // sx={{ display: { xs: "flex", md: "flex" } }}
       >
         <AtomSettingIcon />
       </AtomIconButton>

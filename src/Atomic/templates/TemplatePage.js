@@ -40,16 +40,7 @@ const TemplatePage = ({ appbar, drawer, content, footer }) => {
         />
       </AtomBox>
 
-      <Content
-        sx={
-          {
-            // flexGrow: 1,
-            // p: 3,
-            // width: { xs: "100%", sm: `calc(100% - ${drawerWidth}px)` },
-          }
-        }
-        component="main"
-      >
+      <Content component="main">
         {content}
         {footer}
       </Content>
@@ -62,8 +53,6 @@ TemplatePage.propTypes = {
 };
 
 TemplatePage.defaultProps = {
-  // appbar: <AppBar />,
-  // drawer: <Drawer />,
   footer: <Footer />,
 };
 

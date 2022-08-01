@@ -20,14 +20,12 @@ const Drawer = (props) => {
   const { window } = props;
   let navigate = useNavigate();
 
-  //   const [open, setOpen] = React.useState(true);
-
   const [openState, setOpenState] = React.useState([
     { open: false },
     { open: false },
     { open: false },
   ]);
-  // console.log(openState);
+
   const handleClick = (index, value) => {
     const newOpenState = [...openState];
     newOpenState[index].open = value;

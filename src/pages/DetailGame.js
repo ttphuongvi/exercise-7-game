@@ -16,7 +16,6 @@ import AtomStack from "../Atomic/atoms/AtomStack";
 import AtomContainer from "../Atomic/atoms/AtomContainer";
 
 const PaperStyles = styled(AtomPaper)(({ theme }) => ({
-  // width: "60%",
   marginTop: theme.spacing(2),
   boxShadow: " rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;",
 }));
@@ -32,7 +31,6 @@ const DescriptionGame = styled(AtomTypography)({
 const CardMedia = styled(AtomCardMedia)({
   height: "50%,",
   paddingTop: "56.25%",
-  // width: "100%",
   border: "3px solid #22394c",
   WebkitBoxShadow: "0px 2px 3px 1px rgb(0 0 0)",
   borderRadius: "5px",
@@ -42,7 +40,7 @@ const CardMedia = styled(AtomCardMedia)({
 const DetailsGame = () => {
   let { params } = useParams();
   const [dataSource, setDataSource] = useState(null);
-  // const urlRequest = `/games?id=`;
+
   useEffect(() => {
     axios.get(`https://game.phong940253.tk/games?id=${params}`).then((res) => {
       setDataSource(res.data[0]);

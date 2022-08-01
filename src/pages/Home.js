@@ -31,7 +31,6 @@ const Home = () => {
             })}
           >
             <AtomPaper
-              // elevation={0}
               sx={{ boxShadow: " rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;" }}
             >
               <AtomCardContent>

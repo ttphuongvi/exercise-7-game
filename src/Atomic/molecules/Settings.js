@@ -26,8 +26,6 @@ const ListItemText = styled(AtomListItemText)(({ theme }) => ({
   padding: theme.spacing(1, 1),
 }));
 
-// const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
-
 const Setting = (props) => {
   const [anchorElSetting, setAnchorElSetting] = React.useState(null);
 
