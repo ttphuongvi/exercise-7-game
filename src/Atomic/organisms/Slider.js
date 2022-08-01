@@ -16,14 +16,7 @@ import AtomBox from "../atoms/AtomBox";
 import AtomStack from "../atoms/AtomStack";
 
 const DescriptionGameSlider = styled(AtomTypography)(({ theme }) => ({
-  // color: alpha(theme.palette.primary.main, 0.8),
-  // fontSize: "16px",
-  // marginBottom: theme.spacing(2),
   overflow: "hidden",
-  // fontFamily: '"Economica", Arial, sans-serif',
-  // fontWeight: 400,
-  // fontStyle: "italic",
-  // textShadow: "0px 1px 1px rgba(0, 0, 0, 1)",
   WebkitBoxOrient: "vertical",
   WebkitLineClamp: 3,
   display: "-webkit-box",
@@ -99,7 +92,7 @@ const Slide1 = () => {
                   display: "flex",
                   alignItems: "center",
                   position: "relative",
-                  // height: 500,
+                  height: "100vh",
                 }}
               >
                 <AtomBox
