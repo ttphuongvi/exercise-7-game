@@ -11,6 +11,7 @@ import AtomDivider from "../atoms/AtomDivider";
 import DialogLogin from "./DialogMaxWidth/DialogLogin";
 import DialogSignUp from "./DialogMaxWidth/DialogSignUp";
 import { useSelector } from "react-redux";
+import AtomButton from "../atoms/AtomButton";
 
 const drawerWidth = 240;
 
@@ -31,12 +32,42 @@ const Drawer = (props) => {
     newOpenState[index].open = value;
     setOpenState(newOpenState);
   };
+
   const user = useSelector((state) => state.user.content);
   const drawer = (
     <div>
       <AtomToolBar />
       <AtomDivider />
       <AtomList component="nav">
+        {dataRoutes.map((route, indexRoute) => (
+          <div key={indexRoute}>
+            <AtomListItemButton
+              onClick={() => {
+                navigate(`${route.path}`);
+                handleClick(indexRoute, !openState[indexRoute].open);
+              }}
+              sx={(theme) => ({
+                "&.Mui-selected": {
+                  backgroundColor: "rgba(220, 0, 50, 0.1)",
+                },
+              })}
+              selected={0}
+            >
+              <AtomListItemText
+                disableTypography
+                sx={(theme) => ({
+                  fontFamily: theme.typography.titleGame.fontFamily,
+                  fontSize: theme.typography.body2.fontSize,
+                  textTransform: "uppercase",
+                  paddingTop: theme.spacing(1),
+                  paddingBottom: theme.spacing(1),
+                  paddingLeft: theme.spacing(1),
+                })}
+                primary={route.name}
+              ></AtomListItemText>
+            </AtomListItemButton>
+          </div>
+        ))}
         {user && user.isLogin ? (
           <></>
         ) : (
@@ -58,34 +89,6 @@ const Drawer = (props) => {
             </AtomListItemButton>
           </>
         )}
-        {dataRoutes.map((route, indexRoute) => (
-          <div key={indexRoute}>
-            <AtomListItemButton
-              onClick={() => {
-                navigate(`${route.path}`);
-                handleClick(indexRoute, !openState[indexRoute].open);
-              }}
-            >
-              <AtomListItemText
-                disableTypography
-                sx={(theme) => ({
-                  fontFamily: theme.typography.titleGame.fontFamily,
-                  fontSize: theme.typography.body2.fontSize,
-                  textTransform: "uppercase",
-                  paddingTop: theme.spacing(1),
-                  paddingBottom: theme.spacing(1),
-                  paddingLeft: theme.spacing(1),
-                })}
-                primary={route.name}
-              ></AtomListItemText>
-              {/* {openState[indexRoute].open ? (
-                <AtomExpandLess />
-              ) : (
-                <AtomExpandMore />
-              )} */}
-            </AtomListItemButton>
-          </div>
-        ))}
       </AtomList>
     </div>
   );

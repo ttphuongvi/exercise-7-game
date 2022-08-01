@@ -54,7 +54,7 @@ const DetailsGame = () => {
       {dataSource && (
         <TemplatePage
           content={
-            <AtomContainer maxWidth="md">
+            <AtomContainer maxWidth={false}>
               <AtomStack>
                 <PaperStyles>
                   <AtomBox
@@ -64,30 +64,32 @@ const DetailsGame = () => {
                   >
                     <TitleCategory title="CHI TIẾT GAME"></TitleCategory>
                     <Divider />
-                    <AtomStack spacing={2}>
-                      <CardMedia
-                        image={dataSource.image}
-                        title={dataSource.caption}
-                      ></CardMedia>
-                      <AtomStack spacing={1}>
-                        <CaptionGame>{dataSource.caption}</CaptionGame>
-                        <AtomTypography variant="subtitle2">
-                          {" "}
-                          Ngày phát hành {dataSource.release}
-                        </AtomTypography>
-                        <Divider />
-                        <DescriptionGame>
-                          {dataSource.description}
-                        </DescriptionGame>
-                      </AtomStack>
+                    <AtomContainer maxWidth={"md"}>
+                      <AtomStack spacing={2}>
+                        <CardMedia
+                          image={dataSource.image}
+                          title={dataSource.caption}
+                        ></CardMedia>
+                        <AtomStack spacing={1}>
+                          <CaptionGame>{dataSource.caption}</CaptionGame>
+                          <AtomTypography variant="subtitle2">
+                            {" "}
+                            Ngày phát hành {dataSource.release}
+                          </AtomTypography>
+                          <Divider />
+                          <DescriptionGame>
+                            {dataSource.description}
+                          </DescriptionGame>
+                        </AtomStack>
 
-                      <CardAction>
-                        <DialogPlayGame
-                          caption={dataSource.caption}
-                          link={dataSource.link}
-                        />
-                      </CardAction>
-                    </AtomStack>
+                        <CardAction>
+                          <DialogPlayGame
+                            caption={dataSource.caption}
+                            link={dataSource.link}
+                          />
+                        </CardAction>
+                      </AtomStack>
+                    </AtomContainer>
                   </AtomBox>
                 </PaperStyles>
               </AtomStack>

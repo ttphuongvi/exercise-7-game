@@ -26,7 +26,7 @@ const GridNewGame = () => {
   let navigate = useNavigate();
 
   return (
-    <AtomGrid container spacing={3}>
+    <AtomGrid container spacing={2}>
       {data.map((value) => {
         return (
           <AtomGrid key={value.id} item xs={12} sm={12} md={6} lg={6} xl={4}>

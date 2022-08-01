@@ -85,7 +85,7 @@ const GridListGame = (props) => {
     >
       <AtomGrid item>
         {" "}
-        <GridContainer container spacing={3}>
+        <GridContainer container spacing={2}>
           {filteredData &&
             filteredData.map((value) => {
               return (

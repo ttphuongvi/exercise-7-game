@@ -18,7 +18,7 @@ import Settings from "../molecules/Settings";
 const AppBarStyles = styled(AtomAppBar)(
   ({ theme }) => `
   background-color: ${theme.palette.background.default};
-  box-shadow: ${theme.shadows[3]};
+  box-shadow: ${theme.shadows[2]};
 `
 );
 

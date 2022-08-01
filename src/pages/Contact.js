@@ -29,7 +29,7 @@ const Contact = () => {
         >
           <AtomPaper sx={{ boxShadow: " rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;" }}>
             <AtomCardContent sx={{ paddingBottom: "0" }}>
-              <TitleCatogery title="Liên hệ" />
+              <TitleCatogery title="LIÊN HỆ" />
               <Divider />
               <AtomContainer maxWidth={"sm"}>
                 <AtomStack spacing={2} alignItems="center">
