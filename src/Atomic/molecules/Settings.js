@@ -17,12 +17,7 @@ import AtomGrid from "../atoms/AtomGrid";
 import AtomButton from "../atoms/AtomButton";
 import { getCustomTheme } from "../../services/themes";
 import AtomStack from "../atoms/AtomStack";
-import DialogLogin from "./DialogMaxWidth/DialogLogin";
-import AtomLogin from "../atoms/AtomLogin";
-import AtomAppRegistrationIcon from "../atoms/AtomAppRegistrationIcon";
-import DialogSignUp from "./DialogMaxWidth/DialogSignUp";
 import { styled } from "@mui/material/styles";
-import { useSelector } from "react-redux";
 
 const ListItemText = styled(AtomListItemText)(({ theme }) => ({
   fontFamily: theme.typography.titleGame.fontFamily,
