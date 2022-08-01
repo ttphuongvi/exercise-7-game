@@ -11,7 +11,7 @@ import AtomDivider from "../atoms/AtomDivider";
 import DialogLogin from "./DialogMaxWidth/DialogLogin";
 import DialogSignUp from "./DialogMaxWidth/DialogSignUp";
 import { useSelector } from "react-redux";
-import AtomButton from "../atoms/AtomButton";
+
 import { alpha } from "@mui/material";
 
 const drawerWidth = 240;
