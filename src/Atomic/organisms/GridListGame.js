@@ -17,7 +17,6 @@ import AtomStack from "../atoms/AtomStack";
 import { Divider } from "@mui/material";
 
 const ItemCard = styled(AtomCard)(({ theme }) => ({
-  padding: theme.spacing(2),
   backgroundColor: theme.palette.background.card,
   boxShadow: "rgba(0, 0, 0, 0.1) 0px 0px 0px 1px",
   "&:hover": {
