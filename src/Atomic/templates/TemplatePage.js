@@ -4,7 +4,7 @@ import AtomBox from "../atoms/AtomBox";
 import AppBar from "../organisms/AppBar";
 import Footer from "../organisms/Footer";
 import { styled } from "@mui/styles";
-import Drawer from "../organisms/Drawer";
+import Drawer from "../molecules/Drawer";
 import { CssBaseline } from "@mui/material";
 
 const drawerWidth = 240;
