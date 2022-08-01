@@ -34,7 +34,6 @@ const ListItemText = styled(AtomListItemText)(({ theme }) => ({
 // const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
 const Setting = (props) => {
-  const user = useSelector((state) => state.user.content);
   const [anchorElSetting, setAnchorElSetting] = React.useState(null);
 
   const handleOpenSettingMenu = (event) => {
@@ -107,34 +106,6 @@ const Setting = (props) => {
           component="nav"
           aria-labelledby="nested-list-subheader"
         >
-          {user && user.isLogin ? (
-            <></>
-          ) : (
-            <>
-              <AtomListItemButton
-                sx={{ display: { xs: "flex", md: "flex", lg: "none" } }}
-              >
-                <AtomListItemIcon>
-                  <AtomLogin />
-                </AtomListItemIcon>
-                <AtomListItemText>
-                  {" "}
-                  <DialogLogin />
-                </AtomListItemText>
-              </AtomListItemButton>
-              <AtomListItemButton
-                sx={{ display: { xs: "flex", md: "flex", lg: "none" } }}
-              >
-                <AtomListItemIcon>
-                  <AtomAppRegistrationIcon />
-                </AtomListItemIcon>
-                <AtomListItemText>
-                  <DialogSignUp />
-                </AtomListItemText>
-              </AtomListItemButton>
-            </>
-          )}
-
           <AtomListItemButton onClick={() => changeDarkMode()}>
             <AtomListItemIcon>
               {darkMode ? <AtomDarkMode /> : <AtomLightMode />}

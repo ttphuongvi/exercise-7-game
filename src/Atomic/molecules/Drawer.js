@@ -8,6 +8,9 @@ import AtomBox from "../atoms/AtomBox";
 import dataRoutes from "../../routesGame/dataRoutes";
 import { useNavigate } from "react-router-dom";
 import AtomDivider from "../atoms/AtomDivider";
+import DialogLogin from "./DialogMaxWidth/DialogLogin";
+import DialogSignUp from "./DialogMaxWidth/DialogSignUp";
+import { useSelector } from "react-redux";
 
 const drawerWidth = 240;
 
@@ -28,12 +31,33 @@ const Drawer = (props) => {
     newOpenState[index].open = value;
     setOpenState(newOpenState);
   };
-
+  const user = useSelector((state) => state.user.content);
   const drawer = (
     <div>
       <AtomToolBar />
       <AtomDivider />
       <AtomList component="nav">
+        {user && user.isLogin ? (
+          <></>
+        ) : (
+          <>
+            <AtomListItemButton
+              sx={{ display: { xs: "flex", md: "flex", lg: "none" } }}
+            >
+              <AtomListItemText>
+                {" "}
+                <DialogLogin />
+              </AtomListItemText>
+            </AtomListItemButton>
+            <AtomListItemButton
+              sx={{ display: { xs: "flex", md: "flex", lg: "none" } }}
+            >
+              <AtomListItemText>
+                <DialogSignUp />
+              </AtomListItemText>
+            </AtomListItemButton>
+          </>
+        )}
         {dataRoutes.map((route, indexRoute) => (
           <div key={indexRoute}>
             <AtomListItemButton
@@ -42,62 +66,26 @@ const Drawer = (props) => {
                 handleClick(indexRoute, !openState[indexRoute].open);
               }}
             >
-              <AtomListItemText primary={route.name}></AtomListItemText>
+              <AtomListItemText
+                disableTypography
+                sx={(theme) => ({
+                  fontFamily: theme.typography.titleGame.fontFamily,
+                  fontSize: theme.typography.body2.fontSize,
+                  textTransform: "uppercase",
+                  paddingTop: theme.spacing(1),
+                  paddingBottom: theme.spacing(1),
+                  paddingLeft: theme.spacing(1),
+                })}
+                primary={route.name}
+              ></AtomListItemText>
               {/* {openState[indexRoute].open ? (
                 <AtomExpandLess />
               ) : (
                 <AtomExpandMore />
               )} */}
             </AtomListItemButton>
-            {/* <AtomCollapse
-              in={openState[indexRoute].open}
-              timeout="auto"
-              unmountOnExit
-            >
-              <AtomList disablePadding>
-                {route.hashLink.map((hash, indexHash) => {
-                  // console.log(location.hash === hash.href);
-                  return (
-                    <AtomListItem
-                      key={indexHash}
-                      sx={{ pl: 4 }}
-                      selected={location.hash === hash.path}
-                    >
-                      <AtomLink
-                        color={
-                          location.hash === hash.path ? "primary" : "secondary"
-                        }
-                        underline="none"
-                        sx={(theme) => ({
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "space-between",
-                          // color: theme.palette.text.primary,
-                          "&:hover": {
-                            color: theme.palette.primary.main,
-                          },
-                        })}
-                        href={hash.path}
-                      >
-                        {hash.name}
-                        {/* <AtomLink href={hash.href}>{hash.name}</AtomLink> 
-                      </AtomLink>
-                    </AtomListItem>
-                  );
-                })}
-              </AtomList>
-            </AtomCollapse> */}
           </div>
         ))}
-        {/* {dataRoutes[(0, 1, 2)].haskLink.map((route, index) => (
-          <AtomCollapse in={open} timeout="auto" unmountOnExit>
-            <AtomList disablePadding>
-              <AtomListItem sx={{ pl: 4 }}>
-                <AtomLink href={route.href}>{route.name}</AtomLink>
-              </AtomListItem>
-            </AtomList>
-          </AtomCollapse>
-        ))} */}
       </AtomList>
     </div>
   );
