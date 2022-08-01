@@ -9,7 +9,9 @@ import HorizontalStripeButton from "./../../molecules/HorizontalStripeButton";
 import AtomStack from "./../../atoms/AtomStack";
 import AtomDivider from "./../../atoms/AtomDivider";
 import PropTypes from "prop-types";
-import AtomAvatar from "../../atoms/AtomAvatar";
+import AtomBox from "../../atoms/AtomBox";
+import AtomIconButton from "../../atoms/AtomIconButton";
+import AtomIconClose from "../../atoms/AtomIconClose";
 
 const DialogTitleStyles = styled(AtomDialogTitle)(({ theme }) => ({
   fontFamily: theme.typography.titleGame.fontFamily,
@@ -37,12 +39,28 @@ const DialogMaxWidth = ({ actionName, content, onClick }) => {
         fullWidth={true}
       >
         <DialogTitleStyles id="form-dialog-title">
-          {actionName}
+          <AtomStack
+            edge="end"
+            justifyContent={"space-between"}
+            alignItems={"center"}
+            direction={"row"}
+          >
+            {actionName}
+            <AtomIconButton onClick={handleClose} size="large">
+              <AtomIconClose />
+            </AtomIconButton>
+          </AtomStack>
         </DialogTitleStyles>
         <AtomDivider />
         <AtomDialogContent>
           <AtomStack alignItems={"center"}>
-            <AtomAvatar src="/images/logo_none_text.png"></AtomAvatar>
+            <AtomBox
+              component="img"
+              alt=""
+              src="/images/logo_hahalolo.png"
+              sx={{ width: "40%" }}
+            ></AtomBox>
+
             {content}
             <AtomDialogAtions>
               <HorizontalStripeButton

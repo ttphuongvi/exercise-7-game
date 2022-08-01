@@ -11,6 +11,8 @@ import AtomTextField from "../../atoms/AtomTextField";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { ADD_GAME } from "../../../store/const";
+import AtomIconButton from "../../atoms/AtomIconButton";
+import AtomIconClose from "../../atoms/AtomIconClose";
 
 const DialogTitleStyles = styled(AtomDialogTitle)(({ theme }) => ({
   fontFamily: theme.typography.titleGame.fontFamily,
@@ -65,7 +67,16 @@ const DialogCreateGame = (props) => {
         fullWidth={true}
       >
         <DialogTitleStyles id="form-dialog-title">
-          Tạo game mới
+          <AtomStack
+            justifyContent={"space-between"}
+            alignItems={"center"}
+            direction={"row"}
+          >
+            Tạo game mới
+            <AtomIconButton edge="end" onClick={handleClose} size="large">
+              <AtomIconClose />
+            </AtomIconButton>
+          </AtomStack>
         </DialogTitleStyles>
         <AtomDivider />
         <AtomDialogContent>
