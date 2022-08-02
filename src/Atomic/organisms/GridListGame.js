@@ -19,7 +19,6 @@ import { Divider } from "@mui/material";
 const ItemCard = styled(AtomCard)(({ theme }) => ({
   backgroundColor: theme.palette.background.card,
   boxShadow: "rgba(0, 0, 0, 0.1) 0px 0px 0px 1px",
-  minHeight: "250px",
   "&:hover": {
     boxShadow: "rgba(0, 0, 0, 0.14) 0px 3px 8px",
   },
