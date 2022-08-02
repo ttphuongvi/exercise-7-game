@@ -77,7 +77,7 @@ const ListGame = () => {
                         <AtomDatePicker
                           views={["year"]}
                           label="Năm phát hành"
-                          value={value}
+                          value={value || null}
                           onChange={inputHandleYear}
                           renderInput={(params) => (
                             <AtomTextField {...params} helperText={null} />
