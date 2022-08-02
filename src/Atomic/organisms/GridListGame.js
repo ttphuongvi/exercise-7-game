@@ -19,6 +19,7 @@ import { Divider } from "@mui/material";
 const ItemCard = styled(AtomCard)(({ theme }) => ({
   backgroundColor: theme.palette.background.card,
   boxShadow: "rgba(0, 0, 0, 0.1) 0px 0px 0px 1px",
+  minHeight: "250px",
   "&:hover": {
     boxShadow: "rgba(0, 0, 0, 0.14) 0px 3px 8px",
   },
@@ -65,15 +66,31 @@ const GridListGame = (props) => {
 
   //create a new array by filtering the original array
   const filteredData = dataSource.filter((el) => {
-    //if no input the return the original
-    if (props.input === "") {
-      return el;
+    let arrFilterByYear = null;
+    let arrFilterAll = null;
+    if (el.release.toString().includes(props.year)) {
+      arrFilterByYear = el;
     }
-    //return the item which contains the user input
-    else {
-      return el.caption.toLowerCase().includes(props.input);
+    if (arrFilterByYear) {
+      if (arrFilterByYear.caption.toLowerCase().includes(props.input)) {
+        arrFilterAll = arrFilterByYear;
+      }
     }
+
+    return arrFilterAll;
   });
+  // const filteredData = dataSource.filter((el) => {
+  //   let arrFilterByYear = null;
+  //   if (el.release.toString().includes(props.year)) {
+  //     arrFilterByYear = el;
+  //     if (arrFilterByYear) {
+  //       if (arrFilterByYear.caption.toLowerCase().includes(props.input)) {
+  //         return arrFilterByYear;
+  //       }
+  //     }
+  //   }
+  //   return arrFilterByYear;
+  // });
 
   return (
     <AtomGrid
@@ -84,11 +101,12 @@ const GridListGame = (props) => {
     >
       <AtomGrid item>
         {" "}
-        <GridContainer container spacing={2}>
+        <GridContainer container spacing={2} justifyContent={"center"}>
           {filteredData &&
             filteredData.map((value) => {
               return (
                 <AtomGrid
+                  minWidth={"300px"}
                   key={value.id}
                   item
                   xs={12}

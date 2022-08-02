@@ -22,10 +22,22 @@ const ListGame = () => {
   let inputHandler = (e) => {
     //convert input text to lower case
     var lowerCase = e.target.value.toLowerCase();
+    console.log(lowerCase);
     setInputText(lowerCase);
   };
+
+  const [value, setValue] = useState("");
+  let inputHandleYear = (e) => {
+    if (e) {
+      var yearSlice = e.toString().slice(11, 15);
+      console.log(yearSlice);
+      setValue(yearSlice);
+    } else {
+      setValue("");
+    }
+  };
   // const [selectedDate, handleDateChange] = useState(new Date());
-  const [value, setValue] = useState(new Date());
+
   return (
     <TemplatePage
       content={
@@ -66,9 +78,7 @@ const ListGame = () => {
                           views={["year"]}
                           label="Năm phát hành"
                           value={value}
-                          onChange={(newValue) => {
-                            setValue(newValue);
-                          }}
+                          onChange={inputHandleYear}
                           renderInput={(params) => (
                             <AtomTextField {...params} helperText={null} />
                           )}
@@ -89,7 +99,7 @@ const ListGame = () => {
                   )}
                 </AtomGrid>
               </AtomGrid>
-              <GridListGame input={inputText} />
+              <GridListGame input={inputText} year={value} />
             </AtomCardContent>
           </AtomPaper>
         </AtomContainer>
