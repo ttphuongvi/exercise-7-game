@@ -10,6 +10,7 @@ import CaptionGame from "../molecules/CaptionGame";
 import { styled } from "@mui/material/styles";
 import getNewGames from "../../services/games";
 import AtomStack from "../atoms/AtomStack";
+import { useEffect } from "react";
 
 const CardStyles = styled(AtomCard)(({ theme }) => ({
   padding: theme.spacing(2),
@@ -21,13 +22,24 @@ const CardStyles = styled(AtomCard)(({ theme }) => ({
 }));
 
 const GridNewGame = () => {
-  const data = getNewGames(6);
+  const [dataSource, setDataSource] = React.useState([]);
+
+  useEffect(() => {
+    if (localStorage.getItem("listGame") != null) {
+      let listGame = JSON.parse(localStorage.getItem("listGame"));
+      setDataSource(listGame.slice(0, 6));
+    } else {
+      const data = getNewGames(6);
+      localStorage.setItem("listGame", JSON.stringify(data));
+      setDataSource(data.slice(0, 6));
+    }
+  }, []);
 
   let navigate = useNavigate();
 
   return (
     <AtomGrid container spacing={2}>
-      {data.map((value) => {
+      {dataSource.map((value) => {
         return (
           <AtomGrid key={value.id} item xs={12} sm={12} md={6} lg={6} xl={4}>
             <CardStyles elevation={0}>

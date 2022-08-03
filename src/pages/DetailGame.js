@@ -1,6 +1,5 @@
 import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import DialogPlayGame from "../Atomic/molecules/DialogFullWidth/DialogPlayGame";
 import AtomCardMedia from "../Atomic/atoms/AtomCardMedia";
 import CaptionGame from "../Atomic/molecules/CaptionGame";
@@ -42,8 +41,10 @@ const DetailsGame = () => {
   const [dataSource, setDataSource] = useState(null);
 
   useEffect(() => {
-    axios.get(`https://game.phong940253.tk/games?id=${params}`).then((res) => {
-      setDataSource(res.data[0]);
+    let data = JSON.parse(localStorage.getItem("listGame"));
+
+    data.map((item) => {
+      if (parseInt(params) === item.id) setDataSource(item);
     });
   }, [params]);
 

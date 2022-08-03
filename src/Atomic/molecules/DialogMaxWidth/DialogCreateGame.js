@@ -8,8 +8,7 @@ import HorizontalStripeButton from "./../../molecules/HorizontalStripeButton";
 import AtomStack from "./../../atoms/AtomStack";
 import AtomDivider from "./../../atoms/AtomDivider";
 import AtomTextField from "../../atoms/AtomTextField";
-import { useDispatch } from "react-redux";
-import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
 import { ADD_GAME } from "../../../store/const";
 import AtomIconButton from "../../atoms/AtomIconButton";
 import AtomIconClose from "../../atoms/AtomIconClose";
@@ -36,20 +35,22 @@ const DialogCreateGame = (props) => {
   const [link, setLink] = useState("");
 
   const dispatch = useDispatch();
+  const dataSource = useSelector((state) => state.listGame.content);
 
   const saveGame = () => {
+    let nextId = parseInt(dataSource.sort((a, b) => b.id - a.id)[0].id) + 1;
     const item = {
       caption: caption,
       image: image,
       description: description,
       release: release,
-      link: link,
+      linkGame: link,
+      id: nextId,
     };
-    axios.post("https://game.phong940253.tk/games", item).then((res) => {
-      dispatch({
-        type: ADD_GAME,
-        content: item,
-      });
+
+    dispatch({
+      type: ADD_GAME,
+      content: item,
     });
   };
 
@@ -82,6 +83,7 @@ const DialogCreateGame = (props) => {
         <AtomDialogContent>
           <AtomStack alignItems={"center"}>
             <AtomTextField
+              required={true}
               margin="normal"
               fullWidth
               onChange={(e) => {
@@ -93,6 +95,7 @@ const DialogCreateGame = (props) => {
               label="Ảnh"
             />
             <AtomTextField
+              required={true}
               margin="normal"
               fullWidth
               onChange={(e) => {
@@ -104,6 +107,7 @@ const DialogCreateGame = (props) => {
               label="Tên"
             />
             <AtomTextField
+              required={true}
               margin="normal"
               fullWidth
               onChange={(e) => {
@@ -120,6 +124,7 @@ const DialogCreateGame = (props) => {
               }}
             />
             <AtomTextField
+              required={true}
               margin="normal"
               fullWidth
               onChange={(e) => {
@@ -131,6 +136,7 @@ const DialogCreateGame = (props) => {
               label="Mô tả"
             />
             <AtomTextField
+              required={true}
               margin="normal"
               fullWidth
               onChange={(e) => {

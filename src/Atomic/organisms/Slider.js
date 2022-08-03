@@ -37,15 +37,11 @@ const Slide1 = () => {
   };
 
   let navigate = useNavigate();
-  // const [dataSource, setDataSource] = useState([]);
-  // axios
-  //   .get(
-  //     "https://game.phong940253.tk/games?_sort=id&_order=desc&_start=0&_limit=6"
-  //   )
-  //   .then((res) => {
-  //     setDataSource(res.data);
-  //   });
-  const data = getNewGames(6);
+
+  let data = getNewGames(6); // Get from file
+  if (localStorage.getItem("listGame") != null)
+    // Get from localStorage
+    data = JSON.parse(localStorage.getItem("listGame")).slice(0, 6);
 
   return (
     <>
@@ -85,7 +81,7 @@ const Slide1 = () => {
                   src={value.image}
                   sx={{
                     width: "100%",
-
+                    height: "100%",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
@@ -95,7 +91,21 @@ const Slide1 = () => {
                   }}
                 ></AtomBox>
                 <AtomBox>
-                  <AtomGrid pl={5} pr={5} container spacing={2}>
+                  <AtomGrid
+                    pl={5}
+                    pr={5}
+                    container
+                    spacing={2}
+                    // justifyContent={"center"}
+                    // alignItems={"center"}
+                    // direction={"column"}
+                  >
+                    {/* <AtomGrid item xl={6}>
+                      // {/* <AtomBox component="img" src={value.image} alt="">
+                      //   {" "}
+                      // </AtomBox> 
+                      <img src={value.image} alt=""></img>
+                    </AtomGrid> */}
                     <AtomGrid item xs={3} sm={3} md={3} lg={3} xl={3}>
                       <AtomBox
                         sx={(theme) => ({
@@ -131,13 +141,13 @@ const Slide1 = () => {
                         </AtomStack>
                       </AtomBox>{" "}
                     </AtomGrid>
-                    <AtomGrid item xs={9} sm={9} md={9} lg={9} xl={9}>
+                    {/* <AtomGrid item xs={9} sm={9} md={9} lg={9} xl={9}>
                       <img src={value.image} alt="" />
-                      {/* <AtomCardMedia
+                      <AtomCardMedia
                     component={"img"}
                     image={value.image}
-                  ></AtomCardMedia> */}
-                    </AtomGrid>
+                  ></AtomCardMedia>
+                    </AtomGrid> */}
                   </AtomGrid>
                 </AtomBox>
               </AtomBox>

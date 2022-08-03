@@ -1,8 +1,7 @@
 import { React, useEffect, useState } from "react";
-import axios from "axios";
 import HorizontalStripeButton from "./../molecules/HorizontalStripeButton";
 import DialogPlayGame from "../molecules/DialogFullWidth/DialogPlayGame";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { SET_LIST_GAME } from "../../store/const";
 import AtomGrid from "../atoms/AtomGrid";
 import AtomCard from "../atoms/AtomCard";
@@ -15,6 +14,7 @@ import { styled } from "@mui/material/styles";
 import AtomTypography from "../atoms/AtomTypography";
 import AtomStack from "../atoms/AtomStack";
 import { Divider } from "@mui/material";
+import getNewGames from "../../services/games";
 
 const ItemCard = styled(AtomCard)(({ theme }) => ({
   backgroundColor: theme.palette.background.card,
@@ -40,28 +40,29 @@ const CardMediaStyle = styled(AtomCardMedia)(({ theme }) => ({
 const GridListGame = (props) => {
   const [hiddenLoadding, setHidden] = useState(false);
 
+  let data = getNewGames();
+
   const onClickLoadding = () => {
-    axios
-      .get("https://game.phong940253.tk/games?_sort=id&_order=desc")
-      .then((res) => {
-        dispatch({ type: SET_LIST_GAME, content: res.data });
-      });
+    data = JSON.parse(localStorage.getItem("listGame"));
+    dispatch({ type: SET_LIST_GAME, content: data });
+    // });
     setHidden(true);
   };
 
   const dataSource = useSelector((state) => state.listGame.content) || [];
-
   const dispatch = useDispatch();
 
   useEffect(() => {
-    axios
-      .get(
-        "https://game.phong940253.tk/games?_sort=id&_order=desc&_start=0&_limit=8"
-      )
-      .then((res) => {
-        dispatch({ type: SET_LIST_GAME, content: res.data });
-      });
-  }, [dispatch]);
+    if (localStorage.getItem("listGame") != null) {
+      let listGame = JSON.parse(localStorage.getItem("listGame"));
+      console.log("list game", listGame);
+      dispatch({ type: SET_LIST_GAME, content: listGame.slice(0, 8) });
+    } else {
+      console.log("data", data);
+      localStorage.setItem("listGame", JSON.stringify(data));
+      dispatch({ type: SET_LIST_GAME, content: data.slice(0, 8) });
+    }
+  }, []);
 
   //create a new array by filtering the original array
   const filteredData = dataSource.filter((el) => {

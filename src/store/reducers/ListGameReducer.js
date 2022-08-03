@@ -6,6 +6,10 @@ const ListGameReducer = (state = INIT_LIST_GAME, action) => {
     case SET_LIST_GAME:
       return { ...state, content: action.content };
     case ADD_GAME:
+      localStorage.setItem(
+        "listGame",
+        JSON.stringify([action.content, ...state.content])
+      );
       return { ...state, content: [action.content, ...state.content] };
     default:
       return state;
