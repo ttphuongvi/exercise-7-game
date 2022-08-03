@@ -14,9 +14,9 @@ const MenuTab = () => {
       {dataRoutes.map((route, index) => {
         return (
           <AtomButton
+            color="inherit"
             sx={(theme) => ({
               fontFamily: theme.typography.titleGame.fontFamily,
-              color: theme.palette.text.primary,
               "&:hover": {
                 backgroundColor: alpha(theme.palette.primary.main, 0.1),
                 color: theme.palette.primary.main,

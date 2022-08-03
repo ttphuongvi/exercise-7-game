@@ -75,20 +75,6 @@ const Setting = (props) => {
         open={Boolean(anchorElSetting)}
         onClose={handleCloseSettingMenu}
       >
-        {/* <AtomMenuItem>
-          <AtomButton
-            fullWidth
-            color="inherit"
-            startIcon={darkMode ? <AtomDarkMode /> : <AtomLightMode />}
-            onClick={() => changeDarkMode()}
-          >
-            Chế độ {darkMode ? "tối" : "sáng"}
-          </AtomButton> */}
-        {/* </AtomBox> */}
-        {/* </AtomMenuItem>
-        <AtomMenuItem onClick={handleCloseSettingMenu}>
-          <AtomTypography textalign="center">CHỌN CHỦ ĐỀ</AtomTypography>
-        </AtomMenuItem> */}
         <AtomList
           sx={{
             width: "100%",
