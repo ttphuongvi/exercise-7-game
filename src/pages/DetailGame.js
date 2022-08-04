@@ -45,6 +45,7 @@ const DetailsGame = () => {
 
     data.map((item) => {
       if (parseInt(params) === item.id) setDataSource(item);
+      return null;
     });
   }, [params]);
 

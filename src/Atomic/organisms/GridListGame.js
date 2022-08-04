@@ -62,7 +62,7 @@ const GridListGame = (props) => {
       localStorage.setItem("listGame", JSON.stringify(data));
       dispatch({ type: SET_LIST_GAME, content: data.slice(0, 8) });
     }
-  }, []);
+  }, [dispatch, data]);
 
   //create a new array by filtering the original array
   const filteredData = dataSource.filter((el) => {
