@@ -3,7 +3,6 @@ import AtomTypography from "../atoms/AtomTypography";
 
 const DescriptionNewGame = styled(AtomTypography)({
   textAlign: "justify",
-  marginTop: "0px",
   height: "190px",
   width: "100%",
   overflow: "hidden",

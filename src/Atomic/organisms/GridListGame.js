@@ -12,10 +12,10 @@ import CaptionGame from "../molecules/CaptionGame";
 import { styled } from "@mui/material/styles";
 import AtomTypography from "../atoms/AtomTypography";
 import AtomStack from "../atoms/AtomStack";
-import { Divider } from "@mui/material";
 import getNewGames from "../../services/games";
 import AtomRouteLink from "../atoms/AtomRouteLink";
 import AtomBox from "../atoms/AtomBox";
+import AtomDivider from "../atoms/AtomDivider";
 
 const ItemCard = styled(AtomCard)(({ theme }) => ({
   backgroundColor: theme.palette.background.card,
@@ -31,7 +31,7 @@ const GridContainer = styled(AtomGrid)({
 
 const CardMediaStyle = styled(AtomCardMedia)(({ theme }) => ({
   paddingTop: "56.25%",
-  margin: theme.spacing(2),
+  margin: theme.spacing(2, 2, 0, 2),
   WebkitBoxShadow: "0px 2px 3px 1px rgb(0 0 0)",
   borderRadius: "5px",
   boxShadow: "0px 2px 3px 1px rgb(0 0 0)",
@@ -134,7 +134,7 @@ const GridListGame = (props) => {
                           <AtomTypography variant="subtitle2">
                             Phát hành ngày {value.release}
                           </AtomTypography>
-                          <Divider />
+                          <AtomDivider />
                           <DescriptionGame>
                             {value.description}
                           </DescriptionGame>{" "}

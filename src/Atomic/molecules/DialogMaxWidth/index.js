@@ -4,7 +4,6 @@ import AtomDialogTitle from "./../../atoms/AtomDialogTitle";
 import AtomDialogContent from "./../../atoms/AtomDialogContent";
 import AtomDialogAtions from "./../../atoms/AtomDialogActions";
 import { styled } from "@mui/material/styles";
-import ButtonLogin from "./../ButtonLogin";
 import HorizontalStripeButton from "./../../molecules/HorizontalStripeButton";
 import AtomStack from "./../../atoms/AtomStack";
 import AtomDivider from "./../../atoms/AtomDivider";
@@ -12,10 +11,21 @@ import PropTypes from "prop-types";
 import AtomBox from "../../atoms/AtomBox";
 import AtomIconButton from "../../atoms/AtomIconButton";
 import AtomIconClose from "../../atoms/AtomIconClose";
+import AtomButton from "../../atoms/AtomButton";
 
 const DialogTitleStyles = styled(AtomDialogTitle)(({ theme }) => ({
   fontFamily: theme.typography.titleGame.fontFamily,
 }));
+
+const ButtonMenu = styled(AtomButton)(
+  ({ theme }) => `
+    font-family: ${theme.typography.titleGame.fontFamily};
+    color: ${theme.palette.text.primary};
+    :hover {
+      color: ${theme.palette.primary.main};
+    }
+  `
+);
 
 const DialogMaxWidth = ({ actionName, content, onClick }) => {
   const [open, setOpen] = React.useState(false);
@@ -30,7 +40,7 @@ const DialogMaxWidth = ({ actionName, content, onClick }) => {
 
   return (
     <div>
-      <ButtonLogin onClick={handleClickOpen}>{actionName}</ButtonLogin>
+      <ButtonMenu onClick={handleClickOpen}>{actionName}</ButtonMenu>
       <AtomDialog
         open={open}
         onClose={handleClose}
