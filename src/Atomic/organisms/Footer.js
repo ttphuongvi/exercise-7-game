@@ -21,17 +21,9 @@ const IconYoutube = styled(AtomIconYoutube)({
   color: red[500],
 });
 
-const TypoContact = styled(AtomTypography)(({ theme }) => ({
-  fontFamily: theme.typography.titleGame.fontFamily,
-}));
-
 const GridContainerStyles = styled(AtomGrid)(
   ({ theme }) => ` 
   margin-top: ${theme.spacing(3)} ;
-  padding: ${theme.spacing(2)};
-  color: ${theme.palette.text.primary};
-  font-family: ${theme.typography.titleGame};
-  box-shadow: ${theme.shadows[3]};
   background-color: ${theme.palette.background.paper};
 
 `
@@ -54,23 +46,33 @@ const Footer = () => {
             <InfoFooter
               left={<AtomIconLocation />}
               right={
-                <TypoContact>
+                <AtomTypography variant="bodyGame">
                   400/8B Ung Văn Khiêm, P.25, Q.Bình Thạnh, TP.HCM
-                </TypoContact>
+                </AtomTypography>
               }
             ></InfoFooter>
             <InfoFooter
               left={<AtomIconPhone />}
-              right={<TypoContact>(+84) 911 432 933</TypoContact>}
+              right={
+                <AtomTypography variant="bodyGame">
+                  (+84) 911 432 933
+                </AtomTypography>
+              }
             ></InfoFooter>
           </AtomGrid>
           <AtomGrid item xl={5}>
             <InfoFooter
               left={<AtomIconEmail />}
-              right={<TypoContact>Cskh@hahalolo.com</TypoContact>}
+              right={
+                <AtomTypography variant="bodyGame">
+                  Cskh@hahalolo.com
+                </AtomTypography>
+              }
             ></InfoFooter>
             <InfoFooter
-              left={<TypoContact>Kết nối: </TypoContact>}
+              left={
+                <AtomTypography variant="bodyGame">Kết nối: </AtomTypography>
+              }
               right={
                 <AtomStack spacing={1} direction={"row"}>
                   {" "}

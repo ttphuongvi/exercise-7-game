@@ -24,6 +24,9 @@ const useCustomTheme = (darkMode, customTheme) => {
         fontFamily: "Oswald",
         fontSize: "1.2rem",
       },
+      bodyGame: {
+        fontFamily: "Oswald",
+      },
     },
   });
   return theme;
