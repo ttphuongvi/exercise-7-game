@@ -47,7 +47,15 @@ const DialogCreateGame = (props) => {
       linkGame: link,
       id: nextId,
     };
-
+    if (
+      caption === "" ||
+      description === "" ||
+      image === "" ||
+      release === "" ||
+      link === ""
+    ) {
+      alert("Vui lòng nhập đầy đủ thông tin");
+    }
     dispatch({
       type: ADD_GAME,
       content: item,
