@@ -4,7 +4,7 @@ import AtomDialogTitle from "./../../atoms/AtomDialogTitle";
 import AtomDialogContent from "./../../atoms/AtomDialogContent";
 import AtomDialogAtions from "./../../atoms/AtomDialogActions";
 import { styled } from "@mui/material/styles";
-import HorizontalStripeButton from "./../../molecules/HorizontalStripeButton";
+import HorizontalStripeButton from "./../../molecules/ButtonHorizontalStripe";
 import AtomStack from "./../../atoms/AtomStack";
 import AtomDivider from "./../../atoms/AtomDivider";
 import PropTypes from "prop-types";

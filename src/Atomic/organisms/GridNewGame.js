@@ -1,16 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import SquareStripeButton from "../molecules/SquareStripeButton";
+import SquareStripeButton from "../molecules/ButtonSquareStripe";
 import AtomGrid from "../atoms/AtomGrid";
 import AtomCard from "../atoms/AtomCard";
-import ContainerImageNewGame from "../molecules/ContainerImageNewGame";
-import ImageNewGame from "../molecules/ImageNewGame";
 import DescriptionGame from "../molecules/DescriptionGame";
 import CaptionGame from "../molecules/CaptionGame";
 import { styled } from "@mui/material/styles";
 import getNewGames from "../../services/games";
 import AtomStack from "../atoms/AtomStack";
 import { useEffect } from "react";
+import AtomBox from "../atoms/AtomBox";
 
 const CardStyles = styled(AtomCard)(({ theme }) => ({
   padding: theme.spacing(2),
@@ -55,9 +54,22 @@ const GridNewGame = () => {
                   <CaptionGame>{value?.caption}</CaptionGame>
                 </AtomGrid>
                 <AtomGrid item xl={6} lg={6} md={6} sm={6} xs={12}>
-                  <ContainerImageNewGame>
-                    <ImageNewGame src={value.image} alt=""></ImageNewGame>
-                  </ContainerImageNewGame>
+                  <AtomBox
+                    sx={{
+                      height: "100%",
+                      WebkitBoxShadow: "0px 2px 3px 1px rgb(0 0 0)",
+                      WebkitBorderRadius: "5px",
+                      float: "left",
+                      overflow: "hidden",
+                    }}
+                  >
+                    <AtomBox
+                      component="img"
+                      sx={{ width: "100%", height: "100%", objectFit: "cover" }}
+                      src={value.image}
+                      alt=""
+                    ></AtomBox>
+                  </AtomBox>
                 </AtomGrid>
                 <AtomGrid
                   item

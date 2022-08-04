@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import SquareStripeButton from "../Atomic/molecules/SquareStripeButton";
+import SquareStripeButton from "../Atomic/molecules/ButtonSquareStripe";
 import AtomTextField from "../Atomic/atoms/AtomTextField";
 import { styled } from "@mui/material/styles";
 import TemplatePage from "../Atomic/templates/TemplatePage";

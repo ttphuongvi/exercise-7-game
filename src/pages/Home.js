@@ -6,7 +6,7 @@ import Slider from "../Atomic/organisms/Slider";
 import AtomContainer from "../Atomic/atoms/AtomContainer";
 import AtomPaper from "../Atomic/atoms/AtomPaper";
 import AtomCardContent from "../Atomic/atoms/AtomCardContent";
-import HorizontalStripeButton from "../Atomic/molecules/HorizontalStripeButton";
+import HorizontalStripeButton from "../Atomic/molecules/ButtonHorizontalStripe";
 import { useNavigate } from "react-router-dom";
 import Divider from "../Atomic/molecules/Divider";
 import AtomStack from "../Atomic/atoms/AtomStack";

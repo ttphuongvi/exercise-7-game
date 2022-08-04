@@ -7,7 +7,7 @@ import AtomSlide from "../../atoms/AtomSlide";
 import AtomToolBar from "../../atoms/AtomToolbar";
 import AtomTypography from "../../atoms/AtomTypography";
 import Iframe from "react-iframe";
-import ButtonStyle1 from "../SquareStripeButton";
+import ButtonStyle1 from "../ButtonSquareStripe";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <AtomSlide direction="up" ref={ref} {...props} />;

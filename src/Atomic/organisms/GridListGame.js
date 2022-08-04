@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from "react";
-import HorizontalStripeButton from "./../molecules/HorizontalStripeButton";
+import HorizontalStripeButton from "./../molecules/ButtonHorizontalStripe";
 import DialogPlayGame from "../molecules/DialogFullWidth/DialogPlayGame";
 import { useDispatch, useSelector } from "react-redux";
 import { SET_LIST_GAME } from "../../store/const";

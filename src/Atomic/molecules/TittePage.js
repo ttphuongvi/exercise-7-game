@@ -4,14 +4,7 @@ import { styled } from "@mui/material/styles";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import AtomRouteLink from "../atoms/AtomRouteLink";
-
-const LinkStyles = styled(AtomRouteLink)(
-  ({ theme }) => `
-  color: ${theme.palette.primary.main};
-  text-decoration: none;
- 
-`
-);
+import AtomBox from "../atoms/AtomBox";
 
 const TypographyStyles = styled(AtomTypography)(({ theme }) => ({
   color: theme.palette.text.primary,
@@ -26,7 +19,16 @@ const TitlePage = (props) => {
       aria-label="breadcrumb"
     >
       <AtomTypography variant="titleGame">
-        <LinkStyles to="/">HAHALOLO</LinkStyles>
+        <AtomBox
+          component={AtomRouteLink}
+          sx={(theme) => ({
+            color: theme.palette.primary.main,
+            textDecoration: "none",
+          })}
+          to="/"
+        >
+          HAHALOLO
+        </AtomBox>
       </AtomTypography>
       <TypographyStyles>{props.title}</TypographyStyles>
     </Breadcrumbs>

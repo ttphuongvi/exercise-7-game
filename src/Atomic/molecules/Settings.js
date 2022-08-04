@@ -76,12 +76,12 @@ const Setting = (props) => {
         onClose={handleCloseSettingMenu}
       >
         <AtomList
-          sx={{
+          sx={(theme) => ({
             width: "100%",
             minWidth: 230,
             maxWidth: 230,
-            bgcolor: "background.defalt",
-          }}
+            backgroundColor: theme.palette.background.default,
+          })}
           component="nav"
           aria-labelledby="nested-list-subheader"
         >
@@ -113,7 +113,7 @@ const Setting = (props) => {
                 {customThemes.map((theme, index) => {
                   const buttonColor = theme["500"];
                   return (
-                    <AtomGrid item key={index}>
+                    <AtomGrid item key={index} xs={3}>
                       <AtomIconButton
                         onClick={() => {
                           changeCustomTheme(buttonColor);
@@ -123,7 +123,6 @@ const Setting = (props) => {
                           backgroundColor: buttonColor,
                           "&:hover": {
                             backgroundColor: alpha(buttonColor, 0.7),
-                            // color: theme.palette.primary.main,
                           },
                         }}
                       ></AtomIconButton>

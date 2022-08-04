@@ -4,19 +4,14 @@ import AtomButton from "../atoms/AtomButton";
 
 const ButtonLoadMoreStyles = styled(AtomButton)(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
-  border: "none",
-  color: "#ffffff",
+  color: theme.palette.background.paper,
   cursor: "pointer",
-  display: "inline-block",
-  fontFamily: theme.typography.titleGame.fontFamily,
-  fontSize: "1em",
-  width: "200px",
+  fontFamily: theme.typography.bodyGame.fontFamily,
+  fontSize: theme.typography.subtitle1.fontSize,
   lineHeight: "1em",
-  outline: "none",
-  padding: "12px 40px 10px",
-  position: "relative",
+  padding: theme.spacing(2, 6),
+  // position: "relative",
   textTransform: "uppercase",
-  fonWeight: 700,
   "&:before, &:after": {
     borderColor: "transparent",
     webkitTransition: "all 0.25s",
@@ -24,9 +19,9 @@ const ButtonLoadMoreStyles = styled(AtomButton)(({ theme }) => ({
     borderStyle: "solid",
     borderWidth: 0,
     content: "''",
-    height: "24px",
+    height: theme.spacing(3),
     position: "absolute",
-    width: "24px",
+    width: theme.spacing(3),
   },
   "&:before": {
     borderColor: theme.palette.primary.main,
@@ -50,15 +45,6 @@ const ButtonLoadMoreStyles = styled(AtomButton)(({ theme }) => ({
       height: "100%",
       width: "100%",
     },
-  },
-
-  "& label": {
-    position: "relative",
-    paddingRight: 0,
-    transition: "padding-right 0.5s",
-    color: "#363858",
-    fontFamily: "'Oswald', sans-serif",
-    fontWeight: 200,
   },
 }));
 
