@@ -38,7 +38,6 @@ const DialogLogin = () => {
       content={
         <>
           <AtomTextField
-            // onChange={(event) => handelAccount("username", event)}
             variant="outlined"
             margin="normal"
             required
@@ -51,7 +50,6 @@ const DialogLogin = () => {
             onChange={(event) => setEmail(event.target.value)}
           />
           <AtomTextField
-            // onChange={(event) => handelAccount("password", event)}
             variant="outlined"
             margin="normal"
             required
