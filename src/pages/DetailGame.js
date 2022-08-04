@@ -54,7 +54,7 @@ const DetailsGame = () => {
       {dataSource && (
         <TemplatePage
           content={
-            <AtomContainer maxWidth={false}>
+            <AtomContainer maxWidth={false} sx={{ minHeight: "100vh" }}>
               <AtomStack>
                 <PaperStyles>
                   <AtomBox
