@@ -14,7 +14,6 @@ import AtomTypography from "../atoms/AtomTypography";
 import AtomStack from "../atoms/AtomStack";
 import { Divider } from "@mui/material";
 import getNewGames from "../../services/games";
-import AtomLink from "../atoms/AtomLink";
 import AtomRouteLink from "../atoms/AtomRouteLink";
 import AtomBox from "../atoms/AtomBox";
 

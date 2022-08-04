@@ -38,7 +38,7 @@ const Slide1 = () => {
 
   let navigate = useNavigate();
 
-  let data = getNewGames(6); // Get from file
+  let data = getNewGames(); // Get from file
   if (localStorage.getItem("listGame") != null)
     // Get from localStorage
     data = JSON.parse(localStorage.getItem("listGame")).slice(0, 6);
