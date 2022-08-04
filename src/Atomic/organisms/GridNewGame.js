@@ -42,7 +42,14 @@ const GridNewGame = () => {
       {dataSource.map((value) => {
         return (
           <AtomGrid key={value.id} item xs={12} sm={12} md={6} lg={6} xl={4}>
-            <CardStyles elevation={0}>
+            <CardStyles
+              elevation={0}
+              sx={{
+                "&:hover": {
+                  cursor: "pointer",
+                },
+              }}
+            >
               <AtomGrid container spacing={1}>
                 <AtomGrid item xs={12}>
                   <CaptionGame>{value?.caption}</CaptionGame>
