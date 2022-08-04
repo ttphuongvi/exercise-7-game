@@ -14,9 +14,13 @@ const MenuTab = () => {
       {dataRoutes.map((route, index) => {
         return (
           <AtomButton
-            color="inherit"
+            // color="inherit"
             sx={(theme) => ({
               fontFamily: theme.typography.titleGame.fontFamily,
+              // ở đây em không dùng thuộc tính color của button là vì em muốn khi ở bình thường,
+              // màu menu là màu mặc định của text, mà thuộc tính clor của API button của mui
+              // không có dạng text mà chỉ có các kiểu styles như primary, secondary, .. nên em color ở đây
+              color: theme.palette.text.primary,
               "&:hover": {
                 backgroundColor: alpha(theme.palette.primary.main, 0.1),
                 color: theme.palette.primary.main,
