@@ -53,16 +53,17 @@ const GridListGame = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    let data1 = getNewGames();
     if (localStorage.getItem("listGame") != null) {
       let listGame = JSON.parse(localStorage.getItem("listGame"));
       console.log("list game", listGame);
       dispatch({ type: SET_LIST_GAME, content: listGame.slice(0, 8) });
     } else {
-      console.log("data", data);
-      localStorage.setItem("listGame", JSON.stringify(data));
-      dispatch({ type: SET_LIST_GAME, content: data.slice(0, 8) });
+      console.log("data", data1);
+      localStorage.setItem("listGame", JSON.stringify(data1));
+      dispatch({ type: SET_LIST_GAME, content: data1.slice(0, 8) });
     }
-  }, [dispatch, data]);
+  }, [dispatch]);
 
   //create a new array by filtering the original array
   const filteredData = dataSource.filter((el) => {
