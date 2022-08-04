@@ -17,7 +17,7 @@ import AtomGrid from "../atoms/AtomGrid";
 import AtomButton from "../atoms/AtomButton";
 import { getCustomTheme } from "../../services/themes";
 import AtomStack from "../atoms/AtomStack";
-import { styled } from "@mui/material/styles";
+import { alpha, styled } from "@mui/material/styles";
 
 const ListItemText = styled(AtomListItemText)(({ theme }) => ({
   fontFamily: theme.typography.titleGame.fontFamily,
@@ -103,23 +103,30 @@ const Setting = (props) => {
           </AtomListItemButton>
           <AtomCollapse in={open} timeout="auto" unmountOnExit>
             <AtomList component="div">
-              <AtomGrid justifyContent={"center"} container spacing={3}>
+              <AtomGrid
+                justifyContent={"center"}
+                container
+                spacing={3}
+                pl={3}
+                pr={3}
+              >
                 {customThemes.map((theme, index) => {
                   const buttonColor = theme["500"];
                   return (
                     <AtomGrid item key={index}>
-                      <AtomButton
-                        sx={{
-                          bgcolor: buttonColor,
-                          borderRadius: "50%",
-                          minWidth: "30px",
-                          width: "30px",
-                          height: "30px",
-                        }}
+                      <AtomIconButton
                         onClick={() => {
                           changeCustomTheme(buttonColor);
                         }}
-                      ></AtomButton>
+                        size="large"
+                        sx={{
+                          backgroundColor: buttonColor,
+                          "&:hover": {
+                            backgroundColor: alpha(buttonColor, 0.7),
+                            // color: theme.palette.primary.main,
+                          },
+                        }}
+                      ></AtomIconButton>
                     </AtomGrid>
                   );
                 })}
