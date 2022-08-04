@@ -9,12 +9,14 @@ import AtomCardMedia from "../atoms/AtomCardMedia";
 import AtomCardContent from "../atoms/AtomCardContent";
 import DescriptionGame from "../molecules/DescriptionGame";
 import CaptionGame from "../molecules/CaptionGame";
-import LinkStyle from "../molecules/LinkStyle";
 import { styled } from "@mui/material/styles";
 import AtomTypography from "../atoms/AtomTypography";
 import AtomStack from "../atoms/AtomStack";
 import { Divider } from "@mui/material";
 import getNewGames from "../../services/games";
+import AtomLink from "../atoms/AtomLink";
+import AtomRouteLink from "../atoms/AtomRouteLink";
+import AtomBox from "../atoms/AtomBox";
 
 const ItemCard = styled(AtomCard)(({ theme }) => ({
   backgroundColor: theme.palette.background.card,
@@ -116,7 +118,11 @@ const GridListGame = (props) => {
                   lg={4}
                   xl={3}
                 >
-                  <LinkStyle to={`/${value.id}`}>
+                  <AtomBox
+                    component={AtomRouteLink}
+                    sx={{ textDecoration: "none" }}
+                    to={`/${value.id}`}
+                  >
                     <ItemCard elevation={0}>
                       <CardMediaStyle
                         image={value.image}
@@ -142,7 +148,7 @@ const GridListGame = (props) => {
                         </AtomStack>
                       </AtomCardContent>
                     </ItemCard>
-                  </LinkStyle>
+                  </AtomBox>
                 </AtomGrid>
               );
             })}
