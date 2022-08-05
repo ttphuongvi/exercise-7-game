@@ -17,14 +17,7 @@ import AtomGrid from "../atoms/AtomGrid";
 import AtomButton from "../atoms/AtomButton";
 import { getCustomTheme } from "../../services/themes";
 import AtomStack from "../atoms/AtomStack";
-import { alpha, styled } from "@mui/material/styles";
-
-const ListItemText = styled(AtomListItemText)(({ theme }) => ({
-  fontFamily: theme.typography.titleGame.fontFamily,
-  textTransform: "uppercase",
-  fontSize: theme.typography.subtitle2.fontSize,
-  padding: theme.spacing(1, 1),
-}));
+import { alpha } from "@mui/material/styles";
 
 const Setting = (props) => {
   const [anchorElSetting, setAnchorElSetting] = React.useState(null);
@@ -60,18 +53,8 @@ const Setting = (props) => {
         <AtomSettingIcon />
       </AtomIconButton>
       <AtomMenu
-        sx={{ mt: "45px" }}
         id="simple-menu"
         anchorEl={anchorElSetting}
-        anchorOrigin={{
-          vertical: "top",
-          horizontal: "right",
-        }}
-        keepMounted
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "right",
-        }}
         open={Boolean(anchorElSetting)}
         onClose={handleCloseSettingMenu}
       >
@@ -89,16 +72,25 @@ const Setting = (props) => {
             <AtomListItemIcon>
               {darkMode ? <AtomDarkMode /> : <AtomLightMode />}
             </AtomListItemIcon>
-            <ListItemText
+            <AtomListItemText
               disableTypography
               primary={`Chế độ ${darkMode ? "tối" : "sáng"}`}
+              sx={(theme) => ({
+                fontFamily: theme.typography.titleGame.fontFamily,
+              })}
             />
           </AtomListItemButton>
           <AtomListItemButton onClick={handleClick}>
             <AtomListItemIcon>
               <AtomPaletteOutlinedIcon />
             </AtomListItemIcon>
-            <ListItemText disableTypography primary="Chọn chủ đề" />
+            <AtomListItemText
+              sx={(theme) => ({
+                fontFamily: theme.typography.titleGame.fontFamily,
+              })}
+              disableTypography
+              primary="Chọn chủ đề"
+            />
             {open ? <AtomExpandLess /> : <AtomExpandMore />}
           </AtomListItemButton>
           <AtomCollapse in={open} timeout="auto" unmountOnExit>
