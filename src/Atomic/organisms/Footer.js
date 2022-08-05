@@ -60,7 +60,7 @@ const Footer = () => {
               }
             ></InfoFooter>
           </AtomGrid>
-          <AtomGrid item xl={5}>
+          <AtomGrid item>
             <InfoFooter
               left={<AtomIconEmail />}
               right={
