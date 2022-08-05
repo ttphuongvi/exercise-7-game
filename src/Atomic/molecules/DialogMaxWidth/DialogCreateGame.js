@@ -38,7 +38,7 @@ const DialogCreateGame = (props) => {
   const dispatch = useDispatch();
   const dataSource = useSelector((state) => state.listGame.content);
 
-  const [showAlert, setShowAlert] = useState(false);
+  const [showAlertEror, setShowAlertError] = useState(false);
 
   const saveGame = () => {
     let nextId = parseInt(dataSource.sort((a, b) => b.id - a.id)[0].id) + 1;
@@ -59,12 +59,13 @@ const DialogCreateGame = (props) => {
     ) {
       // alert("Please fill all fields");
 
-      setShowAlert(true);
+      setShowAlertError(true);
     } else {
       dispatch({
         type: ADD_GAME,
         content: item,
       });
+      setShowAlertError(false);
       handleClose();
     }
   };
@@ -157,7 +158,7 @@ const DialogCreateGame = (props) => {
               variant="outlined"
               label="Link game"
             />
-            {showAlert && (
+            {showAlertEror && (
               <AtomAlert sx={{ width: "100%" }} severity="error">
                 Vui lòng nhập đầy đủ thông tin!
               </AtomAlert>

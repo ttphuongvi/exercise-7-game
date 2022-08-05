@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import AtomTextField from "../../atoms/AtomTextField";
 import { useDispatch } from "react-redux";
 import DialogMaxWidth from ".";
+import AtomAlert from "../../atoms/AtomAlert";
 
 const DialogLogin = () => {
   const [email, setEmail] = React.useState("");
 
   const [password, setPassword] = React.useState("");
 
+  const [showAlertError, setShowAlertError] = useState(false);
+
   const onLogin = () => {
-    if (email !== null && password !== null) {
+    if (email !== "" && password !== "") {
       axios
         .get(
           `https://game.phong940253.tk/users?email=${email}&password=${password}`
@@ -25,6 +28,9 @@ const DialogLogin = () => {
             alert("Không đúng tài khoản hoặc mật khẩu");
           }
         });
+      setShowAlertError(false);
+    } else {
+      setShowAlertError(true);
     }
   };
 
@@ -62,6 +68,11 @@ const DialogLogin = () => {
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
+          {showAlertError && (
+            <AtomAlert sx={{ width: "100%" }} severity="error">
+              Vui lòng nhập đầy đủ thông tin đăng nhập!
+            </AtomAlert>
+          )}
         </>
       }
     ></DialogMaxWidth>
