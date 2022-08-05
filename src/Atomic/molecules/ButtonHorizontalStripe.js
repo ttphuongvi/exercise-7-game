@@ -4,7 +4,7 @@ import AtomButton from "../atoms/AtomButton";
 
 const ButtonLoadMoreStyles = styled(AtomButton)(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
-  color: theme.palette.background.paper,
+  color: "#fff",
   cursor: "pointer",
   fontFamily: theme.typography.bodyGame.fontFamily,
   fontSize: theme.typography.subtitle1.fontSize,
