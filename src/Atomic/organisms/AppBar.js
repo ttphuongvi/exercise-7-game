@@ -27,7 +27,7 @@ const AppBarStyles = styled(AtomAppBar)(
 
 const drawerWidth = 240;
 
-const AppBar = (props) => {
+const AppBar = () => {
   const user = useSelector((state) => state.user.content);
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -71,7 +71,6 @@ const AppBar = (props) => {
 
               <AtomGrid item xl={6} lg={8} md={6.5} xs={5} sm={3}>
                 <AtomStack direction={"row"} justifyContent="flex-end">
-                  {/* <Settings /> */}
                   <AtomStack direction={"row"} spacing={1} alignItems="center">
                     <MenuTab />
                     <Settings />
