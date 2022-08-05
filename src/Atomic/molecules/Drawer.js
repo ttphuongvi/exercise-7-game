@@ -6,31 +6,32 @@ import AtomListItemText from "../atoms/AtomListItemText";
 import AtomToolBar from "../atoms/AtomToolbar";
 import AtomBox from "../atoms/AtomBox";
 import dataRoutes from "../../routesGame/dataRoutes";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import AtomDivider from "../atoms/AtomDivider";
 import DialogLogin from "./DialogMaxWidth/DialogLogin";
 import DialogSignUp from "./DialogMaxWidth/DialogSignUp";
 import { useSelector } from "react-redux";
 
 import { alpha } from "@mui/material";
+import AtomRouteLink from "../atoms/AtomRouteLink";
 
 const drawerWidth = 240;
 
 const Drawer = (props) => {
   const { window } = props;
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
 
-  const [openState, setOpenState] = React.useState([
-    { open: false },
-    { open: false },
-    { open: false },
-  ]);
+  // const [openState, setOpenState] = React.useState([
+  //   { open: false },
+  //   { open: false },
+  //   { open: false },
+  // ]);
 
-  const handleClick = (index, value) => {
-    const newOpenState = [...openState];
-    newOpenState[index].open = value;
-    setOpenState(newOpenState);
-  };
+  // const handleClick = (index, value) => {
+  //   const newOpenState = [...openState];
+  //   newOpenState[index].open = value;
+  //   setOpenState(newOpenState);
+  // };
 
   const user = useSelector((state) => state.user.content);
 
@@ -43,14 +44,19 @@ const Drawer = (props) => {
         {dataRoutes.map((route, indexRoute) => (
           <div key={indexRoute}>
             <AtomListItemButton
-              onClick={() => {
-                navigate(`${route.path}`);
-                handleClick(indexRoute, !openState[indexRoute].open);
-              }}
+              component={AtomRouteLink}
+              // onClick={() => {
+              //   navigate(`${route.path}`);
+              //   // handleClick(indexRoute, !openState[indexRoute].open);
+              // }}
+              to={route.path}
               sx={(theme) => ({
                 "&:hover": {
                   backgroundColor: alpha(theme.palette.primary.main, 0.1),
                   // color: theme.palette.primary.main,
+                },
+                "&.active": {
+                  color: theme.palette.primary.main,
                 },
               })}
               selected={location.pathname === route.path}
@@ -63,6 +69,9 @@ const Drawer = (props) => {
                   paddingTop: theme.spacing(1),
                   paddingBottom: theme.spacing(1),
                   paddingLeft: theme.spacing(1),
+                  "&.active .MuiTypography-root": {
+                    color: theme.palette.primary.main,
+                  },
                 })}
                 disableTypography
                 primary={route.name}
