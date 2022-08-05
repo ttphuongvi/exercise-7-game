@@ -14,6 +14,9 @@ import AtomStack from "../atoms/AtomStack";
 import AtomIconButton from "../atoms/AtomIconButton";
 import AtomMenuIcon from "../atoms/AtomMenuIcon";
 import Settings from "../molecules/Settings";
+import { CssBaseline } from "@mui/material";
+import AtomBox from "../atoms/AtomBox";
+import Drawer from "../molecules/Drawer";
 
 const AppBarStyles = styled(AtomAppBar)(
   ({ theme }) => `
@@ -27,58 +30,80 @@ const drawerWidth = 240;
 const AppBar = (props) => {
   const user = useSelector((state) => state.user.content);
 
-  return (
-    <AppBarStyles
-      sx={{
-        width: { sm: `calc(100% - ${drawerWidth}px)` },
-        ml: { sm: `${drawerWidth}px` },
-      }}
-      position="fixed"
-    >
-      <AtomContainer maxWidth={false}>
-        <AtomToolBar disableGutters>
-          <AtomIconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={props.handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
-          >
-            <AtomMenuIcon />
-          </AtomIconButton>
-          <AtomGrid
-            container
-            alignItems="center"
-            justifyContent={"space-between"}
-          >
-            <AtomGrid item xl={6} lg={4} md={5.5} xs={7} sm={9}>
-              <ImageLogo alt="logo" src="/images/logo_hahalolo.png"></ImageLogo>
-            </AtomGrid>
+  const [mobileOpen, setMobileOpen] = React.useState(false);
 
-            <AtomGrid item xl={6} lg={8} md={6.5} xs={5} sm={3}>
-              <AtomStack direction={"row"} justifyContent="flex-end">
-                {/* <Settings /> */}
-                <AtomStack direction={"row"} spacing={1} alignItems="center">
-                  <MenuTab />
-                  <Settings />
-                  {user && user.isLogin ? (
-                    <IconAvatar />
-                  ) : (
-                    <AtomStack
-                      sx={{ display: { xs: "none", md: "none", lg: "flex" } }}
-                      direction={"row"}
-                      alignItems="center"
-                    >
-                      <DialogLogin /> / <DialogSignUp />
-                    </AtomStack>
-                  )}
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
+  return (
+    <>
+      <CssBaseline />
+      <AppBarStyles
+        sx={{
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          ml: { sm: `${drawerWidth}px` },
+        }}
+        position="fixed"
+      >
+        <AtomContainer maxWidth={false}>
+          <AtomToolBar disableGutters>
+            <AtomIconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2, display: { sm: "none" } }}
+            >
+              <AtomMenuIcon />
+            </AtomIconButton>
+            <AtomGrid
+              container
+              alignItems="center"
+              justifyContent={"space-between"}
+            >
+              <AtomGrid item xl={6} lg={4} md={5.5} xs={7} sm={9}>
+                <ImageLogo
+                  alt="logo"
+                  src="/images/logo_hahalolo.png"
+                ></ImageLogo>
+              </AtomGrid>
+
+              <AtomGrid item xl={6} lg={8} md={6.5} xs={5} sm={3}>
+                <AtomStack direction={"row"} justifyContent="flex-end">
+                  {/* <Settings /> */}
+                  <AtomStack direction={"row"} spacing={1} alignItems="center">
+                    <MenuTab />
+                    <Settings />
+                    {user && user.isLogin ? (
+                      <IconAvatar />
+                    ) : (
+                      <AtomStack
+                        sx={{ display: { xs: "none", md: "none", lg: "flex" } }}
+                        direction={"row"}
+                        alignItems="center"
+                      >
+                        <DialogLogin /> / <DialogSignUp />
+                      </AtomStack>
+                    )}
+                  </AtomStack>
                 </AtomStack>
-              </AtomStack>
+              </AtomGrid>
             </AtomGrid>
-          </AtomGrid>
-        </AtomToolBar>
-      </AtomContainer>
-    </AppBarStyles>
+          </AtomToolBar>
+        </AtomContainer>
+      </AppBarStyles>
+      <AtomBox
+        component="nav"
+        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+        aria-label="mailbox folders"
+      >
+        <Drawer
+          mobileOpen={mobileOpen}
+          handleDrawerToggle={handleDrawerToggle}
+        />
+      </AtomBox>
+    </>
   );
 };
 

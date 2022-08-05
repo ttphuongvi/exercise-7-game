@@ -4,8 +4,6 @@ import AtomBox from "../atoms/AtomBox";
 import AppBar from "../organisms/AppBar";
 import Footer from "../organisms/Footer";
 import { styled } from "@mui/material/styles";
-import Drawer from "../molecules/Drawer";
-import { CssBaseline } from "@mui/material";
 
 const drawerWidth = 240;
 
@@ -17,29 +15,10 @@ const Content = styled(AtomBox)(({ theme }) => ({
   marginTop: theme.mixins.toolbar.minHeight,
 }));
 
-const TemplatePage = ({ appbar, drawer, content, footer }) => {
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
+const TemplatePage = ({ appbar, content, footer }) => {
   return (
     <AtomBox sx={{ display: "flex" }}>
-      <CssBaseline />
-      <AppBar handleDrawerToggle={handleDrawerToggle} />
-      {/* {appbar} */}
-      {/* {drawer} */}
-      <AtomBox
-        component="nav"
-        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-        aria-label="mailbox folders"
-      >
-        <Drawer
-          mobileOpen={mobileOpen}
-          handleDrawerToggle={handleDrawerToggle}
-        />
-      </AtomBox>
-
+      {appbar}
       <Content component="main">
         {content}
         {footer}
@@ -53,6 +32,7 @@ TemplatePage.propTypes = {
 };
 
 TemplatePage.defaultProps = {
+  appbar: <AppBar />,
   footer: <Footer />,
 };
 
