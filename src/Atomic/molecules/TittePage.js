@@ -1,21 +1,14 @@
 import React from "react";
 import AtomTypography from "../atoms/AtomTypography";
-import { styled } from "@mui/material/styles";
-import Breadcrumbs from "@mui/material/Breadcrumbs";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import AtomRouteLink from "../atoms/AtomRouteLink";
 import AtomBox from "../atoms/AtomBox";
-
-const TypographyStyles = styled(AtomTypography)(({ theme }) => ({
-  color: theme.palette.text.primary,
-  fontFamily: theme.typography.titleGame.fontFamily,
-  fontSize: theme.typography.titleGame.fontSize,
-}));
+import AtomBreadcrumbs from "../atoms/AtomBreadcrumbs";
+import AtomNavigateNextIcon from "../atoms/AtomNavigateNextIcon";
 
 const TitlePage = (props) => {
   return (
-    <Breadcrumbs
-      separator={<NavigateNextIcon fontSize="small" />}
+    <AtomBreadcrumbs
+      separator={<AtomNavigateNextIcon fontSize="small" />}
       aria-label="breadcrumb"
     >
       <AtomTypography variant="titleGame">
@@ -30,8 +23,8 @@ const TitlePage = (props) => {
           HAHALOLO
         </AtomBox>
       </AtomTypography>
-      <TypographyStyles>{props.title}</TypographyStyles>
-    </Breadcrumbs>
+      <AtomTypography variant="titleGame">{props.title}</AtomTypography>
+    </AtomBreadcrumbs>
   );
 };
 export default TitlePage;
