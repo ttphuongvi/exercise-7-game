@@ -23,7 +23,13 @@ const TitlePage = (props) => {
           HAHALOLO
         </AtomBox>
       </AtomTypography>
-      <AtomTypography variant="titleGame">{props.title}</AtomTypography>
+      <AtomBox
+        component={AtomTypography}
+        sx={(theme) => ({ color: theme.palette.text.primary })}
+        variant="titleGame"
+      >
+        {props.title}
+      </AtomBox>
     </AtomBreadcrumbs>
   );
 };
