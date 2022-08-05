@@ -7,16 +7,11 @@ const ButtonStyles = styled(AtomButton)(({ theme }) => ({
   color: "#fff",
   width: "auto",
   maxWidth: "135px",
-  height: "40px",
-  boderRadius: "5px",
-  padding: "10px 25px",
+  padding: theme.spacing(1, 3),
   cursor: "pointer",
   position: "relative",
-
-  outline: "none",
   textTransform: "none",
   lineHeight: "1.5em",
-
   "&:hover": {
     color: theme.palette.primary.main,
     backgroundColor: "transparent",
