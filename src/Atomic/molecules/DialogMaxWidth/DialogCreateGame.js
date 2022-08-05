@@ -55,11 +55,12 @@ const DialogCreateGame = (props) => {
       link === ""
     ) {
       alert("Vui lòng nhập đầy đủ thông tin");
+    } else {
+      dispatch({
+        type: ADD_GAME,
+        content: item,
+      });
     }
-    dispatch({
-      type: ADD_GAME,
-      content: item,
-    });
   };
 
   return (
