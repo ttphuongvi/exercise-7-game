@@ -12,6 +12,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { ADD_GAME } from "../../../store/const";
 import AtomIconButton from "../../atoms/AtomIconButton";
 import AtomIconClose from "../../atoms/AtomIconClose";
+import AtomAlert from "../../atoms/AtomAlert";
 
 const DialogTitleStyles = styled(AtomDialogTitle)(({ theme }) => ({
   fontFamily: theme.typography.titleGame.fontFamily,
@@ -37,6 +38,8 @@ const DialogCreateGame = (props) => {
   const dispatch = useDispatch();
   const dataSource = useSelector((state) => state.listGame.content);
 
+  const [showAlert, setShowAlert] = useState(false);
+
   const saveGame = () => {
     let nextId = parseInt(dataSource.sort((a, b) => b.id - a.id)[0].id) + 1;
     const item = {
@@ -54,12 +57,15 @@ const DialogCreateGame = (props) => {
       release === "" ||
       link === ""
     ) {
-      alert("Vui lòng nhập đầy đủ thông tin");
+      // alert("Please fill all fields");
+
+      setShowAlert(true);
     } else {
       dispatch({
         type: ADD_GAME,
         content: item,
       });
+      handleClose();
     }
   };
 
@@ -92,7 +98,6 @@ const DialogCreateGame = (props) => {
         <AtomDialogContent>
           <AtomStack alignItems={"center"}>
             <AtomTextField
-              required={true}
               margin="normal"
               fullWidth
               onChange={(e) => {
@@ -104,7 +109,6 @@ const DialogCreateGame = (props) => {
               label="Ảnh"
             />
             <AtomTextField
-              required={true}
               margin="normal"
               fullWidth
               onChange={(e) => {
@@ -116,7 +120,6 @@ const DialogCreateGame = (props) => {
               label="Tên"
             />
             <AtomTextField
-              required={true}
               margin="normal"
               fullWidth
               onChange={(e) => {
@@ -133,7 +136,6 @@ const DialogCreateGame = (props) => {
               }}
             />
             <AtomTextField
-              required={true}
               margin="normal"
               fullWidth
               onChange={(e) => {
@@ -145,7 +147,6 @@ const DialogCreateGame = (props) => {
               label="Mô tả"
             />
             <AtomTextField
-              required={true}
               margin="normal"
               fullWidth
               onChange={(e) => {
@@ -156,6 +157,11 @@ const DialogCreateGame = (props) => {
               variant="outlined"
               label="Link game"
             />
+            {showAlert && (
+              <AtomAlert sx={{ width: "100%" }} severity="error">
+                Vui lòng nhập đầy đủ thông tin!
+              </AtomAlert>
+            )}
             <AtomDialogAtions>
               <HorizontalStripeButton
                 variant="contained"
