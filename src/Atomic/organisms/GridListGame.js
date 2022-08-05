@@ -9,7 +9,7 @@ import AtomCardMedia from "../atoms/AtomCardMedia";
 import AtomCardContent from "../atoms/AtomCardContent";
 import DescriptionGame from "../molecules/DescriptionGame";
 import CaptionGame from "../molecules/CaptionGame";
-import { styled } from "@mui/material/styles";
+import { darken, styled } from "@mui/material/styles";
 import AtomTypography from "../atoms/AtomTypography";
 import AtomStack from "../atoms/AtomStack";
 import getNewGames from "../../services/games";
@@ -32,10 +32,10 @@ const GridContainer = styled(AtomGrid)({
 const CardMediaStyle = styled(AtomCardMedia)(({ theme }) => ({
   paddingTop: "56.25%",
   margin: theme.spacing(2, 2, 0, 2),
-  WebkitBoxShadow: "0px 2px 3px 1px rgb(0 0 0)",
+  //"0px 2px 3px 1px rgb(0 0 0)"
   borderRadius: "5px",
-  boxShadow: "0px 2px 3px 1px rgb(0 0 0)",
-  border: "3px solid #22394c",
+  boxShadow: ` 0px 2px 3px 1px ${darken(theme.palette.primary.main, 0.9)}`,
+  border: ` 1px solid ${darken(theme.palette.primary.main, 0.7)}`, //"3px solid #22394c"
 }));
 
 const GridListGame = (props) => {

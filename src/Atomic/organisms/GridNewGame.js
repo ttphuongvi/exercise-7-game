@@ -5,7 +5,7 @@ import AtomGrid from "../atoms/AtomGrid";
 import AtomCard from "../atoms/AtomCard";
 import DescriptionGame from "../molecules/DescriptionGame";
 import CaptionGame from "../molecules/CaptionGame";
-import { styled } from "@mui/material/styles";
+import { darken, styled } from "@mui/material/styles";
 import getNewGames from "../../services/games";
 import AtomStack from "../atoms/AtomStack";
 import { useEffect } from "react";
@@ -55,13 +55,19 @@ const GridNewGame = () => {
                 </AtomGrid>
                 <AtomGrid item xl={6} lg={6} md={6} sm={6} xs={12}>
                   <AtomBox
-                    sx={{
+                    sx={(theme) => ({
                       height: "100%",
-                      WebkitBoxShadow: "0px 2px 3px 1px rgb(0 0 0)",
-                      WebkitBorderRadius: "5px",
-                      float: "left",
+                      boxShadow: ` 0px 2px 3px 1px ${darken(
+                        theme.palette.primary.main,
+                        0.9
+                      )}`,
+                      border: ` 1px solid ${darken(
+                        theme.palette.primary.main,
+                        0.7
+                      )}`,
+                      borderRadius: "5px",
                       overflow: "hidden",
-                    }}
+                    })}
                   >
                     <AtomBox
                       component="img"
