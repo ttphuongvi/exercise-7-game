@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import AtomTextField from "../../atoms/AtomTextField";
 import axios from "axios";
 import DialogMaxWidth from ".";
+import AtomAlert from "../../atoms/AtomAlert";
 
 export default function SignUp() {
-  const [setOpen] = React.useState(false);
+  // const [setOpen] = React.useState(false);
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+  // const handleClose = () => {
+  //   setOpen(false);
+  // };
 
   const [name, setName] = React.useState("");
 
@@ -24,11 +25,15 @@ export default function SignUp() {
     });
   };
 
+  const [showAlertError, setShowAlertError] = useState(false);
+
   const onSignUp = () => {
     if (name && email && password) {
       addUser();
-      alert(" Đăng ký thành công!");
-      handleClose();
+      // alert(" Đăng ký thành công!");
+      // handleClose();
+    } else {
+      setShowAlertError(true);
     }
   };
 
@@ -76,6 +81,11 @@ export default function SignUp() {
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
+          {showAlertError && (
+            <AtomAlert sx={{ width: "100%" }} severity="error">
+              Vui lòng nhập đầy đủ thông tin đăng ký!
+            </AtomAlert>
+          )}
         </>
       }
     ></DialogMaxWidth>
