@@ -41,8 +41,6 @@ const DialogLogin = () => {
           if (res.data.length > 0) {
             localStorage.setItem("user", JSON.stringify(res.data[0]));
             // handleClose();
-
-            alert("Đăng nhập thành công");
             dispatch({ type: "LOGIN", content: res.data[0] });
             setShowAlertErrorWrongInfo(false);
           } else {
