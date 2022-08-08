@@ -13,6 +13,12 @@ import { ADD_GAME } from "../../../store/const";
 import AtomIconButton from "../../atoms/AtomIconButton";
 import AtomIconClose from "../../atoms/AtomIconClose";
 import AtomAlert from "../../atoms/AtomAlert";
+import AtomFormControl from "../../atoms/AtomFormControl";
+import AtomInputLabel from "../../atoms/AtomInputLabel";
+import AtomOutlinedInput from "../../atoms/AtomOutlinedInput";
+import AtomInputAdornment from "../../atoms/AtomInputAdornment";
+import AtomIconPhotoCamera from "../../atoms/AtomIconPhotoCamera";
+import AtomSnackBar from "../../atoms/AtomSnackbar";
 
 const DialogTitleStyles = styled(AtomDialogTitle)(({ theme }) => ({
   fontFamily: theme.typography.titleGame.fontFamily,
@@ -20,6 +26,8 @@ const DialogTitleStyles = styled(AtomDialogTitle)(({ theme }) => ({
 
 const DialogCreateGame = (props) => {
   const [open, setOpen] = React.useState(false);
+
+  const [openAlert, setOpenAlert] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -61,6 +69,7 @@ const DialogCreateGame = (props) => {
 
       setShowAlertError(true);
     } else {
+      setOpenAlert(true);
       dispatch({
         type: ADD_GAME,
         content: item,
@@ -98,7 +107,7 @@ const DialogCreateGame = (props) => {
         <AtomDivider />
         <AtomDialogContent>
           <AtomStack alignItems={"center"}>
-            <AtomTextField
+            {/* <AtomTextField
               margin="normal"
               fullWidth
               onChange={(e) => {
@@ -108,7 +117,32 @@ const DialogCreateGame = (props) => {
               id="outlined-basic"
               variant="outlined"
               label="Ảnh"
-            />
+            /> */}
+            <AtomFormControl fullWidth variant="outlined">
+              <AtomInputLabel htmlFor="outlined-adornment-password">
+                Ảnh
+              </AtomInputLabel>
+              <AtomOutlinedInput
+                // margin="none"
+                label="Ảnh"
+                onChange={(e) => {
+                  setImage(e.target.value);
+                }}
+                value={image}
+                endAdornment={
+                  <AtomInputAdornment position="end">
+                    <AtomIconButton
+                      color="primary"
+                      aria-label="upload picture"
+                      component="label"
+                    >
+                      <input hidden accept="image/*" type="file" />
+                      <AtomIconPhotoCamera />
+                    </AtomIconButton>
+                  </AtomInputAdornment>
+                }
+              />
+            </AtomFormControl>
             <AtomTextField
               margin="normal"
               fullWidth
@@ -128,6 +162,7 @@ const DialogCreateGame = (props) => {
               }}
               value={release}
               id="outlined-basic"
+              color="primary"
               variant="outlined"
               type={"date"}
               label="Ngày phát hành"
@@ -163,6 +198,16 @@ const DialogCreateGame = (props) => {
                 Vui lòng nhập đầy đủ thông tin!
               </AtomAlert>
             )}
+            <AtomSnackBar
+              open={openAlert}
+              autoHideDuration={6000}
+              onClose={handleClose}
+              anchorOrigin={{ vertical: "top", horizontal: "center" }}
+            >
+              <AtomAlert onClose={handleClose} severity="success">
+                Đã thêm game thành công!
+              </AtomAlert>
+            </AtomSnackBar>
             <AtomDialogAtions>
               <HorizontalStripeButton
                 variant="contained"
