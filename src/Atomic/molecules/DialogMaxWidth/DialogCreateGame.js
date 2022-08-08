@@ -18,16 +18,12 @@ import AtomInputLabel from "../../atoms/AtomInputLabel";
 import AtomOutlinedInput from "../../atoms/AtomOutlinedInput";
 import AtomInputAdornment from "../../atoms/AtomInputAdornment";
 import AtomIconPhotoCamera from "../../atoms/AtomIconPhotoCamera";
-import AtomSnackBar from "../../atoms/AtomSnackbar";
-
 const DialogTitleStyles = styled(AtomDialogTitle)(({ theme }) => ({
   fontFamily: theme.typography.titleGame.fontFamily,
 }));
 
 const DialogCreateGame = (props) => {
   const [open, setOpen] = React.useState(false);
-
-  const [openAlert, setOpenAlert] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -69,12 +65,12 @@ const DialogCreateGame = (props) => {
 
       setShowAlertError(true);
     } else {
-      setOpenAlert(true);
+      setShowAlertError(false);
+
       dispatch({
         type: ADD_GAME,
         content: item,
       });
-      setShowAlertError(false);
       handleClose();
     }
   };
@@ -198,16 +194,6 @@ const DialogCreateGame = (props) => {
                 Vui lòng nhập đầy đủ thông tin!
               </AtomAlert>
             )}
-            <AtomSnackBar
-              open={openAlert}
-              autoHideDuration={6000}
-              onClose={handleClose}
-              anchorOrigin={{ vertical: "top", horizontal: "center" }}
-            >
-              <AtomAlert onClose={handleClose} severity="success">
-                Đã thêm game thành công!
-              </AtomAlert>
-            </AtomSnackBar>
             <AtomDialogAtions>
               <HorizontalStripeButton
                 variant="contained"
