@@ -3,13 +3,21 @@ import AtomTextField from "../../atoms/AtomTextField";
 import axios from "axios";
 import DialogMaxWidth from ".";
 import AtomAlert from "../../atoms/AtomAlert";
+import AtomSnackBar from "../../atoms/AtomSnackbar";
 
 export default function SignUp() {
-  // const [setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
 
   // const handleClose = () => {
   //   setOpen(false);
   // };
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
 
   const [name, setName] = React.useState("");
 
@@ -31,7 +39,7 @@ export default function SignUp() {
     if (name && email && password) {
       addUser();
       // alert(" Đăng ký thành công!");
-      // handleClose();
+      setOpen(true);
     } else {
       setShowAlertError(true);
     }
@@ -86,6 +94,16 @@ export default function SignUp() {
               Vui lòng nhập đầy đủ thông tin đăng ký!
             </AtomAlert>
           )}
+          <AtomSnackBar
+            open={open}
+            autoHideDuration={6000}
+            onClose={handleClose}
+            anchorOrigin={{ vertical: "top", horizontal: "center" }}
+          >
+            <AtomAlert onClose={handleClose} severity="success">
+              Đăng ký tài khoản thành công!
+            </AtomAlert>
+          </AtomSnackBar>
         </>
       }
     ></DialogMaxWidth>
