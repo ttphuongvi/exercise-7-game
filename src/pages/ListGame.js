@@ -75,11 +75,7 @@ const ListGame = () => {
                         label="Tìm kiếm game"
                         fullWidth
                       /> */}
-                      <AtomFormControl
-                        fullWidth
-                        sx={{ m: 1 }}
-                        variant="outlined"
-                      >
+                      <AtomFormControl fullWidth variant="outlined">
                         <AtomInputLabel htmlFor="outlined-adornment-password">
                           Tìm kiếm game
                         </AtomInputLabel>
