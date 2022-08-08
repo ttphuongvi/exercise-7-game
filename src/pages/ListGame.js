@@ -13,6 +13,12 @@ import Divider from "../Atomic/molecules/Divider";
 import AtomDatePicker from "../Atomic/atoms/AtomDatePicker";
 import AtomLocalizationProvider from "../Atomic/atoms/AtomLocalizationProvider";
 import AtomAdapterDateFns from "../Atomic/atoms/AtomAdapterDateFns";
+import AtomFormControl from "../Atomic/atoms/AtomFormControl";
+import AtomInputLabel from "../Atomic/atoms/AtomInputLabel";
+import AtomOutlinedInput from "../Atomic/atoms/AtomOutlinedInput";
+import AtomInputAdornment from "../Atomic/atoms/AtomInputAdornment";
+import AtomIconButton from "../Atomic/atoms/AtomIconButton";
+import AtomIconSearch from "../Atomic/atoms/AtomIconSearch";
 
 const ListGame = () => {
   const user = useSelector((state) => state.user.content);
@@ -63,12 +69,37 @@ const ListGame = () => {
                   {/* <AtomStack id="search-game" direction={"row"} spacing={2}> */}
                   <AtomGrid id="search-game" container spacing={2}>
                     <AtomGrid item xs={6} sm={6} md={6} lg={5}>
-                      <AtomTextField
+                      {/* <AtomTextField
                         onChange={inputHandler}
                         variant="outlined"
                         label="Tìm kiếm game"
                         fullWidth
-                      />
+                      /> */}
+                      <AtomFormControl
+                        fullWidth
+                        sx={{ m: 1 }}
+                        variant="outlined"
+                      >
+                        <AtomInputLabel htmlFor="outlined-adornment-password">
+                          Tìm kiếm game
+                        </AtomInputLabel>
+                        <AtomOutlinedInput
+                          margin="none"
+                          onChange={inputHandler}
+                          endAdornment={
+                            <AtomInputAdornment position="end">
+                              <AtomIconButton
+                                type="submit"
+                                sx={{ p: "10px" }}
+                                aria-label="search"
+                              >
+                                <AtomIconSearch />
+                              </AtomIconButton>
+                            </AtomInputAdornment>
+                          }
+                          label="Password"
+                        />
+                      </AtomFormControl>
                     </AtomGrid>
                     <AtomGrid item xs={6} sm={6}>
                       <AtomLocalizationProvider
