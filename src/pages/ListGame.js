@@ -80,20 +80,16 @@ const ListGame = () => {
                           Tìm kiếm game
                         </AtomInputLabel>
                         <AtomOutlinedInput
-                          margin="none"
+                          // margin="none"
+                          label="Tìm kiếm game"
                           onChange={inputHandler}
                           endAdornment={
                             <AtomInputAdornment position="end">
-                              <AtomIconButton
-                                type="submit"
-                                sx={{ p: "10px" }}
-                                aria-label="search"
-                              >
+                              <AtomIconButton aria-label="search">
                                 <AtomIconSearch />
                               </AtomIconButton>
                             </AtomInputAdornment>
                           }
-                          label="Password"
                         />
                       </AtomFormControl>
                     </AtomGrid>
