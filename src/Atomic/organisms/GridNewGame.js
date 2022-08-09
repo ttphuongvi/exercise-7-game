@@ -5,7 +5,7 @@ import AtomGrid from "../atoms/AtomGrid";
 import AtomCard from "../atoms/AtomCard";
 import DescriptionGame from "../molecules/DescriptionGame";
 import CaptionGame from "../molecules/CaptionGame";
-import { darken, styled } from "@mui/material/styles";
+import { alpha, darken, styled } from "@mui/material/styles";
 import getNewGames from "../../services/games";
 import AtomStack from "../atoms/AtomStack";
 import { useEffect } from "react";
@@ -67,6 +67,12 @@ const GridNewGame = () => {
                       )}`,
                       borderRadius: "5px",
                       overflow: "hidden",
+                      ":hover": {
+                        border: ` 1px solid ${alpha(
+                          theme.palette.primary.main,
+                          0.8
+                        )}`,
+                      },
                     })}
                   >
                     <AtomBox
