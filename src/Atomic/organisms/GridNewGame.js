@@ -11,15 +11,6 @@ import AtomStack from "../atoms/AtomStack";
 import { useEffect } from "react";
 import AtomBox from "../atoms/AtomBox";
 
-const CardStyles = styled(AtomCard)(({ theme }) => ({
-  padding: theme.spacing(2),
-  backgroundColor: theme.palette.background.card,
-  boxShadow: "rgba(0, 0, 0, 0.1) 0px 0px 0px 1px",
-  "&:hover": {
-    boxShadow: "rgba(0, 0, 0, 0.14) 0px 3px 8px",
-  },
-}));
-
 const GridNewGame = () => {
   const [dataSource, setDataSource] = React.useState([]);
 
@@ -41,13 +32,23 @@ const GridNewGame = () => {
       {dataSource.map((value) => {
         return (
           <AtomGrid key={value.id} item xs={12} sm={12} md={6} lg={6} xl={4}>
-            <CardStyles
+            <AtomCard
               elevation={0}
-              sx={{
+              sx={(theme) => ({
+                padding: theme.spacing(2),
+                backgroundColor: theme.palette.background.card,
+                boxShadow: "rgba(0, 0, 0, 0.1) 0px 0px 0px 1px",
                 "&:hover": {
                   cursor: "pointer",
+                  boxShadow: "rgba(0, 0, 0, 0.14) 0px 3px 8px",
+                  // backgroundImage: `linear-gradient(to top, ${
+                  //   theme.palette.background.card
+                  // } , ${alpha(theme.palette.primary.main, 0.2)} ,${alpha(
+                  //   theme.palette.primary.main,
+                  //   0.1
+                  // )} )`,
                 },
-              }}
+              })}
             >
               <AtomGrid container spacing={1}>
                 <AtomGrid item xs={12}>
@@ -67,12 +68,6 @@ const GridNewGame = () => {
                       )}`,
                       borderRadius: "5px",
                       overflow: "hidden",
-                      ":hover": {
-                        border: ` 1px solid ${alpha(
-                          theme.palette.primary.main,
-                          0.8
-                        )}`,
-                      },
                     })}
                   >
                     <AtomBox
@@ -102,7 +97,7 @@ const GridNewGame = () => {
                   </AtomStack>
                 </AtomGrid>
               </AtomGrid>
-            </CardStyles>
+            </AtomCard>
           </AtomGrid>
         );
       })}

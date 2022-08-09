@@ -51,7 +51,7 @@ const DialogCreateGame = (props) => {
       image: image,
       description: description,
       release: release,
-      linkGame: link,
+      link: link,
       id: nextId,
     };
     if (
