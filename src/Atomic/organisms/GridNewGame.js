@@ -5,7 +5,7 @@ import AtomGrid from "../atoms/AtomGrid";
 import AtomCard from "../atoms/AtomCard";
 import DescriptionGame from "../molecules/DescriptionGame";
 import CaptionGame from "../molecules/CaptionGame";
-import { alpha, darken, styled } from "@mui/material/styles";
+import { darken } from "@mui/material/styles";
 import getNewGames from "../../services/games";
 import AtomStack from "../atoms/AtomStack";
 import { useEffect } from "react";
