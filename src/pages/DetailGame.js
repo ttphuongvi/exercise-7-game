@@ -7,7 +7,7 @@ import AtomBox from "../Atomic/atoms/AtomBox";
 import TemplatePage from "../Atomic/templates/TemplatePage";
 import AtomCardAction from "../Atomic/atoms/AtomCardAction";
 import TitleCategory from "../Atomic/molecules/TittePage";
-import { styled } from "@mui/material/styles";
+import { darken, styled } from "@mui/material/styles";
 import AtomTypography from "../Atomic/atoms/AtomTypography";
 import AtomPaper from "../Atomic/atoms/AtomPaper";
 import Divider from "../Atomic/molecules/Divider";
@@ -27,14 +27,13 @@ const DescriptionGame = styled(AtomTypography)({
   textAlign: "justify",
 });
 
-const CardMedia = styled(AtomCardMedia)({
+const CardMedia = styled(AtomCardMedia)(({ theme }) => ({
   height: "50%,",
   paddingTop: "56.25%",
-  border: "3px solid #22394c",
-  WebkitBoxShadow: "0px 2px 3px 1px rgb(0 0 0)",
+  border: ` 1px solid ${darken(theme.palette.primary.main, 0.7)}`,
   borderRadius: "5px",
-  boxShadow: "0px 2px 3px 1px rgb(0 0 0)",
-});
+  boxShadow: ` 0px 2px 3px 1px ${darken(theme.palette.primary.main, 0.9)}`,
+}));
 
 const DetailsGame = () => {
   let { params } = useParams();
