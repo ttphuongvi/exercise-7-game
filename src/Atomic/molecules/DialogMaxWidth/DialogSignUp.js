@@ -16,6 +16,12 @@ import AtomIconButton from "../../atoms/AtomIconButton";
 import AtomIconClose from "../../atoms/AtomIconClose";
 import AtomButton from "../../atoms/AtomButton";
 import { AppContext } from "../../../context/context";
+import AtomFormControl from "../../atoms/AtomFormControl";
+import AtomInputLabel from "../../atoms/AtomInputLabel";
+import AtomOutlinedInput from "../../atoms/AtomOutlinedInput";
+import AtomInputAdornment from "../../atoms/AtomInputAdornment";
+import AtomVisibilityIcon from "../../atoms/AtomIconVisibility";
+import AtomVisibilityOffIcon from "../../atoms/AtomIconVisibilityOff";
 
 const DialogTitleStyles = styled(AtomDialogTitle)(({ theme }) => ({
   fontFamily: theme.typography.titleGame.fontFamily,
@@ -70,6 +76,16 @@ const DialogSignUp = () => {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
   };
 
   return (
@@ -129,20 +145,41 @@ const DialogSignUp = () => {
               value={email}
               onChange={(even) => setEmail(even.target.value)}
             />
-            <AtomTextField
-              // onChange={(event) => handelAccount("password", event)}
-              variant="outlined"
-              margin="normal"
+
+            <AtomFormControl
               required
               fullWidth
-              name="password"
-              label="Mật khẩu"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-            />
+              sx={{ m: 1 }}
+              variant="outlined"
+            >
+              <AtomInputLabel htmlFor="outlined-adornment-password">
+                Mật khẩu
+              </AtomInputLabel>
+              <AtomOutlinedInput
+                margin="none"
+                id="outlined-adornment-password"
+                type={showPassword ? "text" : "password"}
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                endAdornment={
+                  <AtomInputAdornment position="end">
+                    <AtomIconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {showPassword ? (
+                        <AtomVisibilityIcon />
+                      ) : (
+                        <AtomVisibilityOffIcon />
+                      )}
+                    </AtomIconButton>
+                  </AtomInputAdornment>
+                }
+                label="Password"
+              />
+            </AtomFormControl>
             {showAlertError && (
               <AtomAlert sx={{ width: "100%" }} severity="error">
                 Vui lòng nhập đầy đủ thông tin đăng ký!
