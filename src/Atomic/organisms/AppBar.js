@@ -41,8 +41,8 @@ const AppBar = () => {
       <CssBaseline />
       <AppBarStyles
         sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-          ml: { sm: `${drawerWidth}px` },
+          width: { md: `calc(100% - ${drawerWidth}px)` },
+          ml: { md: `${drawerWidth}px` },
         }}
         position="fixed"
       >
@@ -94,7 +94,7 @@ const AppBar = () => {
       </AppBarStyles>
       <AtomBox
         component="nav"
-        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+        sx={{ width: { md: drawerWidth }, flexShrink: { md: 0 } }}
         aria-label="mailbox folders"
       >
         <Drawer

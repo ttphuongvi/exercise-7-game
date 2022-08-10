@@ -121,8 +121,8 @@ const Slide1 = () => {
                           sx={{ boxShadow: "rgba(0, 0, 0, 0.14) 0px 3px 8px" }}
                         >
                           <AtomGrid container alignItems={"center"}>
-                            <Hidden mdDown>
-                              <AtomGrid item xs={6} md={12} xl={6}>
+                            <Hidden smDown>
+                              <AtomGrid item xs={6} sm={12} md={12} xl={6}>
                                 <AtomCardMedia
                                   minHeight={"100%"}
                                   component="img"

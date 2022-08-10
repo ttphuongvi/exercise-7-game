@@ -20,7 +20,7 @@ const DescriptionGameSlider = styled(AtomTypography)(({ theme }) => ({
   display: "-webkit-box",
 }));
 
-const Slide1 = () => {
+const Slide = () => {
   const update = (swiper) => {
     swiper.slides.map((slide, index) => {
       if (index === swiper.activeIndex) {
@@ -78,7 +78,7 @@ const Slide1 = () => {
               >
                 <AtomBox
                   component="img"
-                  src={value.image}
+                  src={value.image || "/images/default.png"}
                   sx={{
                     width: "100%",
                     height: "100%",
@@ -126,7 +126,10 @@ const Slide1 = () => {
                         })}
                       >
                         <AtomStack spacing={1} alignItems="center">
-                          <AtomTypography sx={{}} variant="h4">
+                          <AtomTypography
+                            sx={{ textTransform: "uppercase" }}
+                            variant="h4"
+                          >
                             {value.caption}
                           </AtomTypography>
                           <DescriptionGameSlider>
@@ -160,4 +163,4 @@ const Slide1 = () => {
     </>
   );
 };
-export default Slide1;
+export default Slide;
