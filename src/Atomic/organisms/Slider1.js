@@ -124,7 +124,6 @@ const Slide1 = () => {
                             <Hidden smDown>
                               <AtomGrid item xs={6} sm={12} md={12} xl={6}>
                                 <AtomCardMedia
-                                  minHeight={"100%"}
                                   component="img"
                                   image={value.image || "/images/default.png"}
                                   alt=""
