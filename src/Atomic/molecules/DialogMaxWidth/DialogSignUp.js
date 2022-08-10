@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import AtomTextField from "../../atoms/AtomTextField";
 import axios from "axios";
 import AtomAlert from "../../atoms/AtomAlert";
@@ -15,6 +15,7 @@ import AtomBox from "../../atoms/AtomBox";
 import AtomIconButton from "../../atoms/AtomIconButton";
 import AtomIconClose from "../../atoms/AtomIconClose";
 import AtomButton from "../../atoms/AtomButton";
+import { AppContext } from "../../../context/context";
 
 const DialogTitleStyles = styled(AtomDialogTitle)(({ theme }) => ({
   fontFamily: theme.typography.titleGame.fontFamily,
@@ -30,8 +31,8 @@ const ButtonMenu = styled(AtomButton)(
   `
 );
 
-const DialogSignUp = ({ actionName, content, onClick }) => {
-  // const [openAlert, setOpenAlert] = React.useState(false);
+const DialogSignUp = () => {
+  const { handleOpenAlert } = useContext(AppContext);
 
   // const [open, setOpen] = React.useState(false);
 
@@ -41,13 +42,6 @@ const DialogSignUp = ({ actionName, content, onClick }) => {
 
   // const handleClose = () => {
   //   setOpen(false);
-  // };
-  // const handleCloseAlert = (event, reason) => {
-  //   if (reason === "clickaway") {
-  //     return;
-  //   }
-
-  //   setOpenAlert(false);
   // };
 
   const [name, setName] = React.useState("");
@@ -71,7 +65,8 @@ const DialogSignUp = ({ actionName, content, onClick }) => {
       addUser();
       handleClose();
       alert(" Đăng ký thành công!");
-      // setOpenAlert(true);
+      // <AlertSuccess />;
+      handleOpenAlert();
     } else {
       // setOpenAlert(false);
       setShowAlertError(true);
@@ -165,7 +160,7 @@ const DialogSignUp = ({ actionName, content, onClick }) => {
             )}
             {/* <AtomSnackBar
               open={openAlert}
-              autoHideDuration={6000}
+              autoHideDuration={10000}
               onClose={handleCloseAlert}
               anchorOrigin={{ vertical: "top", horizontal: "center" }}
             >
