@@ -83,7 +83,7 @@ const Slide1 = () => {
               >
                 <AtomBox
                   component="img"
-                  src={value.image || "/images/default.png"}
+                  src={value.image || "/images/default.jpg"}
                   sx={(theme) => ({
                     width: "100%",
                     height: "100%",
@@ -125,7 +125,7 @@ const Slide1 = () => {
                               <AtomGrid item xs={6} sm={12} md={12} xl={6}>
                                 <AtomCardMedia
                                   component="img"
-                                  image={value.image || "/images/default.png"}
+                                  image={value.image || "/images/default.jpg"}
                                   alt=""
                                 />
                               </AtomGrid>

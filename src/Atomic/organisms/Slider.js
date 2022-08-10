@@ -78,7 +78,7 @@ const Slide = () => {
               >
                 <AtomBox
                   component="img"
-                  src={value.image || "/images/default.png"}
+                  src={value.image || "/images/default.jpg"}
                   sx={{
                     width: "100%",
                     height: "100%",

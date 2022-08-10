@@ -124,7 +124,7 @@ const GridListGame = (props) => {
                   >
                     <ItemCard elevation={0}>
                       <CardMediaStyle
-                        image={value.image || "/images/default.png"}
+                        image={value.image || "/images/default.jpg"}
                         title={value.caption}
                       ></CardMediaStyle>
                       <AtomCardContent>

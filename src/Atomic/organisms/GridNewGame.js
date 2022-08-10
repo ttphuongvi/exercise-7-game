@@ -73,7 +73,7 @@ const GridNewGame = () => {
                     <AtomBox
                       component="img"
                       sx={{ width: "100%", height: "100%", objectFit: "cover" }}
-                      src={value.image || "/images/default.png"}
+                      src={value.image || "/images/default.jpg"}
                       alt=""
                     ></AtomBox>
                   </AtomBox>

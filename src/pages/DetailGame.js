@@ -73,7 +73,7 @@ const DetailsGame = () => {
                     >
                       <AtomStack spacing={2}>
                         <CardMedia
-                          image={dataSource.image || "/images/default.png"}
+                          image={dataSource.image || "/images/default.jpg"}
                           title={dataSource.caption}
                         ></CardMedia>
                         <AtomStack spacing={1}>
