@@ -4,6 +4,12 @@ import AtomRouteLink from "../atoms/AtomRouteLink";
 import AtomBox from "../atoms/AtomBox";
 import AtomBreadcrumbs from "../atoms/AtomBreadcrumbs";
 import AtomNavigateNextIcon from "../atoms/AtomNavigateNextIcon";
+import { styled } from "@mui/material/styles";
+
+const RouteLinkStyles = styled(AtomBox)(({ theme }) => ({
+  color: theme.palette.primary.main,
+  textDecoration: "none",
+}));
 
 const TitlePage = (props) => {
   return (
@@ -12,16 +18,9 @@ const TitlePage = (props) => {
       aria-label="breadcrumb"
     >
       <AtomTypography variant="titleGame">
-        <AtomBox
-          component={AtomRouteLink}
-          sx={(theme) => ({
-            color: theme.palette.primary.main,
-            textDecoration: "none",
-          })}
-          to="/"
-        >
+        <RouteLinkStyles component={AtomRouteLink} to="/">
           HAHALOLO
-        </AtomBox>
+        </RouteLinkStyles>
       </AtomTypography>
       <AtomBox
         component={AtomTypography}

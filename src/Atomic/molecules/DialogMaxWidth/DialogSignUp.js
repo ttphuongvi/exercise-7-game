@@ -34,16 +34,6 @@ const ButtonMenu = styled(AtomButton)(
 const DialogSignUp = () => {
   const { handleOpenAlert } = useContext(AppContext);
 
-  // const [open, setOpen] = React.useState(false);
-
-  // const handleClose = () => {
-  //   setOpen(false);
-  // };
-
-  // const handleClose = () => {
-  //   setOpen(false);
-  // };
-
   const [name, setName] = React.useState("");
 
   const [email, setEmail] = React.useState("");
