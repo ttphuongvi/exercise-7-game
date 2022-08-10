@@ -67,7 +67,7 @@ const DetailsGame = () => {
                     <AtomContainer maxWidth={"md"}>
                       <AtomStack spacing={2}>
                         <CardMedia
-                          image={dataSource.image}
+                          image={dataSource.image || "/images/default.png"}
                           title={dataSource.caption}
                         ></CardMedia>
                         <AtomStack spacing={1}>

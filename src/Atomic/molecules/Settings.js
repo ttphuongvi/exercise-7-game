@@ -59,12 +59,11 @@ const Setting = (props) => {
         onClose={handleCloseSettingMenu}
       >
         <AtomList
-          sx={(theme) => ({
+          sx={{
             width: "100%",
             minWidth: 230,
             maxWidth: 230,
-            backgroundColor: theme.palette.background.default,
-          })}
+          }}
           component="nav"
           aria-labelledby="nested-list-subheader"
         >
