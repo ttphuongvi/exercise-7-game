@@ -57,7 +57,7 @@ const DialogCreateGame = (props) => {
     if (
       caption === "" ||
       description === "" ||
-      image === "" ||
+      // image === "" ||
       release === "" ||
       link === ""
     ) {

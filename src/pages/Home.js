@@ -2,7 +2,7 @@ import React from "react";
 import GridNewGame from "../Atomic/organisms/GridNewGame";
 import TemplatePage from "../Atomic/templates/TemplatePage";
 import TitleCatogery from "../Atomic/molecules/TittePage";
-import Slider from "../Atomic/organisms/Slider";
+import Slider from "../Atomic/organisms/Slider1";
 import AtomContainer from "../Atomic/atoms/AtomContainer";
 import AtomPaper from "../Atomic/atoms/AtomPaper";
 import AtomCardContent from "../Atomic/atoms/AtomCardContent";
