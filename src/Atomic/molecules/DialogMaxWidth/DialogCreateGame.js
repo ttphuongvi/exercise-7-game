@@ -58,8 +58,8 @@ const DialogCreateGame = (props) => {
       caption === "" ||
       description === "" ||
       // image === "" ||
-      release === "" ||
-      link === ""
+      release === ""
+      // link === ""
     ) {
       // alert("Please fill all fields");
 
@@ -140,6 +140,7 @@ const DialogCreateGame = (props) => {
               />
             </AtomFormControl>
             <AtomTextField
+              required
               margin="normal"
               fullWidth
               onChange={(e) => {
@@ -151,6 +152,7 @@ const DialogCreateGame = (props) => {
               label="Tên"
             />
             <AtomTextField
+              required
               margin="normal"
               fullWidth
               onChange={(e) => {
@@ -162,12 +164,13 @@ const DialogCreateGame = (props) => {
               variant="outlined"
               type={"date"}
               label="Ngày phát hành"
-              defaultValue="2022-05-29"
+              // defaultValue="2022-05-29"
               InputLabelProps={{
                 shrink: true,
               }}
             />
             <AtomTextField
+              required
               margin="normal"
               fullWidth
               onChange={(e) => {
@@ -188,6 +191,7 @@ const DialogCreateGame = (props) => {
               id="outlined-basic"
               variant="outlined"
               label="Link game"
+              // defaultValue={"https://codepen.io/HunorMarton/full/xxOMQKg"}
             />
             {showAlertEror && (
               <AtomAlert sx={{ width: "100%" }} severity="error">

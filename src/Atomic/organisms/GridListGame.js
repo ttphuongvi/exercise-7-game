@@ -141,7 +141,10 @@ const GridListGame = (props) => {
                           <AtomStack alignItems={"flex-end"}>
                             <DialogPlayGame
                               caption={value.caption}
-                              link={value.link}
+                              link={
+                                value.link ||
+                                "https://codepen.io/HunorMarton/full/xxOMQKg"
+                              }
                             />
                           </AtomStack>
                         </AtomStack>

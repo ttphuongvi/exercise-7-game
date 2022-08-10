@@ -63,7 +63,14 @@ const DetailsGame = () => {
                   >
                     <TitleCategory title="CHI TIẾT GAME"></TitleCategory>
                     <Divider />
-                    <AtomContainer maxWidth={"md"}>
+                    <AtomContainer
+                      sx={{
+                        "&:hover": {
+                          cursor: "pointer",
+                        },
+                      }}
+                      maxWidth={"md"}
+                    >
                       <AtomStack spacing={2}>
                         <CardMedia
                           image={dataSource.image || "/images/default.png"}
@@ -84,7 +91,10 @@ const DetailsGame = () => {
                         <CardAction>
                           <DialogPlayGame
                             caption={dataSource.caption}
-                            link={dataSource.link}
+                            link={
+                              dataSource.link ||
+                              "https://codepen.io/HunorMarton/full/xxOMQKg"
+                            }
                           />
                         </CardAction>
                       </AtomStack>
