@@ -37,7 +37,14 @@ const IconAvatar = () => {
         open={Boolean(anchorElUser)}
         onClose={handleCloseUserMenu}
       >
-        <AtomMenuItem onClick={handleLogout}>ĐĂNG XUẤT</AtomMenuItem>
+        <AtomMenuItem
+          onClick={handleLogout}
+          sx={(theme) => ({
+            fontFamily: theme.typography.titleGame.fontFamily,
+          })}
+        >
+          Đăng xuất
+        </AtomMenuItem>
       </AtomMenu>
     </AtomBox>
   );
