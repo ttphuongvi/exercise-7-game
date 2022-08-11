@@ -49,7 +49,6 @@ const AppBar = () => {
         <AtomContainer maxWidth={false}>
           <AtomToolBar disableGutters>
             <AtomIconButton
-              color="inherit"
               aria-label="open drawer"
               edge="start"
               onClick={handleDrawerToggle}
