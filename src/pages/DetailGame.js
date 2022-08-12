@@ -13,10 +13,11 @@ import AtomPaper from "../Atomic/atoms/AtomPaper";
 import Divider from "../Atomic/molecules/Divider";
 import AtomStack from "../Atomic/atoms/AtomStack";
 import AtomContainer from "../Atomic/atoms/AtomContainer";
+import { BOXSHAW_PAPER } from "../store/const";
 
 const PaperStyles = styled(AtomPaper)(({ theme }) => ({
   marginTop: theme.spacing(2),
-  boxShadow: " rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;",
+  boxShadow: BOXSHAW_PAPER,
 }));
 
 const CardAction = styled(AtomCardAction)({

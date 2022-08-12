@@ -9,6 +9,7 @@ import Divider from "../Atomic/molecules/Divider";
 import AtomPaper from "../Atomic/atoms/AtomPaper";
 import AtomStack from "../Atomic/atoms/AtomStack";
 import AtomContainer from "../Atomic/atoms/AtomContainer";
+import { BOXSHAW_PAPER } from "../store/const";
 
 const ContainerContact = styled(AtomContainer)({
   minHeight: "100vh",
@@ -27,7 +28,7 @@ const Contact = () => {
             paddingTop: theme.spacing(2),
           })}
         >
-          <AtomPaper sx={{ boxShadow: " rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;" }}>
+          <AtomPaper sx={{ boxShadow: BOXSHAW_PAPER }}>
             <AtomCardContent sx={{ paddingBottom: "0" }}>
               <TitleCatogery title="LIÊN HỆ" />
               <Divider />

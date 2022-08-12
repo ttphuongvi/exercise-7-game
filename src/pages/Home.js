@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import Divider from "../Atomic/molecules/Divider";
 import AtomStack from "../Atomic/atoms/AtomStack";
 import { Routes, Route } from "react-router-dom";
+import { BOXSHAW_PAPER } from "../store/const";
 const Home = () => {
   let navigate = useNavigate();
 
@@ -30,9 +31,7 @@ const Home = () => {
               paddingTop: theme.spacing(2),
             })}
           >
-            <AtomPaper
-              sx={{ boxShadow: " rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;" }}
-            >
+            <AtomPaper sx={{ boxShadow: BOXSHAW_PAPER }}>
               <AtomCardContent>
                 <TitleCatogery title="GAME MỚI NHẤT" />
                 <Divider />

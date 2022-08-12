@@ -12,7 +12,7 @@ import AtomTypography from "../atoms/AtomTypography";
 // import { useTheme } from "@mui/material/styles";
 import AtomCardAction from "../atoms/AtomCardAction";
 import AtomButton from "../atoms/AtomButton";
-import { alpha, darken } from "@mui/material";
+import { alpha } from "@mui/material";
 
 const GridNewGame = () => {
   const [dataSource, setDataSource] = React.useState([]);
