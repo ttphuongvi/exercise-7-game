@@ -15,7 +15,8 @@ import AtomStack from "../atoms/AtomStack";
 import AtomCard from "../atoms/AtomCard";
 import AtomCardContent from "../atoms/AtomCardContent";
 import AtomCardMedia from "../atoms/AtomCardMedia";
-import { Hidden } from "@mui/material";
+import AtomCardAction from "../atoms/AtomCardAction";
+import ButtonSquareStripe from "../molecules/ButtonSquareStripe";
 
 const DescriptionGameSlider = styled(AtomTypography)(({ theme }) => ({
   overflow: "hidden",
@@ -23,6 +24,37 @@ const DescriptionGameSlider = styled(AtomTypography)(({ theme }) => ({
   WebkitLineClamp: 3,
   display: "-webkit-box",
   textAlign: "center",
+  [theme.breakpoints.up("sm")]: {
+    fontSize: theme.typography.h6.fontSize,
+    WebkitLineClamp: 4,
+  },
+  [theme.breakpoints.up("xxl")]: {
+    fontSize: theme.typography.h4.fontSize,
+    WebkitLineClamp: 5,
+  },
+  [theme.breakpoints.up("xxxl")]: {
+    fontSize: theme.typography.h2.fontSize,
+    WebkitLineClamp: 6,
+  },
+}));
+
+const CaptionGameSlider = styled(AtomTypography)(({ theme }) => ({
+  width: "60%",
+  padding: theme.spacing(1),
+  textAlign: "center",
+  borderBottom: `3px solid ${theme.palette.primary.main}`,
+  fontWeight: "bold",
+  textTransform: "uppercase",
+
+  [theme.breakpoints.up("sm")]: {
+    fontSize: theme.typography.h5.fontSize,
+  },
+  [theme.breakpoints.up("xxl")]: {
+    fontSize: theme.typography.h3.fontSize,
+  },
+  [theme.breakpoints.up("xxxl")]: {
+    fontSize: theme.typography.h1.fontSize,
+  },
 }));
 
 const Slide1 = () => {
@@ -77,6 +109,7 @@ const Slide1 = () => {
                   width: "100%",
                   display: "flex",
                   alignItems: "center",
+                  justifyContent: "center",
                   position: "relative",
                   height: `calc(100vh - ${theme.mixins.toolbar.minHeight}px)`,
                 })}
@@ -100,8 +133,6 @@ const Slide1 = () => {
                     pl={5}
                     pr={5}
                     justifyContent={"center"}
-                    // alignContent={"center"}
-                    // alignItems={"center"}
                     spacing={2}
                   >
                     <AtomGrid item xs={10}>
@@ -118,56 +149,64 @@ const Slide1 = () => {
                           sx={{ boxShadow: "rgba(0, 0, 0, 0.14) 0px 3px 8px" }}
                         >
                           <AtomGrid container alignItems={"center"}>
-                            <Hidden smDown>
-                              <AtomGrid
-                                item
-                                xs={6}
-                                sm={12}
-                                md={12}
-                                lg={6}
-                                xl={6}
-                              >
-                                <AtomCardMedia
-                                  sx={{
-                                    height: "calc( 100vh - 64px - 100vh/2)",
-                                  }}
-                                  component="img"
-                                  image={value.image || "/images/default.jpg"}
-                                  alt=""
-                                />
-                              </AtomGrid>
-                            </Hidden>
-                            <AtomGrid item xs={12} md={12} lg={6} xl={6}>
+                            <AtomGrid
+                              item
+                              xs={12}
+                              sm={12}
+                              md={12}
+                              lg={6}
+                              xl={6}
+                              // xxl={6}
+                            >
+                              <AtomCardMedia
+                                sx={(theme) => ({
+                                  height: `calc( 100vh - ${theme.mixins.toolbar.minHeight}px - 100vh/1.5)`,
+                                  [theme.breakpoints.up("sm")]: {
+                                    height: `calc( 100vh - ${theme.mixins.toolbar.minHeight}px - 100vh/2)`,
+                                  },
+
+                                  [theme.breakpoints.up("xxl")]: {
+                                    height: `calc( 100vh - ${theme.mixins.toolbar.minHeight}px - 100vh/3)`,
+                                  },
+                                  [theme.breakpoints.up("xxxl")]: {
+                                    height: `calc( 100vh - ${theme.mixins.toolbar.minHeight}px - 100vh/4)`,
+                                  },
+                                })}
+                                component="img"
+                                image={value.image || "/images/default.jpg"}
+                                alt=""
+                              />
+                            </AtomGrid>
+
+                            <AtomGrid
+                              item
+                              xs={12}
+                              md={12}
+                              lg={6}
+                              xl={6}
+                              // xxl={6}
+                            >
                               <AtomCardContent>
                                 <AtomStack
-                                  spacing={2}
+                                  spacing={1}
                                   alignItems={"center"}
                                   justifyContent={"center"}
                                 >
-                                  <AtomTypography
-                                    sx={(theme) => ({
-                                      width: "60%",
-                                      padding: theme.spacing(1),
-                                      textAlign: "center",
-                                      borderBottom: `3px solid ${theme.palette.primary.main}`,
-                                      fontWeight: "bold",
-                                      fontSize: theme.typography.h5.fontSize,
-                                      textTransform: "uppercase",
-                                    })}
-                                    variant="titleGame"
-                                  >
+                                  <CaptionGameSlider variant="titleGame">
                                     {value.caption}
-                                  </AtomTypography>
+                                  </CaptionGameSlider>
 
                                   <DescriptionGameSlider>
                                     {value.description}
                                   </DescriptionGameSlider>
-                                  <ButtonStyle1
-                                    label="Xem chi tiết"
-                                    onClick={() => {
-                                      navigate(`/${value.id}`);
-                                    }}
-                                  />
+                                  <AtomCardAction>
+                                    <ButtonSquareStripe
+                                      label="Xem chi tiết"
+                                      onClick={() => {
+                                        navigate(`/${value.id}`);
+                                      }}
+                                    />
+                                  </AtomCardAction>
                                 </AtomStack>
                               </AtomCardContent>
                             </AtomGrid>
