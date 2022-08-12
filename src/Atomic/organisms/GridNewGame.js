@@ -11,8 +11,8 @@ import AtomCardContent from "../atoms/AtomCardContent";
 import AtomTypography from "../atoms/AtomTypography";
 // import { useTheme } from "@mui/material/styles";
 import AtomCardAction from "../atoms/AtomCardAction";
-import AtomButton from "../atoms/AtomButton";
 import { alpha } from "@mui/material";
+import ButtonSquareStripe from "../molecules/ButtonSquareStripe";
 
 const GridNewGame = () => {
   const [dataSource, setDataSource] = React.useState([]);
@@ -80,23 +80,6 @@ const GridNewGame = () => {
                   "& .content": {
                     lineHeight: "224px",
                     color: "#fff",
-
-                    "& .button": {
-                      textTransform: "none",
-                      color: theme.palette.text.primary,
-                      padding: theme.spacing(1, 3),
-                      border: `1px solid ${theme.palette.text.primary}`,
-                      borderRadius: theme.spacing(3),
-                      cursor: "pointer",
-                      textDecoration: "none",
-                      opacity: 1,
-
-                      "&:hover": {
-                        color: "#fff",
-                        background: theme.palette.primary.main,
-                        borderColor: theme.palette.primary.main,
-                      },
-                    },
                   },
                 })}
               >
@@ -105,14 +88,15 @@ const GridNewGame = () => {
                     className="overlay content"
                     sx={{ justifyContent: "center" }}
                   >
-                    <AtomButton
+                    <ButtonSquareStripe
                       onClick={() => {
                         navigate(`/${value.id}`);
                       }}
                       className="button"
+                      label="Xem chi tiết"
                     >
-                      Xem chi tiết{" "}
-                    </AtomButton>
+                      {" "}
+                    </ButtonSquareStripe>
                   </AtomCardAction>
                 </AtomBox>
               </AtomCardMedia>

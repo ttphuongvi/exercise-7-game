@@ -6,7 +6,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useNavigate } from "react-router-dom";
 import AtomGrid from "../atoms/AtomGrid";
-import ButtonStyle1 from "../molecules/ButtonSquareStripe";
 import { styled } from "@mui/material/styles";
 import getNewGames from "../../services/games";
 import AtomTypography from "../atoms/AtomTypography";
