@@ -87,10 +87,7 @@ const Slide1 = () => {
                   sx={(theme) => ({
                     width: "100%",
                     height: "100%",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    backgroundRepeat: "no-repeat",
-
+                    objectFit: "cover",
                     filter: "blur(3px)",
                     webkitFilter: " blur(3px)",
                     // backgroundColor: theme.palette.background.default,
@@ -122,15 +119,25 @@ const Slide1 = () => {
                         >
                           <AtomGrid container alignItems={"center"}>
                             <Hidden smDown>
-                              <AtomGrid item xs={6} sm={12} md={12} xl={6}>
+                              <AtomGrid
+                                item
+                                xs={6}
+                                sm={12}
+                                md={12}
+                                lg={6}
+                                xl={6}
+                              >
                                 <AtomCardMedia
+                                  sx={{
+                                    height: "calc( 100vh - 64px - 100vh/2)",
+                                  }}
                                   component="img"
                                   image={value.image || "/images/default.jpg"}
                                   alt=""
                                 />
                               </AtomGrid>
                             </Hidden>
-                            <AtomGrid item xs={12} md={12} xl={6}>
+                            <AtomGrid item xs={12} md={12} lg={6} xl={6}>
                               <AtomCardContent>
                                 <AtomStack
                                   spacing={2}
