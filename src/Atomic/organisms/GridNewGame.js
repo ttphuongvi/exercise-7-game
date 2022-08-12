@@ -52,14 +52,6 @@ const GridNewGame = () => {
                   transform: "translateY(-4px)",
                   boxShadow:
                     " 0 4px 25px 0 rgba(0,0,0,.3), 0 0 1px 0 rgba(0,0,0,.25)",
-                  "& > *": {
-                    boxShadow: ` 0 3px 0 0 ${theme.palette.primary.main}`,
-                  },
-                  "& .cardMedia  ": {
-                    // backgroundColor: "rgba(25,29,38,.85)",
-                    transition: "opacity .2s ease",
-                    opacity: 1,
-                  },
 
                   "& .overlay": {
                     backgroundColor: alpha(theme.palette.background.paper, 0.7), //"rgba(25,29,38,.85)"
@@ -70,41 +62,31 @@ const GridNewGame = () => {
               })}
             >
               <AtomCardMedia
-                className="cardMedia "
                 image={value.image}
                 alt={value.image}
                 sx={(theme) => ({
-                  position: "relative",
-                  height: "224px",
+                  // position: "relative",
+                  height: "250px",
                   transition: "opacity .2s ease",
-                  backgroundPosition: "center center",
-                  backgroundRepeat: "no-repeat",
-                  objectFit: "cover",
+
                   "& .overlay": {
-                    // position: "absolute",
-                    // left: 0,
-                    // top: 0,
-                    // width: "100%",
                     height: "100%",
                     backgroundColor: "#fff",
                     opacity: 0,
-                    // lineHeight: "224px",
                     textAlign: "center",
                     color: "#fff",
                   },
+
                   "& .content": {
                     lineHeight: "224px",
-                    // textAlign: "center",
                     color: "#fff",
-                    // width: "100%",
+
                     "& .button": {
+                      textTransform: "none",
                       color: theme.palette.text.primary,
-                      padding: "0 2rem",
-                      // display: "inline-block",
+                      padding: theme.spacing(1, 3),
                       border: `1px solid ${theme.palette.text.primary}`,
-                      height: "40px",
-                      // lineHeight: "40px",
-                      borderRadius: "20px",
+                      borderRadius: theme.spacing(3),
                       cursor: "pointer",
                       textDecoration: "none",
                       opacity: 1,

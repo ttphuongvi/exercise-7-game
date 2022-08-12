@@ -19,6 +19,7 @@ import AtomOutlinedInput from "../Atomic/atoms/AtomOutlinedInput";
 import AtomInputAdornment from "../Atomic/atoms/AtomInputAdornment";
 import AtomIconButton from "../Atomic/atoms/AtomIconButton";
 import AtomIconSearch from "../Atomic/atoms/AtomIconSearch";
+import { BOXSHAW_PAPER } from "../store/const";
 
 const ListGame = () => {
   const user = useSelector((state) => state.user.content);
@@ -54,7 +55,7 @@ const ListGame = () => {
             minHeight: "100vh",
           })}
         >
-          <AtomPaper sx={{ boxShadow: " rgba(0, 0, 0, 0.1) 0px 1px 2px 0px" }}>
+          <AtomPaper sx={{ boxShadow: BOXSHAW_PAPER }}>
             <AtomCardContent>
               <TitleCatogery title="DANH SÁCH GAME"></TitleCatogery>
               <Divider />
