@@ -127,93 +127,81 @@ const Slide1 = () => {
                   })}
                 ></AtomBox>
                 <AtomBox>
-                  <AtomGrid
-                    container
-                    pl={5}
-                    pr={5}
-                    justifyContent={"center"}
-                    spacing={2}
+                  <AtomBox
+                    sx={{ width: "70vw", position: "relative", zIndex: 99 }}
                   >
-                    <AtomGrid item xs={10}>
-                      <AtomBox
-                        sx={(theme) => ({
-                          position: "relative",
-                          zIndex: 99,
-                          backgroundColor: theme.palette.background.default,
-                          borderRadius: "0.5em",
-                        })}
-                      >
-                        <AtomCard
-                          elevation={0}
-                          sx={{ boxShadow: "rgba(0, 0, 0, 0.14) 0px 3px 8px" }}
+                    <AtomCard
+                      elevation={0}
+                      sx={{ boxShadow: "rgba(0, 0, 0, 0.14) 0px 3px 8px" }}
+                    >
+                      <AtomGrid container alignItems={"center"}>
+                        <AtomGrid
+                          item
+                          xs={12}
+                          sm={12}
+                          md={12}
+                          lg={6}
+                          xl={6}
+
+                          // xxl={6}
                         >
-                          <AtomGrid container alignItems={"center"}>
-                            <AtomGrid
-                              item
-                              xs={12}
-                              sm={12}
-                              md={12}
-                              lg={6}
-                              xl={6}
-                              // xxl={6}
+                          <AtomCardMedia
+                            sx={(theme) => ({
+                              height: `calc( 100vh - ${theme.mixins.toolbar.minHeight}px - 100vh/1.5)`,
+
+                              [theme.breakpoints.up("sm")]: {
+                                height: `calc( 100vh - ${theme.mixins.toolbar.minHeight}px - 100vh/2)`,
+                              },
+
+                              [theme.breakpoints.up("xxl")]: {
+                                height: `calc( 100vh - ${theme.mixins.toolbar.minHeight}px - 100vh/3)`,
+                              },
+                              [theme.breakpoints.up("xxxl")]: {
+                                height: `calc( 100vh - ${theme.mixins.toolbar.minHeight}px - 100vh/4)`,
+                              },
+                            })}
+                            component="img"
+                            image={value.image || "/images/default.jpg"}
+                            alt=""
+                          />
+                        </AtomGrid>
+
+                        <AtomGrid
+                          item
+                          xs={12}
+                          md={12}
+                          lg={6}
+                          xl={6}
+
+                          // xxl={6}
+                        >
+                          <AtomCardContent>
+                            <AtomStack
+                              spacing={1}
+                              alignItems={"center"}
+                              justifyContent={"center"}
                             >
-                              <AtomCardMedia
-                                sx={(theme) => ({
-                                  height: `calc( 100vh - ${theme.mixins.toolbar.minHeight}px - 100vh/1.5)`,
-                                  [theme.breakpoints.up("sm")]: {
-                                    height: `calc( 100vh - ${theme.mixins.toolbar.minHeight}px - 100vh/2)`,
-                                  },
+                              <CaptionGameSlider variant="titleGame">
+                                {value.caption}
+                              </CaptionGameSlider>
 
-                                  [theme.breakpoints.up("xxl")]: {
-                                    height: `calc( 100vh - ${theme.mixins.toolbar.minHeight}px - 100vh/3)`,
-                                  },
-                                  [theme.breakpoints.up("xxxl")]: {
-                                    height: `calc( 100vh - ${theme.mixins.toolbar.minHeight}px - 100vh/4)`,
-                                  },
-                                })}
-                                component="img"
-                                image={value.image || "/images/default.jpg"}
-                                alt=""
-                              />
-                            </AtomGrid>
-
-                            <AtomGrid
-                              item
-                              xs={12}
-                              md={12}
-                              lg={6}
-                              xl={6}
-                              // xxl={6}
-                            >
-                              <AtomCardContent>
-                                <AtomStack
-                                  spacing={1}
-                                  alignItems={"center"}
-                                  justifyContent={"center"}
-                                >
-                                  <CaptionGameSlider variant="titleGame">
-                                    {value.caption}
-                                  </CaptionGameSlider>
-
-                                  <DescriptionGameSlider>
-                                    {value.description}
-                                  </DescriptionGameSlider>
-                                  <AtomCardAction>
-                                    <ButtonSquareStripe
-                                      label="Xem chi tiết"
-                                      onClick={() => {
-                                        navigate(`/${value.id}`);
-                                      }}
-                                    />
-                                  </AtomCardAction>
-                                </AtomStack>
-                              </AtomCardContent>
-                            </AtomGrid>
-                          </AtomGrid>
-                        </AtomCard>
-                      </AtomBox>{" "}
-                    </AtomGrid>
-                  </AtomGrid>
+                              <DescriptionGameSlider>
+                                {value.description}
+                              </DescriptionGameSlider>
+                              <AtomCardAction>
+                                <ButtonSquareStripe
+                                  label="Xem chi tiết"
+                                  onClick={() => {
+                                    navigate(`/${value.id}`);
+                                  }}
+                                />
+                              </AtomCardAction>
+                            </AtomStack>
+                          </AtomCardContent>
+                        </AtomGrid>
+                      </AtomGrid>
+                    </AtomCard>
+                  </AtomBox>
                 </AtomBox>
               </AtomBox>
 
