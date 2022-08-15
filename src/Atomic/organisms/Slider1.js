@@ -161,6 +161,11 @@ const Slide1 = () => {
                               },
                             })}
                             component="img"
+                            onError={(e) => {
+                              const imgDefault = "/images/default.jpg";
+
+                              e.target.src = imgDefault;
+                            }}
                             image={value.image || "/images/default.jpg"}
                             alt=""
                           />

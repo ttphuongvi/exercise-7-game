@@ -57,9 +57,9 @@ const DialogCreateGame = (props) => {
     if (
       caption === "" ||
       description === "" ||
-      // image === "" ||
-      release === ""
-      // link === ""
+      image === "" ||
+      release === "" ||
+      link === ""
     ) {
       // alert("Please fill all fields");
 
@@ -114,7 +114,7 @@ const DialogCreateGame = (props) => {
               variant="outlined"
               label="Ảnh"
             /> */}
-            <AtomFormControl fullWidth variant="outlined">
+            <AtomFormControl fullWidth variant="outlined" required>
               <AtomInputLabel htmlFor="outlined-adornment-password">
                 Ảnh
               </AtomInputLabel>
@@ -182,6 +182,7 @@ const DialogCreateGame = (props) => {
               label="Mô tả"
             />
             <AtomTextField
+              required
               margin="normal"
               fullWidth
               onChange={(e) => {
