@@ -21,23 +21,22 @@ const ItemCard = styled(AtomCard)(({ theme }) => ({
   },
 }));
 
+const BoxStyles = styled(AtomBox)(({ theme }) => ({
+  textDecoration: "none",
+  color: theme.palette.text.primary,
+}));
+
 const CardMediaStyle = styled(AtomCardMedia)(({ theme }) => ({
-  paddingTop: "56.25%",
+  // paddingTop: "56.25%",
   margin: theme.spacing(0, 2, 0, 2),
-  //"0px 2px 3px 1px rgb(0 0 0)"
+  width: "90%",
   borderRadius: "5px",
-  boxShadow: ` 0px 2px 3px 1px ${darken(theme.palette.primary.main, 0.9)}`,
-  border: ` 1px solid ${darken(theme.palette.primary.main, 0.7)}`, //"3px solid #22394c"
 }));
 
 const CardListGame = (props) => {
   return (
     <ItemCard elevation={0}>
-      <AtomBox
-        sx={(theme) => ({
-          textDecoration: "none",
-          color: theme.palette.text.primary,
-        })}
+      <BoxStyles
         component={AtomRouteLink}
         to={props.to}
         // component={AtomButton}
@@ -84,7 +83,7 @@ const CardListGame = (props) => {
         </AtomCardContent>
 
         <CardMediaStyle
-          // component="img"
+          component="img"
           image={props.image}
           title={props.title}
           onError={(e) => {
@@ -113,7 +112,7 @@ const CardListGame = (props) => {
             link={props.link || "https://codepen.io/HunorMarton/full/xxOMQKg"}
           />
         </AtomCardAction>
-      </AtomBox>
+      </BoxStyles>
     </ItemCard>
   );
 };
