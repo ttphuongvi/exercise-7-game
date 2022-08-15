@@ -20,7 +20,7 @@ const ButtonStyles = styled(AtomButton)(({ theme }) => ({
     border: `1px solid ${theme.palette.primary.main}`,
   },
   [theme.breakpoints.up("sm")]: {
-    fontSize: theme.typography.h6.fontSize,
+    fontSize: theme.typography.body2.fontSize,
   },
   [theme.breakpoints.up("xxl")]: {
     fontSize: theme.typography.h4.fontSize,

@@ -116,6 +116,11 @@ const Slide1 = () => {
                 <AtomBox
                   component="img"
                   src={value.image || "/images/default.jpg"}
+                  onError={(e) => {
+                    const imgDefault = "/images/default.jpg";
+
+                    e.target.src = imgDefault;
+                  }}
                   sx={(theme) => ({
                     width: "100%",
                     height: "100%",
@@ -166,7 +171,7 @@ const Slide1 = () => {
 
                               e.target.src = imgDefault;
                             }}
-                            image={value.image || "/images/default.jpg"}
+                            image={value.image}
                             alt=""
                           />
                         </AtomGrid>

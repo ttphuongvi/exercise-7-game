@@ -15,8 +15,13 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 const DialogPlayGame = (props) => {
   const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
+  const handleClickOpen = (e) => {
+    // e.persist();
     setOpen(true);
+    e.preventDefault();
+    e.stopPropagation();
+
+    // e.nativeEvent.stopImmediatePropagation();
   };
 
   const handleClose = () => {
