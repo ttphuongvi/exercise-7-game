@@ -12,7 +12,16 @@ import ButtonEditCard from "./ButtonEditCard";
 const ItemCard = styled(AtomCard)(({ theme }) => ({
   boxShadow: "rgba(0, 0, 0, 0.1) 0px 0px 0px 1px",
   position: "relative",
-  height: "250px",
+  [theme.breakpoints.up("sm")]: {
+    height: "250px",
+  },
+  [theme.breakpoints.up("xl")]: {
+    height: "300px",
+  },
+  [theme.breakpoints.up("xxl")]: {
+    height: "500px",
+  },
+  transition: "opacity .2s ease",
   "&::before": {
     content: "''",
     position: "absolute",
