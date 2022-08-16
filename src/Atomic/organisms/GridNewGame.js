@@ -15,8 +15,8 @@ import { alpha } from "@mui/material";
 import ButtonSquareStripe from "../molecules/ButtonSquareStripe";
 import { styled } from "@mui/material/styles";
 
-const DescriptionGame = styled(AtomTypography)((theme) => ({
-  height: "72px",
+const DescriptionGame = styled(AtomTypography)(({ theme }) => ({
+  // height: "72px",
   overflow: "hidden",
   display: "-webkit-box",
   WebkitBoxOrient: "vertical",
@@ -67,7 +67,15 @@ const GridNewGame = () => {
                     backgroundColor: alpha(theme.palette.background.paper, 0.7), //"rgba(25,29,38,.85)"
                     transition: "opacity .2s ease",
                     opacity: 1,
-                    height: "250px",
+                    [theme.breakpoints.up("sm")]: {
+                      height: "250px",
+                    },
+                    [theme.breakpoints.up("xl")]: {
+                      height: "300px",
+                    },
+                    [theme.breakpoints.up("xxl")]: {
+                      height: "500px",
+                    },
                   },
                   // "& .content": {
                   //   color: "#fff",
@@ -85,7 +93,15 @@ const GridNewGame = () => {
                 alt={value.image}
                 sx={(theme) => ({
                   // position: "relative",
-                  height: "250px",
+                  [theme.breakpoints.up("sm")]: {
+                    height: "250px",
+                  },
+                  [theme.breakpoints.up("xl")]: {
+                    height: "300px",
+                  },
+                  [theme.breakpoints.up("xxl")]: {
+                    height: "500px",
+                  },
                   transition: "opacity .2s ease",
                 })}
               ></AtomCardMedia>

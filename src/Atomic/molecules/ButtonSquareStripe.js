@@ -19,17 +19,7 @@ const ButtonStyles = styled(AtomButton)(({ theme }) => ({
     boxShadow: "none",
     border: `1px solid ${theme.palette.primary.main}`,
   },
-  [theme.breakpoints.up("sm")]: {
-    fontSize: theme.typography.body2.fontSize,
-  },
-  [theme.breakpoints.up("xxl")]: {
-    fontSize: theme.typography.h4.fontSize,
-  },
-  [theme.breakpoints.up("xxxl")]: {
-    fontSize: theme.typography.h2.fontSize,
-    // borderRadius: theme.spacing(10),
-    padding: theme.spacing(2, 10),
-  },
+
   // "&:before, &:after": {
   //   content: "''",
   //   position: "absolute",

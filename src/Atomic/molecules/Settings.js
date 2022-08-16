@@ -83,8 +83,9 @@ const Setting = (props) => {
   return (
     <>
       <AtomIconButton
+        size="large"
         ref={anchorRef}
-        size="medium"
+        // size="medium"
         aria-label="account of current user"
         aria-controls={open ? "composition-menu" : undefined}
         aria-expanded={open ? "true" : undefined}

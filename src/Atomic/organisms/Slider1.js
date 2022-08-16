@@ -24,15 +24,12 @@ const DescriptionGameSlider = styled(AtomTypography)(({ theme }) => ({
   display: "-webkit-box",
   textAlign: "center",
   [theme.breakpoints.up("sm")]: {
-    fontSize: theme.typography.h6.fontSize,
     WebkitLineClamp: 4,
   },
   [theme.breakpoints.up("xxl")]: {
-    fontSize: theme.typography.h4.fontSize,
     WebkitLineClamp: 5,
   },
   [theme.breakpoints.up("xxxl")]: {
-    fontSize: theme.typography.h2.fontSize,
     WebkitLineClamp: 6,
   },
 }));
@@ -44,16 +41,6 @@ const CaptionGameSlider = styled(AtomTypography)(({ theme }) => ({
   borderBottom: `3px solid ${theme.palette.primary.main}`,
   fontWeight: "bold",
   textTransform: "uppercase",
-
-  [theme.breakpoints.up("sm")]: {
-    fontSize: theme.typography.h5.fontSize,
-  },
-  [theme.breakpoints.up("xxl")]: {
-    fontSize: theme.typography.h3.fontSize,
-  },
-  [theme.breakpoints.up("xxxl")]: {
-    fontSize: theme.typography.h1.fontSize,
-  },
 }));
 
 const Slide1 = () => {
