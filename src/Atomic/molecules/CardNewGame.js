@@ -19,11 +19,9 @@ const CardStyles = styled(AtomCard)(({ theme }) => ({
     opacity: 0,
   },
   "&:hover": {
-    transform: "translateY(-4px)",
-    boxShadow: " 0 4px 25px 0 rgba(0,0,0,.3), 0 0 1px 0 rgba(0,0,0,.25)",
-
+    boxShadow: "rgba(0, 0, 0, 0.14) 0px 3px 8px",
     "& .overlay": {
-      backgroundColor: alpha(theme.palette.background.paper, 0.7), //"rgba(25,29,38,.85)"
+      backgroundColor: "rgba(0, 0, 0, 0.6)", //"rgba(25,29,38,.85)"
       transition: "opacity .2s ease",
       opacity: 1,
       [theme.breakpoints.up("sm")]: {
