@@ -1,28 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import AtomGrid from "../atoms/AtomGrid";
-import AtomCard from "../atoms/AtomCard";
-import CaptionGame from "../molecules/CaptionGame";
 import getNewGames from "../../services/games";
 import { useEffect } from "react";
-import AtomBox from "../atoms/AtomBox";
-import AtomCardMedia from "../atoms/AtomCardMedia";
-import AtomCardContent from "../atoms/AtomCardContent";
 import AtomTypography from "../atoms/AtomTypography";
-// import { useTheme } from "@mui/material/styles";
-import AtomCardAction from "../atoms/AtomCardAction";
-import { alpha } from "@mui/material";
-import ButtonSquareStripe from "../molecules/ButtonSquareStripe";
 import { styled } from "@mui/material/styles";
-
-const DescriptionGame = styled(AtomTypography)(({ theme }) => ({
-  // height: "72px",
-  overflow: "hidden",
-  display: "-webkit-box",
-  WebkitBoxOrient: "vertical",
-  textOverflow: "ellipsis",
-  WebkitLineClamp: 3,
-}));
+import CardNewGame from "../molecules/CardNewGame";
 
 const GridNewGame = () => {
   const [dataSource, setDataSource] = React.useState([]);
@@ -46,94 +29,15 @@ const GridNewGame = () => {
     <AtomGrid container spacing={2}>
       {dataSource.map((value) => {
         return (
-          <AtomGrid key={value.id} item xs={12} sm={12} md={6} lg={6} xl={4}>
-            <AtomCard
-              elevation={0}
-              sx={(theme) => ({
-                boxShadow: "rgba(0, 0, 0, 0.1) 0px 0px 0px 1px",
-                transition: "all .2s ease",
-                position: "relative",
-                overflow: "hidden",
-                "& .overlay": {
-                  transition: "opacity .2s ease",
-                  opacity: 0,
-                },
-                "&:hover": {
-                  transform: "translateY(-4px)",
-                  boxShadow:
-                    " 0 4px 25px 0 rgba(0,0,0,.3), 0 0 1px 0 rgba(0,0,0,.25)",
-
-                  "& .overlay": {
-                    backgroundColor: alpha(theme.palette.background.paper, 0.7), //"rgba(25,29,38,.85)"
-                    transition: "opacity .2s ease",
-                    opacity: 1,
-                    [theme.breakpoints.up("sm")]: {
-                      height: "250px",
-                    },
-                    [theme.breakpoints.up("xl")]: {
-                      height: "300px",
-                    },
-                    [theme.breakpoints.up("xxl")]: {
-                      height: "500px",
-                    },
-                  },
-                  // "& .content": {
-                  //   color: "#fff",
-                  // },
-                },
-              })}
-            >
-              <AtomCardMedia
-                component={"img"}
-                image={value.image}
-                onError={(e) => {
-                  const imgDefault = "/images/default.jpg";
-                  e.target.src = imgDefault;
-                }}
-                alt={value.image}
-                sx={(theme) => ({
-                  // position: "relative",
-                  [theme.breakpoints.up("sm")]: {
-                    height: "250px",
-                  },
-                  [theme.breakpoints.up("xl")]: {
-                    height: "300px",
-                  },
-                  [theme.breakpoints.up("xxl")]: {
-                    height: "500px",
-                  },
-                  transition: "opacity .2s ease",
-                })}
-              ></AtomCardMedia>
-              <AtomBox
-                sx={{
-                  position: "absolute",
-                  top: "0",
-                  width: "100%",
-                  height: "250px",
-                }}
-                className="overlay"
-              >
-                <AtomCardAction
-                  className="overlay content"
-                  sx={{ justifyContent: "center", lineHeight: "224px" }}
-                >
-                  <ButtonSquareStripe
-                    onClick={() => {
-                      navigate(`/${value.id}`);
-                    }}
-                    // className="button"
-                    label="Xem chi tiết"
-                  >
-                    {" "}
-                  </ButtonSquareStripe>
-                </AtomCardAction>
-              </AtomBox>
-              <AtomCardContent sx={{}}>
-                <CaptionGame>{value.caption}</CaptionGame>
-                <DescriptionGame>{value.description}</DescriptionGame>
-              </AtomCardContent>
-            </AtomCard>
+          <AtomGrid key={value.id} item xs={12} sm={6} md={4} lg={4} xl={4}>
+            <CardNewGame
+              image={value.image}
+              description={value.description}
+              caption={value.caption}
+              onClick={() => {
+                navigate(`/${value.id}`);
+              }}
+            />
           </AtomGrid>
         );
       })}
