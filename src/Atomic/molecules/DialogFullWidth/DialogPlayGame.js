@@ -16,12 +16,9 @@ const DialogPlayGame = (props) => {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = (e) => {
-    // e.persist();
-    setOpen(true);
-    e.preventDefault();
+    // e.preventDefault();
     e.stopPropagation();
-
-    // e.nativeEvent.stopImmediatePropagation();
+    setOpen(true);
   };
 
   const handleClose = () => {

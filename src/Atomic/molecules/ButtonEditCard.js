@@ -49,6 +49,7 @@ const ButtonEditCard = () => {
   return (
     <>
       <AtomIconButton
+        color="inherit"
         ref={anchorRef}
         id="composition-button"
         aria-controls={open ? "composition-menu" : undefined}
