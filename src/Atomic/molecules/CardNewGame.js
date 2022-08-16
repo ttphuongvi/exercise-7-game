@@ -1,4 +1,4 @@
-import { alpha, styled } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import React from "react";
 import AtomBox from "../atoms/AtomBox";
 import AtomCard from "../atoms/AtomCard";
@@ -24,7 +24,7 @@ const CardStyles = styled(AtomCard)(({ theme }) => ({
       backgroundColor: "rgba(0, 0, 0, 0.6)", //"rgba(25,29,38,.85)"
       transition: "opacity .2s ease",
       opacity: 1,
-      [theme.breakpoints.up("sm")]: {
+      [theme.breakpoints.up("sx")]: {
         height: "250px",
       },
       [theme.breakpoints.up("xl")]: {
@@ -50,7 +50,7 @@ const DescriptionGame = styled(AtomTypography)(({ theme }) => ({
 }));
 
 const CardMediaStyles = styled(AtomCardMedia)(({ theme }) => ({
-  [theme.breakpoints.up("sm")]: {
+  [theme.breakpoints.up("xs")]: {
     height: "250px",
   },
   [theme.breakpoints.up("xl")]: {

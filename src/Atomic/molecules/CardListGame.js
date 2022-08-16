@@ -65,7 +65,7 @@ const ItemCard = styled(AtomCard)(({ theme }) => ({
 
 const CardMediaStyle = styled(AtomCardMedia)(({ theme }) => ({
   transition: "transform 3s ease",
-  [theme.breakpoints.up("sm")]: {
+  [theme.breakpoints.up("xs")]: {
     height: "250px",
   },
   [theme.breakpoints.up("xl")]: {
