@@ -135,9 +135,15 @@ const CardListGame = (props) => {
             <Caption variant="titleGame" className="caption">
               {props.caption}
             </Caption>
-            <AtomTypography variant="body2">{props.subheader}</AtomTypography>
+            <AtomTypography variant="body2">{props.release}</AtomTypography>
           </AtomStack>
-          <ButtonEditCard />
+          <ButtonEditCard
+            image={props.image}
+            caption={props.caption}
+            release={props.release}
+            link={props.link}
+            description={props.description}
+          />
         </AtomStack>
         <AtomStack className="detailContent">
           <Description className="description">{props.description}</Description>

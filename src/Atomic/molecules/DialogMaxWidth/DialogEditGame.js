@@ -64,7 +64,8 @@ const DialogEditGame = (props) => {
             variant="outlined"
             required
             label=" Ảnh"
-            value={image}
+            // value={image}
+            defaultValue={props.image}
             onChange={(e) => setImage(e.target.value)}
           />
           <AtomTextField
@@ -105,7 +106,8 @@ const DialogEditGame = (props) => {
             onChange={(e) => {
               setDescription(e.target.value);
             }}
-            value={description}
+            // value={description}
+            defaultValue={props.description}
             id="outlined-basic"
             variant="outlined"
             label="Mô tả"
