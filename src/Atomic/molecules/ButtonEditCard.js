@@ -7,44 +7,69 @@ import AtomPaper from "../atoms/AtomPaper";
 import AtomMenuList from "../atoms/AtomMenuList";
 import AtomMenuItem from "../atoms/AtomMenuItem";
 import AtomClickAwayListener from "../atoms/AtomClickAwayListener";
+import DialogAlert from "./DialogAlert";
+import AtomIconDeleteOutlined from "../atoms/AtomIconDeleteOutlined";
 
 const ButtonEditCard = () => {
-  const [open, setOpen] = React.useState(false);
+  const [openMenu, setOpenMenu] = React.useState(false);
+
   const hanleClickButtonEdit = (e) => {
-    // e.preventDefault();
-    setOpen((prevOpen) => !prevOpen);
-    e.preventDefault();
     e.stopPropagation();
+    setOpenMenu((prevOpen) => !prevOpen);
   };
 
   const anchorRef = React.useRef(null);
 
-  const handleClose = (event) => {
+  const handleCloseMenu = (event) => {
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
       return;
     }
-
-    setOpen(false);
+    setOpenMenu(false);
   };
 
   function handleListKeyDown(event) {
     if (event.key === "Tab") {
-      event.preventDefault();
-      setOpen(false);
+      setOpenMenu(false);
     } else if (event.key === "Escape") {
-      setOpen(false);
+      setOpenMenu(false);
     }
   }
 
   // return focus to the button when we transitioned from !open -> open
-  const prevOpen = React.useRef(open);
+  const prevOpen = React.useRef(openMenu);
   React.useEffect(() => {
-    if (prevOpen.current === true && open === false) {
+    if (prevOpen.current === true && openMenu === false) {
       anchorRef.current.focus();
     }
 
-    prevOpen.current = open;
-  }, [open]);
+    prevOpen.current = openMenu;
+  }, [openMenu]);
+
+  //even DialogAlert
+
+  const [openDialog, setOpenDialog] = React.useState(false);
+
+  const handlekOpenDialog = (e) => {
+    e.stopPropagation();
+
+    setOpenDialog(true);
+  };
+
+  const handleCloseDialog = (e) => {
+    e.stopPropagation();
+    setOpenDialog(false);
+  };
+
+  //remove item game
+
+  const handleRemove = (e) => {
+    e.stopPropagation();
+
+    // dispatch({
+    //   type: REMOVE_GAME,
+    //   content: removeData,
+    // });
+  };
 
   return (
     <>
@@ -52,8 +77,8 @@ const ButtonEditCard = () => {
         color="inherit"
         ref={anchorRef}
         id="composition-button"
-        aria-controls={open ? "composition-menu" : undefined}
-        aria-expanded={open ? "true" : undefined}
+        aria-controls={openMenu ? "composition-menu" : undefined}
+        aria-expanded={openMenu ? "true" : undefined}
         aria-haspopup="true"
         edge={"end"}
         onClick={hanleClickButtonEdit}
@@ -61,7 +86,7 @@ const ButtonEditCard = () => {
         <AtomIconMoreVert />
       </AtomIconButton>
       <AtomPopper
-        open={open}
+        open={openMenu}
         anchorEl={anchorRef.current}
         role={undefined}
         placement="bottom-start"
@@ -77,15 +102,26 @@ const ButtonEditCard = () => {
             }}
           >
             <AtomPaper>
-              <AtomClickAwayListener onClickAway={handleClose}>
+              <AtomClickAwayListener onClickAway={handleCloseMenu}>
                 <AtomMenuList
-                  autoFocusItem={open}
+                  autoFocusItem={openMenu}
                   id="composition-menu"
                   aria-labelledby="composition-button"
                   onKeyDown={handleListKeyDown}
                 >
-                  <AtomMenuItem onClick={handleClose}>Chỉnh sửa</AtomMenuItem>
-                  <AtomMenuItem onClick={handleClose}>Xóa</AtomMenuItem>
+                  <AtomMenuItem onClick={handleCloseMenu}>
+                    Chỉnh sửa
+                  </AtomMenuItem>
+                  <AtomMenuItem onClick={handlekOpenDialog}>Xóa</AtomMenuItem>
+                  <DialogAlert
+                    open={openDialog}
+                    onClose={handleCloseDialog}
+                    onClick={handleRemove}
+                    startIcon={<AtomIconDeleteOutlined />}
+                    title="Xác nhận xóa game"
+                    content="Bạn có chắc chắn muốn xóa game?"
+                    action="Xóa"
+                  />
                 </AtomMenuList>
               </AtomClickAwayListener>
             </AtomPaper>

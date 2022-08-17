@@ -17,13 +17,20 @@ const DialogAlert = (props) => {
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
     >
-      <AtomDialogTitle id="alert-dialog-title">{props.title}</AtomDialogTitle>
+      <AtomDialogTitle
+        id="alert-dialog-title"
+        sx={(theme) => ({
+          fontFamily: theme.typography.titleGame.fontFamily,
+        })}
+      >
+        {props.title}
+      </AtomDialogTitle>
       <AtomDialogContent>
         <AtomDialogContentText id="alert-dialog-description">
           {props.content}
         </AtomDialogContentText>
       </AtomDialogContent>
-      <AtomDialogActions sx={{ textTranform: "none" }}>
+      <AtomDialogActions>
         <AtomButton
           variant="outlined"
           startIcon={<AtomIconClose />}
