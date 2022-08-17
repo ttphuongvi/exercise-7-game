@@ -10,6 +10,8 @@ import AtomMenuItem from "../atoms/AtomMenuItem";
 import AtomMenuList from "../atoms/AtomMenuList";
 import AtomPaper from "../atoms/AtomPaper";
 import AtomPopper from "../atoms/AtomPopper";
+import AtomListItemIcon from "../atoms/AtomListItemIcon";
+import AtomIconLogout from "../atoms/AtomIconLogout";
 
 const IconAvatar = () => {
   const [open, setOpen] = React.useState(false);
@@ -83,7 +85,13 @@ const IconAvatar = () => {
                   aria-labelledby="composition-button"
                   onKeyDown={handleListKeyDown}
                 >
-                  <AtomMenuItem onClick={handleLogout}>Đăng xuất</AtomMenuItem>
+                  <AtomMenuItem onClick={handleLogout}>
+                    {" "}
+                    <AtomListItemIcon>
+                      <AtomIconLogout fontSize="small" />
+                    </AtomListItemIcon>
+                    Đăng xuất
+                  </AtomMenuItem>
                 </AtomMenuList>
               </AtomClickAwayListener>
             </AtomPaper>
