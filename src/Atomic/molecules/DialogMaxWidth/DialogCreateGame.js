@@ -3,13 +3,7 @@ import HorizontalStripeButton from "./../../molecules/ButtonHorizontalStripe";
 import AtomTextField from "../../atoms/AtomTextField";
 import { useSelector, useDispatch } from "react-redux";
 import { ADD_GAME } from "../../../store/const";
-import AtomIconButton from "../../atoms/AtomIconButton";
 import AtomAlert from "../../atoms/AtomAlert";
-import AtomFormControl from "../../atoms/AtomFormControl";
-import AtomInputLabel from "../../atoms/AtomInputLabel";
-import AtomOutlinedInput from "../../atoms/AtomOutlinedInput";
-import AtomInputAdornment from "../../atoms/AtomInputAdornment";
-import AtomIconPhotoCamera from "../../atoms/AtomIconPhotoCamera";
 import DialogMaxWidth from ".";
 
 const DialogCreateGame = (props) => {
