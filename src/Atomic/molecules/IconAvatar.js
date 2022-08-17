@@ -6,7 +6,6 @@ import AtomBox from "../atoms/AtomBox";
 import AtomClickAwayListener from "../atoms/AtomClickAwayListener";
 import AtomGrow from "../atoms/AtomGrow";
 import AtomIconButton from "../atoms/AtomIconButton";
-import AtomMenu from "../atoms/AtomMenu";
 import AtomMenuItem from "../atoms/AtomMenuItem";
 import AtomMenuList from "../atoms/AtomMenuList";
 import AtomPaper from "../atoms/AtomPaper";
