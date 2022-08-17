@@ -21,7 +21,8 @@ const DialogPlayGame = (props) => {
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const handleClose = (e) => {
+    e.stopPropagation();
     setOpen(false);
   };
   return (
