@@ -26,16 +26,6 @@ import AtomToolbar from "../atoms/AtomToolbar";
 import AtomContainer from "../atoms/AtomContainer";
 
 const Setting = (props) => {
-  // const [anchorElSetting, setAnchorElSetting] = React.useState(null);
-
-  // const handleOpenSettingMenu = (event) => {
-  //   setAnchorElSetting(event.currentTarget);
-  // };
-
-  // const handleCloseSettingMenu = () => {
-  //   setAnchorElSetting(null);
-  // };
-
   const [openIconExpand, setOpenIconExpand] = React.useState(true);
 
   const handleClickIconExpand = () => {
