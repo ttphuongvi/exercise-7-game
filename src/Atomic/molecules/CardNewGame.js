@@ -1,4 +1,4 @@
-import { styled } from "@mui/material/styles";
+import { alpha, styled } from "@mui/material/styles";
 import React from "react";
 import AtomBox from "../atoms/AtomBox";
 import AtomCard from "../atoms/AtomCard";
@@ -20,11 +20,12 @@ const CardStyles = styled(AtomCard)(({ theme }) => ({
   },
   "&:hover": {
     boxShadow: "rgba(0, 0, 0, 0.14) 0px 3px 8px",
+
     "& .overlay": {
-      backgroundColor: "rgba(0, 0, 0, 0.6)", //"rgba(25,29,38,.85)"
+      backgroundColor: "rgba(0, 0, 0, 0.6)",
       transition: "opacity .2s ease",
       opacity: 1,
-      [theme.breakpoints.up("sx")]: {
+      [theme.breakpoints.up("xs")]: {
         height: "250px",
       },
       [theme.breakpoints.up("xl")]: {
