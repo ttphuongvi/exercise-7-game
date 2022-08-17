@@ -29,8 +29,8 @@ const DescriptionGame = styled(AtomTypography)({
 });
 
 const CardMedia = styled(AtomCardMedia)(({ theme }) => ({
-  height: "50%,",
-  paddingTop: "56.25%",
+  height: "500px",
+  // paddingTop: "56.25%",
   border: ` 1px solid ${darken(theme.palette.primary.main, 0.7)}`,
   borderRadius: "5px",
   boxShadow: ` 0px 2px 3px 1px ${darken(theme.palette.primary.main, 0.9)}`,
@@ -74,8 +74,14 @@ const DetailsGame = () => {
                     >
                       <AtomStack spacing={2}>
                         <CardMedia
-                          image={dataSource.image || "/images/default.jpg"}
+                          component="img"
+                          image={dataSource.image}
                           title={dataSource.caption}
+                          onError={(e) => {
+                            const imgDefault = "/images/default.jpg";
+
+                            e.target.src = imgDefault;
+                          }}
                         ></CardMedia>
                         <AtomStack spacing={1}>
                           <CaptionGame>{dataSource.caption}</CaptionGame>
