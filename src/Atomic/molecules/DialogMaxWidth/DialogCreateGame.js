@@ -1,26 +1,16 @@
 import React, { useState } from "react";
-import AtomDialog from "./../../atoms/AtomDialog";
-import AtomDialogTitle from "./../../atoms/AtomDialogTitle";
-import AtomDialogContent from "./../../atoms/AtomDialogContent";
-import AtomDialogAtions from "./../../atoms/AtomDialogActions";
-import { styled } from "@mui/material/styles";
 import HorizontalStripeButton from "./../../molecules/ButtonHorizontalStripe";
-import AtomStack from "./../../atoms/AtomStack";
-import AtomDivider from "./../../atoms/AtomDivider";
 import AtomTextField from "../../atoms/AtomTextField";
 import { useSelector, useDispatch } from "react-redux";
 import { ADD_GAME } from "../../../store/const";
 import AtomIconButton from "../../atoms/AtomIconButton";
-import AtomIconClose from "../../atoms/AtomIconClose";
 import AtomAlert from "../../atoms/AtomAlert";
 import AtomFormControl from "../../atoms/AtomFormControl";
 import AtomInputLabel from "../../atoms/AtomInputLabel";
 import AtomOutlinedInput from "../../atoms/AtomOutlinedInput";
 import AtomInputAdornment from "../../atoms/AtomInputAdornment";
 import AtomIconPhotoCamera from "../../atoms/AtomIconPhotoCamera";
-const DialogTitleStyles = styled(AtomDialogTitle)(({ theme }) => ({
-  fontFamily: theme.typography.titleGame.fontFamily,
-}));
+import DialogMaxWidth from ".";
 
 const DialogCreateGame = (props) => {
   const [open, setOpen] = React.useState(false);
@@ -76,69 +66,29 @@ const DialogCreateGame = (props) => {
   };
 
   return (
-    <div id={props.id}>
+    <>
       <HorizontalStripeButton
         label=" + TẠO GAME MỚI"
         onClick={handleClickOpen}
       ></HorizontalStripeButton>
-      <AtomDialog
+      <DialogMaxWidth
+        action="Thêm game"
+        title=" Tạo game mới"
+        onClick={saveGame}
         open={open}
-        onClose={handleClose}
-        aria-labelledby="form-dialog-title"
-        maxWidth={"xs"}
-        fullWidth={true}
-      >
-        <DialogTitleStyles id="form-dialog-title">
-          <AtomStack
-            justifyContent={"space-between"}
-            alignItems={"center"}
-            direction={"row"}
-          >
-            Tạo game mới
-            <AtomIconButton edge="end" onClick={handleClose} size="large">
-              <AtomIconClose />
-            </AtomIconButton>
-          </AtomStack>
-        </DialogTitleStyles>
-        <AtomDivider />
-        <AtomDialogContent>
-          <AtomStack alignItems={"center"}>
-            {/* <AtomTextField
+        handleClose={handleClose}
+        content={
+          <>
+            <AtomTextField
               margin="normal"
               fullWidth
-              onChange={(e) => {
-                setImage(e.target.value);
-              }}
-              value={image}
-              id="outlined-basic"
               variant="outlined"
-              label="Ảnh"
-            /> */}
-            <AtomFormControl fullWidth variant="outlined" required>
-              <AtomInputLabel htmlFor="outlined-adornment-password">
-                Ảnh
-              </AtomInputLabel>
-              <AtomOutlinedInput
-                // margin="none"
-                label="Ảnh"
-                onChange={(e) => {
-                  setImage(e.target.value);
-                }}
-                value={image}
-                endAdornment={
-                  <AtomInputAdornment position="end">
-                    <AtomIconButton
-                      color="primary"
-                      aria-label="upload picture"
-                      component="label"
-                    >
-                      <input hidden accept="image/*" type="file" />
-                      <AtomIconPhotoCamera />
-                    </AtomIconButton>
-                  </AtomInputAdornment>
-                }
-              />
-            </AtomFormControl>
+              required
+              label=" Ảnh"
+              value={image}
+              onChange={(e) => setImage(e.target.value)}
+            />
+
             <AtomTextField
               required
               margin="normal"
@@ -199,18 +149,10 @@ const DialogCreateGame = (props) => {
                 Vui lòng nhập đầy đủ thông tin!
               </AtomAlert>
             )}
-            <AtomDialogAtions>
-              <HorizontalStripeButton
-                variant="contained"
-                color="primary"
-                onClick={saveGame}
-                label="Lưu game"
-              ></HorizontalStripeButton>
-            </AtomDialogAtions>
-          </AtomStack>
-        </AtomDialogContent>
-      </AtomDialog>
-    </div>
+          </>
+        }
+      ></DialogMaxWidth>
+    </>
   );
 };
 

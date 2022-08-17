@@ -7,43 +7,21 @@ import { styled } from "@mui/material/styles";
 import HorizontalStripeButton from "./../../molecules/ButtonHorizontalStripe";
 import AtomStack from "./../../atoms/AtomStack";
 import AtomDivider from "./../../atoms/AtomDivider";
-import PropTypes from "prop-types";
 import AtomBox from "../../atoms/AtomBox";
 import AtomIconButton from "../../atoms/AtomIconButton";
 import AtomIconClose from "../../atoms/AtomIconClose";
-import AtomButton from "../../atoms/AtomButton";
 
 const DialogTitleStyles = styled(AtomDialogTitle)(({ theme }) => ({
   fontFamily: theme.typography.titleGame.fontFamily,
 }));
 
-const ButtonMenu = styled(AtomButton)(
-  ({ theme }) => `
-    font-family: ${theme.typography.titleGame.fontFamily};
-    color: ${theme.palette.text.primary};
-    :hover {
-      color: ${theme.palette.primary.main};
-    }
-  `
-);
-
-const DialogMaxWidth = ({ actionName, content, onClick }) => {
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
+const DialogMaxWidth = (props) => {
   return (
     <div>
-      <ButtonMenu onClick={handleClickOpen}>{actionName}</ButtonMenu>
+      {/* <ButtonMenu onClick={handleClickOpen}>{actionName}</ButtonMenu> */}
       <AtomDialog
-        open={open}
-        onClose={handleClose}
+        open={props.open}
+        onClose={props.handleClose}
         aria-labelledby="form-dialog-title"
         maxWidth={"xs"}
         fullWidth={true}
@@ -55,8 +33,8 @@ const DialogMaxWidth = ({ actionName, content, onClick }) => {
             alignItems={"center"}
             direction={"row"}
           >
-            {actionName}
-            <AtomIconButton onClick={handleClose} size="large">
+            {props.title}
+            <AtomIconButton onClick={props.handleClose} size="large">
               <AtomIconClose />
             </AtomIconButton>
           </AtomStack>
@@ -71,13 +49,13 @@ const DialogMaxWidth = ({ actionName, content, onClick }) => {
               sx={{ width: "40%" }}
             ></AtomBox>
 
-            {content}
+            {props.content}
             <AtomDialogAtions>
               <HorizontalStripeButton
                 variant="contained"
                 color="primary"
-                onClick={onClick}
-                label={actionName}
+                onClick={props.onClick}
+                label={props.action}
               ></HorizontalStripeButton>
             </AtomDialogAtions>
           </AtomStack>
@@ -87,9 +65,4 @@ const DialogMaxWidth = ({ actionName, content, onClick }) => {
   );
 };
 
-DialogMaxWidth.prototype = {
-  content: PropTypes.node,
-  onClick: PropTypes.func,
-  actionName: PropTypes.string,
-};
 export default DialogMaxWidth;

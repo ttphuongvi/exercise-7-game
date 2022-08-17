@@ -12,7 +12,7 @@ import AtomOutlinedInput from "../../atoms/AtomOutlinedInput";
 import AtomInputAdornment from "../../atoms/AtomInputAdornment";
 import AtomVisibilityIcon from "../../atoms/AtomIconVisibility";
 
-const DialogLogin = () => {
+const DialogLogin = (props) => {
   const [email, setEmail] = useState("");
 
   const [password, setPassword] = useState("");
@@ -30,7 +30,7 @@ const DialogLogin = () => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-
+  const dispatch = useDispatch();
   const onLogin = () => {
     if (email !== "" && password !== "") {
       axios
@@ -54,12 +54,14 @@ const DialogLogin = () => {
   };
 
   // const user = useSelector((state) => state.user.content);
-  const dispatch = useDispatch();
 
   return (
     <DialogMaxWidth
-      actionName="Đăng nhập"
+      action="Đăng nhập"
+      title="Đăng nhập"
       onClick={onLogin}
+      open={props.open}
+      handleClose={props.handleClose}
       content={
         <>
           <AtomTextField

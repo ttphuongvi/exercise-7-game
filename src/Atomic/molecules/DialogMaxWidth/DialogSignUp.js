@@ -14,7 +14,6 @@ import AtomDivider from "./../../atoms/AtomDivider";
 import AtomBox from "../../atoms/AtomBox";
 import AtomIconButton from "../../atoms/AtomIconButton";
 import AtomIconClose from "../../atoms/AtomIconClose";
-import AtomButton from "../../atoms/AtomButton";
 import { AppContext } from "../../../context/context";
 import AtomFormControl from "../../atoms/AtomFormControl";
 import AtomInputLabel from "../../atoms/AtomInputLabel";
@@ -27,17 +26,7 @@ const DialogTitleStyles = styled(AtomDialogTitle)(({ theme }) => ({
   fontFamily: theme.typography.titleGame.fontFamily,
 }));
 
-const ButtonMenu = styled(AtomButton)(
-  ({ theme }) => `
-    font-family: ${theme.typography.titleGame.fontFamily};
-    color: ${theme.palette.text.primary};
-    :hover {
-      color: ${theme.palette.primary.main};
-    }
-  `
-);
-
-const DialogSignUp = () => {
+const DialogSignUp = (props) => {
   const { handleOpenAlert } = useContext(AppContext);
 
   const [name, setName] = React.useState("");
@@ -59,7 +48,7 @@ const DialogSignUp = () => {
   const onSignUp = () => {
     if (name && email && password) {
       addUser();
-      handleClose();
+      // handleClose();
       alert(" Đăng ký thành công!");
       // <AlertSuccess />;
       handleOpenAlert();
@@ -67,15 +56,6 @@ const DialogSignUp = () => {
       // setOpenAlert(false);
       setShowAlertError(true);
     }
-  };
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
   };
 
   const [showPassword, setShowPassword] = useState(false);
@@ -90,10 +70,9 @@ const DialogSignUp = () => {
 
   return (
     <div>
-      <ButtonMenu onClick={handleClickOpen}>Đăng ký</ButtonMenu>
       <AtomDialog
-        open={open}
-        onClose={handleClose}
+        open={props.open}
+        onClose={props.handleClose}
         aria-labelledby="form-dialog-title"
         maxWidth={"xs"}
         fullWidth={true}
@@ -106,7 +85,7 @@ const DialogSignUp = () => {
             direction={"row"}
           >
             Đăng ký
-            <AtomIconButton onClick={handleClose} size="large">
+            <AtomIconButton onClick={props.handleClose} size="large">
               <AtomIconClose />
             </AtomIconButton>
           </AtomStack>
