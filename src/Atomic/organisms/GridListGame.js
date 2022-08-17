@@ -79,7 +79,7 @@ const GridListGame = (props) => {
                 item
                 xs={12}
                 sm={6}
-                md={4}
+                md={6}
                 lg={4}
                 xl={3}
               >
@@ -89,7 +89,7 @@ const GridListGame = (props) => {
                     navigate(`/${value.id}`);
                   }}
                   title={value.caption}
-                  subheader={value.release}
+                  release={value.release}
                   image={value.image}
                   caption={value.caption}
                   link={value.link}
