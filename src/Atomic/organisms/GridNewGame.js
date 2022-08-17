@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import AtomGrid from "../atoms/AtomGrid";
 import getNewGames from "../../services/games";
 import { useEffect } from "react";
-import AtomTypography from "../atoms/AtomTypography";
-import { styled } from "@mui/material/styles";
 import CardNewGame from "../molecules/CardNewGame";
 
 const GridNewGame = () => {

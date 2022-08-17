@@ -1,4 +1,4 @@
-import { alpha, styled } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import React from "react";
 import AtomBox from "../atoms/AtomBox";
 import AtomCard from "../atoms/AtomCard";
