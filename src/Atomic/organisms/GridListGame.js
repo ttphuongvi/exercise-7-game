@@ -98,8 +98,11 @@ const GridListGame = (props) => {
                     e.stopPropagation();
                     filteredData.splice(index, 1);
                     console.log("filteredData", filteredData);
-                    // filteredData.splice(index, 1);
-                    dispatch({ type: REMOVE_GAME, content: value });
+                    localStorage.setItem(
+                      "listGame",
+                      JSON.stringify(filteredData)
+                    );
+                    dispatch({ type: SET_LIST_GAME, content: filteredData });
                   }}
                 />
               </AtomGrid>
