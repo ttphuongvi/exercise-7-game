@@ -2,18 +2,9 @@ import React, { useContext, useState } from "react";
 import AtomTextField from "../../atoms/AtomTextField";
 import axios from "axios";
 import AtomAlert from "../../atoms/AtomAlert";
-
-import AtomDialog from "./../../atoms/AtomDialog";
-import AtomDialogTitle from "./../../atoms/AtomDialogTitle";
-import AtomDialogContent from "./../../atoms/AtomDialogContent";
-import AtomDialogAtions from "./../../atoms/AtomDialogActions";
 import { styled } from "@mui/material/styles";
-import HorizontalStripeButton from "./../../molecules/ButtonHorizontalStripe";
-import AtomStack from "./../../atoms/AtomStack";
-import AtomDivider from "./../../atoms/AtomDivider";
-import AtomBox from "../../atoms/AtomBox";
 import AtomIconButton from "../../atoms/AtomIconButton";
-import AtomIconClose from "../../atoms/AtomIconClose";
+import AtomButton from "../../atoms/AtomButton";
 import { AppContext } from "../../../context/context";
 import AtomFormControl from "../../atoms/AtomFormControl";
 import AtomInputLabel from "../../atoms/AtomInputLabel";
@@ -21,12 +12,19 @@ import AtomOutlinedInput from "../../atoms/AtomOutlinedInput";
 import AtomInputAdornment from "../../atoms/AtomInputAdornment";
 import AtomVisibilityIcon from "../../atoms/AtomIconVisibility";
 import AtomVisibilityOffIcon from "../../atoms/AtomIconVisibilityOff";
+import DialogMaxWidth from ".";
 
-const DialogTitleStyles = styled(AtomDialogTitle)(({ theme }) => ({
-  fontFamily: theme.typography.titleGame.fontFamily,
-}));
+const ButtonMenu = styled(AtomButton)(
+  ({ theme }) => `
+    font-family: ${theme.typography.titleGame.fontFamily};
+    color: ${theme.palette.text.primary};
+    :hover {
+      color: ${theme.palette.primary.main};
+    }
+  `
+);
 
-const DialogSignUp = (props) => {
+const DialogSignUp = () => {
   const { handleOpenAlert } = useContext(AppContext);
 
   const [name, setName] = React.useState("");
@@ -48,7 +46,7 @@ const DialogSignUp = (props) => {
   const onSignUp = () => {
     if (name && email && password) {
       addUser();
-      // handleClose();
+      handleClose();
       alert(" Đăng ký thành công!");
       // <AlertSuccess />;
       handleOpenAlert();
@@ -56,6 +54,15 @@ const DialogSignUp = (props) => {
       // setOpenAlert(false);
       setShowAlertError(true);
     }
+  };
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   const [showPassword, setShowPassword] = useState(false);
@@ -69,37 +76,16 @@ const DialogSignUp = (props) => {
   };
 
   return (
-    <div>
-      <AtomDialog
-        open={props.open}
-        onClose={props.handleClose}
-        aria-labelledby="form-dialog-title"
-        maxWidth={"xs"}
-        fullWidth={true}
-      >
-        <DialogTitleStyles id="form-dialog-title">
-          <AtomStack
-            edge="end"
-            justifyContent={"space-between"}
-            alignItems={"center"}
-            direction={"row"}
-          >
-            Đăng ký
-            <AtomIconButton onClick={props.handleClose} size="large">
-              <AtomIconClose />
-            </AtomIconButton>
-          </AtomStack>
-        </DialogTitleStyles>
-        <AtomDivider />
-        <AtomDialogContent>
-          <AtomStack alignItems={"center"}>
-            <AtomBox
-              component="img"
-              alt=""
-              src="/images/logo_hahalolo.png"
-              sx={{ width: "40%" }}
-            ></AtomBox>
-
+    <>
+      <ButtonMenu onClick={handleClickOpen}>Đăng ký</ButtonMenu>
+      <DialogMaxWidth
+        open={open}
+        onClose={handleClose}
+        action="Đăng ký"
+        title="Đăng ký"
+        onClick={onSignUp}
+        content={
+          <>
             <AtomTextField
               variant="outlined"
               required
@@ -164,7 +150,11 @@ const DialogSignUp = (props) => {
                 Vui lòng nhập đầy đủ thông tin đăng ký!
               </AtomAlert>
             )}
-            {/* <AtomSnackBar
+          </>
+        }
+      ></DialogMaxWidth>
+
+      {/* <AtomSnackBar
               open={openAlert}
               autoHideDuration={10000}
               onClose={handleCloseAlert}
@@ -174,18 +164,7 @@ const DialogSignUp = (props) => {
                 Đăng ký tài khoản thành công!
               </AtomAlert>
             </AtomSnackBar> */}
-            <AtomDialogAtions>
-              <HorizontalStripeButton
-                variant="contained"
-                color="primary"
-                onClick={onSignUp}
-                label="Đăng ký"
-              ></HorizontalStripeButton>
-            </AtomDialogAtions>
-          </AtomStack>
-        </AtomDialogContent>
-      </AtomDialog>
-    </div>
+    </>
   );
 };
 

@@ -17,7 +17,6 @@ import Settings from "../molecules/Settings";
 import { CssBaseline } from "@mui/material";
 import AtomBox from "../atoms/AtomBox";
 import Drawer from "../molecules/Drawer";
-import AtomButton from "../atoms/AtomButton";
 import AtomDivider from "../atoms/AtomDivider";
 
 const AppBarStyles = styled(AtomAppBar)(
@@ -25,15 +24,6 @@ const AppBarStyles = styled(AtomAppBar)(
   background-color: ${theme.palette.background.default};
   box-shadow: ${theme.shadows[2]};
 `
-);
-const ButtonMenu = styled(AtomButton)(
-  ({ theme }) => `
-    font-family: ${theme.typography.titleGame.fontFamily};
-    color: ${theme.palette.text.primary};
-    :hover {
-      color: ${theme.palette.primary.main};
-    }
-  `
 );
 
 const drawerWidth = 240;
@@ -47,25 +37,9 @@ const AppBar = () => {
     setMobileOpen(!mobileOpen);
   };
 
-  const [openLogin, setOpenLogin] = React.useState(false);
+  //even Login
 
-  const handleClickOpenLogin = () => {
-    setOpenLogin(true);
-  };
-
-  const handleCloseLogin = () => {
-    setOpenLogin(false);
-  };
-
-  const [openSignUp, setOpenSignUp] = React.useState(false);
-
-  const handleClickOpenSignUp = () => {
-    setOpenSignUp(true);
-  };
-
-  const handleCloseSignUp = () => {
-    setOpenSignUp(false);
-  };
+  //even SignUp
 
   return (
     <>
@@ -112,26 +86,13 @@ const AppBar = () => {
                         direction={"row"}
                         alignItems="center"
                       >
-                        <ButtonMenu onClick={handleClickOpenLogin}>
-                          Đăng nhập
-                        </ButtonMenu>
-                        <DialogLogin
-                          open={openLogin}
-                          handleClose={handleCloseLogin}
-                        />
+                        <DialogLogin />
                         <AtomDivider
                           flexItem
                           variant="middle"
                           orientation="vertical"
                         />
-                        {/*  */}
-                        <ButtonMenu onClick={handleClickOpenSignUp}>
-                          Đăng ký
-                        </ButtonMenu>
-                        <DialogSignUp
-                          open={openSignUp}
-                          handleClose={handleCloseSignUp}
-                        />
+                        <DialogSignUp />
                       </AtomStack>
                     )}
                   </AtomStack>
