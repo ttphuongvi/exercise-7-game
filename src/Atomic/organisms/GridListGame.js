@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import HorizontalStripeButton from "./../molecules/ButtonHorizontalStripe";
 import { useDispatch, useSelector } from "react-redux";
-import { SET_LIST_GAME } from "../../store/const";
+import { REMOVE_GAME, SET_LIST_GAME } from "../../store/const";
 import AtomGrid from "../atoms/AtomGrid";
 import getNewGames from "../../services/games";
 import CardListGame from "../molecules/CardListGame";
@@ -71,7 +71,7 @@ const GridListGame = (props) => {
       {" "}
       <AtomGrid container spacing={2} justifyContent={"center"}>
         {filteredData &&
-          filteredData.map((value) => {
+          filteredData.map((value, index) => {
             return (
               <AtomGrid
                 minWidth={"300px"}
@@ -94,6 +94,13 @@ const GridListGame = (props) => {
                   caption={value.caption}
                   link={value.link}
                   description={value.description}
+                  handleRemove={(e) => {
+                    e.stopPropagation();
+                    filteredData.splice(index, 1);
+                    console.log("filteredData", filteredData);
+                    // filteredData.splice(index, 1);
+                    dispatch({ type: REMOVE_GAME, content: value });
+                  }}
                 />
               </AtomGrid>
             );

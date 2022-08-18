@@ -5,13 +5,9 @@ import AtomPopper from "../atoms/AtomPopper";
 import AtomGrow from "../atoms/AtomGrow";
 import AtomPaper from "../atoms/AtomPaper";
 import AtomMenuList from "../atoms/AtomMenuList";
-import AtomMenuItem from "../atoms/AtomMenuItem";
 import AtomClickAwayListener from "../atoms/AtomClickAwayListener";
-import DialogAlert from "./DialogAlert";
-import AtomIconDeleteOutlined from "../atoms/AtomIconDeleteOutlined";
-import AtomListItemIcon from "../atoms/AtomListItemIcon";
-import AtomIconEditOutlined from "../atoms/AtomIconEditOutlined";
 import DialogEditGame from "./DialogMaxWidth/DialogEditGame";
+import DialogDelete from "./DialogAlert/DialogDelete";
 
 const ButtonEditCard = (props) => {
   const [openMenu, setOpenMenu] = React.useState(false);
@@ -50,41 +46,18 @@ const ButtonEditCard = (props) => {
 
   //even DialogAlert
 
-  const [openDialogAlert, setOpenDialogAlert] = React.useState(false);
-
-  const handlekOpenDialogAlert = (e) => {
-    e.stopPropagation();
-    setOpenDialogAlert(true);
-  };
-
-  const handleCloseDialogAlert = (e) => {
-    e.stopPropagation();
-    setOpenDialogAlert(false);
-  };
-
   //remove item game
 
-  const handleRemove = (e) => {
-    e.stopPropagation();
+  // const handleRemove = (e) => {
+  //   e.stopPropagation();
 
-    // dispatch({
-    //   type: REMOVE_GAME,
-    //   content: removeData,
-    // });
-  };
+  //   // dispatch({
+  //   //   type: REMOVE_GAME,
+  //   //   content: removeData,
+  //   // });
+  // };
 
   //even DialogEditGame
-  const [openDialogEdit, setOpenDialogEdit] = React.useState(false);
-
-  const handleClickOpenDialogEdit = (e) => {
-    e.stopPropagation();
-    setOpenDialogEdit(true);
-  };
-
-  const handleCloseDialogEdit = (e) => {
-    e.stopPropagation();
-    setOpenDialogEdit(false);
-  };
 
   return (
     <>
@@ -124,37 +97,14 @@ const ButtonEditCard = (props) => {
                   aria-labelledby="composition-button"
                   onKeyDown={handleListKeyDown}
                 >
-                  <AtomMenuItem onClick={handleClickOpenDialogEdit}>
-                    <AtomListItemIcon>
-                      <AtomIconEditOutlined fontSize="small" />
-                    </AtomListItemIcon>
-                    Chỉnh sửa
-                  </AtomMenuItem>
                   <DialogEditGame
-                    open={openDialogEdit}
-                    hanleClose={handleCloseDialogEdit}
                     image={props.image}
                     caption={props.caption}
                     release={props.release}
                     link={props.link}
                     description={props.description}
                   />
-                  <AtomMenuItem onClick={handlekOpenDialogAlert}>
-                    {" "}
-                    <AtomListItemIcon>
-                      <AtomIconDeleteOutlined fontSize="small" />
-                    </AtomListItemIcon>
-                    Xóa
-                  </AtomMenuItem>
-                  <DialogAlert
-                    open={openDialogAlert}
-                    onClose={handleCloseDialogAlert}
-                    onClick={handleRemove}
-                    startIcon={<AtomIconDeleteOutlined />}
-                    title="Xác nhận xóa game"
-                    content="Bạn có chắc chắn muốn xóa game?"
-                    action="Xóa"
-                  />
+                  <DialogDelete handleRemove={props.handleRemove} />
                 </AtomMenuList>
               </AtomClickAwayListener>
             </AtomPaper>

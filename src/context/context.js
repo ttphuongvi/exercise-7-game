@@ -4,6 +4,8 @@ const defaultValue = {
   openAlert: false,
   darkMode: false,
   customTheme: null,
+  openLogin: false,
+  openSignUp: false,
 };
 
 export const AppContext = React.createContext(defaultValue);
@@ -15,6 +17,26 @@ export const ContextProvider = (props) => {
   );
 
   const [openAlert, setOpenAlert] = React.useState(defaultValue.openAlert);
+
+  const [openLogin, setOpenLogin] = React.useState(defaultValue.openLogin);
+
+  const [openSignUp, setOpenSignUp] = React.useState(defaultValue.openSignUp);
+
+  const handleClickOpenLogin = () => {
+    setOpenLogin(true);
+  };
+
+  const handleCloseLogin = () => {
+    setOpenLogin(false);
+  };
+
+  const handleClickOpenSignUp = () => {
+    setOpenSignUp(true);
+  };
+
+  const handleCloseSignUp = () => {
+    setOpenSignUp(false);
+  };
 
   const changeDarkMode = () => {
     setDarkMode(!darkMode);
@@ -41,10 +63,18 @@ export const ContextProvider = (props) => {
         darkMode,
         customTheme,
         openAlert,
+        openLogin,
+        setOpenLogin,
+        openSignUp,
+        setOpenSignUp,
         changeDarkMode,
         changeCustomTheme,
         handleCloseAlert,
         handleOpenAlert,
+        handleClickOpenLogin,
+        handleCloseLogin,
+        handleClickOpenSignUp,
+        handleCloseSignUp,
       }}
       {...props}
     ></AppContext.Provider>

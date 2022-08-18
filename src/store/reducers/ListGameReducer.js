@@ -1,5 +1,10 @@
 // reducers/noteReducers.js
-import { SET_LIST_GAME, ADD_GAME, INIT_LIST_GAME } from "../const/index";
+import {
+  SET_LIST_GAME,
+  ADD_GAME,
+  INIT_LIST_GAME,
+  REMOVE_GAME,
+} from "../const/index";
 
 const ListGameReducer = (state = INIT_LIST_GAME, action) => {
   switch (action.type) {
@@ -8,6 +13,11 @@ const ListGameReducer = (state = INIT_LIST_GAME, action) => {
     case ADD_GAME:
       localStorage.setItem(
         "listGame",
+        JSON.stringify([action.content, ...state.content])
+      );
+      return { ...state, content: [action.content, ...state.content] };
+    case REMOVE_GAME:
+      localStorage.removeItem(
         JSON.stringify([action.content, ...state.content])
       );
       return { ...state, content: [action.content, ...state.content] };
