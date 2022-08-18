@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import HorizontalStripeButton from "./../molecules/ButtonHorizontalStripe";
 import { useDispatch, useSelector } from "react-redux";
-import { REMOVE_GAME, SET_LIST_GAME } from "../../store/const";
+import { SET_LIST_GAME } from "../../store/const";
 import AtomGrid from "../atoms/AtomGrid";
 import getNewGames from "../../services/games";
 import CardListGame from "../molecules/CardListGame";
