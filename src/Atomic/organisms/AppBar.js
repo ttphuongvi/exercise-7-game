@@ -18,12 +18,25 @@ import { CssBaseline } from "@mui/material";
 import AtomBox from "../atoms/AtomBox";
 import Drawer from "../molecules/Drawer";
 import AtomDivider from "../atoms/AtomDivider";
+import AtomButton from "../atoms/AtomButton";
+import AtomIconLogin from "../atoms/AtomIconLogin";
+import { AppContext } from "../../context/context";
+import AtomIconCreate from "../atoms/AtomIconCreate";
 
 const AppBarStyles = styled(AtomAppBar)(
   ({ theme }) => `
   background-color: ${theme.palette.background.default};
   box-shadow: ${theme.shadows[2]};
 `
+);
+const ButtonMenu = styled(AtomButton)(
+  ({ theme }) => `
+    font-family: ${theme.typography.titleGame.fontFamily};
+    color: ${theme.palette.text.primary};
+    :hover {
+      color: ${theme.palette.primary.main};
+    }
+  `
 );
 
 const drawerWidth = 240;
@@ -38,8 +51,12 @@ const AppBar = () => {
   };
 
   //even Login
-
+  const { handleLogin, hanleSignUp } = React.useContext(AppContext);
   //even SignUp
+
+  // const handleClickOpenSignUp = () => {
+  //   hanleSignUp(true);
+  // };
 
   return (
     <>
@@ -86,12 +103,26 @@ const AppBar = () => {
                         direction={"row"}
                         alignItems="center"
                       >
+                        <ButtonMenu
+                          onClick={() => {
+                            handleLogin(true);
+                          }}
+                        >
+                          Đăng nhập
+                        </ButtonMenu>{" "}
                         <DialogLogin />
                         <AtomDivider
                           flexItem
                           variant="middle"
                           orientation="vertical"
                         />
+                        <ButtonMenu
+                          onClick={() => {
+                            hanleSignUp(true);
+                          }}
+                        >
+                          Đăng ký
+                        </ButtonMenu>
                         <DialogSignUp />
                       </AtomStack>
                     )}

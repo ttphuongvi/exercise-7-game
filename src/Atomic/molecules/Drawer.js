@@ -8,14 +8,14 @@ import AtomBox from "../atoms/AtomBox";
 import dataRoutes from "../../routesGame/dataRoutes";
 import { useLocation } from "react-router-dom";
 import AtomDivider from "../atoms/AtomDivider";
-import DialogLogin from "./DialogMaxWidth/DialogLogin";
-import DialogSignUp from "./DialogMaxWidth/DialogSignUp";
 import { useSelector } from "react-redux";
-import { alpha } from "@mui/material";
+import { alpha, styled } from "@mui/material/styles";
+
 import AtomRouteLink from "../atoms/AtomRouteLink";
 import AtomListItemIcon from "../atoms/AtomListItemIcon";
 import AtomIconLogin from "../atoms/AtomIconLogin";
 import AtomIconCreate from "../atoms/AtomIconCreate";
+import { AppContext } from "../../context/context";
 
 const drawerWidth = 240;
 
@@ -35,6 +35,46 @@ const Drawer = (props) => {
   //   setOpenState(newOpenState);
   // };
 
+  const ListItemText = styled(AtomListItemText)(({ theme }) => ({
+    fontFamily: theme.typography.titleGame.fontFamily,
+    fontSize: theme.typography.body2.fontSize,
+    textTransform: "uppercase",
+    padding: theme.spacing(1, 0, 1, 1),
+    "&.active .MuiTypography-root": {
+      // color: theme.palette.primary.main,
+    },
+  }));
+
+  const ListItemIcon = styled(AtomListItemIcon)(({ theme }) => ({
+    color: theme.palette.text.primary,
+  }));
+
+  const ListItemButton = styled(AtomListItemButton)(({ theme }) => ({
+    "&.active": {
+      backgroundColor: theme.palette.primary.main,
+      color: "white",
+      "& .MuiListItemIcon-root": {
+        color: "white",
+      },
+    },
+    "&.active:hover": {
+      backgroundColor: alpha(theme.palette.primary.main, 0.8),
+      color: "white",
+      "& .MuiListItemIcon-root": {
+        color: "white",
+      },
+    },
+    "&:hover": {
+      backgroundColor: alpha(theme.palette.primary.main, 0.1),
+      color: theme.palette.primary.main,
+      "& .MuiListItemIcon-root": {
+        color: theme.palette.primary.main,
+      },
+    },
+  }));
+
+  const { handleLogin, hanleSignUp } = React.useContext(AppContext);
+
   const user = useSelector((state) => state.user.content);
 
   const location = useLocation();
@@ -45,115 +85,50 @@ const Drawer = (props) => {
       <AtomList component="nav">
         {dataRoutes.map((route, indexRoute) => (
           <div key={indexRoute}>
-            <AtomListItemButton
+            <ListItemButton
               component={AtomRouteLink}
-              // onClick={() => {
-              //   navigate(`${route.path}`);
-              //   // handleClick(indexRoute, !openState[indexRoute].open);
-              // }}
               to={route.path}
-              sx={(theme) => ({
-                "&:hover": {
-                  backgroundColor: alpha(theme.palette.primary.main, 0.1),
-                  color: theme.palette.primary.main,
-                },
-                "&.active": {
-                  color: theme.palette.primary.main,
-                },
-              })}
               selected={location.pathname === route.path}
             >
-              <AtomListItemIcon
-                disabled
-                sx={(theme) => ({
-                  color: theme.palette.text.primary,
-                  // "&:hover": {
-                  //   color: theme.palette.primary.main,
-                  // },
-
-                  "&.MuiListItemIcon-root": {
-                    "&.Mui-focusVisible": {
-                      color: theme.palette.primary.main,
-                    },
-                  },
-                })}
-                selected={location.pathname === route.path}
-              >
-                {route.icon}
-              </AtomListItemIcon>
-              <AtomListItemText
-                sx={(theme) => ({
-                  fontFamily: theme.typography.titleGame.fontFamily,
-                  fontSize: theme.typography.body2.fontSize,
-                  textTransform: "uppercase",
-                  padding: theme.spacing(1, 0, 1, 1),
-                  "&.active .MuiTypography-root": {
-                    // color: theme.palette.primary.main,
-                  },
-                })}
+              <ListItemIcon disabled>{route.icon}</ListItemIcon>
+              <ListItemText
                 disableTypography
                 primary={route.name}
-              ></AtomListItemText>
-            </AtomListItemButton>
+              ></ListItemText>
+            </ListItemButton>
           </div>
         ))}
         {user && user.isLogin ? (
           <></>
         ) : (
           <>
-            <AtomListItemButton
-              sx={(theme) => ({
+            <ListItemButton
+              onClick={() => {
+                handleLogin(true);
+              }}
+              sx={{
                 display: { xs: "flex", md: "flex", lg: "none" },
-                "&:hover": {
-                  backgroundColor: alpha(theme.palette.primary.main, 0.1),
-                  color: theme.palette.primary.main,
-                },
-                "&.active": {
-                  color: theme.palette.primary.main,
-                },
-              })}
+              }}
             >
-              <AtomListItemIcon
-                sx={(theme) => ({
-                  color: theme.palette.text.primary,
-                  "&.active": {
-                    color: theme.palette.primary.main,
-                  },
-                })}
-              >
+              <ListItemIcon disabled>
                 <AtomIconLogin />
-              </AtomListItemIcon>
-              <AtomListItemText>
-                {" "}
-                <DialogLogin />
-              </AtomListItemText>
-            </AtomListItemButton>
-            <AtomListItemButton
-              sx={(theme) => ({
+              </ListItemIcon>
+              <ListItemText disableTypography> Đăng nhập</ListItemText>
+            </ListItemButton>
+            {/* <DialogLogin /> */}
+            <ListItemButton
+              onClick={() => {
+                hanleSignUp(true);
+              }}
+              sx={{
                 display: { xs: "flex", md: "flex", lg: "none" },
-                "&:hover": {
-                  backgroundColor: alpha(theme.palette.primary.main, 0.1),
-                  color: theme.palette.primary.main,
-                },
-                "&.active": {
-                  color: theme.palette.primary.main,
-                },
-              })}
+              }}
             >
-              <AtomListItemIcon
-                sx={(theme) => ({
-                  color: theme.palette.text.primary,
-                  "&.active": {
-                    color: theme.palette.primary.main,
-                  },
-                })}
-              >
+              <ListItemIcon disabled>
                 <AtomIconCreate />
-              </AtomListItemIcon>
-              <AtomListItemText>
-                <DialogSignUp />
-              </AtomListItemText>
-            </AtomListItemButton>
+              </ListItemIcon>
+              <ListItemText disableTypography>Đăng ký</ListItemText>
+            </ListItemButton>
           </>
         )}
       </AtomList>
