@@ -110,7 +110,7 @@ const CardAction = styled(AtomCardAction)(({ theme }) => ({
   transition: "max-height 1.5s ease, opacity 1s ease",
 }));
 
-const CardListGame = (props) => {
+const CardNewGame = (props) => {
   return (
     <ItemCard elevation={0}>
       <CardMediaStyle
@@ -155,4 +155,4 @@ const CardListGame = (props) => {
   );
 };
 
-export default CardListGame;
+export default CardNewGame;
