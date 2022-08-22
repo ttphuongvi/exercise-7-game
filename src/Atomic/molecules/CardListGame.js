@@ -1,70 +1,62 @@
 import { styled } from "@mui/material/styles";
 import React from "react";
+import AtomBox from "../atoms/AtomBox";
 import AtomCard from "../atoms/AtomCard";
 import AtomCardAction from "../atoms/AtomCardAction";
 import AtomCardContent from "../atoms/AtomCardContent";
 import AtomCardMedia from "../atoms/AtomCardMedia";
 import AtomStack from "../atoms/AtomStack";
-import DialogPlayGame from "./DialogFullWidth/DialogPlayGame";
 import AtomTypography from "../atoms/AtomTypography";
 import ButtonEditCard from "./ButtonEditCard";
+import CaptionGame from "./CaptionGame";
+import DialogPlayGame from "./DialogFullWidth/DialogPlayGame";
 
-const ItemCard = styled(AtomCard)(({ theme }) => ({
+const CardStyles = styled(AtomCard)(({ theme }) => ({
   boxShadow: "rgba(0, 0, 0, 0.1) 0px 0px 0px 1px",
+  transition: "all .2s ease",
   position: "relative",
-  [theme.breakpoints.up("sm")]: {
-    height: "250px",
-  },
-  [theme.breakpoints.up("xl")]: {
-    height: "300px",
-  },
-  [theme.breakpoints.up("xxl")]: {
-    height: "500px",
-  },
-  transition: "opacity .2s ease",
-  "&::before": {
-    content: "''",
-    position: "absolute",
-    top: "0",
-    left: "0",
-    width: "100%",
-    height: "100%",
-    background:
-      "rgba(0, 0, 0, 0) linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 80%)",
-    zIndex: 0,
-  },
-
-  "& .detailContent": {
-    maxHeight: 0,
+  overflow: "hidden",
+  "& .overlay": {
+    transition: "opacity .2s ease",
     opacity: 0,
-    transition: "max-height 1.5s ease, opacity 1s ease",
   },
   "&:hover": {
-    boxShadow: "rgba(0, 0, 0, 0.14) 0px 3px 8px",
     cursor: "pointer",
-    "& .description": { maxHeight: "250px", opacity: 1 },
-    "& .content": { backgroundColor: "rgba(0, 0, 0, 0.6)", width: "100%" },
-    "& .img": {
-      transform: "scale(1.2)",
-      zIndex: -1,
-    },
-    "& .action": {
+    boxShadow: "rgba(0, 0, 0, 0.14) 0px 3px 8px",
+    transform: "translateY(-4px)",
+    "& .overlay": {
+      backgroundColor: "rgba(0, 0, 0, 0.6)",
+      transition: "opacity .2s ease",
       opacity: 1,
-      maxHeight: "100%",
+      [theme.breakpoints.up("xs")]: {
+        height: "250px",
+      },
+      [theme.breakpoints.up("xl")]: {
+        height: "300px",
+      },
+      [theme.breakpoints.up("xxl")]: {
+        height: "500px",
+      },
     },
-    "& .detailContent": {
-      maxHeight: "250px",
-      opacity: 1,
-      transition: "max-height 1.5s ease, opacity 1s ease",
+    "& .cardContent": {
+      boxShadow: `inset 0 3px 0 0 ${theme.palette.primary.main}`,
     },
-    "& .caption": {
-      color: theme.palette.primary.main,
-    },
+    // "& .content": {
+    //   color: "#fff",
+    // },
   },
 }));
 
-const CardMediaStyle = styled(AtomCardMedia)(({ theme }) => ({
-  transition: "transform 3s ease",
+const DescriptionGame = styled(AtomTypography)(({ theme }) => ({
+  height: "72px",
+  overflow: "hidden",
+  display: "-webkit-box",
+  WebkitBoxOrient: "vertical",
+  textOverflow: "ellipsis",
+  WebkitLineClamp: 3,
+}));
+
+const CardMediaStyles = styled(AtomCardMedia)(({ theme }) => ({
   [theme.breakpoints.up("xs")]: {
     height: "250px",
   },
@@ -74,90 +66,63 @@ const CardMediaStyle = styled(AtomCardMedia)(({ theme }) => ({
   [theme.breakpoints.up("xxl")]: {
     height: "500px",
   },
-  // transition: "opacity .2s ease",
+  transition: "opacity .2s ease",
 }));
 
-const Description = styled(AtomTypography)(({ theme }) => ({
-  maxHeight: 0,
-  opacity: 0,
-  transition: "max-height 1.5s ease, opacity 1s ease",
-  height: "50px",
-  overflow: "hidden",
-  display: "-webkit-box",
-  WebkitBoxOrient: "vertical",
-  textOverflow: "ellipsis",
-  WebkitLineClamp: 2,
-}));
-
-const CardContent = styled(AtomCardContent)({
-  position: "absolute",
-  bottom: 0,
-  color: "white",
-  width: "100%",
-  /*     background-color: rgba(0, 0, 0, 0.4); */
-  transition: "background-color 2s ease",
-});
-
-const Caption = styled(AtomTypography)(({ theme }) => ({
-  transition: "color 1s ease",
-  color: "#fff",
-}));
-
-const CardAction = styled(AtomCardAction)(({ theme }) => ({
-  opacity: 0,
-  maxHeight: 0,
-  transition: "max-height 1.5s ease, opacity 1s ease",
-}));
-
-const CardListGame = (props) => {
+const CardNewGame = (props) => {
   return (
-    <ItemCard elevation={0} onClick={props.onClick}>
-      <CardMediaStyle
-        className="img"
-        component="img"
+    <CardStyles elevation={0}>
+      <CardMediaStyles
+        component={"img"}
         image={props.image}
-        title={props.title}
         onError={(e) => {
           const imgDefault = "/images/default.jpg";
-
           e.target.src = imgDefault;
         }}
-        // sx={{ height: "250px" }}
-      ></CardMediaStyle>
-
-      <CardContent className="content">
-        <AtomStack
-          direction={"row"}
-          justifyContent={"space-between"}
-          alignItems={"center"}
+        alt={props.image}
+      ></CardMediaStyles>
+      <AtomBox
+        sx={{
+          position: "absolute",
+          top: "0",
+          width: "100%",
+          height: "250px",
+        }}
+        className="overlay"
+      >
+        <AtomCardAction
+          className="overlay content"
+          sx={{ justifyContent: "center", lineHeight: "224px" }}
         >
-          <AtomStack spacing={1}>
-            <Caption variant="titleGame" className="caption">
-              {props.caption}
-            </Caption>
-            <AtomTypography variant="body2">{props.release}</AtomTypography>
-          </AtomStack>
-          <ButtonEditCard
-            image={props.image}
+          <DialogPlayGame
             caption={props.caption}
-            release={props.release}
-            link={props.link}
-            description={props.description}
-            handleRemove={props.handleRemove}
+            link={props.link || "https://codepen.io/HunorMarton/full/xxOMQKg"}
           />
-        </AtomStack>
-        <AtomStack className="detailContent">
-          <Description className="description">{props.description}</Description>
-          <CardAction className="action" sx={{ justifyContent: "flex-end" }}>
-            <DialogPlayGame
+        </AtomCardAction>
+      </AtomBox>
+      <AtomCardContent className="cardContent" sx={{}}>
+        <AtomStack spacing={1}>
+          <AtomStack
+            direction={"row"}
+            justifyContent={"space-between"}
+            alignItems={"center"}
+          >
+            <CaptionGame>{props.caption}</CaptionGame>
+
+            <ButtonEditCard
+              image={props.image}
               caption={props.caption}
-              link={props.link || "https://codepen.io/HunorMarton/full/xxOMQKg"}
+              release={props.release}
+              link={props.link}
+              description={props.description}
+              handleRemove={props.handleRemove}
             />
-          </CardAction>
+          </AtomStack>
+          <DescriptionGame>{props.description}</DescriptionGame>
         </AtomStack>
-      </CardContent>
-    </ItemCard>
+      </AtomCardContent>
+    </CardStyles>
   );
 };
 
-export default CardListGame;
+export default CardNewGame;
