@@ -5,14 +5,13 @@ import AtomCardAction from "../atoms/AtomCardAction";
 import AtomCardContent from "../atoms/AtomCardContent";
 import AtomCardMedia from "../atoms/AtomCardMedia";
 import AtomStack from "../atoms/AtomStack";
-import DialogPlayGame from "./DialogFullWidth/DialogPlayGame";
 import AtomTypography from "../atoms/AtomTypography";
-import ButtonEditCard from "./ButtonEditCard";
 import ButtonSquareStripe from "./ButtonSquareStripe";
 
 const ItemCard = styled(AtomCard)(({ theme }) => ({
   boxShadow: "rgba(0, 0, 0, 0.1) 0px 0px 0px 1px",
   position: "relative",
+  transition: "all .2s ease",
   [theme.breakpoints.up("sm")]: {
     height: "250px",
   },
@@ -22,7 +21,7 @@ const ItemCard = styled(AtomCard)(({ theme }) => ({
   [theme.breakpoints.up("xxl")]: {
     height: "500px",
   },
-  transition: "opacity .2s ease",
+
   "&::before": {
     content: "''",
     position: "absolute",
@@ -42,6 +41,7 @@ const ItemCard = styled(AtomCard)(({ theme }) => ({
   },
   "&:hover": {
     boxShadow: "rgba(0, 0, 0, 0.14) 0px 3px 8px",
+    transform: "translateY(-4px)",
     cursor: "pointer",
     "& .description": { maxHeight: "250px", opacity: 1 },
     "& .content": { backgroundColor: "rgba(0, 0, 0, 0.6)", width: "100%" },

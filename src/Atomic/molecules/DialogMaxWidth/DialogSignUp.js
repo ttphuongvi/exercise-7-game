@@ -52,6 +52,7 @@ const DialogSignUp = () => {
   const handleClose = () => {
     setOpen(false);
   };
+
   const onSignUp = () => {
     if (name && email && password) {
       addUser();
@@ -80,7 +81,7 @@ const DialogSignUp = () => {
       <ButtonMenu onClick={handleClickOpen}>Đăng ký</ButtonMenu>
       <DialogMaxWidth
         open={open}
-        handleClose={handleClose}
+        onClose={handleClose}
         action="Đăng ký"
         title="Đăng ký"
         onClick={onSignUp}

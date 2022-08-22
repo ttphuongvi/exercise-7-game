@@ -70,7 +70,7 @@ const DialogEditGame = (props) => {
         title=" Chỉnh sửa game"
         onClick={saveEditGame}
         open={openDialogEdit}
-        handleClose={handleCloseDialogEdit}
+        onClose={handleCloseDialogEdit}
         content={
           <>
             <AtomTextField

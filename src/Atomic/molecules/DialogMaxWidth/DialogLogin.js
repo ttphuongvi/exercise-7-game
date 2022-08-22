@@ -85,7 +85,7 @@ const DialogLogin = (props) => {
         title="Đăng nhập"
         onClick={onLogin}
         open={openLogin}
-        handleClose={handleCloseLogin}
+        onClose={handleCloseLogin}
         content={
           <>
             <AtomTextField

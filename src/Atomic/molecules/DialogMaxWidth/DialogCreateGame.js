@@ -72,7 +72,7 @@ const DialogCreateGame = (props) => {
         title=" Tạo game mới"
         onClick={saveGame}
         open={open}
-        handleClose={handleClose}
+        onClose={handleClose}
         content={
           <>
             <AtomTextField

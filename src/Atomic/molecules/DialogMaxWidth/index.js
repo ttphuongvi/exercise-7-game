@@ -21,7 +21,7 @@ const DialogMaxWidth = (props) => {
       {/* <ButtonMenu onClick={handleClickOpen}>{actionName}</ButtonMenu> */}
       <AtomDialog
         open={props.open}
-        onClose={props.handleClose}
+        onClose={props.onClose}
         aria-labelledby="form-dialog-title"
         maxWidth={"xs"}
         fullWidth={true}
@@ -35,7 +35,7 @@ const DialogMaxWidth = (props) => {
             direction={"row"}
           >
             {props.title}
-            <AtomIconButton onClick={props.handleClose} size="large">
+            <AtomIconButton onClick={props.onClose} size="large">
               <AtomIconClose />
             </AtomIconButton>
           </AtomStack>
