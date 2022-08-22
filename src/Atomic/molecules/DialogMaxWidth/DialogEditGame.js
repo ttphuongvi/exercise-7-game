@@ -6,6 +6,7 @@ import DialogMaxWidth from ".";
 import AtomMenuItem from "../../atoms/AtomMenuItem";
 import AtomListItemIcon from "../../atoms/AtomListItemIcon";
 import AtomIconEditOutlined from "../../atoms/AtomIconEditOutlined";
+import { EDIT_GAME } from "../../../store/const";
 
 const DialogEditGame = (props) => {
   const [caption, setCaption] = useState(props.caption);
@@ -27,12 +28,12 @@ const DialogEditGame = (props) => {
   };
 
   const handleCloseDialogEdit = (e) => {
-    e.stopPropagation();
+    // e.stopPropagation();
     setOpenDialogEdit(false);
   };
 
   const saveEditGame = (e) => {
-    e.stopPropagation();
+    // e.stopPropagation();
     if (
       caption === "" ||
       description === "" ||
@@ -43,7 +44,7 @@ const DialogEditGame = (props) => {
       setShowAlertError(true);
     } else {
       dispatch({
-        type: "EDIT_GAME",
+        type: EDIT_GAME,
         content: {
           id: props.id,
           caption: caption,

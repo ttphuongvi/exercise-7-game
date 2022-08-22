@@ -69,7 +69,7 @@ const CardMediaStyles = styled(AtomCardMedia)(({ theme }) => ({
   transition: "opacity .2s ease",
 }));
 
-const CardNewGame = (props) => {
+const CardListGame = (props) => {
   return (
     <CardStyles elevation={0} onClick={props.onClick}>
       <CardMediaStyles
@@ -111,7 +111,9 @@ const CardNewGame = (props) => {
               <CaptionGame>{props.caption}</CaptionGame>
               <AtomTypography variant="body2">{props.release}</AtomTypography>
             </AtomStack>
+
             <ButtonEditCard
+              id={props.id}
               image={props.image}
               caption={props.caption}
               release={props.release}
@@ -120,6 +122,7 @@ const CardNewGame = (props) => {
               handleRemove={props.handleRemove}
             />
           </AtomStack>
+
           <DescriptionGame>{props.description}</DescriptionGame>
         </AtomStack>
       </AtomCardContent>
@@ -127,4 +130,4 @@ const CardNewGame = (props) => {
   );
 };
 
-export default CardNewGame;
+export default CardListGame;

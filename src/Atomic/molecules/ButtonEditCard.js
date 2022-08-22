@@ -43,22 +43,6 @@ const ButtonEditCard = (props) => {
 
     prevOpen.current = openMenu;
   }, [openMenu]);
-
-  //even DialogAlert
-
-  //remove item game
-
-  // const handleRemove = (e) => {
-  //   e.stopPropagation();
-
-  //   // dispatch({
-  //   //   type: REMOVE_GAME,
-  //   //   content: removeData,
-  //   // });
-  // };
-
-  //even DialogEditGame
-
   return (
     <>
       <AtomIconButton
@@ -103,6 +87,7 @@ const ButtonEditCard = (props) => {
                     release={props.release}
                     link={props.link}
                     description={props.description}
+                    id={props.id}
                   />
                   <DialogDelete handleRemove={props.handleRemove} />
                 </AtomMenuList>
