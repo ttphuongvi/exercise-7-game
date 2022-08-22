@@ -1,4 +1,4 @@
-function getNewGames(item = 10) {
+function getGamesDefault(item = 10) {
   return Array.from(Array(item).keys()).map((i) => ({
     id: i,
     caption: "Thám hiểm",
@@ -9,4 +9,4 @@ function getNewGames(item = 10) {
     release: "2022-07-04",
   }));
 }
-export default getNewGames;
+export default getGamesDefault;

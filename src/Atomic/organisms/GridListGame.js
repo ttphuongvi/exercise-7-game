@@ -1,22 +1,24 @@
 import { React, useEffect, useState } from "react";
 import HorizontalStripeButton from "./../molecules/ButtonHorizontalStripe";
 import { useDispatch, useSelector } from "react-redux";
-import { SET_LIST_GAME } from "../../store/const";
+import { SET_LIST_GAME, REMOVE_GAME } from "../../store/const";
 import AtomGrid from "../atoms/AtomGrid";
-import getNewGames from "../../services/games";
 import CardListGame from "../molecules/CardListGame";
 import { useNavigate } from "react-router-dom";
 import AtomStack from "../atoms/AtomStack";
+import getGamesDefault from "../../services/games";
+import AtomIconReadMoreOutlined from "../atoms/AtomIconReadMoreOutlined";
 // import { useNavigate } from "react-router-dom";
 
 const GridListGame = (props) => {
   const [hiddenLoadding, setHidden] = useState(false);
 
-  let data = getNewGames();
+  // let data = getNewGames();
 
   const onClickLoadding = () => {
-    data = JSON.parse(localStorage.getItem("listGame"));
+    const data = JSON.parse(localStorage.getItem("listGame"));
     dispatch({ type: SET_LIST_GAME, content: data });
+    console.log("listGame", data);
     // });
     setHidden(true);
   };
@@ -25,17 +27,19 @@ const GridListGame = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    let data1 = getNewGames();
+    let dataDefault = getGamesDefault();
     if (localStorage.getItem("listGame") != null) {
       let listGame = JSON.parse(localStorage.getItem("listGame"));
-      console.log("list game", listGame);
       dispatch({ type: SET_LIST_GAME, content: listGame.slice(0, 8) });
+      console.log("list game", listGame);
     } else {
-      console.log("data", data1);
-      localStorage.setItem("listGame", JSON.stringify(data1));
-      dispatch({ type: SET_LIST_GAME, content: data1.slice(0, 8) });
+      console.log("data", dataDefault);
+      localStorage.setItem("listGame", JSON.stringify(dataDefault));
+      dispatch({ type: SET_LIST_GAME, content: dataDefault.slice(0, 8) });
     }
-  }, [dispatch]);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   //create a new array by filtering the original array
   const filteredData = dataSource.filter((el) => {
@@ -96,13 +100,13 @@ const GridListGame = (props) => {
                   description={value.description}
                   handleRemove={(e) => {
                     e.stopPropagation();
-                    filteredData.splice(index, 1);
-                    console.log("filteredData", filteredData);
-                    localStorage.setItem(
-                      "listGame",
-                      JSON.stringify(filteredData)
-                    );
-                    dispatch({ type: SET_LIST_GAME, content: filteredData });
+                    // filteredData.splice(index, 1);
+                    // console.log("listGame", filteredData);
+                    // localStorage.setItem(
+                    //   "listGame",
+                    //   JSON.stringify(filteredData)
+                    // );
+                    dispatch({ type: REMOVE_GAME, id: value.id });
                   }}
                 />
               </AtomGrid>
@@ -111,6 +115,7 @@ const GridListGame = (props) => {
       </AtomGrid>
       {!hiddenLoadding && (
         <HorizontalStripeButton
+          icon={<AtomIconReadMoreOutlined />}
           onClick={onClickLoadding}
           label="Tải thêm game"
         ></HorizontalStripeButton>
