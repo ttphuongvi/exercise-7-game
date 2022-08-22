@@ -12,6 +12,7 @@ import Divider from "../Atomic/molecules/Divider";
 import AtomStack from "../Atomic/atoms/AtomStack";
 import { Routes, Route } from "react-router-dom";
 import { BOXSHAW_PAPER } from "../store/const";
+import AtomIconReadMoreOutlined from "../Atomic/atoms/AtomIconReadMoreOutlined";
 const Home = () => {
   let navigate = useNavigate();
 
@@ -39,6 +40,7 @@ const Home = () => {
               </AtomCardContent>
               <AtomStack pb={3} pt={1} alignItems={"center"}>
                 <HorizontalStripeButton
+                  icon={<AtomIconReadMoreOutlined />}
                   onClick={handleClick}
                   label="Xem thêm"
                 ></HorizontalStripeButton>

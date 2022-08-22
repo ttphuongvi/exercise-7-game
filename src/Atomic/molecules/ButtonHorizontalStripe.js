@@ -50,7 +50,7 @@ const ButtonLoadMoreStyles = styled(AtomButton)(({ theme }) => ({
 
 const HorizonetalStripeButton = (props) => {
   return (
-    <ButtonLoadMoreStyles onClick={props.onClick}>
+    <ButtonLoadMoreStyles startIcon={props.icon} onClick={props.onClick}>
       <span>{props.label}</span>
     </ButtonLoadMoreStyles>
   );

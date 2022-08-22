@@ -27,7 +27,7 @@ const GridNewGame = () => {
     <AtomGrid container spacing={2}>
       {dataSource.map((value) => {
         return (
-          <AtomGrid key={value.id} item xs={12} sm={6} md={4} lg={4} xl={4}>
+          <AtomGrid key={value.id} item xs={12} sm={6} md={6} lg={4} xl={4}>
             <CardNewGame
               image={value.image}
               description={value.description}
