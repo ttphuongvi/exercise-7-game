@@ -25,6 +25,7 @@ const DialogMaxWidth = (props) => {
         aria-labelledby="form-dialog-title"
         maxWidth={"xs"}
         fullWidth={true}
+        onClick={(e) => e.stopPropagation()}
       >
         <DialogTitleStyles id="form-dialog-title">
           <AtomStack
