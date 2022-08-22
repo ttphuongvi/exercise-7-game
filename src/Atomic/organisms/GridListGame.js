@@ -7,7 +7,7 @@ import CardListGame from "../molecules/CardListGame";
 import { useNavigate } from "react-router-dom";
 import AtomStack from "../atoms/AtomStack";
 import getGamesDefault from "../../services/games";
-import AtomIconReadMoreOutlined from "../atoms/AtomIconReadMoreOutlined";
+import AtomIconArrowForwardOutlined from "../atoms/AtomIconArrowForwardOutlined";
 // import { useNavigate } from "react-router-dom";
 
 const GridListGame = (props) => {
@@ -56,26 +56,14 @@ const GridListGame = (props) => {
 
     return arrFilterAll;
   });
-
-  // const filteredData = dataSource.filter((el) => {
-  //   let arrFilterByYear = null;
-  //   if (el.release.toString().includes(props.year)) {
-  //     arrFilterByYear = el;
-  //     if (arrFilterByYear) {
-  //       if (arrFilterByYear.caption.toLowerCase().includes(props.input)) {
-  //         return arrFilterByYear;
-  //       }
-  //     }
-  //   }
-  //   return arrFilterByYear;
-  // });
   let navigate = useNavigate();
+
   return (
     <AtomStack id="list-game" alignItems={"center"} spacing={3}>
       {" "}
       <AtomGrid container spacing={2} justifyContent={"center"}>
         {filteredData &&
-          filteredData.map((value, index) => {
+          filteredData.map((value) => {
             return (
               <AtomGrid
                 minWidth={"300px"}
@@ -98,14 +86,8 @@ const GridListGame = (props) => {
                   caption={value.caption}
                   link={value.link}
                   description={value.description}
+                  id={value.id}
                   handleRemove={(e) => {
-                    e.stopPropagation();
-                    // filteredData.splice(index, 1);
-                    // console.log("listGame", filteredData);
-                    // localStorage.setItem(
-                    //   "listGame",
-                    //   JSON.stringify(filteredData)
-                    // );
                     dispatch({ type: REMOVE_GAME, id: value.id });
                   }}
                 />
@@ -115,7 +97,7 @@ const GridListGame = (props) => {
       </AtomGrid>
       {!hiddenLoadding && (
         <HorizontalStripeButton
-          icon={<AtomIconReadMoreOutlined />}
+          icon={<AtomIconArrowForwardOutlined />}
           onClick={onClickLoadding}
           label="Tải thêm game"
         ></HorizontalStripeButton>
