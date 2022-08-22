@@ -53,6 +53,7 @@ const DialogMaxWidth = (props) => {
             {props.content}
             <AtomDialogAtions>
               <HorizontalStripeButton
+                icon={props.icon}
                 variant="contained"
                 color="primary"
                 onClick={props.onClick}
