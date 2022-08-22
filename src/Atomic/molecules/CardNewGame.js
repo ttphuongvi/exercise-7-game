@@ -132,11 +132,10 @@ const CardListGame = (props) => {
           justifyContent={"space-between"}
           alignItems={"center"}
         >
-          <AtomStack spacing={1}>
+          <AtomStack>
             <Caption variant="titleGame" className="caption">
               {props.caption}
             </Caption>
-            <AtomTypography variant="body2">{props.release}</AtomTypography>
           </AtomStack>
         </AtomStack>
         <AtomStack className="detailContent">

@@ -107,8 +107,10 @@ const CardNewGame = (props) => {
             justifyContent={"space-between"}
             alignItems={"center"}
           >
-            <CaptionGame>{props.caption}</CaptionGame>
-
+            <AtomStack spacing={1}>
+              <CaptionGame>{props.caption}</CaptionGame>
+              <AtomTypography variant="body2">{props.release}</AtomTypography>
+            </AtomStack>
             <ButtonEditCard
               image={props.image}
               caption={props.caption}
