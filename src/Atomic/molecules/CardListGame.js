@@ -71,7 +71,7 @@ const CardMediaStyles = styled(AtomCardMedia)(({ theme }) => ({
 
 const CardNewGame = (props) => {
   return (
-    <CardStyles elevation={0}>
+    <CardStyles elevation={0} onClick={props.onClick}>
       <CardMediaStyles
         component={"img"}
         image={props.image}

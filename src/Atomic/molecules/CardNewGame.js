@@ -112,7 +112,7 @@ const CardAction = styled(AtomCardAction)(({ theme }) => ({
 
 const CardListGame = (props) => {
   return (
-    <ItemCard elevation={0} onClick={props.onClick}>
+    <ItemCard elevation={0}>
       <CardMediaStyle
         className="img"
         component="img"
