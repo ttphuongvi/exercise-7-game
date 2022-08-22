@@ -80,7 +80,7 @@ const DialogSignUp = () => {
       <ButtonMenu onClick={handleClickOpen}>Đăng ký</ButtonMenu>
       <DialogMaxWidth
         open={open}
-        onClose={handleClose}
+        handleClose={handleClose}
         action="Đăng ký"
         title="Đăng ký"
         onClick={onSignUp}
