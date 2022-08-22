@@ -43,6 +43,15 @@ const DialogSignUp = () => {
 
   const [showAlertError, setShowAlertError] = useState(false);
 
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   const onSignUp = () => {
     if (name && email && password) {
       addUser();
@@ -54,15 +63,6 @@ const DialogSignUp = () => {
       // setOpenAlert(false);
       setShowAlertError(true);
     }
-  };
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
   };
 
   const [showPassword, setShowPassword] = useState(false);

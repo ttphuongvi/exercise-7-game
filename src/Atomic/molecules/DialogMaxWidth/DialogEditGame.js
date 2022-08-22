@@ -20,6 +20,7 @@ const DialogEditGame = (props) => {
   const [showAlertEror, setShowAlertError] = useState(false);
 
   const [openDialogEdit, setOpenDialogEdit] = React.useState(false);
+
   const handleClickOpenDialogEdit = (e) => {
     e.stopPropagation();
     setOpenDialogEdit(true);
