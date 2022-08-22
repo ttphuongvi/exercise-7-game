@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { ADD_GAME } from "../../../store/const";
 import AtomAlert from "../../atoms/AtomAlert";
 import DialogMaxWidth from ".";
+import AtomIconCreate from "../../atoms/AtomIconCreate";
 
 const DialogCreateGame = (props) => {
   const [open, setOpen] = React.useState(false);
@@ -62,7 +63,8 @@ const DialogCreateGame = (props) => {
   return (
     <>
       <HorizontalStripeButton
-        label=" + TẠO GAME MỚI"
+        icon={<AtomIconCreate />}
+        label="TẠO GAME MỚI"
         onClick={handleClickOpen}
       ></HorizontalStripeButton>
       <DialogMaxWidth
