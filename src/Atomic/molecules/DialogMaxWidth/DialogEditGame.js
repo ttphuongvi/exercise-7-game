@@ -32,6 +32,15 @@ const DialogEditGame = (props) => {
     setOpenDialogEdit(false);
   };
 
+  const itemCard = {
+    id: props.id,
+    caption: caption,
+    description: description,
+    image: image,
+    release: release,
+    link: link,
+  };
+
   const saveEditGame = (e) => {
     // e.stopPropagation();
     if (
@@ -45,14 +54,7 @@ const DialogEditGame = (props) => {
     } else {
       dispatch({
         type: EDIT_GAME,
-        content: {
-          id: props.id,
-          caption: caption,
-          description: description,
-          image: image,
-          release: release,
-          link: link,
-        },
+        item: itemCard,
       });
       handleCloseDialogEdit();
     }
