@@ -29,7 +29,9 @@ const ItemCard = styled(AtomCard)(({ theme }) => ({
       WebkitLineClamp: 2,
     },
     "& .content": {
-      backgroundColor: "rgba(0, 0, 0, 0.6)",
+      background:
+        "rgba(0, 0, 0, 0) linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7)25%)",
+      zIndex: 0,
       width: "100%",
     },
 
@@ -103,10 +105,6 @@ const ItemCard = styled(AtomCard)(({ theme }) => ({
 const CardMediaStyle = styled(AtomCardMedia)(({ theme }) => ({
   transition: "transform 3s ease",
   [theme.breakpoints.up("xs")]: {
-    height: "350px",
-    objectFit: "cover",
-  },
-  [theme.breakpoints.up("md")]: {
     height: "250px",
   },
   [theme.breakpoints.up("xl")]: {
