@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import HorizontalStripeButton from "./../molecules/ButtonHorizontalStripe";
 import { useDispatch, useSelector } from "react-redux";
-import { SET_LIST_GAME, REMOVE_GAME } from "../../store/const";
+import { SET_LIST_GAME } from "../../store/const";
 import AtomGrid from "../atoms/AtomGrid";
 import CardListGame from "../molecules/CardListGame";
 import { useNavigate } from "react-router-dom";
@@ -24,10 +24,12 @@ const GridListGame = (props) => {
   };
 
   const dataSource = useSelector((state) => state.listGame.content) || [];
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     let dataDefault = getGamesDefault();
+
     if (localStorage.getItem("listGame") != null) {
       let listGame = JSON.parse(localStorage.getItem("listGame"));
       dispatch({ type: SET_LIST_GAME, content: listGame.slice(0, 8) });
@@ -87,9 +89,10 @@ const GridListGame = (props) => {
                   link={value.link}
                   description={value.description}
                   id={value.id}
-                  handleRemove={(e) => {
-                    dispatch({ type: REMOVE_GAME, id: value.id });
-                  }}
+                  // handleRemove={(e) => {
+                  //   e.stopPropagation();
+                  //   dispatch({ type: REMOVE_GAME, id: value.id });
+                  // }}
                 />
               </AtomGrid>
             );

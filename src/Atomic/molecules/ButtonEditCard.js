@@ -89,7 +89,7 @@ const ButtonEditCard = (props) => {
                     description={props.description}
                     id={props.id}
                   />
-                  <DialogDelete handleRemove={props.handleRemove} />
+                  <DialogDelete id={props.id} />
                 </AtomMenuList>
               </AtomClickAwayListener>
             </AtomPaper>

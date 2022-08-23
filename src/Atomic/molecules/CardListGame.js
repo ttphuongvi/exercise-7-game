@@ -119,7 +119,7 @@ const CardListGame = (props) => {
               release={props.release}
               link={props.link}
               description={props.description}
-              handleRemove={props.handleRemove}
+              // handleRemove={props.handleRemove}
             />
           </AtomStack>
 
