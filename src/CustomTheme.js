@@ -10,11 +10,6 @@ const useCustomTheme = (darkMode, customTheme) => {
       secondary: {
         main: darkMode ? "#f5f5f5" : "#000",
       },
-      background: {
-        default: darkMode ? "#1E1E1E" : "#fff",
-        paper: darkMode ? "#212121" : "#FFF",
-        card: darkMode ? "#333" : "#fff",
-      },
     },
     typography: {
       caption: {
