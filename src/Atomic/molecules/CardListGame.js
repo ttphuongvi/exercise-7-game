@@ -16,34 +16,37 @@ const CardStyles = styled(AtomCard)(({ theme }) => ({
   transition: "all .2s ease",
   position: "relative",
   overflow: "hidden",
-  "& .overlay": {
-    transition: "opacity .2s ease",
-    opacity: 0,
-  },
-  "&:hover": {
-    cursor: "pointer",
-    boxShadow: "rgba(0, 0, 0, 0.14) 0px 3px 8px",
-    transform: "translateY(-4px)",
+
+  [theme.breakpoints.up("md")]: {
     "& .overlay": {
-      backgroundColor: "rgba(0, 0, 0, 0.6)",
       transition: "opacity .2s ease",
-      opacity: 1,
-      [theme.breakpoints.up("xs")]: {
-        height: "250px",
-      },
-      [theme.breakpoints.up("xl")]: {
-        height: "300px",
-      },
-      [theme.breakpoints.up("xxl")]: {
-        height: "500px",
-      },
+      opacity: 0,
     },
-    "& .cardContent": {
-      boxShadow: `inset 0 3px 0 0 ${theme.palette.primary.main}`,
+    "&:hover": {
+      cursor: "pointer",
+      boxShadow: "rgba(0, 0, 0, 0.14) 0px 3px 8px",
+      transform: "translateY(-4px)",
+      "& .overlay": {
+        backgroundColor: "rgba(0, 0, 0, 0.6)",
+        transition: "opacity .2s ease",
+        opacity: 1,
+        [theme.breakpoints.up("xs")]: {
+          height: "250px",
+        },
+        [theme.breakpoints.up("xl")]: {
+          height: "300px",
+        },
+        [theme.breakpoints.up("xxl")]: {
+          height: "500px",
+        },
+      },
+      "& .cardContent": {
+        boxShadow: `inset 0 3px 0 0 ${theme.palette.primary.main}`,
+      },
+      // "& .content": {
+      //   color: "#fff",
+      // },
     },
-    // "& .content": {
-    //   color: "#fff",
-    // },
   },
 }));
 
@@ -92,7 +95,11 @@ const CardListGame = (props) => {
       >
         <AtomCardAction
           className="overlay content"
-          sx={{ justifyContent: "center", lineHeight: "224px" }}
+          sx={{
+            justifyContent: "center",
+            lineHeight: "224px",
+            display: { xs: "none", md: "flex" },
+          }}
         >
           <DialogPlayGame
             caption={props.caption}
@@ -100,7 +107,7 @@ const CardListGame = (props) => {
           />
         </AtomCardAction>
       </AtomBox>
-      <AtomCardContent className="cardContent" sx={{}}>
+      <AtomCardContent className="cardContent">
         <AtomStack spacing={1}>
           <AtomStack
             direction={"row"}
@@ -126,6 +133,19 @@ const CardListGame = (props) => {
           <DescriptionGame>{props.description}</DescriptionGame>
         </AtomStack>
       </AtomCardContent>
+      <AtomCardAction
+        // className="overlay content"
+        sx={{
+          justifyContent: "center",
+
+          display: { xs: "flex", md: "none" },
+        }}
+      >
+        <DialogPlayGame
+          caption={props.caption}
+          link={props.link || "https://codepen.io/HunorMarton/full/xxOMQKg"}
+        />
+      </AtomCardAction>
     </CardStyles>
   );
 };
