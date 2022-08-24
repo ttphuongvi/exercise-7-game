@@ -17,12 +17,17 @@ const ImageStyles = styled("img")({
 const ContainerImage = styled(AtomBox)({});
 
 const Image = (props) => {
+  // const ratioIamge = ${calc(`${props.ratio}` * 100%)};
+  //   const ratioImage = { paddingTop: calc(1 / `${props.ratio}`) };
+  console.log(parseInt(props.ratio, 10));
+  const numberReal = (1 / parseFloat(props.ratio, 10)) * 100;
+  console.log("so", numberReal);
   return (
     <ContainerImage
       component={"div"}
       sx={{
         position: "relative",
-        paddingTop: `calc(1 / (${props.ratio} )* 100%)`,
+        paddingTop: `calc(${numberReal}%)`,
       }}
     >
       <ImageStyles

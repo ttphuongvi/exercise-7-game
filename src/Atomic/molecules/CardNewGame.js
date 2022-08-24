@@ -135,7 +135,7 @@ const CardAction = styled(AtomCardAction)(({ theme }) => ({
 const CardNewGame = (props) => {
   return (
     <ItemCard elevation={0}>
-      <Image ratio="0.75" src={props.image} />
+      <Image ratio={4 / 3} src={props.image} />
 
       <CardContent className="content">
         <AtomStack
