@@ -74,7 +74,7 @@ const ItemCard = styled(AtomCard)(({ theme }) => ({
         backgroundColor: "rgba(0, 0, 0, 0.6)",
         width: "100%",
       },
-      "& .img": {
+      "& img": {
         transform: "scale(1.2)",
         ObjectFit: "cover",
       },
@@ -135,18 +135,6 @@ const CardAction = styled(AtomCardAction)(({ theme }) => ({
 const CardNewGame = (props) => {
   return (
     <ItemCard elevation={0}>
-      {/* <CardMediaStyle
-        className="img"
-        component="img"
-        image={props.image}
-        title={props.title}
-        onError={(e) => {
-          const imgDefault = "/images/default.jpg";
-
-          e.target.src = imgDefault;
-        }}
-        // sx={{ height: "250px" }}
-      ></CardMediaStyle> */}
       <Image src={props.image} alt={props.title} />
 
       <CardContent className="content">

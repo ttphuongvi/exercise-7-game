@@ -51,15 +51,6 @@ const DescriptionGame = styled(AtomTypography)({
 const CardListGame = (props) => {
   return (
     <CardStyles elevation={0} onClick={props.onClick}>
-      {/* <CardMediaStyles
-        component={"img"}
-        image={props.image}
-        onError={(e) => {
-          const imgDefault = "/images/default.jpg";
-          e.target.src = imgDefault;
-        }}
-        alt={props.image}
-      ></CardMediaStyles> */}
       <Image src={props.image} />
       <AtomBox
         sx={{

@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import React from "react";
+import { DEFAULT_IMAGE } from "../../store/const";
 
 const ImageStyles = styled("img")({
   position: "absolute",
@@ -10,27 +11,24 @@ const ImageStyles = styled("img")({
   overflow: "hidden",
   objectFit: "cover",
   transition: "transform 3s ease",
-  zIndex: 0,
 });
 
-const ContainerImgae = styled("div")({
+const ContainerImage = styled("div")({
   position: "relative",
   paddingTop: "75%",
 });
 
 const Image = (props) => {
   return (
-    <ContainerImgae>
+    <ContainerImage>
       <ImageStyles
-        className="img"
         onError={(e) => {
-          const imgDefault = "/images/default.jpg";
-          e.target.src = imgDefault;
+          e.target.src = DEFAULT_IMAGE;
         }}
         alt=""
         src={props.src}
       ></ImageStyles>
-    </ContainerImgae>
+    </ContainerImage>
   );
 };
 
