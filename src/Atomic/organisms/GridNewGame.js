@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import AtomGrid from "../atoms/AtomGrid";
-import getNewGames from "../../services/games";
+import getGamesDefault from "../../services/games";
 import { useEffect } from "react";
 import CardNewGame from "../molecules/CardNewGame";
 
@@ -13,7 +13,7 @@ const GridNewGame = () => {
       let listGame = JSON.parse(localStorage.getItem("listGame"));
       setDataSource(listGame.slice(0, 6));
     } else {
-      const data = getNewGames(6);
+      const data = getGamesDefault();
       localStorage.setItem("listGame", JSON.stringify(data));
       setDataSource(data.slice(0, 6));
     }
