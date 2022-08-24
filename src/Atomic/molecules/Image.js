@@ -22,7 +22,7 @@ const Image = (props) => {
       component={"div"}
       sx={{
         position: "relative",
-        paddingTop: `calc(${props.ratio} * 100%)`,
+        paddingTop: `calc(1 / (${props.ratio} )* 100%)`,
       }}
     >
       <ImageStyles
