@@ -24,6 +24,9 @@ const GridListGame = (props) => {
   };
 
   const dataSource = useSelector((state) => state.listGame.content) || [];
+  const [filteredData, setFilteredData] = useState(dataSource);
+  // console.log("fil", filteredData);
+  // console.log("data", dataSource);
 
   const dispatch = useDispatch();
 
@@ -31,33 +34,62 @@ const GridListGame = (props) => {
     let dataDefault = getGamesDefault();
 
     if (localStorage.getItem("listGame") != null) {
+      // get data from localStorage
       let listGame = JSON.parse(localStorage.getItem("listGame"));
-      dispatch({ type: SET_LIST_GAME, content: listGame.slice(0, 8) });
+      dispatch({ type: SET_LIST_GAME, content: listGame });
       console.log("list game", listGame);
     } else {
       console.log("data", dataDefault);
+
+      // set localstorage
       localStorage.setItem("listGame", JSON.stringify(dataDefault));
-      dispatch({ type: SET_LIST_GAME, content: dataDefault.slice(0, 8) });
+      dispatch({ type: SET_LIST_GAME, content: dataDefault });
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [1]);
 
-  //create a new array by filtering the original array
-  const filteredData = dataSource.filter((el) => {
-    let arrFilterByYear = null;
-    let arrFilterAll = null;
-    if (el.release.toString().includes(props.year)) {
-      arrFilterByYear = el;
-    }
-    if (arrFilterByYear) {
-      if (arrFilterByYear.caption.toLowerCase().includes(props.input)) {
-        arrFilterAll = arrFilterByYear;
-      }
-    }
+  useEffect(
+    () => {
+      console.log("data", dataSource);
+      let newFilterArray = dataSource.filter((item) => {
+        let arrFilterByYear = null;
+        let arrFilterAll = null;
+        if (item.release.toString().includes(props.year)) {
+          arrFilterByYear = item;
+        }
+        if (arrFilterByYear) {
+          if (arrFilterByYear.caption.toLowerCase().includes(props.input)) {
+            arrFilterAll = arrFilterByYear;
+          }
+        }
+        return arrFilterAll;
+      });
 
-    return arrFilterAll;
-  });
+      // limit 8 or none limit
+      if (hiddenLoadding) setFilteredData(newFilterArray);
+      else setFilteredData(newFilterArray.slice(0, 8));
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [dataSource, props.input, props.year]
+  );
+
+  // create a new array by filtering the original array
+  // const filteredData = dataSource.filter((el) => {
+  //   let arrFilterByYear = null;
+  //   let arrFilterAll = null;
+  //   if (el.release.toString().includes(props.year)) {
+  //     arrFilterByYear = el;
+  //   }
+  //   if (arrFilterByYear) {
+  //     if (arrFilterByYear.caption.toLowerCase().includes(props.input)) {
+  //       arrFilterAll = arrFilterByYear;
+  //     }
+  //   }
+  //   console.log("chanage filter");
+
+  //   return arrFilterAll;
+  // });
   let navigate = useNavigate();
 
   return (
@@ -89,10 +121,6 @@ const GridListGame = (props) => {
                   link={value.link}
                   description={value.description}
                   id={value.id}
-                  // handleRemove={(e) => {
-                  //   e.stopPropagation();
-                  //   dispatch({ type: REMOVE_GAME, id: value.id });
-                  // }}
                 />
               </AtomGrid>
             );

@@ -33,14 +33,14 @@ const ListGame = () => {
     setInputText(lowerCase);
   };
 
-  const [value, setValue] = useState("");
+  const [year, setYear] = useState("");
   let inputHandleYear = (e) => {
     if (e) {
       var yearSlice = e.toString().slice(11, 15);
       console.log(yearSlice);
-      setValue(yearSlice);
+      setYear(yearSlice);
     } else {
-      setValue("");
+      setYear("");
     }
   };
   // const [selectedDate, handleDateChange] = useState(new Date());
@@ -101,7 +101,7 @@ const ListGame = () => {
                         <AtomDatePicker
                           views={["year"]}
                           label="Năm phát hành"
-                          value={value || null}
+                          value={year || null}
                           onChange={inputHandleYear}
                           renderInput={(params) => (
                             <AtomTextField {...params} helperText={null} />
@@ -123,7 +123,7 @@ const ListGame = () => {
                   )}
                 </AtomGrid>
               </AtomGrid>
-              <GridListGame input={inputText} year={value} />
+              <GridListGame input={inputText} year={year} />
             </AtomCardContent>
           </AtomPaper>
         </AtomContainer>

@@ -18,7 +18,8 @@ const ListGameReducer = (state = INIT_LIST_GAME, action) => {
       return { ...state, content: new_game };
 
     case REMOVE_GAME:
-      const new_list_game = state.content.filter((item) => {
+      let listGame = JSON.parse(localStorage.getItem("listGame"));
+      const new_list_game = listGame.filter((item) => {
         return item.id !== action.id;
       });
       localStorage.setItem("listGame", JSON.stringify(new_list_game));
