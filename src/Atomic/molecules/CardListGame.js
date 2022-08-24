@@ -51,7 +51,7 @@ const DescriptionGame = styled(AtomTypography)({
 const CardListGame = (props) => {
   return (
     <CardStyles elevation={0} onClick={props.onClick}>
-      <Image src={props.image} />
+      <Image ratio="0.75" src={props.image} />
       <AtomBox
         sx={{
           position: "absolute",

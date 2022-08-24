@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import React from "react";
 import { DEFAULT_IMAGE } from "../../store/const";
+import AtomBox from "../atoms/AtomBox";
 
 const ImageStyles = styled("img")({
   position: "absolute",
@@ -13,14 +14,17 @@ const ImageStyles = styled("img")({
   transition: "transform 3s ease",
 });
 
-const ContainerImage = styled("div")({
-  position: "relative",
-  paddingTop: "75%",
-});
+const ContainerImage = styled(AtomBox)({});
 
 const Image = (props) => {
   return (
-    <ContainerImage>
+    <ContainerImage
+      component={"div"}
+      sx={{
+        position: "relative",
+        paddingTop: `calc(${props.ratio} * 100%)`,
+      }}
+    >
       <ImageStyles
         onError={(e) => {
           e.target.src = DEFAULT_IMAGE;
