@@ -26,6 +26,10 @@ const DescriptionGameSlider = styled(AtomTypography)(({ theme }) => ({
   [theme.breakpoints.up("sm")]: {
     WebkitLineClamp: 4,
   },
+  [theme.breakpoints.up("xl")]: {
+    fontSize: theme.typography.h5.fontSize,
+    WebkitLineClamp: 5,
+  },
   [theme.breakpoints.up("xxl")]: {
     WebkitLineClamp: 5,
   },

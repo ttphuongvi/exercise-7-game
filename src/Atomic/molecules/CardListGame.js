@@ -4,12 +4,12 @@ import AtomBox from "../atoms/AtomBox";
 import AtomCard from "../atoms/AtomCard";
 import AtomCardAction from "../atoms/AtomCardAction";
 import AtomCardContent from "../atoms/AtomCardContent";
-import AtomCardMedia from "../atoms/AtomCardMedia";
 import AtomStack from "../atoms/AtomStack";
 import AtomTypography from "../atoms/AtomTypography";
 import ButtonEditCard from "./ButtonEditCard";
 import CaptionGame from "./CaptionGame";
 import DialogPlayGame from "./DialogFullWidth/DialogPlayGame";
+import Image from "./Image";
 
 const CardStyles = styled(AtomCard)(({ theme }) => ({
   boxShadow: "rgba(0, 0, 0, 0.1) 0px 0px 0px 1px",
@@ -48,15 +48,10 @@ const DescriptionGame = styled(AtomTypography)({
   WebkitLineClamp: 3,
 });
 
-const CardMediaStyles = styled(AtomCardMedia)({
-  aspectRatio: "4/3",
-  transition: "opacity .2s ease",
-});
-
 const CardListGame = (props) => {
   return (
     <CardStyles elevation={0} onClick={props.onClick}>
-      <CardMediaStyles
+      {/* <CardMediaStyles
         component={"img"}
         image={props.image}
         onError={(e) => {
@@ -64,7 +59,8 @@ const CardListGame = (props) => {
           e.target.src = imgDefault;
         }}
         alt={props.image}
-      ></CardMediaStyles>
+      ></CardMediaStyles> */}
+      <Image src={props.image} />
       <AtomBox
         sx={{
           position: "absolute",
