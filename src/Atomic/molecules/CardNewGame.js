@@ -49,7 +49,6 @@ const ItemCard = styled(AtomCard)(({ theme }) => ({
     },
   },
   [theme.breakpoints.up("md")]: {
-    height: "250px",
     "&::before": {
       content: "''",
       position: "absolute",
@@ -94,26 +93,11 @@ const ItemCard = styled(AtomCard)(({ theme }) => ({
       },
     },
   },
-  [theme.breakpoints.up("xl")]: {
-    height: "300px",
-  },
-  [theme.breakpoints.up("xxl")]: {
-    height: "500px",
-  },
 }));
 
 const CardMediaStyle = styled(AtomCardMedia)(({ theme }) => ({
   transition: "transform 3s ease",
-  [theme.breakpoints.up("xs")]: {
-    height: "250px",
-  },
-  [theme.breakpoints.up("xl")]: {
-    height: "300px",
-  },
-  [theme.breakpoints.up("xxl")]: {
-    height: "500px",
-  },
-  // transition: "opacity .2s ease",
+  aspectRatio: "4/3",
 }));
 
 const Description = styled(AtomTypography)(({ theme }) => ({

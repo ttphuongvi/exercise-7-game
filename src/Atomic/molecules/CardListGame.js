@@ -30,47 +30,28 @@ const CardStyles = styled(AtomCard)(({ theme }) => ({
         backgroundColor: "rgba(0, 0, 0, 0.6)",
         transition: "opacity .2s ease",
         opacity: 1,
-        [theme.breakpoints.up("xs")]: {
-          height: "250px",
-        },
-        [theme.breakpoints.up("xl")]: {
-          height: "300px",
-        },
-        [theme.breakpoints.up("xxl")]: {
-          height: "500px",
-        },
+        aspectRatio: "4/3",
       },
       "& .cardContent": {
         boxShadow: `inset 0 3px 0 0 ${theme.palette.primary.main}`,
       },
-      // "& .content": {
-      //   color: "#fff",
-      // },
     },
   },
 }));
 
-const DescriptionGame = styled(AtomTypography)(({ theme }) => ({
+const DescriptionGame = styled(AtomTypography)({
   height: "72px",
   overflow: "hidden",
   display: "-webkit-box",
   WebkitBoxOrient: "vertical",
   textOverflow: "ellipsis",
   WebkitLineClamp: 3,
-}));
+});
 
-const CardMediaStyles = styled(AtomCardMedia)(({ theme }) => ({
-  [theme.breakpoints.up("xs")]: {
-    height: "250px",
-  },
-  [theme.breakpoints.up("xl")]: {
-    height: "300px",
-  },
-  [theme.breakpoints.up("xxl")]: {
-    height: "500px",
-  },
+const CardMediaStyles = styled(AtomCardMedia)({
+  aspectRatio: "4/3",
   transition: "opacity .2s ease",
-}));
+});
 
 const CardListGame = (props) => {
   return (
@@ -89,7 +70,6 @@ const CardListGame = (props) => {
           position: "absolute",
           top: "0",
           width: "100%",
-          height: "250px",
         }}
         className="overlay"
       >
@@ -97,7 +77,6 @@ const CardListGame = (props) => {
           className="overlay content"
           sx={{
             justifyContent: "center",
-            lineHeight: "224px",
             display: { xs: "none", md: "flex" },
           }}
         >

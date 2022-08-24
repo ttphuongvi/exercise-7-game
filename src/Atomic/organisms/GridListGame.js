@@ -93,47 +93,51 @@ const GridListGame = (props) => {
   let navigate = useNavigate();
 
   return (
-    <AtomStack id="list-game" alignItems={"center"} spacing={3}>
+    <>
       {" "}
-      <AtomGrid container spacing={2} justifyContent={"center"}>
-        {filteredData &&
-          filteredData.map((value) => {
-            return (
-              <AtomGrid
-                minWidth={"300px"}
-                key={value.id}
-                item
-                xs={12}
-                sm={6}
-                md={6}
-                lg={4}
-                xl={3}
-              >
-                <CardListGame
-                  // to={`/${value.id}`}
-                  onClick={() => {
-                    navigate(`/${value.id}`);
-                  }}
-                  title={value.caption}
-                  release={value.release}
-                  image={value.image}
-                  caption={value.caption}
-                  link={value.link}
-                  description={value.description}
-                  id={value.id}
-                />
-              </AtomGrid>
-            );
-          })}
-      </AtomGrid>
-      {!hiddenLoadding && (
-        <HorizontalStripeButton
-          icon={<AtomIconArrowForwardOutlined />}
-          onClick={onClickLoadding}
-          label="Tải thêm game"
-        ></HorizontalStripeButton>
-      )}
-    </AtomStack>
+      <AtomStack id="list-game" alignItems={"center"} spacing={3}>
+        <AtomGrid container spacing={2}>
+          {filteredData &&
+            filteredData.map((value) => {
+              return (
+                <AtomGrid
+                  minWidth={"300px"}
+                  key={value.id}
+                  item
+                  xs={12}
+                  sm={6}
+                  md={6}
+                  lg={4}
+                  xl={2.4}
+                  xxl={2}
+                >
+                  <CardListGame
+                    // to={`/${value.id}`}
+                    onClick={() => {
+                      navigate(`/${value.id}`);
+                    }}
+                    title={value.caption}
+                    release={value.release}
+                    image={value.image}
+                    caption={value.caption}
+                    link={value.link}
+                    description={value.description}
+                    id={value.id}
+                  />
+                </AtomGrid>
+              );
+            })}
+        </AtomGrid>
+
+        {!hiddenLoadding && (
+          <HorizontalStripeButton
+            icon={<AtomIconArrowForwardOutlined />}
+            onClick={onClickLoadding}
+            label="Tải thêm game"
+          ></HorizontalStripeButton>
+        )}
+      </AtomStack>
+    </>
   );
 };
 
