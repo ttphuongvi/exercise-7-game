@@ -42,18 +42,18 @@ const DialogMaxWidth = (props) => {
         <AtomDivider />
         <AtomDialogContent>
           <AtomStack alignItems={"center"}>{props.content}</AtomStack>
-          <AtomStack>
-            <AtomDialogAtions>
-              <HorizontalStripeButton
-                icon={props.icon}
-                variant="contained"
-                color="primary"
-                onClick={props.onClick}
-                label={props.action}
-              ></HorizontalStripeButton>
-            </AtomDialogAtions>
-          </AtomStack>
         </AtomDialogContent>
+        <AtomDialogAtions
+          sx={(theme) => ({ padding: theme.spacing(0, 3, 2, 0) })}
+        >
+          <HorizontalStripeButton
+            icon={props.icon}
+            variant="contained"
+            color="primary"
+            onClick={props.onClick}
+            label={props.action}
+          ></HorizontalStripeButton>
+        </AtomDialogAtions>
       </AtomDialog>
     </div>
   );
