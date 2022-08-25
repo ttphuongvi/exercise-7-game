@@ -51,8 +51,6 @@ const DetailsGame = () => {
   return (
     <AtomBox>
       {dataSource && (
-        // <TemplatePage
-        //   content={
         <AtomContainer maxWidth={false} sx={{ minHeight: "100vh" }}>
           <AtomStack>
             <PaperStyles>
@@ -109,8 +107,6 @@ const DetailsGame = () => {
             </PaperStyles>
           </AtomStack>
         </AtomContainer>
-        //   }
-        // ></TemplatePage>
       )}
     </AtomBox>
   );

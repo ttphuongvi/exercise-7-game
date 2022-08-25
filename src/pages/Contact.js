@@ -19,8 +19,6 @@ const Contact = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   return (
-    // <TemplatePage
-    //   content={
     <ContainerContact
       maxWidth={false}
       sx={(theme) => ({
@@ -72,8 +70,6 @@ const Contact = () => {
         </AtomCardContent>
       </AtomPaper>
     </ContainerContact>
-    //   }
-    // ></TemplatePage>
   );
 };
 

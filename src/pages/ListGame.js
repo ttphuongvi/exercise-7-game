@@ -45,8 +45,6 @@ const ListGame = () => {
   // const [selectedDate, handleDateChange] = useState(new Date());
 
   return (
-    // <TemplatePage
-    //   content={
     <AtomContainer
       maxWidth={false}
       sx={(theme) => ({
@@ -124,8 +122,6 @@ const ListGame = () => {
         </AtomCardContent>
       </AtomPaper>
     </AtomContainer>
-    //   }
-    // ></TemplatePage>
   );
 };
 

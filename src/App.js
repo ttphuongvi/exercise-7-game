@@ -22,14 +22,10 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      {/* <ColorModeContext.Provider value={colorMode}> */}
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <TemplatePage content={content} />
-        {/* <RoutesGame /> */}
-        {/* {content} */}
       </ThemeProvider>
-      {/* </ColorModeContext.Provider> */}
     </Provider>
   );
 };

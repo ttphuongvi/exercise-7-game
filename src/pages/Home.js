@@ -20,8 +20,6 @@ const Home = () => {
   };
 
   return (
-    // <TemplatePage
-    //   content={
     <div style={{ minHeight: "100vh" }}>
       <Slider />
       <AtomContainer
@@ -50,8 +48,6 @@ const Home = () => {
         <Route path="slider"></Route>
       </Routes>
     </div>
-    //   }
-    // ></TemplatePage>
   );
 };
 
