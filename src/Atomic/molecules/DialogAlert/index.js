@@ -8,6 +8,8 @@ import AtomButton from "../../atoms/AtomButton";
 import AtomIconClose from "../../atoms/AtomIconClose";
 import AtomIconButton from "../../atoms/AtomIconButton";
 import AtomStack from "../../atoms/AtomStack";
+import ButtonSquareStripe from "../ButtonSquareStripe";
+import ButtonCancel from "../ButtonCancel";
 
 const DialogAlert = (props) => {
   return (
@@ -43,22 +45,18 @@ const DialogAlert = (props) => {
         </AtomDialogContentText>
       </AtomDialogContent>
       <AtomDialogActions>
-        <AtomButton
+        <ButtonCancel
+          label="  Hủy"
           variant="outlined"
-          startIcon={<AtomIconClose />}
           onClick={props.onClose}
-        >
-          Hủy
-        </AtomButton>
-        <AtomButton
+        ></ButtonCancel>
+        <ButtonSquareStripe
           variant="contained"
           color="error"
-          startIcon={props.startIcon}
           onClick={props.onClick}
+          label={props.action}
           autoFocus
-        >
-          {props.action}
-        </AtomButton>
+        ></ButtonSquareStripe>
       </AtomDialogActions>
     </AtomDialog>
   );

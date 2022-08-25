@@ -1,10 +1,10 @@
 import React from "react";
 import AtomButton from "../atoms/AtomButton";
-import { styled } from "@mui/material/styles";
+import { alpha, styled } from "@mui/material/styles";
 
 const ButtonStyles = styled(AtomButton)(({ theme }) => ({
-  backgroundColor: "#d32f2f",
-  color: "#fff",
+  backgroundColor: "transparent",
+  color: theme.palette.primary.main,
   width: "auto",
   // maxWidth: "135px",
   padding: theme.spacing(1, 3),
@@ -12,9 +12,9 @@ const ButtonStyles = styled(AtomButton)(({ theme }) => ({
   position: "relative",
   textTransform: "none",
   lineHeight: "1.5em",
-  border: `1px solid #d32f2f`,
+  border: `1px solid ${theme.palette.primary.main}`,
   "&:hover": {
-    color: "#d32f2f",
+    backgroundColor: alpha(theme.palette.primary.main, 0.1),
     // backgroundColor: "transparent",
     // boxShadow: "none",
     // border: `1px solid #d32f2f`,
