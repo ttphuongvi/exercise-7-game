@@ -7,7 +7,6 @@ import { styled } from "@mui/material/styles";
 import HorizontalStripeButton from "./../../molecules/ButtonHorizontalStripe";
 import AtomStack from "./../../atoms/AtomStack";
 import AtomDivider from "./../../atoms/AtomDivider";
-import AtomBox from "../../atoms/AtomBox";
 import AtomIconButton from "../../atoms/AtomIconButton";
 import AtomIconClose from "../../atoms/AtomIconClose";
 

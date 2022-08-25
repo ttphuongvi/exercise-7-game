@@ -62,9 +62,9 @@ const GridListGame = (props) => {
         return arrFilterAll;
       });
 
-      if (newFilterArray.length < 8) {
-        setHidden(true);
-      }
+      // if (newFilterArray.length < 8) {
+      //   setHidden(true);
+      // }
       console.log("length list game", newFilterArray.length);
 
       // limit 8 or none limit
