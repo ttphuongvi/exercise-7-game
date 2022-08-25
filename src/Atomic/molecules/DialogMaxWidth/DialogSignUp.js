@@ -11,6 +11,7 @@ import AtomInputAdornment from "../../atoms/AtomInputAdornment";
 import AtomVisibilityIcon from "../../atoms/AtomIconVisibility";
 import AtomVisibilityOffIcon from "../../atoms/AtomIconVisibilityOff";
 import DialogMaxWidth from ".";
+import AtomBox from "../../atoms/AtomBox";
 
 const DialogSignUp = () => {
   const { handleOpenAlert } = useContext(AppContext);
@@ -69,6 +70,12 @@ const DialogSignUp = () => {
       onClick={onSignUp}
       content={
         <>
+          <AtomBox
+            component="img"
+            alt=""
+            src="/images/logo_hahalolo.png"
+            sx={{ width: "40%" }}
+          ></AtomBox>
           <AtomTextField
             variant="outlined"
             required

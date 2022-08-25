@@ -12,6 +12,7 @@ import AtomOutlinedInput from "../../atoms/AtomOutlinedInput";
 import AtomInputAdornment from "../../atoms/AtomInputAdornment";
 import AtomVisibilityIcon from "../../atoms/AtomIconVisibility";
 import { AppContext } from "../../../context/context";
+import AtomBox from "../../atoms/AtomBox";
 
 const DialogLogin = () => {
   const [email, setEmail] = useState("");
@@ -69,6 +70,12 @@ const DialogLogin = () => {
       onClose={handleCloseLogin}
       content={
         <>
+          <AtomBox
+            component="img"
+            alt=""
+            src="/images/logo_hahalolo.png"
+            sx={{ width: "40%" }}
+          ></AtomBox>
           <AtomTextField
             variant="outlined"
             margin="normal"

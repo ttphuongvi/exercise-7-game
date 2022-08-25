@@ -42,15 +42,8 @@ const DialogMaxWidth = (props) => {
         </DialogTitleStyles>
         <AtomDivider />
         <AtomDialogContent>
-          <AtomStack alignItems={"center"}>
-            <AtomBox
-              component="img"
-              alt=""
-              src="/images/logo_hahalolo.png"
-              sx={{ width: "40%" }}
-            ></AtomBox>
-
-            {props.content}
+          <AtomStack alignItems={"center"}>{props.content}</AtomStack>
+          <AtomStack>
             <AtomDialogAtions>
               <HorizontalStripeButton
                 icon={props.icon}
