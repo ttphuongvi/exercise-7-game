@@ -119,7 +119,7 @@ const DialogEditGame = (props) => {
             />
             <AtomTextField
               multiline
-              row={3}
+              rows={3}
               required
               margin="normal"
               fullWidth
