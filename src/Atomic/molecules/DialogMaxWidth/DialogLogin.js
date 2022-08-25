@@ -13,6 +13,8 @@ import AtomInputAdornment from "../../atoms/AtomInputAdornment";
 import AtomVisibilityIcon from "../../atoms/AtomIconVisibility";
 import { AppContext } from "../../../context/context";
 import AtomBox from "../../atoms/AtomBox";
+import AtomDialogActions from "../../atoms/AtomDialogActions";
+import ButtonHorizontalStripe from "../../molecules/ButtonHorizontalStripe";
 
 const DialogLogin = () => {
   const [email, setEmail] = useState("");
@@ -63,9 +65,7 @@ const DialogLogin = () => {
 
   return (
     <DialogMaxWidth
-      action="Đăng nhập"
       title="Đăng nhập"
-      onClick={onLogin}
       open={openLogin}
       onClose={handleCloseLogin}
       content={
@@ -128,6 +128,18 @@ const DialogLogin = () => {
             </AtomAlert>
           )}
         </>
+      }
+      action={
+        <AtomDialogActions
+          sx={(theme) => ({ padding: theme.spacing(0, 3, 2, 0) })}
+        >
+          <ButtonHorizontalStripe
+            variant="contained"
+            color="primary"
+            onClick={onLogin}
+            label="Đăng nhập"
+          ></ButtonHorizontalStripe>
+        </AtomDialogActions>
       }
     ></DialogMaxWidth>
   );

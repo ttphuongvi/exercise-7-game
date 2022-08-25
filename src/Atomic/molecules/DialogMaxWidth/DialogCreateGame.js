@@ -6,6 +6,10 @@ import { ADD_GAME } from "../../../store/const";
 import AtomAlert from "../../atoms/AtomAlert";
 import DialogMaxWidth from ".";
 import AtomIconCreate from "../../atoms/AtomIconCreate";
+import AtomDialogActions from "../../atoms/AtomDialogActions";
+import ButtonCancel from "../ButtonCancel";
+import AtomIconClose from "../../atoms/AtomIconClose";
+import ButtonSquareStripe from "../ButtonSquareStripe";
 
 const DialogCreateGame = (props) => {
   const [open, setOpen] = React.useState(false);
@@ -68,9 +72,7 @@ const DialogCreateGame = (props) => {
         onClick={handleClickOpen}
       ></HorizontalStripeButton>
       <DialogMaxWidth
-        action="Thêm game"
         title=" Tạo game mới"
-        onClick={saveGame}
         open={open}
         onClose={handleClose}
         content={
@@ -148,6 +150,25 @@ const DialogCreateGame = (props) => {
               </AtomAlert>
             )}
           </>
+        }
+        action={
+          <AtomDialogActions
+            sx={(theme) => ({ padding: theme.spacing(0, 3, 2, 0) })}
+          >
+            <ButtonCancel
+              variant="outlined"
+              startIcon={<AtomIconClose />}
+              onClick={handleClose}
+              label="Hủy"
+            ></ButtonCancel>
+            <ButtonSquareStripe
+              icon={props.icon}
+              variant="contained"
+              color="primary"
+              onClick={saveGame}
+              label="Thêm game"
+            ></ButtonSquareStripe>
+          </AtomDialogActions>
         }
       ></DialogMaxWidth>
     </>

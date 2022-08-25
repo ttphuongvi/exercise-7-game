@@ -37,9 +37,9 @@ const DialogDelete = (props) => {
           dispatch({ type: REMOVE_GAME, id: props.id });
         }}
         startIcon={<AtomIconDeleteOutlined />}
-        title="Xác nhận xóa game"
+        title="Xóa game"
         content="Bạn có chắc chắn muốn xóa game?"
-        action="Xóa"
+        action="Xác nhận"
       />
     </>
   );

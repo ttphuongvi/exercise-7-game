@@ -2,9 +2,7 @@ import React from "react";
 import AtomDialog from "./../../atoms/AtomDialog";
 import AtomDialogTitle from "./../../atoms/AtomDialogTitle";
 import AtomDialogContent from "./../../atoms/AtomDialogContent";
-import AtomDialogAtions from "./../../atoms/AtomDialogActions";
 import { styled } from "@mui/material/styles";
-import HorizontalStripeButton from "./../../molecules/ButtonHorizontalStripe";
 import AtomStack from "./../../atoms/AtomStack";
 import AtomDivider from "./../../atoms/AtomDivider";
 import AtomIconButton from "../../atoms/AtomIconButton";
@@ -43,17 +41,7 @@ const DialogMaxWidth = (props) => {
         <AtomDialogContent>
           <AtomStack alignItems={"center"}>{props.content}</AtomStack>
         </AtomDialogContent>
-        <AtomDialogAtions
-          sx={(theme) => ({ padding: theme.spacing(0, 3, 2, 0) })}
-        >
-          <HorizontalStripeButton
-            icon={props.icon}
-            variant="contained"
-            color="primary"
-            onClick={props.onClick}
-            label={props.action}
-          ></HorizontalStripeButton>
-        </AtomDialogAtions>
+        {props.action}
       </AtomDialog>
     </div>
   );

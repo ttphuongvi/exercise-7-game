@@ -12,6 +12,8 @@ import AtomVisibilityIcon from "../../atoms/AtomIconVisibility";
 import AtomVisibilityOffIcon from "../../atoms/AtomIconVisibilityOff";
 import DialogMaxWidth from ".";
 import AtomBox from "../../atoms/AtomBox";
+import AtomDialogActions from "../../atoms/AtomDialogActions";
+import ButtonHorizontalStripe from "../../molecules/ButtonHorizontalStripe";
 
 const DialogSignUp = () => {
   const { handleOpenAlert } = useContext(AppContext);
@@ -65,9 +67,7 @@ const DialogSignUp = () => {
     <DialogMaxWidth
       open={openSignUp}
       onClose={handleCloseSignUp}
-      action="Đăng ký"
       title="Đăng ký"
-      onClick={onSignUp}
       content={
         <>
           <AtomBox
@@ -136,6 +136,18 @@ const DialogSignUp = () => {
             </AtomAlert>
           )}
         </>
+      }
+      action={
+        <AtomDialogActions
+          sx={(theme) => ({ padding: theme.spacing(0, 3, 2, 0) })}
+        >
+          <ButtonHorizontalStripe
+            variant="contained"
+            color="primary"
+            onClick={onSignUp}
+            label="Đăng ký"
+          ></ButtonHorizontalStripe>
+        </AtomDialogActions>
       }
     ></DialogMaxWidth>
 

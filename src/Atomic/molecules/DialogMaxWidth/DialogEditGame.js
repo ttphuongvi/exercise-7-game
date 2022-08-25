@@ -7,6 +7,10 @@ import AtomMenuItem from "../../atoms/AtomMenuItem";
 import AtomListItemIcon from "../../atoms/AtomListItemIcon";
 import AtomIconEditOutlined from "../../atoms/AtomIconEditOutlined";
 import { EDIT_GAME } from "../../../store/const";
+import AtomDialogActions from "../../atoms/AtomDialogActions";
+import ButtonCancel from "../ButtonCancel";
+import AtomIconClose from "../../atoms/AtomIconClose";
+import ButtonSquareStripe from "../ButtonSquareStripe";
 
 const DialogEditGame = (props) => {
   const [caption, setCaption] = useState(props.caption);
@@ -69,9 +73,8 @@ const DialogEditGame = (props) => {
         Chỉnh sửa
       </AtomMenuItem>
       <DialogMaxWidth
-        action="Lưu thay đổi"
+        // action="Lưu thay đổi"
         title=" Chỉnh sửa game"
-        onClick={saveEditGame}
         open={openDialogEdit}
         onClose={handleCloseDialogEdit}
         content={
@@ -146,6 +149,25 @@ const DialogEditGame = (props) => {
               </AtomAlert>
             )}
           </>
+        }
+        action={
+          <AtomDialogActions
+            sx={(theme) => ({ padding: theme.spacing(0, 3, 2, 0) })}
+          >
+            <ButtonCancel
+              variant="outlined"
+              startIcon={<AtomIconClose />}
+              onClick={handleCloseDialogEdit}
+              label="Hủy"
+            ></ButtonCancel>
+            <ButtonSquareStripe
+              icon={props.icon}
+              variant="contained"
+              color="primary"
+              onClick={saveEditGame}
+              label="Lưu thay đổi"
+            ></ButtonSquareStripe>
+          </AtomDialogActions>
         }
       ></DialogMaxWidth>
     </>
