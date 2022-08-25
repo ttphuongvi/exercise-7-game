@@ -1,7 +1,7 @@
 import { alpha } from "@mui/material/styles";
 import React from "react";
 import AtomRouteLink from "../atoms/AtomRouteLink";
-import dataRoutes from "../../routesGame/dataRoutes";
+import { menuAppBar } from "../../routesGame/dataRoutes";
 import AtomGrid from "../atoms/AtomGrid";
 import AtomButton from "../atoms/AtomButton";
 import { useNavigate } from "react-router-dom";
@@ -11,7 +11,7 @@ const MenuTab = () => {
 
   return (
     <AtomGrid sx={{ display: { xs: "none", md: "none", lg: "flex" } }}>
-      {dataRoutes.map((route, index) => {
+      {menuAppBar.map((route, index) => {
         return (
           <AtomButton
             // color="inherit"

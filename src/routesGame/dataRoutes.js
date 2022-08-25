@@ -7,24 +7,36 @@ import IconContact from "../Atomic/atoms/AtomIconPermContactCalendarOutlined";
 
 const dataRoutes = [
   {
-    icon: <IconHome />,
+    path: "/*",
+    element: <Home />,
+  },
+  {
+    path: "menu/*",
+    element: <ListGame />,
+  },
+  {
+    icon: <IconContact />,
+    path: "contact",
+    element: <Contact />,
+  },
+];
+
+const menuAppBar = [
+  {
     name: "Trang chủ",
     path: "/",
-
-    component: <Home />,
+    icon: <IconHome />,
   },
   {
     icon: <IconListGame />,
     name: "Danh sách game",
     path: "/menu",
-
-    component: <ListGame />,
   },
   {
     icon: <IconContact />,
     name: "Liên hệ",
     path: "/contact",
-    component: <Contact />,
   },
 ];
-export default dataRoutes;
+
+export { dataRoutes, menuAppBar };

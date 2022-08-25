@@ -1,5 +1,5 @@
 import React from "react";
-import RoutesGame from "./routesGame/index";
+import { dataRoutes } from "./routesGame/dataRoutes";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import { reducers } from "./store/reducers";
@@ -7,6 +7,8 @@ import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import useCustomTheme from "./CustomTheme";
 import { AppContext } from "./context/context";
+import TemplatePage from "./Atomic/templates/TemplatePage";
+import { useRoutes } from "react-router-dom";
 const store = configureStore({ reducer: reducers });
 
 const App = () => {
@@ -16,12 +18,16 @@ const App = () => {
 
   const theme = useCustomTheme(darkMode, customTheme);
 
+  const content = useRoutes(dataRoutes);
+
   return (
     <Provider store={store}>
       {/* <ColorModeContext.Provider value={colorMode}> */}
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <RoutesGame />
+        <TemplatePage content={content} />
+        {/* <RoutesGame /> */}
+        {/* {content} */}
       </ThemeProvider>
       {/* </ColorModeContext.Provider> */}
     </Provider>

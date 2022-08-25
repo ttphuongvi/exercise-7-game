@@ -5,15 +5,18 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ContextProvider } from "./context/context";
 import { StyledEngineProvider } from "@mui/material/styles";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <StyledEngineProvider injectFirst>
-      <ContextProvider>
-        <App />
-      </ContextProvider>
-    </StyledEngineProvider>
+    <BrowserRouter>
+      <StyledEngineProvider injectFirst>
+        <ContextProvider>
+          <App />
+        </ContextProvider>
+      </StyledEngineProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

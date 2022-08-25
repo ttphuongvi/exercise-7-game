@@ -5,7 +5,7 @@ import AtomListItemButton from "../atoms/AtomListItemButton";
 import AtomListItemText from "../atoms/AtomListItemText";
 import AtomToolBar from "../atoms/AtomToolbar";
 import AtomBox from "../atoms/AtomBox";
-import dataRoutes from "../../routesGame/dataRoutes";
+import { menuAppBar } from "../../routesGame/dataRoutes";
 import { useLocation } from "react-router-dom";
 import AtomDivider from "../atoms/AtomDivider";
 import { useSelector } from "react-redux";
@@ -83,7 +83,7 @@ const Drawer = (props) => {
       <AtomToolBar />
       <AtomDivider />
       <AtomList component="nav">
-        {dataRoutes.map((route, indexRoute) => (
+        {menuAppBar.map((route, indexRoute) => (
           <div key={indexRoute}>
             <ListItemButton
               component={AtomRouteLink}

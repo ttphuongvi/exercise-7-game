@@ -1,6 +1,5 @@
 import React from "react";
 import GridNewGame from "../Atomic/organisms/GridNewGame";
-import TemplatePage from "../Atomic/templates/TemplatePage";
 import TitleCatogery from "../Atomic/molecules/TittePage";
 import Slider from "../Atomic/organisms/Slider1";
 import AtomContainer from "../Atomic/atoms/AtomContainer";
@@ -21,38 +20,38 @@ const Home = () => {
   };
 
   return (
-    <TemplatePage
-      content={
-        <div style={{ minHeight: "100vh" }}>
-          <Slider />
-          <AtomContainer
-            id="new-game"
-            maxWidth={false}
-            sx={(theme) => ({
-              paddingTop: theme.spacing(2),
-            })}
-          >
-            <AtomPaper sx={{ boxShadow: BOXSHAW_PAPER }}>
-              <AtomCardContent>
-                <TitleCatogery title="GAME MỚI NHẤT" />
-                <Divider />
-                <GridNewGame />
-              </AtomCardContent>
-              <AtomStack pb={3} pt={1} alignItems={"center"}>
-                <HorizontalStripeButton
-                  icon={<AtomIconReadMoreOutlined />}
-                  onClick={handleClick}
-                  label="Xem thêm"
-                ></HorizontalStripeButton>
-              </AtomStack>
-            </AtomPaper>
-          </AtomContainer>
-          <Routes>
-            <Route path="slider"></Route>
-          </Routes>
-        </div>
-      }
-    ></TemplatePage>
+    // <TemplatePage
+    //   content={
+    <div style={{ minHeight: "100vh" }}>
+      <Slider />
+      <AtomContainer
+        id="new-game"
+        maxWidth={false}
+        sx={(theme) => ({
+          paddingTop: theme.spacing(2),
+        })}
+      >
+        <AtomPaper sx={{ boxShadow: BOXSHAW_PAPER }}>
+          <AtomCardContent>
+            <TitleCatogery title="GAME MỚI NHẤT" />
+            <Divider />
+            <GridNewGame />
+          </AtomCardContent>
+          <AtomStack pb={3} pt={1} alignItems={"center"}>
+            <HorizontalStripeButton
+              icon={<AtomIconReadMoreOutlined />}
+              onClick={handleClick}
+              label="Xem thêm"
+            ></HorizontalStripeButton>
+          </AtomStack>
+        </AtomPaper>
+      </AtomContainer>
+      <Routes>
+        <Route path="slider"></Route>
+      </Routes>
+    </div>
+    //   }
+    // ></TemplatePage>
   );
 };
 

@@ -4,7 +4,6 @@ import DialogPlayGame from "../Atomic/molecules/DialogFullWidth/DialogPlayGame";
 import AtomCardMedia from "../Atomic/atoms/AtomCardMedia";
 import CaptionGame from "../Atomic/molecules/CaptionGame";
 import AtomBox from "../Atomic/atoms/AtomBox";
-import TemplatePage from "../Atomic/templates/TemplatePage";
 import AtomCardAction from "../Atomic/atoms/AtomCardAction";
 import TitleCategory from "../Atomic/molecules/TittePage";
 import { darken, styled } from "@mui/material/styles";
@@ -52,66 +51,66 @@ const DetailsGame = () => {
   return (
     <AtomBox>
       {dataSource && (
-        <TemplatePage
-          content={
-            <AtomContainer maxWidth={false} sx={{ minHeight: "100vh" }}>
-              <AtomStack>
-                <PaperStyles>
-                  <AtomBox
-                    sx={(theme) => ({
-                      padding: theme.spacing(2),
-                    })}
-                  >
-                    <TitleCategory title="CHI TIẾT GAME"></TitleCategory>
-                    <Divider />
-                    <AtomContainer
-                      sx={{
-                        "&:hover": {
-                          cursor: "pointer",
-                        },
+        // <TemplatePage
+        //   content={
+        <AtomContainer maxWidth={false} sx={{ minHeight: "100vh" }}>
+          <AtomStack>
+            <PaperStyles>
+              <AtomBox
+                sx={(theme) => ({
+                  padding: theme.spacing(2),
+                })}
+              >
+                <TitleCategory title="CHI TIẾT GAME"></TitleCategory>
+                <Divider />
+                <AtomContainer
+                  sx={{
+                    "&:hover": {
+                      cursor: "pointer",
+                    },
+                  }}
+                  maxWidth={"md"}
+                >
+                  <AtomStack spacing={2}>
+                    <CardMedia
+                      component="img"
+                      image={dataSource.image}
+                      title={dataSource.caption}
+                      onError={(e) => {
+                        const imgDefault = "/images/default.jpg";
+
+                        e.target.src = imgDefault;
                       }}
-                      maxWidth={"md"}
-                    >
-                      <AtomStack spacing={2}>
-                        <CardMedia
-                          component="img"
-                          image={dataSource.image}
-                          title={dataSource.caption}
-                          onError={(e) => {
-                            const imgDefault = "/images/default.jpg";
+                    ></CardMedia>
+                    <AtomStack spacing={1}>
+                      <CaptionGame>{dataSource.caption}</CaptionGame>
+                      <AtomTypography variant="subtitle2">
+                        {" "}
+                        Ngày phát hành {dataSource.release}
+                      </AtomTypography>
+                      <Divider />
+                      <DescriptionGame>
+                        {dataSource.description}
+                      </DescriptionGame>
+                    </AtomStack>
 
-                            e.target.src = imgDefault;
-                          }}
-                        ></CardMedia>
-                        <AtomStack spacing={1}>
-                          <CaptionGame>{dataSource.caption}</CaptionGame>
-                          <AtomTypography variant="subtitle2">
-                            {" "}
-                            Ngày phát hành {dataSource.release}
-                          </AtomTypography>
-                          <Divider />
-                          <DescriptionGame>
-                            {dataSource.description}
-                          </DescriptionGame>
-                        </AtomStack>
-
-                        <CardAction>
-                          <DialogPlayGame
-                            caption={dataSource.caption}
-                            link={
-                              dataSource.link ||
-                              "https://codepen.io/HunorMarton/full/xxOMQKg"
-                            }
-                          />
-                        </CardAction>
-                      </AtomStack>
-                    </AtomContainer>
-                  </AtomBox>
-                </PaperStyles>
-              </AtomStack>
-            </AtomContainer>
-          }
-        ></TemplatePage>
+                    <CardAction>
+                      <DialogPlayGame
+                        caption={dataSource.caption}
+                        link={
+                          dataSource.link ||
+                          "https://codepen.io/HunorMarton/full/xxOMQKg"
+                        }
+                      />
+                    </CardAction>
+                  </AtomStack>
+                </AtomContainer>
+              </AtomBox>
+            </PaperStyles>
+          </AtomStack>
+        </AtomContainer>
+        //   }
+        // ></TemplatePage>
       )}
     </AtomBox>
   );

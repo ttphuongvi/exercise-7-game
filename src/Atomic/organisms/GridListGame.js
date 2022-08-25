@@ -8,12 +8,12 @@ import { useNavigate } from "react-router-dom";
 import AtomStack from "../atoms/AtomStack";
 import getGamesDefault from "../../services/games";
 import AtomIconArrowForwardOutlined from "../atoms/AtomIconArrowForwardOutlined";
+import AtomContainer from "../atoms/AtomContainer";
+import AtomTypography from "../atoms/AtomTypography";
 // import { useNavigate } from "react-router-dom";
 
 const GridListGame = (props) => {
   const [hiddenLoadding, setHidden] = useState(false);
-
-  // let data = getNewGames();
 
   const onClickLoadding = () => {
     const data = JSON.parse(localStorage.getItem("listGame"));
@@ -25,9 +25,6 @@ const GridListGame = (props) => {
 
   const dataSource = useSelector((state) => state.listGame.content) || [];
   const [filteredData, setFilteredData] = useState(dataSource);
-  // console.log("fil", filteredData);
-  // console.log("data", dataSource);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -51,7 +48,6 @@ const GridListGame = (props) => {
 
   useEffect(
     () => {
-      console.log("data", dataSource);
       let newFilterArray = dataSource.filter((item) => {
         let arrFilterByYear = null;
         let arrFilterAll = null;
@@ -65,6 +61,11 @@ const GridListGame = (props) => {
         }
         return arrFilterAll;
       });
+
+      if (newFilterArray.length < 8) {
+        setHidden(true);
+      }
+      console.log("length list game", newFilterArray.length);
 
       // limit 8 or none limit
       if (hiddenLoadding) setFilteredData(newFilterArray);
@@ -95,7 +96,7 @@ const GridListGame = (props) => {
   return (
     <>
       {" "}
-      <AtomStack id="list-game" alignItems={"center"} spacing={3}>
+      <AtomStack alignItems={"center"} spacing={3}>
         <AtomGrid container spacing={2}>
           {filteredData &&
             filteredData.map((value) => {
@@ -137,6 +138,15 @@ const GridListGame = (props) => {
           ></HorizontalStripeButton>
         )}
       </AtomStack>
+      {filteredData.length === 0 && (
+        <AtomContainer fixed>
+          <AtomStack alignItems={"center"}>
+            <AtomTypography>
+              Không tìm thấy game phù hợp với tìm kiếm của bạn!
+            </AtomTypography>
+          </AtomStack>
+        </AtomContainer>
+      )}
     </>
   );
 };
