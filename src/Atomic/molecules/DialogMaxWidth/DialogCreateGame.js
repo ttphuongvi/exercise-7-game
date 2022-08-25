@@ -116,6 +116,7 @@ const DialogCreateGame = (props) => {
               }}
             />
             <AtomTextField
+              multiline
               required
               margin="normal"
               fullWidth
