@@ -14,8 +14,6 @@ const ImageStyles = styled("img")({
   transition: "transform 3s ease",
 });
 
-const ContainerImage = styled(AtomBox)({});
-
 const Image = (props) => {
   // const ratioIamge = ${calc(`${props.ratio}` * 100%)};
   //   const ratioImage = { paddingTop: calc(1 / `${props.ratio}`) };
@@ -23,7 +21,7 @@ const Image = (props) => {
   const numberReal = (1 / parseFloat(props.ratio, 10)) * 100;
   console.log("so", numberReal);
   return (
-    <ContainerImage
+    <AtomBox
       component={"div"}
       sx={{
         position: "relative",
@@ -37,7 +35,7 @@ const Image = (props) => {
         alt=""
         src={props.src}
       ></ImageStyles>
-    </ContainerImage>
+    </AtomBox>
   );
 };
 
