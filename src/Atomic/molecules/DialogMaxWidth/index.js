@@ -26,13 +26,12 @@ const DialogMaxWidth = (props) => {
       >
         <DialogTitleStyles id="form-dialog-title">
           <AtomStack
-            edge="end"
             justifyContent={"space-between"}
             alignItems={"center"}
             direction={"row"}
           >
             {props.title}
-            <AtomIconButton onClick={props.onClose} size="large">
+            <AtomIconButton edge="end" onClick={props.onClose} size="large">
               <AtomIconClose />
             </AtomIconButton>
           </AtomStack>
